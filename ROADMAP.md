@@ -233,8 +233,8 @@ Everything in Section 5 marked "MoltenVK", plus:
 | **M3+M4** | 11_1 rung | ✅ DONE 2026-08-14 — logic-op emulation implemented (MVK framebuffer-fetch MSL injection; 16/16 ops pixel-exact on GPU) + 64 storage-buffer descriptors (Tier-2 arg buffers). FEATURE_LEVELS max = 11_1 (0xb100), OutputMergerLogicOp=1, SM 6.5 on the fully self-built stack. Key finds: runtime wine loads a fused libMoltenVK.1.dylib (DYLD override injects ours); VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY=0/NONE=2. |
 | **M3** | logicOp prototype | Pixel-exact logic-op emulation A/B green (16 ops × formats × MSAA) |
 | **M4** | 11_1 rung | ladder 0xb100; 64-UAV + TIR + logic-op probes green |
-| **M5** | 12_0 rung | sparse tier ≥2; ladder 0xc000; tiled-residency probes green |
-| **M6** | 12_1 rung | ROV exec + CR tier 1; ladder 0xc100 |
+| **M5** | 12_0 rung | ✅ DONE 2026-08-14 — vkQueueBindSparse implemented (MTL4 updateTextureMappings + MTLEvent sync); sparse cycle GPU-proven (bind→write→readback 0x11223344; unmap→NULL-tile 0). Tier-1 placement-sparse fix (ShaderWrite usage; tier-2 faults on macOS 26). Ladder 0xc000, TiledResourcesTier=4. Evidence: 2026-08-14-m5-sparse-execution-landed.md |
+| **M6** | 12_1 rung | 🟡 GATE REACHED 2026-08-14 — ladder max=0xc100, min 12_1 CREATED, CR tier 1 + ROVs=1 advertised. VK_EXT_conservative_rasterization + shader-stage emulation (vertex bisector expansion + FS post-snap test + discard) renders with over=0; MVK-path rasterizer coverage still misses edge pixels (pure-Metal prototype pixel-exact 12 seeds×16 tris) — CR execution pixel-exactness + ROV ordered-write execution still open. Evidence: 2026-08-14-m6-rung-12_1.md, rung-12_1-run1.txt |
 | **M7** | Ray query prototype | Inline RT on GPU green (4A.4) — go/no-go for full 12_2 |
 | **M8** | DXR 1.1 | 4A probes green; ray tracing tier 1.1 reported |
 | **M9** | Mesh shaders | 4B probes green; mesh tier 1 reported |
