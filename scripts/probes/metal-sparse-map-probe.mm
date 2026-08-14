@@ -65,6 +65,32 @@ int main(void) {
         [enc endEncoding];
         [cb commit];
         [cb waitUntilCompleted];
+        // EVENT-SYNCED BLIT TRANSFER TEST: mapping on q4, classic queue waits.
+        {
+            id<MTLEvent> ev2 = [dev newEvent];
+            [q4 signalEvent:ev2 value:1];
+            id<MTLCommandBuffer> cbt = [q commandBuffer];
+            [cbt encodeWaitForEvent:ev2 value:1];
+            id<MTLBlitCommandEncoder> blit = [cbt blitCommandEncoder];
+            uint32_t val = 0x11223344;
+            id<MTLBuffer> sb = [dev newBufferWithLength:256*256*4 options:MTLResourceStorageModeShared];
+            uint32_t* pp = (uint32_t*)sb.contents;
+            for (int i=0;i<256*256;i++) pp[i]=val;
+            [blit copyFromBuffer:sb sourceOffset:0 sourceBytesPerRow:1024 sourceBytesPerImage:256*1024
+                      sourceSize:MTLSizeMake(256,256,1)
+                     toTexture:tex destinationSlice:0 destinationLevel:0 destinationOrigin:MTLOriginMake(0,0,0)];
+            [blit endEncoding];
+            [cbt commit]; [cbt waitUntilCompleted];
+            id<MTLBuffer> rb = [dev newBufferWithLength:256*256*4 options:MTLResourceStorageModeShared];
+            id<MTLCommandBuffer> cbt2 = [q commandBuffer];
+            id<MTLBlitCommandEncoder> blit2 = [cbt2 blitCommandEncoder];
+            [blit2 copyFromTexture:tex sourceSlice:0 sourceLevel:0 sourceOrigin:MTLOriginMake(0,0,0)
+                       sourceSize:MTLSizeMake(256,256,1) toBuffer:rb destinationOffset:0 destinationBytesPerRow:1024 destinationBytesPerImage:256*1024];
+            [blit2 endEncoding];
+            [cbt2 commit]; [cbt2 waitUntilCompleted];
+            uint32_t px = ((uint32_t*)rb.contents)[32*256+32];
+            printf("event-synced blit readback: 0x%08x (expect 0x11223344)\n", px);
+        }
         // reader kernel (reads the same texel into a buffer)
         id<MTLLibrary> lib2 = [dev newLibraryWithSource:
             @"#include <metal_stdlib>\nusing namespace metal;\n"

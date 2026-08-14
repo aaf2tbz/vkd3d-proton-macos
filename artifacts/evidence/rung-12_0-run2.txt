@@ -1,0 +1,42 @@
+=== loaded module identity ===
+  module d3d12.dll      : Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\stage-self\d3d12.dll
+  module d3d12core.dll  : NOT LOADED
+  module dxgi.dll       : Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\stage-self\dxgi.dll
+
+=== adapter enumeration (CreateDXGIFactory1: 0x00000000) ===
+  adapter 0: vendor 0x106b device 0x1b000209 "Apple M4"
+
+=== D3D12CreateDevice per minimum feature level ===
+  min 12_2     : hr=0x80070057 dev=NULL  | NULL-adapter: hr=0x80070057 dev=NULL
+  min 12_1     : hr=0x80070057 dev=NULL  | NULL-adapter: hr=0x80070057 dev=NULL
+  min 12_0     : hr=0x00000000 dev=CREATED
+  min 11_1     : hr=0x00000000 dev=CREATED
+  min 11_0     : hr=0x00000000 dev=CREATED
+  min 1_0_CORE : hr=0x80070057 dev=NULL  | NULL-adapter: hr=0x80070057 dev=NULL
+
+(queries run on device created via enumerated adapter)
+
+=== CheckFeatureSupport on device created at 11_0 ===
+  FEATURE_LEVELS      : hr=0x00000000 max=12_0 (0xc000)
+  OPTIONS             : hr=0x00000000
+    ResourceBindingTier   : 3 (1=1,2=2,3=3)
+    TiledResourcesTier    : 4 (not=0,t1=1,t2=2,t3=3)
+    ConservativeRasterTier: 0 (not=0,t1=1,t2=2,t3=3)
+    ROVsSupported         : 1
+    OutputMergerLogicOp   : 1 (11_1 logical blend ops)
+    VPAndRTArrayIndexAnyShader (TIR): 1
+    MaxGPUVirtualAddressBitsPerResource: 40
+    ResourceHeapTier      : 2
+    CrossNodeSharingTier  : 0
+    PSSpecifiedStencilRef : 1
+  SHADER_MODEL        : hr=0x80070057 (official id 18) highest=0x66
+    -> mingw id 7      : hr=0x00000000 highest=0x65
+  OPTIONS5 (DXR)      : hr=0x80070057 (official id 19) RaytracingTier=0
+    -> mingw id 27     : hr=0x00000000 RaytracingTier=0 (0=not,10=t1_0,11=t1_1)
+  OPTIONS6 (VRS)      : hr=0x80070057 (official id 20) tier=0
+    -> mingw id 30     : hr=0x00000000 tier=0 (0=not,10=t1,20=t2) tileSize=0
+  OPTIONS7 (mesh)     : hr=0x80070057 (official id 21) MeshShaderTier=0 SamplerFeedbackTier=0
+    -> mingw id 32     : hr=0x00000000 MeshShaderTier=0 (0=not,10=t1) SamplerFeedbackTier=0
+  ARCHITECTURE        : hr=0x00000000 UMA=0 CacheCoherentUMA=0 TileBasedRenderer=0
+
+probe done

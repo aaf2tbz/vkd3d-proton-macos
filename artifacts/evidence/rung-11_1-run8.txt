@@ -1,0 +1,20 @@
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+info:  Game: flprobe.exe
+info:  DXVK: 3.0.2
+info:  Build: x86_64 gcc 16.1.0
+info:  Vulkan: Found vkGetInstanceProcAddr in winevulkan.dll @ 0x6ffffc5e54e0
+info:  Extension providers:
+info:    Platform WSI
+info:    OpenVR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:    OpenXR
+rosetta error: Attachment of code signature supplement failed: 1 
+ /var/db/oah/f1c1239750e80468987afd5ab3b26a399bdafe938c2ce3b8bdfbefae8102a0ff/76cad7083a413faa2f756a269dff1d4e2240b04cec26742f903091c9428efe85/libMoltenVK.1.dylib.aot
