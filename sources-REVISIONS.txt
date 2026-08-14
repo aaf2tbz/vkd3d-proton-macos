@@ -1,0 +1,6 @@
+# Fresh upstream clone revisions (2026-08-14). sources/ is gitignored; re-clone with:
+#   git clone --recursive <url> <name> && git checkout <sha>
+vkd3d-proton|https://github.com/HansKristian-Work/vkd3d-proton.git|238f157e1d64f90e0d90593557c092ab8af6e0a3
+MoltenVK|https://github.com/KhronosGroup/MoltenVK.git|f9a1e964bf2e247c97def4f77636346c0fe0ded2
+SPIRV-Cross|https://github.com/KhronosGroup/SPIRV-Cross.git|9c3c8e2cefdd8194b193bb8ed2fdff4d5527e382
+MetalSharp|https://github.com/metalsharp/MetalSharp.git|a0973124bf809fc7bb622b58565195766b0aab69
