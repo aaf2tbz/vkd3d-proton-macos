@@ -1,0 +1,48 @@
+OpCapability Shader
+OpCapability FragmentShaderPixelInterlockEXT
+OpExtension "SPV_EXT_fragment_shader_interlock"
+OpMemoryModel Logical GLSL450
+OpEntryPoint Fragment %main "main" %gl_FragCoord %out_color %uav
+OpExecutionMode %main OriginUpperLeft
+OpExecutionMode %main PixelInterlockOrderedEXT
+OpDecorate %gl_FragCoord BuiltIn FragCoord
+OpDecorate %out_color Location 0
+OpDecorate %uav DescriptorSet 0
+OpDecorate %uav Binding 0
+%void = OpTypeVoid
+%fn = OpTypeFunction %void
+%float = OpTypeFloat 32
+%v4float = OpTypeVector %float 4
+%uint = OpTypeInt 32 0
+%v4uint = OpTypeVector %uint 4
+%int = OpTypeInt 32 1
+%v2int = OpTypeVector %int 2
+%v4float_ptr_out = OpTypePointer Output %v4float
+%out_color = OpVariable %v4float_ptr_out Output
+%v4float_ptr_in = OpTypePointer Input %v4float
+%gl_FragCoord = OpVariable %v4float_ptr_in Input
+%uint_0 = OpConstant %uint 0
+%img_type = OpTypeImage %uint 2D 0 0 0 2 Rgba32ui
+%img_ptr = OpTypePointer UniformConstant %img_type
+%uav = OpVariable %img_ptr UniformConstant
+%main = OpFunction %void None %fn
+%entry = OpLabel
+%coord = OpLoad %v4float %gl_FragCoord
+%x = OpCompositeExtract %float %coord 0
+%y = OpCompositeExtract %float %coord 1
+%xi = OpConvertFToS %int %x
+%yi = OpConvertFToS %int %y
+%pos = OpCompositeConstruct %v2int %xi %yi
+%img = OpLoad %img_type %uav
+%idu = OpBitcast %uint %int_2
+%int_2 = OpConstant %int 2
+%val = OpCompositeConstruct %v4uint %idu %idu %idu %idu
+OpBeginInvocationInterlockEXT
+OpImageWrite %img %pos %val
+OpEndInvocationInterlockEXT
+%red = OpConstant %float 1.0
+%zero = OpConstant %float 0.0
+%color = OpCompositeConstruct %v4float %red %zero %zero %red
+OpStore %out_color %color
+OpReturn
+OpFunctionEnd
