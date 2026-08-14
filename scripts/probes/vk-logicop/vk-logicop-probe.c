@@ -118,7 +118,7 @@ int main(int argc, char **argv) {
     att.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
     att.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
     att.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
-    att.initialLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+    att.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
     att.finalLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
     VkAttachmentReference ref = { 0, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL };
     VkSubpassDescription sub = { 0 };
@@ -253,32 +253,45 @@ int main(int argc, char **argv) {
         vkCmdPipelineBarrier2(cmdbuf, &dep1);
         goto readback;
     }
-    VkImageMemoryBarrier2 ibPre = { VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2 };
-    ibPre.srcStageMask = VK_PIPELINE_STAGE_2_NONE; ibPre.srcAccessMask = 0;
-    ibPre.dstStageMask = VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT; ibPre.dstAccessMask = VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT;
-    ibPre.oldLayout = VK_IMAGE_LAYOUT_UNDEFINED; ibPre.newLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
-    ibPre.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED; ibPre.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
-    ibPre.image = img; ibPre.subresourceRange = (VkImageSubresourceRange){ VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
-    VkDependencyInfo depPre = { VK_STRUCTURE_TYPE_DEPENDENCY_INFO };
-    depPre.imageMemoryBarrierCount = 1; depPre.pImageMemoryBarriers = &ibPre;
-    vkCmdPipelineBarrier2(cmdbuf, &depPre);
+    // touch the image with a transfer write first (mirrors the NO_RP working path)
+    {
+        VkImageMemoryBarrier2 ibT = { VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2 };
+        ibT.srcStageMask = VK_PIPELINE_STAGE_2_NONE; ibT.srcAccessMask = 0;
+        ibT.dstStageMask = VK_PIPELINE_STAGE_2_TRANSFER_BIT; ibT.dstAccessMask = VK_ACCESS_2_TRANSFER_WRITE_BIT;
+        ibT.oldLayout = VK_IMAGE_LAYOUT_UNDEFINED; ibT.newLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL;
+        ibT.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED; ibT.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+        ibT.image = img; ibT.subresourceRange = (VkImageSubresourceRange){ VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
+        VkDependencyInfo depT = { VK_STRUCTURE_TYPE_DEPENDENCY_INFO };
+        depT.imageMemoryBarrierCount = 1; depT.pImageMemoryBarriers = &ibT;
+        vkCmdPipelineBarrier2(cmdbuf, &depT);
+        vkCmdCopyBufferToImage(cmdbuf, buf, img, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &bic);
+    }
     vkCmdBeginRenderPass(cmdbuf, &rpbi, VK_SUBPASS_CONTENTS_INLINE);
     if (!getenv("NO_DRAW")) {
         vkCmdBindPipeline(cmdbuf, VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline);
         vkCmdDraw(cmdbuf, 3, 1, 0, 0);
     }
     vkCmdEndRenderPass(cmdbuf);
-
+    // Submit the render pass, then copy the image out in a second command buffer.
+    vkEndCommandBuffer(cmdbuf);
+    {
+        VkSubmitInfo siA = { VK_STRUCTURE_TYPE_SUBMIT_INFO };
+        siA.commandBufferCount = 1; siA.pCommandBuffers = &cmdbuf;
+        if (vkQueueSubmit(queue, 1, &siA, VK_NULL_HANDLE) != VK_SUCCESS) { fprintf(stderr, "submit RP fail\n"); return 1; }
+        vkDeviceWaitIdle(dev);
+    }
+    {
+        VkCommandBuffer cb2; vkAllocateCommandBuffers(dev, &cba, &cb2);
+        vkBeginCommandBuffer(cb2, &cbb);
+        vkCmdCopyImageToBuffer(cb2, img, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL, buf, 1, &bic);
+        vkEndCommandBuffer(cb2);
+        VkSubmitInfo siB = { VK_STRUCTURE_TYPE_SUBMIT_INFO };
+        siB.commandBufferCount = 1; siB.pCommandBuffers = &cb2;
+        if (vkQueueSubmit(queue, 1, &siB, VK_NULL_HANDLE) != VK_SUCCESS) { fprintf(stderr, "submit copy fail\n"); return 1; }
+        vkDeviceWaitIdle(dev);
+    }
+    goto done;
 readback:
-    VkImageMemoryBarrier2 ib = { VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2 };
-    ib.srcStageMask = VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT; ib.srcAccessMask = VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT;
-    ib.dstStageMask = VK_PIPELINE_STAGE_2_TRANSFER_BIT; ib.dstAccessMask = VK_ACCESS_2_TRANSFER_READ_BIT;
-    ib.oldLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL; ib.newLayout = VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL;
-    ib.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED; ib.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
-    ib.image = img; ib.subresourceRange = (VkImageSubresourceRange){ VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
-    VkDependencyInfo dep2 = { VK_STRUCTURE_TYPE_DEPENDENCY_INFO };
-    dep2.imageMemoryBarrierCount = 1; dep2.pImageMemoryBarriers = &ib;
-    vkCmdPipelineBarrier2(cmdbuf, &dep2);
     vkCmdCopyImageToBuffer(cmdbuf, img, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL, buf, 1, &bic);
     vkEndCommandBuffer(cmdbuf);
 
@@ -287,6 +300,7 @@ readback:
     if (vkQueueSubmit(queue, 1, &si, VK_NULL_HANDLE) != VK_SUCCESS) { fprintf(stderr, "submit fail\n"); return 1; }
     vkDeviceWaitIdle(dev);
 
+done:
     vkMapMemory(dev, bmem, 0, VK_WHOLE_SIZE, 0, &data);
     uint8_t *px = (uint8_t*)data + 32 * 256 + 32 * 4;
     uint8_t eR = (uint8_t)(0.1f * 255.0f) ^ 0x22;   // dst.R=0x22
