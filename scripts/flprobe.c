@@ -16,10 +16,19 @@
 #define FEAT_OPTIONS         ((D3D12_FEATURE)0)
 #define FEAT_ARCHITECTURE    ((D3D12_FEATURE)1)
 #define FEAT_FEATURE_LEVELS  ((D3D12_FEATURE)2)
-#define FEAT_SHADER_MODEL    ((D3D12_FEATURE)18)
-#define FEAT_OPTIONS5        ((D3D12_FEATURE)19) /* raytracing tier */
-#define FEAT_OPTIONS6        ((D3D12_FEATURE)20) /* VRS */
-#define FEAT_OPTIONS7        ((D3D12_FEATURE)21) /* mesh shader, sampler feedback */
+#define FEAT_SHADER_MODEL    ((D3D12_FEATURE)18) /* official */
+#define FEAT_OPTIONS5        ((D3D12_FEATURE)19) /* official; raytracing tier */
+#define FEAT_OPTIONS6        ((D3D12_FEATURE)20) /* official; VRS */
+#define FEAT_OPTIONS7        ((D3D12_FEATURE)21) /* official; mesh shader */
+/* The CUSTOM VKMT build was compiled with mingw-w64 headers, which RENUMBER the
+ * D3D12_FEATURE enum. Its feature switch uses the mingw values:
+ *   SHADER_MODEL=7, OPTIONS5=27, OPTIONS6=30, OPTIONS7=32
+ * Empirically official ids 18-21 return E_INVALIDARG on the shipped pair
+ * (2026-08-14, evidence m1-runD.txt). */
+#define FEAT_SHADER_MODEL_MINGW ((D3D12_FEATURE)7)
+#define FEAT_OPTIONS5_MINGW     ((D3D12_FEATURE)27)
+#define FEAT_OPTIONS6_MINGW     ((D3D12_FEATURE)30)
+#define FEAT_OPTIONS7_MINGW     ((D3D12_FEATURE)32)
 
 #define FL_1_0_CORE 0x1000 /* D3D_FEATURE_LEVEL_1_0_CORE */
 
@@ -167,36 +176,51 @@ int main(void) {
         D3D12_FEATURE_DATA_SHADER_MODEL sm;
         memset(&sm, 0, sizeof sm);
         hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_SHADER_MODEL, &sm, sizeof sm);
-        printf("  SHADER_MODEL        : hr=%s highest=0x%x\n", hr_hex(hr), (unsigned)sm.HighestShaderModel);
+        printf("  SHADER_MODEL        : hr=%s (official id 18) highest=0x%x\n", hr_hex(hr), (unsigned)sm.HighestShaderModel);
+        if (FAILED(hr)) {
+            memset(&sm, 0, sizeof sm);
+            hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_SHADER_MODEL_MINGW, &sm, sizeof sm);
+            printf("    -> mingw id 7      : hr=%s highest=0x%x\n", hr_hex(hr), (unsigned)sm.HighestShaderModel);
+        }
     }
 
     {
         D3D12_FEATURE_DATA_D3D12_OPTIONS5 o5;
         memset(&o5, 0, sizeof o5);
         hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_OPTIONS5, &o5, sizeof o5);
-        printf("  OPTIONS5 (DXR)      : hr=%s RaytracingTier=%u (not=%u,t1_0=%u,t1_1=%u)\n",
-               hr_hex(hr), o5.RaytracingTier,
-               D3D12_RAYTRACING_TIER_NOT_SUPPORTED, D3D12_RAYTRACING_TIER_1_0,
-               D3D12_RAYTRACING_TIER_1_1);
+        printf("  OPTIONS5 (DXR)      : hr=%s (official id 19) RaytracingTier=%u\n", hr_hex(hr), o5.RaytracingTier);
+        if (FAILED(hr)) {
+            memset(&o5, 0, sizeof o5);
+            hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_OPTIONS5_MINGW, &o5, sizeof o5);
+            printf("    -> mingw id 27     : hr=%s RaytracingTier=%u (0=not,10=t1_0,11=t1_1)\n", hr_hex(hr), o5.RaytracingTier);
+        }
     }
 
     {
         D3D12_FEATURE_DATA_D3D12_OPTIONS6 o6;
         memset(&o6, 0, sizeof o6);
         hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_OPTIONS6, &o6, sizeof o6);
-        /* official values: not=0, tier1=10, tier2=20 (mingw renumbers the enum) */
-        printf("  OPTIONS6 (VRS)      : hr=%s tier=%u (0=not,10=t1,20=t2) tileSize=%u\n",
-               hr_hex(hr), o6.VariableShadingRateTier, o6.ShadingRateImageTileSize);
+        printf("  OPTIONS6 (VRS)      : hr=%s (official id 20) tier=%u\n", hr_hex(hr), o6.VariableShadingRateTier);
+        if (FAILED(hr)) {
+            memset(&o6, 0, sizeof o6);
+            hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_OPTIONS6_MINGW, &o6, sizeof o6);
+            printf("    -> mingw id 30     : hr=%s tier=%u (0=not,10=t1,20=t2) tileSize=%u\n",
+                   hr_hex(hr), o6.VariableShadingRateTier, o6.ShadingRateImageTileSize);
+        }
     }
 
     {
         D3D12_FEATURE_DATA_D3D12_OPTIONS7 o7;
         memset(&o7, 0, sizeof o7);
         hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_OPTIONS7, &o7, sizeof o7);
-        printf("  OPTIONS7 (mesh)     : hr=%s MeshShaderTier=%u (not=%u,t1=%u) SamplerFeedbackTier=%u\n",
-               hr_hex(hr), o7.MeshShaderTier,
-               D3D12_MESH_SHADER_TIER_NOT_SUPPORTED, D3D12_MESH_SHADER_TIER_1,
-               o7.SamplerFeedbackTier);
+        printf("  OPTIONS7 (mesh)     : hr=%s (official id 21) MeshShaderTier=%u SamplerFeedbackTier=%u\n",
+               hr_hex(hr), o7.MeshShaderTier, o7.SamplerFeedbackTier);
+        if (FAILED(hr)) {
+            memset(&o7, 0, sizeof o7);
+            hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_OPTIONS7_MINGW, &o7, sizeof o7);
+            printf("    -> mingw id 32     : hr=%s MeshShaderTier=%u (0=not,10=t1) SamplerFeedbackTier=%u\n",
+                   hr_hex(hr), o7.MeshShaderTier, o7.SamplerFeedbackTier);
+        }
     }
 
     {
