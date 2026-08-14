@@ -173,12 +173,15 @@ int main(void) {
     }
 
     {
+        /* NOTE: HighestShaderModel is IN-OUT (app requests max, driver returns min). */
         D3D12_FEATURE_DATA_SHADER_MODEL sm;
         memset(&sm, 0, sizeof sm);
+        sm.HighestShaderModel = D3D_SHADER_MODEL_6_6;
         hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_SHADER_MODEL, &sm, sizeof sm);
         printf("  SHADER_MODEL        : hr=%s (official id 18) highest=0x%x\n", hr_hex(hr), (unsigned)sm.HighestShaderModel);
         if (FAILED(hr)) {
             memset(&sm, 0, sizeof sm);
+            sm.HighestShaderModel = D3D_SHADER_MODEL_6_6;
             hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_SHADER_MODEL_MINGW, &sm, sizeof sm);
             printf("    -> mingw id 7      : hr=%s highest=0x%x\n", hr_hex(hr), (unsigned)sm.HighestShaderModel);
         }
