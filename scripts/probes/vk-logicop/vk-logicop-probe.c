@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#include <math.h>
 #include <dlfcn.h>
 
 #define VK_NO_PROTOTYPES
@@ -107,14 +108,15 @@ int main(int argc, char **argv) {
     VkPipelineColorBlendStateCreateInfo cb = { VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO };
     if (!getenv("LO_OFF")) {
         cb.logicOpEnable = VK_TRUE;
-        cb.logicOp = VK_LOGIC_OP_XOR;
+        const char* opEnv = getenv("OP");
+        cb.logicOp = opEnv ? (VkLogicOp)atoi(opEnv) : VK_LOGIC_OP_XOR;
     }
     cb.attachmentCount = 1; cb.pAttachments = &ba;
 
     VkAttachmentDescription att = { 0 };
     att.format = VK_FORMAT_B8G8R8A8_UNORM;
     att.samples = VK_SAMPLE_COUNT_1_BIT;
-    att.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
+    att.loadOp = VK_ATTACHMENT_LOAD_OP_LOAD;
     att.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
     att.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
     att.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
@@ -156,14 +158,14 @@ int main(int argc, char **argv) {
     VkImageCreateInfo ic = { VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO };
     ic.imageType = VK_IMAGE_TYPE_2D; ic.format = VK_FORMAT_B8G8R8A8_UNORM;
     ic.extent = (VkExtent3D){64, 64, 1}; ic.mipLevels = 1; ic.arrayLayers = 1;
-    ic.samples = VK_SAMPLE_COUNT_1_BIT; ic.tiling = VK_IMAGE_TILING_OPTIMAL;
+    ic.samples = VK_SAMPLE_COUNT_1_BIT; ic.tiling = VK_IMAGE_TILING_LINEAR;
     ic.usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT;
     ic.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
     VkImage img;
     if (vkCreateImage(dev, &ic, NULL, &img) != VK_SUCCESS) { fprintf(stderr, "image fail\n"); return 1; }
     VkMemoryRequirements mr; vkGetImageMemoryRequirements(dev, img, &mr);
     VkMemoryAllocateInfo mai = { VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO };
-    mai.allocationSize = mr.size; mai.memoryTypeIndex = devType;
+    mai.allocationSize = mr.size; mai.memoryTypeIndex = hostType;   // host-visible linear
     VkDeviceMemory mem;
     if (vkAllocateMemory(dev, &mai, NULL, &mem) != VK_SUCCESS) { fprintf(stderr, "mem fail\n"); return 1; }
     vkBindImageMemory(dev, img, mem, 0);
@@ -216,10 +218,11 @@ int main(int argc, char **argv) {
     VkCommandBuffer cmdbuf; vkAllocateCommandBuffers(dev, &cba, &cmdbuf);
     VkCommandBufferBeginInfo cbb = { VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO };
 
-    void *data; vkMapMemory(dev, bmem, 0, VK_WHOLE_SIZE, 0, &data);
+    // seed the linear image memory directly (host-visible)
+    void *data; vkMapMemory(dev, mem, 0, VK_WHOLE_SIZE, 0, &data);
     uint32_t seed = 0x11223344; // BGRA bytes: B=44 G=33 R=22 A=11
     for (int i = 0; i < 64*64; i++) ((uint32_t*)data)[i] = seed;
-    vkUnmapMemory(dev, bmem);
+    vkUnmapMemory(dev, mem);
 
     vkBeginCommandBuffer(cmdbuf, &cbb);
     VkBufferImageCopy bic = { 0, 0, 0, { VK_IMAGE_ASPECT_COLOR_BIT, 0, 0, 1 }, {0,0,0}, {64,64,1} };
@@ -230,49 +233,12 @@ int main(int argc, char **argv) {
     rpbi.renderArea = (VkRect2D){ {0,0}, {64,64} };
     VkClearValue clear = { .color = { 1.0f, 0.0f, 0.0f, 1.0f } };
     rpbi.clearValueCount = 1; rpbi.pClearValues = &clear;
-    if (getenv("NO_RP")) {
-        // round-trip: buffer->image->buffer without a render pass
-        VkImageMemoryBarrier2 ib0 = { VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2 };
-        ib0.srcStageMask = VK_PIPELINE_STAGE_2_NONE; ib0.srcAccessMask = 0;
-        ib0.dstStageMask = VK_PIPELINE_STAGE_2_TRANSFER_BIT; ib0.dstAccessMask = VK_ACCESS_2_TRANSFER_WRITE_BIT;
-        ib0.oldLayout = VK_IMAGE_LAYOUT_UNDEFINED; ib0.newLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL;
-        ib0.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED; ib0.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
-        ib0.image = img; ib0.subresourceRange = (VkImageSubresourceRange){ VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
-        VkDependencyInfo dep0 = { VK_STRUCTURE_TYPE_DEPENDENCY_INFO };
-        dep0.imageMemoryBarrierCount = 1; dep0.pImageMemoryBarriers = &ib0;
-        vkCmdPipelineBarrier2(cmdbuf, &dep0);
-        vkCmdCopyBufferToImage(cmdbuf, buf, img, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &bic);
-        VkImageMemoryBarrier2 ib1 = { VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2 };
-        ib1.srcStageMask = VK_PIPELINE_STAGE_2_TRANSFER_BIT; ib1.srcAccessMask = VK_ACCESS_2_TRANSFER_WRITE_BIT;
-        ib1.dstStageMask = VK_PIPELINE_STAGE_2_TRANSFER_BIT; ib1.dstAccessMask = VK_ACCESS_2_TRANSFER_READ_BIT;
-        ib1.oldLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL; ib1.newLayout = VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL;
-        ib1.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED; ib1.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
-        ib1.image = img; ib1.subresourceRange = (VkImageSubresourceRange){ VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
-        VkDependencyInfo dep1 = { VK_STRUCTURE_TYPE_DEPENDENCY_INFO };
-        dep1.imageMemoryBarrierCount = 1; dep1.pImageMemoryBarriers = &ib1;
-        vkCmdPipelineBarrier2(cmdbuf, &dep1);
-        goto readback;
-    }
-    // touch the image with a transfer write first (mirrors the NO_RP working path)
-    {
-        VkImageMemoryBarrier2 ibT = { VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2 };
-        ibT.srcStageMask = VK_PIPELINE_STAGE_2_NONE; ibT.srcAccessMask = 0;
-        ibT.dstStageMask = VK_PIPELINE_STAGE_2_TRANSFER_BIT; ibT.dstAccessMask = VK_ACCESS_2_TRANSFER_WRITE_BIT;
-        ibT.oldLayout = VK_IMAGE_LAYOUT_UNDEFINED; ibT.newLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL;
-        ibT.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED; ibT.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
-        ibT.image = img; ibT.subresourceRange = (VkImageSubresourceRange){ VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
-        VkDependencyInfo depT = { VK_STRUCTURE_TYPE_DEPENDENCY_INFO };
-        depT.imageMemoryBarrierCount = 1; depT.pImageMemoryBarriers = &ibT;
-        vkCmdPipelineBarrier2(cmdbuf, &depT);
-        vkCmdCopyBufferToImage(cmdbuf, buf, img, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &bic);
-    }
     vkCmdBeginRenderPass(cmdbuf, &rpbi, VK_SUBPASS_CONTENTS_INLINE);
     if (!getenv("NO_DRAW")) {
         vkCmdBindPipeline(cmdbuf, VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline);
         vkCmdDraw(cmdbuf, 3, 1, 0, 0);
     }
     vkCmdEndRenderPass(cmdbuf);
-    // Submit the render pass, then copy the image out in a second command buffer.
     vkEndCommandBuffer(cmdbuf);
     {
         VkSubmitInfo siA = { VK_STRUCTURE_TYPE_SUBMIT_INFO };
@@ -280,33 +246,13 @@ int main(int argc, char **argv) {
         if (vkQueueSubmit(queue, 1, &siA, VK_NULL_HANDLE) != VK_SUCCESS) { fprintf(stderr, "submit RP fail\n"); return 1; }
         vkDeviceWaitIdle(dev);
     }
-    {
-        VkCommandBuffer cb2; vkAllocateCommandBuffers(dev, &cba, &cb2);
-        vkBeginCommandBuffer(cb2, &cbb);
-        vkCmdCopyImageToBuffer(cb2, img, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL, buf, 1, &bic);
-        vkEndCommandBuffer(cb2);
-        VkSubmitInfo siB = { VK_STRUCTURE_TYPE_SUBMIT_INFO };
-        siB.commandBufferCount = 1; siB.pCommandBuffers = &cb2;
-        if (vkQueueSubmit(queue, 1, &siB, VK_NULL_HANDLE) != VK_SUCCESS) { fprintf(stderr, "submit copy fail\n"); return 1; }
-        vkDeviceWaitIdle(dev);
-    }
-    goto done;
-readback:
-    vkCmdCopyImageToBuffer(cmdbuf, img, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL, buf, 1, &bic);
-    vkEndCommandBuffer(cmdbuf);
-
-    VkSubmitInfo si = { VK_STRUCTURE_TYPE_SUBMIT_INFO };
-    si.commandBufferCount = 1; si.pCommandBuffers = &cmdbuf;
-    if (vkQueueSubmit(queue, 1, &si, VK_NULL_HANDLE) != VK_SUCCESS) { fprintf(stderr, "submit fail\n"); return 1; }
-    vkDeviceWaitIdle(dev);
-
-done:
-    vkMapMemory(dev, bmem, 0, VK_WHOLE_SIZE, 0, &data);
+    vkMapMemory(dev, mem, 0, VK_WHOLE_SIZE, 0, &data);
     uint8_t *px = (uint8_t*)data + 32 * 256 + 32 * 4;
-    uint8_t eR = (uint8_t)(0.1f * 255.0f) ^ 0x22;   // dst.R=0x22
-    uint8_t eG = (uint8_t)(0.2f * 255.0f) ^ 0x33;   // dst.G=0x33
-    uint8_t eB = (uint8_t)(0.3f * 255.0f) ^ 0x44;   // dst.B=0x44
-    uint8_t eA = (uint8_t)(0.4f * 255.0f) ^ 0x11;   // dst.A=0x11
+    // the injected helper truncates (uchar4(src*255)); the ROP write rounds.
+    uint8_t eR = (uint8_t)(0.1f * 255.0f) ^ 0x22;   // 25 ^ 0x22 = 0x3B
+    uint8_t eG = (uint8_t)(0.2f * 255.0f) ^ 0x33;   // 51 ^ 0x33 = 0x00
+    uint8_t eB = (uint8_t)(0.3f * 255.0f) ^ 0x44;   // 76 ^ 0x44 = 0x08
+    uint8_t eA = (uint8_t)(0.4f * 255.0f) ^ 0x11;   // 102 ^ 0x11 = 0x77
     printf("pixel B=%02x G=%02x R=%02x A=%02x\n", px[0], px[1], px[2], px[3]);
     printf("expect B=%02x G=%02x R=%02x A=%02x (src^dst, XOR logic op)\n", eB, eG, eR, eA);
     printf("RESULT: %s\n",
@@ -315,6 +261,6 @@ done:
            (px[0] == 0x44 && px[1] == 0x33 && px[2] == 0x22 && px[3] == 0x11) ?
                "no fragment write (attachment kept seed)" : "FAILED");
     fflush(stdout);
-    vkUnmapMemory(dev, bmem);
+    vkUnmapMemory(dev, mem);
     return 0;
 }
