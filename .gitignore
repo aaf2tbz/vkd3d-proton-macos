@@ -11,3 +11,6 @@ artifacts/caches/
 artifacts/prefix/
 *.log
 .DS_Store
+artifacts/stage-full/
+artifacts/stage-self/
+artifacts/build/vkd3d-proton-build/

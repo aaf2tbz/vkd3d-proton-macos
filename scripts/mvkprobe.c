@@ -155,12 +155,20 @@ int main(int argc, char **argv) {
     printf("  maxDescriptorSetSamplers   : %u\n", p2.properties.limits.maxDescriptorSetSamplers);
 
     LOADVK_DEV(PFN_vkGetPhysicalDeviceFeatures2, vkGetPhysicalDeviceFeatures2);
+    VkPhysicalDeviceSubgroupProperties sub = { VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES };
+    VkPhysicalDeviceVulkan11Features f11 = { VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES };
     VkPhysicalDeviceVulkan12Features f12 = { VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES };
     VkPhysicalDeviceVulkan13Features f13 = { VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES };
+    sub.pNext = &f11;
+    f11.pNext = &f12;
     f12.pNext = &f13;
     VkPhysicalDeviceFeatures2 f2 = { VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2 };
-    f2.pNext = &f12;
+    f2.pNext = &sub;
     vkGetPhysicalDeviceFeatures2(pd, &f2);
+    printf("subgroup props      : size=%u\n", sub.subgroupSize);
+    printf("  supportedOperations: 0x%x\n", sub.supportedOperations);
+    printf("  supportedStages    : 0x%x\n", sub.supportedStages);
+    printf("vulkan1.1 features  :\n");
     printf("vulkan1.2 features   :\n");
     printf("  bufferDeviceAddress        : %u\n", f12.bufferDeviceAddress);
     printf("  drawIndirectCount          : %u\n", f12.drawIndirectCount);
