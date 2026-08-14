@@ -14,3 +14,9 @@ artifacts/prefix/
 artifacts/stage-full/
 artifacts/stage-self/
 artifacts/build/vkd3d-proton-build/
+# compiled probe binaries
+scripts/probes/metal-sparse-map-probe
+scripts/probes/metal-logicop-probe
+scripts/probes/metal-minmax-probe
+scripts/probes/metal-depthbounds-probe
+scripts/probes/metal-denorm-probe
