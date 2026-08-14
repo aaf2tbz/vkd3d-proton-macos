@@ -269,7 +269,7 @@ int main(int argc, char** argv) {
         if (v != 2) { ordered = 0; if (mism < 5) printf("pixel %d: value %u (expect 2)\n", i, v); mism++; }
     }
     printf("ones=%d twos=%d zeros=%d\n", ones, twos, zeros);
-    printf("RT pixel (32,32): R=%u\n", ((uint32_t*)rd2)[32*64+32]&0xff);
+
     printf("mismatches: %d\n", mism);
     printf("RESULT: %s\n", ordered ? "ROV INTERLOCK ORDERING WORKS" : "ROV ORDERING FAILED");
     return 0;
