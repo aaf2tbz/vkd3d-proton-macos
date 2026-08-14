@@ -227,9 +227,9 @@ Everything in Section 5 marked "MoltenVK", plus:
 
 | M | Name | Exit evidence |
 |---|---|---|
-| **M0** | Workspace + toolchain | llvm-mingw/ninja/meson/cmake + Xcode 27b4 + CLT b5 verified; 4 fresh clones; `env.sh` + `validate-toolchain.sh` green; probe binaries rebuilt with the workspace toolchain |
-| **M1** | Harness parity | flprobe + mvkprobe in workspace; headless device creation works in the exact M12 env (Rung 0.1) |
-| **M2** | 11_0 conformant | Rung 0 suite green; Control + Schedule I acceptance |
+| **M0** | Workspace + toolchain | ✅ DONE 2026-08-14 — llvm-mingw 20260616 (clang 22.1.8, exact shipped-build compiler) + ninja/meson/cmake + Xcode 27b4 + CLT b5 verified; 4 fresh clones; `validate-toolchain.sh` 20/20; repo `VKD3D-Proton-MacOS` committed (587b89f) |
+| **M1** | Harness parity | ✅ DONE 2026-08-14 — headless D3D12CreateDevice works in the exact M12 env. Blocker root-caused: missing single-texel alignment is a HARD E_INVALIDARG (upstream device.c:3317-3321); real launch shape sets `VKMT_ALLOW_NON_SINGLE_TEXEL_ALIGNMENT=1` (+MVK_PRESENT_MODE=1) via metalsharp-wine. Evidence: artifacts/evidence/2026-08-14-m1-m2-headless-device.md, runs m1-runD/E. ABI finding: custom build uses mingw-renumbered D3D12_FEATURE enum (SM=7, O5=27, O6=30, O7=32). |
+| **M2** | 11_0 conformant | ✅ DONE (query surface) 2026-08-14 — full empirical CheckFeatureSupport matrix captured (FEATURE_LEVELS max=11_0; RB tier 3; Tiled/CR NOT_SUPPORTED; ROVs=1; LogicOp=0; TIR=1; VA bits 40; DXR/VRS/mesh/sampler-feedback NOT_SUPPORTED). MSL zero-error corpus + game acceptance still open (M2 remainder). |
 | **M3** | logicOp prototype | Pixel-exact logic-op emulation A/B green (16 ops × formats × MSAA) |
 | **M4** | 11_1 rung | ladder 0xb100; 64-UAV + TIR + logic-op probes green |
 | **M5** | 12_0 rung | sparse tier ≥2; ladder 0xc000; tiled-residency probes green |
