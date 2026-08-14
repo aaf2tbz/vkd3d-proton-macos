@@ -26,6 +26,8 @@
  * Empirically official ids 18-21 return E_INVALIDARG on the shipped pair
  * (2026-08-14, evidence m1-runD.txt). */
 #define FEAT_SHADER_MODEL_MINGW ((D3D12_FEATURE)7)
+#define FEAT_OPTIONS2_MINGW     ((D3D12_FEATURE)18)
+#define FEAT_OPTIONS3_MINGW     ((D3D12_FEATURE)21)
 #define FEAT_OPTIONS5_MINGW     ((D3D12_FEATURE)27)
 #define FEAT_OPTIONS6_MINGW     ((D3D12_FEATURE)30)
 #define FEAT_OPTIONS7_MINGW     ((D3D12_FEATURE)32)
@@ -185,6 +187,22 @@ int main(void) {
             hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_SHADER_MODEL_MINGW, &sm, sizeof sm);
             printf("    -> mingw id 7      : hr=%s highest=0x%x\n", hr_hex(hr), (unsigned)sm.HighestShaderModel);
         }
+    }
+
+    {
+        D3D12_FEATURE_DATA_D3D12_OPTIONS2 o2;
+        memset(&o2, 0, sizeof o2);
+        hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_OPTIONS2_MINGW, &o2, sizeof o2);
+        printf("  OPTIONS2            : hr=%s DepthBoundsTestSupported=%u ProgrammableSamplePositionsTier=%u\n",
+               hr_hex(hr), o2.DepthBoundsTestSupported, o2.ProgrammableSamplePositionsTier);
+    }
+
+    {
+        D3D12_FEATURE_DATA_D3D12_OPTIONS3 o3;
+        memset(&o3, 0, sizeof o3);
+        hr = dev->lpVtbl->CheckFeatureSupport(dev, FEAT_OPTIONS3_MINGW, &o3, sizeof o3);
+        printf("  OPTIONS3            : hr=%s CopyQueueTimestampQueries=%u CastingFullyTyped=%u Barycentrics=%u\n",
+               hr_hex(hr), o3.CopyQueueTimestampQueriesSupported, o3.CastingFullyTypedFormatSupported, o3.BarycentricsSupported);
     }
 
     {
