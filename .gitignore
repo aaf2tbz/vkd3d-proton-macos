@@ -1,22 +1,2 @@
-# downloaded toolchain payload (fetch per docs/02-build-toolchain.md §1)
-toolchain/llvm-mingw-*/
-# fresh upstream source clones (their own repos; re-clone per docs/02 §2)
-sources/
-# derived/regenerable build outputs
-artifacts/build/vkd3d-proton-build/
-artifacts/build/vkd3d-proton/
-artifacts/build/moltenvk-vkmt.build.new/
-# runtime scratch
-artifacts/caches/
-artifacts/prefix/
-*.log
-.DS_Store
-artifacts/stage-full/
-artifacts/stage-self/
-artifacts/build/vkd3d-proton-build/
-# compiled probe binaries
-scripts/probes/metal-sparse-map-probe
-scripts/probes/metal-logicop-probe
-scripts/probes/metal-minmax-probe
-scripts/probes/metal-depthbounds-probe
-scripts/probes/metal-denorm-probe
+artifacts/stage-dxr/
+vkd3d-proton.cache
