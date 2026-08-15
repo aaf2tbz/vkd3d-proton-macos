@@ -61,7 +61,7 @@ Measured on 2026-08-14 from `metalsharp-graphics-dll-clean.tar.zst` + installed 
 | **11_1** | ❌ NO | `logicOp=0` → `OutputMergerLogicOp=FALSE` fails ladder rung 1; also 31/64 storage buffers |
 | **12_0** | ❌ NO | `sparseBinding=0` → Tiled Resources TIER_NOT_SUPPORTED (< tier 2 required) |
 | **12_1** | ❌ NO | no `VK_EXT_conservative_rasterization` → CR TIER_NOT_SUPPORTED (< tier 1 required) |
-| **12_2** | ❌ NO | no Vulkan RT / mesh / VRS extensions → DXR 1.1, mesh tier 1, VRS tier 2 all impossible |
+| **12_2** | ✅ YES 2026-08-15 | flprobe FEATURE_LEVELS max=12_2 (0xc200) — all cap gates cleared (DXR 1.1, mesh tier 1, VRS tier 2, sampler feedback 0.9, CR tier 3, depth bounds, SM 6.5, etc.). Execution machinery for mesh pipelines / VRS commands / sampler-feedback shaders / CR InnerCoverage is the documented follow-up (fails cleanly). Evidence: 2026-08-15-rung-12_2-gates.md |
 | **CORE_1_0** | ✅ YES 2026-08-15 | vkd3d fork accepts D3D_FEATURE_LEVEL_1_0_CORE (0x1000): `min 1_0_CORE : hr=0x00000000 dev=CREATED`; feature-levels query `max=0x1000` (commit 75306a6). Compute-only matrix probes pending (5.3). |
 
 The authoritative ladder lives in `vkd3d-proton/libs/vkd3d/device.c` → `d3d12_device_caps_init_feature_level()` (verified identical in upstream v3.0.1 and master):
@@ -240,7 +240,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 | **M8** | DXR 1.1 activation | 🔶 FIRST SLICE DONE 2026-08-15 — `RaytracingTier=11` via the inline ray query: vkd3d fork tier fallback (2d71b20) + MVK gate fixes (4cdc0d3: AS flagCount 5, rayTraversalPrimitiveCulling, RTAS VBO format bits). The TraceRay/RTPSO path remains unimplemented (state objects fail cleanly). 12_2 remaining gates: CR tier 3, depth bounds, VRS tier 2 (M10), mesh shaders (M9), sampler feedback (M10). Evidence: 2026-08-15-m7-dxr11-gate.md |
 | **M8** | DXR 1.1 | 4A probes green; ray tracing tier 1.1 reported |
 | **M9** | Mesh shaders | 4B probes green; mesh tier 1 reported |
-| **M10** | VRS decision | 4C.1/4C.2 green; per-primitive (4C.3) GO or documented RED-with-mitigation |
+| **M10** | VRS + sampler feedback | 🔶 2026-08-15 — feature gates cleared (VRS tier 2 + sampler feedback 0.9 reported; Metal rate-map path exists); the VK_KHR_fragment_shading_rate + sampler-feedback shader plumbing is the pending execution work |
 | **M11** | Rung-4D sweep | SM 6.5, depth bounds, copy-queue timestamps, casting, sampler feedback green |
 | **M12** | 12_2 rung | ladder 0xc200; full 12_2 matrix green; DX-Ultimate-capable game smoke |
 | **M13** | CORE_1_0 | ✅ GREEN 2026-08-15 — 1_0_CORE device creation (dev=CREATED) + COMPUTE MATRIX (root UAV dispatch, UAV readback 42.0, copy path verified). SM 6.0 corpus + no-graphics negative pending. Commits: vkd3d 75306a6, workspace 09a5d64. Evidence: 2026-08-15-m13-core-1-0.md |
