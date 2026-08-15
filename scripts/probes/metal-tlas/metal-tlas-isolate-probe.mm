@@ -51,6 +51,7 @@ int main(void) {
         MTL4PrimitiveAccelerationStructureDescriptor *bdesc = [MTL4PrimitiveAccelerationStructureDescriptor new];
         bdesc.geometryDescriptors = @[ geo ];
         MTLAccelerationStructureSizes bsizes = [dev accelerationStructureSizesWithDescriptor:bdesc];
+        printf("BLAS size: %llu scratch: %llu\n", (unsigned long long)bsizes.accelerationStructureSize, (unsigned long long)bsizes.buildScratchBufferSize);
         id<MTLBuffer> scratch = [dev newBufferWithLength:bsizes.buildScratchBufferSize options:MTLResourceStorageModePrivate];
         id<MTLAccelerationStructure> blas = [dev newAccelerationStructureWithSize:bsizes.accelerationStructureSize];
 
@@ -81,6 +82,7 @@ int main(void) {
         tdesc.instanceCount = 1;
         tdesc.instanceDescriptorType = MTLAccelerationStructureInstanceDescriptorTypeIndirect;
         MTLAccelerationStructureSizes tsizes = [dev accelerationStructureSizesWithDescriptor:tdesc];
+        printf("TLAS size: %llu scratch: %llu\n", (unsigned long long)tsizes.accelerationStructureSize, (unsigned long long)tsizes.buildScratchBufferSize);
         id<MTLAccelerationStructure> tlas = [dev newAccelerationStructureWithSize:tsizes.accelerationStructureSize];
         id<MTLBuffer> tscratch = [dev newBufferWithLength:tsizes.buildScratchBufferSize options:MTLResourceStorageModePrivate];
         id<MTL4CommandAllocator> alloc2 = [dev newCommandAllocator];
