@@ -133,9 +133,8 @@ intersection_params spvMakeIntersectionParams(uint flags)
 kernel void raycastRQ(device float* hits [[buffer(0)]],
                       uint2 tid [[thread_position_in_grid]],
                       uint2 gsize [[threads_per_grid]],
-                      constant SpvDescSet& ds [[buffer(0)]],
-                      device float* hits2 [[buffer(3)]],
-                      constant uint& __table [[buffer(1)]])
+                      constant SpvDescSet& ds [[buffer(2)]],
+                      device float* hits2 [[buffer(3)]])
 {
     uint idx = tid.y * gsize.x + tid.x;
     float u = (float)tid.x / (float)gsize.x;
@@ -154,7 +153,6 @@ kernel void raycastRQ(device float* hits [[buffer(0)]],
         hits[idx] = -1.0f;
     }
     hits2[idx] = (float)_61;
-    hits2[idx] = -1.0f;
 }
 )MSL" options:nil error:&err];
         if (!lib) { printf("lib fail: %s\n", err.localizedDescription.UTF8String); return 1; }
@@ -180,7 +178,7 @@ kernel void raycastRQ(device float* hits [[buffer(0)]],
         MTL4ArgumentTableDescriptor *atd = [MTL4ArgumentTableDescriptor new];
         atd.maxBufferBindCount = 4;
         id<MTL4ArgumentTable> atab = [dev newArgumentTableWithDescriptor:atd error:&err];
-        [atab setAddress:argBuf.gpuAddress atIndex:0];
+        [atab setAddress:argBuf.gpuAddress atIndex:2];
         [atab setResource:tlas.gpuResourceID atBufferIndex:2];
         [enc3 setArgumentTable:atab];
         [enc3 dispatchThreads:MTLSizeMake(W,H,1) threadsPerThreadgroup:MTLSizeMake(8,8,1)];
