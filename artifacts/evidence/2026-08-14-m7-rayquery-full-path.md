@@ -66,9 +66,16 @@ produce acceleration structures the inline intersection_query cannot traverse
 (pure-Metal isolate: opaque YES drops 20/64 hits to 0; opaque NO restores
 them). The MVK now forces opaque=NO (documented deviation). The staged vertex/
 index bytes are verified correct in the MVK build ((0,0,-5)(4,0,-5)(0,4,-5) +
-(0,1,2)). The MVK's traversal STILL finds nothing after the opaque fix - the
-remaining delta is in the build execution path (queue/command-buffer state),
-not the descriptors or the data.
+(0,1,2)).
+
+FINDING 2 (committed): the TLAS instance transform conversion read 4 rows from
+the VK 3x4 transform, walking into the instance bitfields and corrupting the
+MTL 4th column (the identity's padding column contained customIndex|mask).
+Fixed: rows 0-2 mapped, 4th column zeroed.
+
+The MVK's traversal STILL finds nothing after both fixes - the remaining delta
+is in the AS build execution path (queue/command-buffer state), not the
+descriptors, the data, or the kernel.
 
 ## Next steps
 1. Debug the MTL4 dispatch execution: no GPU error but writes don't land - check
