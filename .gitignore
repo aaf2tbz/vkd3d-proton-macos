@@ -12,3 +12,4 @@ artifacts/stage-self/
 scripts/probes/metal-sparse-map-probe
 sources/
 toolchain/
+artifacts/m14-*.log
