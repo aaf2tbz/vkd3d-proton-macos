@@ -103,17 +103,30 @@ the graphics-PSO creation on the CORE device → the failure.
 5.3 **Acceptance**: the corpus matrix (the N shaders × the readback) + the two
 negative tests, all on `min 1_0_CORE` devices.
 
-## Slice 6 — M14 ship
-6.1 **PR submission** (user's GitHub action): push the fork branch from the
-workspace's MetalSharp (`4cc04e3` on `a097312`) + open the PR with the
-`metalsharp-graphics-dll-m12.tar.zst` + the hash-pin diff + the test results.
-6.2 **Verify-by-redownload**: re-fetch the PR's bundle from the GitHub release
-artifact, re-extract, re-hash — the pins must match exactly.
-6.3 **Runtime validation**: the updated lanes under the wine (the stage-dxr
-launch env with the bundle's lanes): the flprobe ladder + the compute matrix +
-the DXR probe against the BUNDLE's d3d12 pair + libMoltenVK (not the stage
-copies).
-6.4 **Regression games**: launch the D3D12 games through the updated bundle;
+## Slice 6 — M14 ship (public VKD3D-Proton-MacOS repo + implementation tarball)
+6.1 **Public repo**: publish the VKD3D-Proton-MacOS repo on GitHub (public),
+push ALL commits (the workspace + the four fork sub-repos' commits are
+recorded in the evidence; the fork trees + their git histories are included in
+the artifact below so the result is rebuildable from scratch).
+6.2 **Implementation tarball**: `scripts/ship-m14.sh` assembles
+`artifacts/VKD3D-Proton-MacOS-<date>.tar.zst` containing the FULLY WORKING
+implementation:
+  - the workspace's committed state (README, ROADMAP, docs/, scripts/,
+    artifacts/evidence/ — all runtime-verified evidence)
+  - the four fork source trees with their git histories (MoltenVK,
+    vkd3d-proton, SPIRV-Cross, MetalSharp) — build/ dirs excluded, rebuildable
+  - the built artifacts: the d3d12.dll/d3d12core.dll pair (x86_64) + the
+    libMoltenVK.dylib + MoltenVK_icd.json
+  - the repackaged `metalsharp-graphics-dll-m12.tar.zst` bundle
+  - a BUILD.md describing the exact toolchain + build steps + the launch env
+6.3 **Verify-by-redownload**: download the published artifact from the public
+repo's release, re-extract, re-hash — the d3d12 pair + libMoltenVK + the
+bundle's lanes must match the pinned hashes exactly.
+6.4 **Runtime validation**: the artifact's lanes under the wine (the stage-dxr
+launch env, but loading the ARTIFACT's copies): the flprobe ladder + the
+compute matrix + the DXR probe against the artifact's d3d12 pair + libMoltenVK
+(not the stage copies).
+6.5 **Regression games**: launch the D3D12 games through the artifact's bundle;
 the smoke tests green (the DXR/RayQuery titles, the mesh titles once Slice 1
 lands, the CR titles).
 
