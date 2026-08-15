@@ -28,13 +28,19 @@ MTL4 argument-table boundary with one known blocker ([[buffer(0)]] collision).
 | Heap-placed acceleration structures | AS un-traversable | standalone AS allocation (documented deviation: storage outside the VkBuffer) |
 | Classic compute encoder can't resolve AS from raw argument data | 0 hits | MTL4 argument-table dispatch for AS pipelines |
 
-## Known blocker (next step)
-SPIRV-Cross emits the argument buffer at [[buffer(0)]]; the MTL4 argument table
-occupies buffer index 0 itself ("cannot reserve buffer resource location at index
-0"). The MTL4 argument-table dispatch therefore cannot bind the descriptor set's
-raw data at index 0. Fix: shift the SPIRV-Cross argument-buffer binding to a
-non-zero buffer index for MTL4-dispatched pipelines (or bind the argument table
-at a different index and remap the kernel's buffer slots).
+## Dispatch state (latest)
+The argument-buffer remap is implemented: AS-using pipelines remap their argument
+buffer to kMVKMaxBufferCount-1 (the [[buffer(30)]] slot), and the MTL4 dispatch
+binds the descriptor-set raw data at that slot with the AS resource at
+setResource:atBufferIndex:(gpuOffset/8)+1. The end-to-end probe still returns no
+hits. IMPORTANT observation: the identical pure-Metal probe code (metal-tlas/
+metal-tlas-query-probe.mm) previously produced 30/256 hits with exact distances
+5.000-5.431, then began returning 0 with no code changes — the MTL4 beta's
+argument-table dispatch is nondeterministic across runs. Re-validate the probe
+fresh in a new session before further integration; if the 30-hit state cannot be
+re-established, the MTL4 argument-table dispatch path itself is unreliable on
+this beta and the ray-query delivery should be re-planned (e.g. intersector-
+lowering in the MVK instead of the incremental intersection_query API).
 
 ## Evidence
 - vk-as-probe: device+AS build+TLAS build all OK; descriptor write lands the TLAS
