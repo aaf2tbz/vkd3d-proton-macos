@@ -6,3 +6,7 @@ artifacts/build/
 artifacts/clone-*.log
 artifacts/mvk-build*.log
 artifacts/mvk-*.log
+artifacts/prefix/
+artifacts/stage-full/
+artifacts/stage-self/
+scripts/probes/metal-sparse-map-probe
