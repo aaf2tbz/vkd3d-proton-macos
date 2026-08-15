@@ -243,7 +243,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 | **M10** | VRS decision | 4C.1/4C.2 green; per-primitive (4C.3) GO or documented RED-with-mitigation |
 | **M11** | Rung-4D sweep | SM 6.5, depth bounds, copy-queue timestamps, casting, sampler feedback green |
 | **M12** | 12_2 rung | ladder 0xc200; full 12_2 matrix green; DX-Ultimate-capable game smoke |
-| **M13** | CORE_1_0 | 🔶 2026-08-15 — device creation at min=1_0_CORE GREEN (flprobe: dev=CREATED, query max=0x1000); compute-only matrix (compute PSO + dispatch + UAV readback, no-graphics negative) pending |
+| **M13** | CORE_1_0 | ✅ GREEN 2026-08-15 — 1_0_CORE device creation (dev=CREATED) + COMPUTE MATRIX (root UAV dispatch, UAV readback 42.0, copy path verified). SM 6.0 corpus + no-graphics negative pending. Commits: vkd3d 75306a6, workspace 09a5d64. Evidence: 2026-08-15-m13-core-1-0.md |
 | **M14** | MetalSharp PR + bundle | Bundle republished with hash pins; dry-run `/diagnostics/m12` reports candidate hashes; PR on clean upstream tree; regression games green |
 
 **Ordering note:** M3–M12 are strictly sequential rungs (the ladder depends downward). Within 12_2, 4A/4B/4C/4D may be parallelized across lanes but each promotes only with its own gate green.
