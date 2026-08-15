@@ -10,3 +10,5 @@ artifacts/prefix/
 artifacts/stage-full/
 artifacts/stage-self/
 scripts/probes/metal-sparse-map-probe
+sources/
+toolchain/
