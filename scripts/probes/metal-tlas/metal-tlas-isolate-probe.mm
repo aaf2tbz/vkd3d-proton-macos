@@ -79,6 +79,9 @@ int main(void) {
         inst.intersectionFunctionTableOffset = 0;
         inst.userID = 7;
         inst.accelerationStructureID = blas.gpuResourceID;
+        uint32_t* ibw = (uint32_t*)&inst;
+        printf("isolate inst bytes: %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x\n",
+               ibw[0],ibw[1],ibw[2],ibw[3],ibw[4],ibw[5],ibw[6],ibw[7],ibw[8],ibw[9],ibw[10],ibw[11],ibw[12],ibw[13],ibw[14],ibw[15],ibw[16],ibw[17]);
         id<MTLBuffer> instBuf = [dev newBufferWithBytes:&inst length:sizeof(inst) options:MTLResourceStorageModeShared];
         MTL4InstanceAccelerationStructureDescriptor *tdesc = [MTL4InstanceAccelerationStructureDescriptor new];
         tdesc.instanceDescriptorBuffer = MTL4BufferRange(instBuf.gpuAddress, sizeof(inst));

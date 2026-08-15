@@ -1,3 +1,2 @@
-    -> mingw id 27     : hr=0x00000000 RaytracingTier=11 (0=not,10=t1_0,11=t1_1)
-    -> mingw id 30     : hr=0x00000000 tier=0 (0=not,10=t1,20=t2) tileSize=0
-    -> mingw id 32     : hr=0x00000000 MeshShaderTier=0 (0=not,10=t1) SamplerFeedbackTier=0
+  FEATURE_LEVELS      : hr=0x00000000 max=12_1 (0xc100)
+  SHADER_MODEL        : hr=0x80070057 highest=0x0
