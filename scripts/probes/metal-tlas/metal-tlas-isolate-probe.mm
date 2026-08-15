@@ -48,6 +48,9 @@ int main(void) {
         geo.indexBuffer = ibr;
         geo.indexType = MTLIndexTypeUInt32;
         geo.triangleCount = 1;
+        geo.vertexFormat = MTLAttributeFormatFloat3;
+        geo.intersectionFunctionTableOffset = 0;
+        geo.opaque = NO;
         MTL4PrimitiveAccelerationStructureDescriptor *bdesc = [MTL4PrimitiveAccelerationStructureDescriptor new];
         bdesc.geometryDescriptors = @[ geo ];
         MTLAccelerationStructureSizes bsizes = [dev accelerationStructureSizesWithDescriptor:bdesc];
@@ -83,7 +86,7 @@ int main(void) {
         tdesc.instanceDescriptorType = MTLAccelerationStructureInstanceDescriptorTypeIndirect;
         MTLAccelerationStructureSizes tsizes = [dev accelerationStructureSizesWithDescriptor:tdesc];
         printf("TLAS size: %llu scratch: %llu\n", (unsigned long long)tsizes.accelerationStructureSize, (unsigned long long)tsizes.buildScratchBufferSize);
-        id<MTLAccelerationStructure> tlas = [dev newAccelerationStructureWithSize:tsizes.accelerationStructureSize];
+        id<MTLAccelerationStructure> tlas = [dev newAccelerationStructureWithSize:4096];
         id<MTLBuffer> tscratch = [dev newBufferWithLength:tsizes.buildScratchBufferSize options:MTLResourceStorageModePrivate];
         id<MTL4CommandAllocator> alloc2 = [dev newCommandAllocator];
         id<MTL4CommandBuffer> cb2 = [dev newCommandBuffer];
