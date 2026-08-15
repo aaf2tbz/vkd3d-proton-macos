@@ -1,2 +1,3 @@
 artifacts/stage-dxr/
 vkd3d-proton.cache
+artifacts/build-vkd3d-*.log
