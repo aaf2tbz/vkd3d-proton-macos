@@ -1,0 +1,94 @@
+; compute kernel: inline ray query (VK_KHR_ray_query) - casts one ray per thread
+OpCapability Shader
+OpCapability RayQueryKHR
+OpExtension "SPV_KHR_ray_query"
+OpMemoryModel Logical GLSL450
+%ext = OpExtInstImport "GLSL.std.450"
+OpEntryPoint GLCompute %main "main" %tid %hits %accel
+OpExecutionMode %main LocalSize 8 8 1
+OpDecorate %hits DescriptorSet 0
+OpDecorate %hits Binding 1
+OpMemberDecorate %hits_buf 0 Offset 0
+OpDecorate %accel DescriptorSet 0
+OpDecorate %accel Binding 0
+OpDecorate %tid BuiltIn GlobalInvocationId
+%void = OpTypeVoid
+%fn = OpTypeFunction %void
+%float = OpTypeFloat 32
+%uint = OpTypeInt 32 0
+%int = OpTypeInt 32 1
+%bool = OpTypeBool
+%v3uint = OpTypeVector %uint 3
+%v3float = OpTypeVector %float 3
+%v2int = OpTypeVector %int 2
+%float_0 = OpConstant %float 0.0
+%float_1000 = OpConstant %float 1000.0
+%float_5 = OpConstant %float 5.0
+%float_2 = OpConstant %float 2.0
+%float_8 = OpConstant %float 8.0
+%float_0_5 = OpConstant %float 0.5
+%uint_0 = OpConstant %uint 0
+%uint_255 = OpConstant %uint 255
+%uint_64 = OpConstant %uint 64
+%uint_1 = OpConstant %uint 1
+%int_0 = OpConstant %int 0
+%int_1 = OpConstant %int 1
+%int_2 = OpConstant %int 2
+%accel_type = OpTypeAccelerationStructureKHR
+%accel_ptr = OpTypePointer UniformConstant %accel_type
+%accel = OpVariable %accel_ptr UniformConstant
+%rq_type = OpTypeRayQueryKHR
+%hits_ptr = OpTypePointer StorageBuffer %float
+%hits_arr = OpTypeRuntimeArray %float
+%hits_buf = OpTypeStruct %hits_arr
+%hits_ptr_buf = OpTypePointer StorageBuffer %hits_buf
+%hits = OpVariable %hits_ptr_buf StorageBuffer
+%tid_ptr = OpTypePointer Input %v3uint
+%tid = OpVariable %tid_ptr Input
+%uint_ptr = OpTypePointer Input %uint
+%float_neg5 = OpConstant %float -5.0
+%main = OpFunction %void None %fn
+%entry = OpLabel
+%tidv = OpLoad %v3uint %tid
+%tid0 = OpCompositeExtract %uint %tidv 0
+%tid1 = OpCompositeExtract %uint %tidv 1
+%tu = OpConvertUToF %float %tid0
+%tv = OpConvertUToF %float %tid1
+; dir = normalize((u-0.5)*8, (v-0.5)*8, -5)
+%u05 = OpFMul %float %tu %float_0_5
+%u05_5 = OpFSub %float %u05 %float_0_5
+%dux = OpFMul %float %u05_5 %float_8
+%v05 = OpFMul %float %tv %float_0_5
+%v05_5 = OpFSub %float %v05 %float_0_5
+%duy = OpFMul %float %v05_5 %float_8
+; build the ray query
+%as = OpLoad %accel_type %accel
+%rq = OpVariable %rq_type Function
+%dir = OpCompositeConstruct %v3float %dux %duy %float_neg5
+%dirlen2 = OpDot %float %dir %dir
+%invlen = OpExtInst %float %ext InverseSqrt %dirlen2
+%dirx = OpFMul %float %dux %invlen
+%diry = OpFMul %float %duy %invlen
+%dirz = OpFMul %float %float_neg5 %invlen
+%dirn = OpCompositeConstruct %v3float %dirx %diry %dirz
+%float_2c = OpConstant %float 2.0
+%origin = OpCompositeConstruct %v3float %float_2c %float_2c %float_0
+OpRayQueryInitializeKHR %rq %as %uint_0 %uint_255 %origin %float_0 %dirn %float_1000
+%proceed = OpRayQueryProceedKHR %bool %rq
+; committed type
+%ctype = OpRayQueryGetIntersectionTypeKHR %uint %rq %uint_1
+%ct = OpIEqual %bool %ctype %uint_1
+; if triangle: write the distance
+%tid1 = OpCompositeExtract %uint %tidv 1
+%row = OpIMul %uint %tid1 %uint_64
+%idx = OpIAdd %uint %row %tid0
+%hits_elem = OpAccessChain %hits_ptr %hits %uint_0 %idx
+OpSelectionMerge %merge None
+OpBranchConditional %ct %then %merge
+%then = OpLabel
+%dist = OpRayQueryGetIntersectionTKHR %float %rq %uint_1
+OpStore %hits_elem %dist
+OpBranch %merge
+%merge = OpLabel
+OpReturn
+OpFunctionEnd

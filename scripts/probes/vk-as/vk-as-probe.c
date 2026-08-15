@@ -209,7 +209,9 @@ int main(int argc, char** argv) {
     bc.size = 64*64*4; bc.usage = VK_BUFFER_USAGE_STORAGE_BUFFER_BIT;
     VkBuffer hitBuf; vkcb(dev,&bc,NULL,&hitBuf);
     ((PFN_vkGetBufferMemoryRequirements)gipa(inst,"vkGetBufferMemoryRequirements"))(dev,hitBuf,&mr);
-    mai=(VkMemoryAllocateInfo){VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,NULL,mr.size,1};
+    // type 0 = shared/standalone (the heap-backed type 1 output buffers cannot be
+    // written by MTL4 argument-table dispatches on this beta)
+    mai=(VkMemoryAllocateInfo){VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,NULL,mr.size,0};
     VkDeviceMemory hitMem; vkam(dev,&mai,NULL,&hitMem);
     ((PFN_vkBindBufferMemory)gipa(inst,"vkBindBufferMemory"))(dev,hitBuf,hitMem,0);
 
@@ -266,12 +268,6 @@ int main(int argc, char** argv) {
     PFN_vkUpdateDescriptorSets vkuds=(PFN_vkUpdateDescriptorSets)gipa(inst,"vkUpdateDescriptorSets");
     vkuds(dev,2,wds,0,NULL);
     printf("descriptor write: done\n");
-    // dump the descriptor set's GPU buffer (the MVK argument-table data)
-    { PFN_vkGetDescriptorSetLayoutSupport gdsls=(PFN_vkGetDescriptorSetLayoutSupport)gipa(inst,"vkGetDescriptorSetLayoutSupport"); (void)gdsls;
-      // read the set's internal buffer via the probe's own copy of the write data:
-      // (the MVK's descriptor data is internal; verify via the shader readback instead) }
-    // verify the instance data conversion: read the converted MTL descriptors from the MVK's temp buffer
-    // (not directly reachable - verify via the BLAS/TLAS ids and the hit behavior)
 
     // dispatch
     VkCommandBuffer cb2; vkacb(dev,&cbai,&cb2);
@@ -292,9 +288,13 @@ int main(int argc, char** argv) {
     // readback
     void* rdata; ((PFN_vkMapMemory)gipa(inst,"vkMapMemory"))(dev,hitMem,0,VK_WHOLE_SIZE,0,&rdata);
     float* hp = (float*)rdata;
+    printf("readback[0..7]: %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f\n",
+           hp[0], hp[1], hp[2], hp[3], hp[4], hp[5], hp[6], hp[7]);
     int hits = 0; float minD = 1e9;
     for (int i = 0; i < 64*64; i++) { if (hp[i] > 0) { hits++; if (hp[i] < minD) minD = hp[i]; } }
     printf("ray query hits: %d minD=%.3f\n", hits, minD);
+    int shown = 0;
+    for (int i = 0; i < 4096 && shown < 3; i++) if (hp[i] > 0.01 && hp[i] < 100) { printf("hit[%d]=%.4f\n", i, hp[i]); shown++; }
     printf("RESULT: %s\n", hits > 0 ? "INLINE RAY QUERY (FULL VULKAN PATH) WORKS" : "RAY QUERY NO HITS");
     return 0;
 }
