@@ -43,8 +43,8 @@ int main(void) {
     if (FAILED(hr) || !dev) { printf("RESULT: CORE DEVICE CREATE FAILED\n"); return 1; }
 
     // root signature: one UAV (descriptor table with one SRV/UAV range)
-    D3D12_DESCRIPTOR_RANGE range = { D3D12_DESCRIPTOR_RANGE_TYPE_UAV, 1, 0, 0, 0 };
-    D3D12_ROOT_PARAMETER param = { D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE, {1, &range}, D3D12_SHADER_VISIBILITY_ALL };
+    D3D12_ROOT_PARAMETER param = { D3D12_ROOT_PARAMETER_TYPE_UAV, {0}, D3D12_SHADER_VISIBILITY_ALL };
+    param.Descriptor.ShaderRegister = 0;
     D3D12_ROOT_SIGNATURE_DESC rsdesc = { 1, &param, 0, NULL, D3D12_ROOT_SIGNATURE_FLAG_NONE };
     ID3D12RootSignature* rs = NULL;
     ID3DBlob* rsblob = NULL;
@@ -155,9 +155,7 @@ int main(void) {
     cl->lpVtbl->SetComputeRootSignature(cl, rs);
     ID3D12DescriptorHeap* heaps[1] = { dheap };
     cl->lpVtbl->SetDescriptorHeaps(cl, 1, heaps);
-    D3D12_GPU_DESCRIPTOR_HANDLE gpuH;
-    dheap->lpVtbl->GetGPUDescriptorHandleForHeapStart(dheap, &gpuH);
-    cl->lpVtbl->SetComputeRootDescriptorTable(cl, 0, gpuH);
+    cl->lpVtbl->SetComputeRootUnorderedAccessView(cl, 0, uav->lpVtbl->GetGPUVirtualAddress(uav));
     cl->lpVtbl->SetPipelineState(cl, pso);
     cl->lpVtbl->Dispatch(cl, 8, 1, 1);
     D3D12_RESOURCE_BARRIER bar = { D3D12_RESOURCE_BARRIER_TYPE_TRANSITION };
