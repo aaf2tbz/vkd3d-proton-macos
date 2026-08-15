@@ -1,9 +1,9 @@
 [binaries]
 c = 'x86_64-w64-mingw32-clang'
 cpp = 'x86_64-w64-mingw32-clang++'
-ar = 'x86_64-w64-mingw32-llvm-ar'
-strip = 'x86_64-w64-mingw32-llvm-strip'
-windres = 'x86_64-w64-mingw32-windres'
+ar = 'llvm-ar'
+strip = 'llvm-strip'
+windres = 'llvm-windres'
 [host_machine]
 system = 'windows'
 cpu_family = 'x86_64'
