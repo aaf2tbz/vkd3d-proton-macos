@@ -2,7 +2,7 @@
 
 **Workspace:** `/Volumes/AverySSD/VKD3D-Proton-MacOS`
 **Date:** 2026-08-14
-**Status:** ACTIVE — all feature-level rungs green (11_0 → 12_2, CORE_1_0, SM 6.5, 2026-08-15, `rung-ladder-final.txt`); the execution-machinery follow-ups are tracked in **docs/07-followup-roadmap.md** (mesh pipelines, VRS commands, sampler-feedback shaders, CR InnerCoverage, CORE_1_0 probes, M14 ship; prerequisite: install dxc)
+**Status:** ACTIVE — all feature-level rungs green (11_0 → 12_2, CORE_1_0, SM 6.5, 2026-08-15, `rung-ladder-final.txt`); the execution-machinery follow-ups are tracked in **docs/07-followup-roadmap.md** (mesh pipelines, VRS commands, sampler-feedback shaders, CR InnerCoverage, CORE_1_0 probes, M14 ship; prerequisite: install dxc); the step-by-step closure plan for the remaining items is **docs/08-remaining-plan.md**
 **Mandate:** Prove that the MetalSharp D3D12 route — `D3D12 app → vkd3d-proton (custom) → Vulkan → custom MoltenVK → Metal` — running on **MetalSharp Wine 11.5** fully supports every Direct3D 12 feature level: **11_0, 11_1, 12_0, 12_1, 12_2, and compute-only CORE_1_0**. Every claim must be backed by reproducible, hash-pinned, runtime-verified evidence.
 
 ---
