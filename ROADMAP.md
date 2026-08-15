@@ -62,7 +62,7 @@ Measured on 2026-08-14 from `metalsharp-graphics-dll-clean.tar.zst` + installed 
 | **12_0** | ❌ NO | `sparseBinding=0` → Tiled Resources TIER_NOT_SUPPORTED (< tier 2 required) |
 | **12_1** | ❌ NO | no `VK_EXT_conservative_rasterization` → CR TIER_NOT_SUPPORTED (< tier 1 required) |
 | **12_2** | ❌ NO | no Vulkan RT / mesh / VRS extensions → DXR 1.1, mesh tier 1, VRS tier 2 all impossible |
-| **CORE_1_0** | ❌ NO | live capture: vkd3d logs `Invalid feature level 0x1000` → `E_INVALIDARG` |
+| **CORE_1_0** | ✅ YES 2026-08-15 | vkd3d fork accepts D3D_FEATURE_LEVEL_1_0_CORE (0x1000): `min 1_0_CORE : hr=0x00000000 dev=CREATED`; feature-levels query `max=0x1000` (commit 75306a6). Compute-only matrix probes pending (5.3). |
 
 The authoritative ladder lives in `vkd3d-proton/libs/vkd3d/device.c` → `d3d12_device_caps_init_feature_level()` (verified identical in upstream v3.0.1 and master):
 
@@ -243,7 +243,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 | **M10** | VRS decision | 4C.1/4C.2 green; per-primitive (4C.3) GO or documented RED-with-mitigation |
 | **M11** | Rung-4D sweep | SM 6.5, depth bounds, copy-queue timestamps, casting, sampler feedback green |
 | **M12** | 12_2 rung | ladder 0xc200; full 12_2 matrix green; DX-Ultimate-capable game smoke |
-| **M13** | CORE_1_0 | 0x1000 device + compute-only matrix green |
+| **M13** | CORE_1_0 | 🔶 2026-08-15 — device creation at min=1_0_CORE GREEN (flprobe: dev=CREATED, query max=0x1000); compute-only matrix (compute PSO + dispatch + UAV readback, no-graphics negative) pending |
 | **M14** | MetalSharp PR + bundle | Bundle republished with hash pins; dry-run `/diagnostics/m12` reports candidate hashes; PR on clean upstream tree; regression games green |
 
 **Ordering note:** M3–M12 are strictly sequential rungs (the ladder depends downward). Within 12_2, 4A/4B/4C/4D may be parallelized across lanes but each promotes only with its own gate green.
