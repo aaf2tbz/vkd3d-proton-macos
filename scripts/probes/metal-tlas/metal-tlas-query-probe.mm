@@ -189,6 +189,9 @@ kernel void raycastRQ(device float* hits [[buffer(0)]],
         float *hp = (float*)hits.contents;
         float *hp2 = (float*)hits2.contents;
         printf("raw type at thread 0: %f\n", hp2[0]);
+        int typec[4] = {0,0,0,0};
+        for (int i = 0; i < W*H; i++) { int t = (int)hp2[i]; if (t>=0 && t<4) typec[t]++; }
+        printf("type dist: none=%d tri=%d bbox=%d other=%d\n", typec[0], typec[1], typec[2], typec[3]);
         int hitsN = 0; float minD = 1e9;
         for (int i = 0; i < W*H; i++) {
             if (hp[i] > 0) { hitsN++; if (hp[i] < minD) minD = hp[i]; }
