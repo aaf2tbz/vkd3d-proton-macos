@@ -1,0 +1,11 @@
+  min 12_2     : hr=0x00000000 dev=CREATED
+  min 12_1     : hr=0x00000000 dev=CREATED
+  min 12_0     : hr=0x00000000 dev=CREATED
+  min 11_1     : hr=0x00000000 dev=CREATED
+  min 1_0_CORE : hr=0x00000000 dev=CREATED
+  FEATURE_LEVELS      : hr=0x00000000 max=12_2 (0xc200)
+    TiledResourcesTier    : 4 (not=0,t1=1,t2=2,t3=3)
+    ConservativeRasterTier: 3 (not=0,t1=1,t2=2,t3=3)
+    ROVsSupported         : 1
+    OutputMergerLogicOp   : 1 (11_1 logical blend ops)
+  OPTIONS2 (depth)    : hr=0x00000000 DepthBoundsTestSupported=1
