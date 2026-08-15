@@ -104,6 +104,13 @@ the graphics-PSO creation on the CORE device → the failure.
 negative tests, all on `min 1_0_CORE` devices.
 
 ## Slice 6 — M14 ship (public VKD3D-Proton-MacOS repo + implementation tarball)
+
+STATUS 2026-08-15: the implementation tarball is BUILT and verified
+(`scripts/ship-m14.sh` -> `artifacts/VKD3D-Proton-MacOS-2026-08-15.tar.zst`,
+sha256 8fbb6924..., 15922 entries; the pinned lane hashes inside it match the
+pins exactly — `artifacts/evidence/2026-08-15-m14-ship-manifest.md`). The
+remaining step is the user's GitHub action: create the public repo, push all
+commits, attach the artifact to a release, verify-by-redownload.
 6.1 **Public repo**: publish the VKD3D-Proton-MacOS repo on GitHub (public),
 push ALL commits (the workspace + the four fork sub-repos' commits are
 recorded in the evidence; the fork trees + their git histories are included in
