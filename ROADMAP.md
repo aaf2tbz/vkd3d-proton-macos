@@ -58,9 +58,9 @@ Measured on 2026-08-14 from `metalsharp-graphics-dll-clean.tar.zst` + installed 
 | Feature level | Supported today? | Decisive facts |
 |---|---|---|
 | **11_0** | ✅ YES (baseline) | vkd3d-proton ladder baseline; SM 6.5 ≥ 5.1; RB tier 3; Control boots on this stack |
-| **11_1** | ❌ NO | `logicOp=0` → `OutputMergerLogicOp=FALSE` fails ladder rung 1; also 31/64 storage buffers |
-| **12_0** | ❌ NO | `sparseBinding=0` → Tiled Resources TIER_NOT_SUPPORTED (< tier 2 required) |
-| **12_1** | ❌ NO | no `VK_EXT_conservative_rasterization` → CR TIER_NOT_SUPPORTED (< tier 1 required) |
+| **11_1** | ✅ YES 2026-08-15 | `min 11_1: dev=CREATED`; OutputMergerLogicOp=1 (pixel-exact logic-op emulation), 64 UAVs, TIR tier 4. Evidence: rung-11_1-gates.md + rung-ladder-final.txt |
+| **12_0** | ✅ YES 2026-08-15 | `min 12_0: dev=CREATED`; TiledResourcesTier=4 (sparse execution proven). Evidence: m5-sparse-execution-landed.md + rung-ladder-final.txt |
+| **12_1** | ✅ YES 2026-08-15 | `min 12_1: dev=CREATED`; CR tier 1 (pixel-exact emulation), ROVsSupported=1. Evidence: m6-rung-12_1.md + rung-ladder-final.txt |
 | **12_2** | ✅ YES 2026-08-15 | flprobe FEATURE_LEVELS max=12_2 (0xc200) — all cap gates cleared (DXR 1.1, mesh tier 1, VRS tier 2, sampler feedback 0.9, CR tier 3, depth bounds, SM 6.5, etc.). Execution machinery for mesh pipelines / VRS commands / sampler-feedback shaders / CR InnerCoverage is the documented follow-up (fails cleanly). Evidence: 2026-08-15-rung-12_2-gates.md |
 | **CORE_1_0** | ✅ YES 2026-08-15 | vkd3d fork accepts D3D_FEATURE_LEVEL_1_0_CORE (0x1000): `min 1_0_CORE : hr=0x00000000 dev=CREATED`; feature-levels query `max=0x1000` (commit 75306a6). Compute-only matrix probes pending (5.3). |
 
