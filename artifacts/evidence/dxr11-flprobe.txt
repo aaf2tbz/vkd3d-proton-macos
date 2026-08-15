@@ -1,2 +1,5 @@
   FEATURE_LEVELS      : hr=0x00000000 max=12_1 (0xc100)
   SHADER_MODEL        : hr=0x80070057 highest=0x0
+  OPTIONS5 (DXR)      : hr=0x80004001 RaytracingTier=0 (not=0,t1_0=10,t1_1=11)
+  OPTIONS6 (VRS)      : hr=0x80070057 tier=0 (0=not,10=t1,20=t2) tileSize=0
+  OPTIONS7 (mesh)     : hr=0x80070057 MeshShaderTier=0 (not=0,t1=10) SamplerFeedbackTier=0
