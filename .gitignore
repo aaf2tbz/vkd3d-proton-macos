@@ -5,3 +5,4 @@ artifacts/build-vkd3d*.log
 artifacts/build/
 artifacts/clone-*.log
 artifacts/mvk-build*.log
+artifacts/mvk-*.log
