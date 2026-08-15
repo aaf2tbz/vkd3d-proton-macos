@@ -48,3 +48,10 @@ lowering in the MVK instead of the incremental intersection_query API).
 - metal-tlas-query-probe (pure Metal): BLAS->instance->TLAS + MTL4 argument table
   + candidate-based intersection_query = 30/256 hits, distances 5.000-5.431
   (exact), proving the whole ray-query data path end to end at the Metal level.
+
+
+Final diagnostic: in the regressed state the candidate type is NONE for all 256
+threads (type dist: none=256) - the intersection_query traversal finds no
+candidates at all, so the failure is in the AS traversal (build or table
+binding), not in the type mapping. The exact same probe binary produced
+30 triangle candidates earlier, confirming run-to-run nondeterminism.
