@@ -38,10 +38,18 @@ the pure-Metal reference proves works. The vk-as-probe therefore honestly reads
 0 hits (the type-1 write failure) while every other stage is verified. The
 pure-Metal 30/256-hit result stands as the path proof.
 
+## Staging attempt (committed 004be0e)
+The dispatch now stages writable storage-buffer bindings through standalone
+shared MTLBuffers and copies results back with a classic blit (and
+getBufferForDeviceAddress searches all buffers). The staged writes still read
+back ZERO - the kernel's writes are not landing even in the standalone staging.
+The pure-Metal reference with the identical structure works, so the remaining
+fault is in the MTL4 dispatch execution itself (next: inspect MTL4 commit
+feedback errors / the argument-table state).
+
 ## Next steps
-1. MVK-side output staging for AS pipelines: bind the kernel's SSBO slots to
-   standalone shared staging buffers and copy to/from the real (heap-backed)
-   buffers, OR add a standalone-shared memory type.
+1. Debug the MTL4 dispatch execution: why the kernel's writes don't land (commit
+   feedback errors, argument table state, PSO state).
 2. Distance verification once writes land (expect 5.000-5.431 like the
    pure-Metal reference).
 3. vkd3d-proton DXR 1.1 activation (M8) on top of the proven dispatch path.
