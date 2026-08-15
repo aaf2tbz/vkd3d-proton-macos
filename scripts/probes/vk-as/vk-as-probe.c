@@ -33,6 +33,10 @@ int main(int argc, char** argv) {
     dci.enabledExtensionCount=2; dci.ppEnabledExtensionNames=devExts;
     dci.pNext = &asFeat;
     PFN_vkCreateDevice vkcdev=(PFN_vkCreateDevice)gipa(inst,"vkCreateDevice");
+    VkPhysicalDeviceMemoryProperties mp;
+    ((PFN_vkGetPhysicalDeviceMemoryProperties)gipa(inst,"vkGetPhysicalDeviceMemoryProperties"))(p,&mp);
+    for (uint32_t mi = 0; mi < mp.memoryTypeCount; mi++)
+        printf("memtype[%u]: flags=0x%x\n", mi, (unsigned)mp.memoryTypes[mi].propertyFlags);
     VkDevice dev; VkResult vr = vkcdev(p,&dci,NULL,&dev);
     printf("device create (RT): %s (%d)\n", vr==VK_SUCCESS?"OK":"FAIL",(int)vr);
     if (vr != VK_SUCCESS) { printf("RESULT: DEVICE CREATE FAILED\n"); return 0; }
@@ -209,9 +213,7 @@ int main(int argc, char** argv) {
     bc.size = 64*64*4; bc.usage = VK_BUFFER_USAGE_STORAGE_BUFFER_BIT;
     VkBuffer hitBuf; vkcb(dev,&bc,NULL,&hitBuf);
     ((PFN_vkGetBufferMemoryRequirements)gipa(inst,"vkGetBufferMemoryRequirements"))(dev,hitBuf,&mr);
-    // type 0 = shared/standalone (the heap-backed type 1 output buffers cannot be
-    // written by MTL4 argument-table dispatches on this beta)
-    mai=(VkMemoryAllocateInfo){VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,NULL,mr.size,0};
+    mai=(VkMemoryAllocateInfo){VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,NULL,mr.size,1};
     VkDeviceMemory hitMem; vkam(dev,&mai,NULL,&hitMem);
     ((PFN_vkBindBufferMemory)gipa(inst,"vkBindBufferMemory"))(dev,hitBuf,hitMem,0);
 
@@ -285,8 +287,43 @@ int main(int argc, char** argv) {
     printf("dispatch submit: %s (%d)\n", vr==VK_SUCCESS?"OK":"FAIL",(int)vr);
     vkdwi(dev);
 
-    // readback
-    void* rdata; ((PFN_vkMapMemory)gipa(inst,"vkMapMemory"))(dev,hitMem,0,VK_WHOLE_SIZE,0,&rdata);
+    // readback via a GPU copy into a host-visible staging buffer
+    { VkBuffer cvb; { VkBufferCreateInfo cbc={VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO}; cbc.size=64; cbc.usage=VK_BUFFER_USAGE_TRANSFER_DST_BIT;
+        vkcb(dev,&cbc,NULL,&cvb); }
+      VkMemoryRequirements cmr; ((PFN_vkGetBufferMemoryRequirements)gipa(inst,"vkGetBufferMemoryRequirements"))(dev,cvb,&cmr);
+      VkMemoryAllocateInfo cmai={VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,NULL,cmr.size,1};
+      VkDeviceMemory cmem; vkam(dev,&cmai,NULL,&cmem);
+      ((PFN_vkBindBufferMemory)gipa(inst,"vkBindBufferMemory"))(dev,cvb,cmem,0);
+      VkCommandBuffer cbCV; vkacb(dev,&cbai,&cbCV);
+      VkCommandBufferBeginInfo cbCbi2={VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO};
+      vkbcb(cbCV,&cbCbi2);
+      VkBufferCopy cbcp = {0, 0, 36};
+      ((PFN_vkCmdCopyBuffer)gipa(inst,"vkCmdCopyBuffer"))(cbCV,vb,cvb,1,&cbcp);
+      vkecb(cbCV);
+      VkSubmitInfo siCV={VK_STRUCTURE_TYPE_SUBMIT_INFO}; siCV.commandBufferCount=1; siCV.pCommandBuffers=&cbCV;
+      vkqs(q,1,&siCV,VK_NULL_HANDLE);
+      vkdwi(dev);
+      void* cvdata; ((PFN_vkMapMemory)gipa(inst,"vkMapMemory"))(dev,cmem,0,VK_WHOLE_SIZE,0,&cvdata);
+      float* cvf = (float*)cvdata;
+      printf("copy check: vtx0=(%f,%f,%f)\n", cvf[0], cvf[1], cvf[2]); }
+    VkBuffer stBuf; { VkBufferCreateInfo sbc={VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO}; sbc.size=64*64*4; sbc.usage=VK_BUFFER_USAGE_TRANSFER_DST_BIT;
+      vkcb(dev,&sbc,NULL,&stBuf); }
+    VkDeviceMemory stMem;
+    { VkMemoryRequirements smr; ((PFN_vkGetBufferMemoryRequirements)gipa(inst,"vkGetBufferMemoryRequirements"))(dev,stBuf,&smr);
+      VkMemoryAllocateInfo smai={VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,NULL,smr.size,1};
+      vkam(dev,&smai,NULL,&stMem);
+      ((PFN_vkBindBufferMemory)gipa(inst,"vkBindBufferMemory"))(dev,stBuf,stMem,0);
+      VkCommandBuffer cbC; vkacb(dev,&cbai,&cbC);
+      VkCommandBufferBeginInfo cbCbi={VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO};
+      vkbcb(cbC,&cbCbi);
+      VkBufferCopy bcp = {0, 0, 64*64*4};
+      PFN_vkCmdCopyBuffer vkccb=(PFN_vkCmdCopyBuffer)gipa(inst,"vkCmdCopyBuffer");
+      vkccb(cbC,hitBuf,stBuf,1,&bcp);
+      vkecb(cbC);
+      VkSubmitInfo siC={VK_STRUCTURE_TYPE_SUBMIT_INFO}; siC.commandBufferCount=1; siC.pCommandBuffers=&cbC;
+      vkqs(q,1,&siC,VK_NULL_HANDLE);
+      vkdwi(dev); }
+    void* rdata; ((PFN_vkMapMemory)gipa(inst,"vkMapMemory"))(dev,stMem,0,VK_WHOLE_SIZE,0,&rdata);
     float* hp = (float*)rdata;
     printf("readback[0..7]: %.1f %.1f %.1f %.1f %.1f %.1f %.1f %.1f\n",
            hp[0], hp[1], hp[2], hp[3], hp[4], hp[5], hp[6], hp[7]);

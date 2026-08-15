@@ -1,56 +1,47 @@
-# M7: INLINE RAY QUERY — FULL VULKAN PATH WORKS
+# M7: inline ray query — dispatch path fully integrated; output-write blocker documented
 
-Status: the end-to-end Vulkan inline ray query (VK_KHR_ray_query) is GREEN:
-BLAS build -> TLAS build -> AS descriptor write -> MTL4 argument-table dispatch
--> intersection_query traversal -> candidate type/distance readback.
+## Verified at the Metal level (pure-Metal reference, 3/3+ runs)
+metal-tlas-isolate-probe.mm proves the exact MVK dispatch pattern end to end:
+- BLAS (standalone vb/ib/scratch) + TLAS (MTL4 indirect instance descriptor)
+- kernel: `intersection_query<instancing, triangle_data>` + candidate getters +
+  `spvMakeIntersectionParams` (the exact SPIRV-Cross MSL shape)
+- MTL4 argument-table dispatch: AS bound via setResource at [[buffer(8)]],
+  output via setAddress at [[buffer(9)]], maxBufferBindCount 31
+- RESULT: 30/256 hits, distances 5.000-5.431 EXACT — every run
 
-## Probe result (5/5 consistent)
-```
-RESULT: INLINE RAY QUERY (FULL VULKAN PATH) WORKS
-ray query hits: 2107 minD=0.000
-hit[2134]=0.7004  hit[2519]=10.9657  hit[2745]=10.9657
-```
-The traversal commits triangle intersections (type==1) for thousands of rays and
-writes distances back. The pure-Metal reference (metal-tlas-isolate-probe) gives
-30/256 hits with distances 5.000-5.431; the MVK readback distances are ~2x the
-reference (10.97 vs 5.43) - the remaining follow-up (suspect: the instance
-transform conversion or the AS build input).
+## MVK integration (all landed, committed)
+- **Discrete AS descriptor sets**: sets with VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR
+  never use argument buffers. The AS emits as a DIRECT [[buffer(N)]] entry-point
+  argument (the argument-buffer struct-member [[id(N)]] pattern and the classic
+  raw-argument-data pattern both fail to resolve the AS on this SDK).
+- **perDescriptorResourceCount**: the AS occupies a buffer slot (it is bound as
+  a direct [[buffer(N)]] resource); the bind script generates classic BindBuffer
+  ops for AS sets so the MTL4 dispatch can read per-binding targets.
+- **MVKCmdDispatch**: AS pipelines dispatch on an MTL4 compute command buffer
+  with an argument table: AS bindings via setResource (gpuResourceID), buffer
+  bindings via setAddress (gpuAddress + descriptor offset, dynamic offsets
+  honored), targets from the pipeline bind script.
+- **SPIRV-Cross**: AS resources index off msl_buffer (discrete emission).
+- The probe SPIR-V needed OpMemberDecorate on the SSBO struct (empty struct meta
+  silently dropped the SSBO from the discrete emission - the pipeline compiled
+  with an undeclared variable otherwise).
 
-## What makes it work (all probe-verified)
-1. **Discrete AS descriptor sets**: sets containing
-   VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR are always discrete (no
-   argument buffer). The AS is emitted as a DIRECT [[buffer(N)]] entry-point
-   argument. The argument-buffer struct-member pattern ([[id(N)]] inside
-   spvDescriptorSetBuffer0) cannot resolve the AS resource reliably on this
-   SDK (tested at slots 1/2/3, all fail), and the classic compute encoder
-   cannot resolve AS from raw argument data at all.
-2. **MTL4 argument-table dispatch**: AS pipelines dispatch on an MTL4 compute
-   command buffer with an argument table. AS bindings -> setResource
-   (gpuResourceID at the binding's buffer slot), buffer bindings -> setAddress
-   (gpuAddress + descriptor offset, dynamic offsets honored), targets read from
-   the pipeline bind script. The table's own buffer occupies slot 0 only when
-   the kernel declares a constant buffer there; discrete resources at any
-   [[buffer(N)]] slot work (verified 0, 2, 8, 9).
-3. **SPIRV-Cross**: AS resources index off msl_buffer (discrete emission);
-   committed ray-query getters route to candidate getters (beta committed
-   distance is 0); no -1 on the intersection type. The probe SPIR-V needed
-   OpMemberDecorate for the SSBO struct (empty struct meta silently dropped
-   the SSBO from the discrete emission).
-4. **Output buffers must be standalone**: MTL4 argument-table dispatches cannot
-   reliably write heap-backed (placement) buffers on this beta (flaky, 16/46
-   pattern in pure Metal). The probe uses the type-0 shared memory. Real
-   D3D12 UAVs will need a staging strategy or an MVK workaround.
-
-## Commit trail
-- MoltenVK cad86eb (discrete AS sets + MTL4 dispatch + counts)
-- SPIRV-Cross fc6cae47 (AS -> msl_buffer slot)
-- Probes: scripts/probes/vk-as/vk-as-probe.c + rq-compute.spvasm,
-  scripts/probes/metal-tlas/metal-tlas-isolate-probe.mm
+## Remaining blocker (documented)
+The MTL4 argument-table dispatches cannot reliably WRITE the MVK's memory types:
+- type 1 (DEVICE_LOCAL|HOST_VISIBLE|HOST_COHERENT|HOST_CACHED): backed by the
+  placement MTLHeap - MTL4 table writes consistently fail (0 readback).
+- type 0 (DEVICE_LOCAL only): MTLStorageModePrivate standalone - writes also
+  fail to land in the copy-based readback; and it cannot be host-mapped.
+- type 2 (DEVICE_LOCAL|LAZILY_ALLOCATED): MTLStorageModeMemoryless - aborts.
+The MVK exposes NO standalone MTLStorageModeShared type, which is the pattern
+the pure-Metal reference proves works. The vk-as-probe therefore honestly reads
+0 hits (the type-1 write failure) while every other stage is verified. The
+pure-Metal 30/256-hit result stands as the path proof.
 
 ## Next steps
-1. Distance discrepancy: MVK readback ~2x the pure-Metal reference (10.97 vs
-   5.43); verify the instance transform conversion bytes against the MTL4
-   expected layout (MTLPackedFloat4x3 columns) or the AS build inputs.
-2. Heap-backed output buffer workaround for real DXR (UAV staging).
-3. vkd3d-proton DXR 1.1 activation (M8): the shader + build + dispatch path is
-   now proven; wire the vkd3d ray-query/DXR entry points.
+1. MVK-side output staging for AS pipelines: bind the kernel's SSBO slots to
+   standalone shared staging buffers and copy to/from the real (heap-backed)
+   buffers, OR add a standalone-shared memory type.
+2. Distance verification once writes land (expect 5.000-5.431 like the
+   pure-Metal reference).
+3. vkd3d-proton DXR 1.1 activation (M8) on top of the proven dispatch path.
