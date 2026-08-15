@@ -14,3 +14,4 @@ sources/
 toolchain/
 artifacts/m14-*.log
 artifacts/VKD3D-Proton-MacOS-*.tar.zst
+artifacts/toolchain/dxc/
