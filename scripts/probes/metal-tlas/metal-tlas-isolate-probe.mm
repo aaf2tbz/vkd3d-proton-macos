@@ -24,10 +24,21 @@ int main(void) {
 
         float verts[9] = { 0,0,-5, 4,0,-5, 0,4,-5 };
         uint32_t indices[3] = { 0, 1, 2 };
+        // MVK pattern: the vertex data lives in a placement heap; the build stages
+        // it into standalone shared buffers (CPU-written heap data is invisible to
+        // MTL4 AS builds on this beta).
+        MTLHeapDescriptor *vhD = [MTLHeapDescriptor new];
+        vhD.type = MTLHeapTypePlacement;
+        vhD.storageMode = MTLStorageModeShared;
+        vhD.size = 1 << 20;
+        id<MTLHeap> vh = [dev newHeapWithDescriptor:vhD];
+        id<MTLBuffer> vhBuf = [vh newBufferWithLength:4096 options:0 offset:0];
+        memcpy(vhBuf.contents, verts, 36);
+        memcpy((char*)vhBuf.contents + 512, indices, 12);
         id<MTLBuffer> vb = [dev newBufferWithLength:36 options:MTLResourceStorageModeShared];
-        memcpy(vb.contents, verts, 36);
+        memcpy(vb.contents, (char*)vhBuf.contents, 36);
         id<MTLBuffer> ib = [dev newBufferWithLength:12 options:MTLResourceStorageModeShared];
-        memcpy(ib.contents, indices, 12);
+        memcpy(ib.contents, (char*)vhBuf.contents + 512, 12);
         MTL4BufferRange vbr = MTL4BufferRange(vb.gpuAddress, 36);
         MTL4BufferRange ibr = MTL4BufferRange(ib.gpuAddress, 12);
 
@@ -177,7 +188,7 @@ kernel void rayB(device _6& _4 [[buffer(9)]],
         argDataA.pad = 0;
         argDataA.asID = blas.gpuResourceID;
         id<MTLBuffer> argBufA = [dev newBufferWithBytes:&argDataA length:sizeof(argDataA) options:MTLResourceStorageModeShared];
-        id<MTLBuffer> hitsB = [hitsHeap newBufferWithLength:W*H*4 options:0 offset:65536];
+        id<MTLBuffer> hitsB = [dev newBufferWithLength:W*H*4 options:MTLResourceStorageModeShared];
         id<MTLResidencySet> rezHits = [dev newResidencySetWithDescriptor:[MTLResidencySetDescriptor new] error:&err];
         [rezHits addAllocation:hitsA];
         [rezHits addAllocation:hitsB];
@@ -213,7 +224,7 @@ kernel void rayB(device _6& _4 [[buffer(9)]],
         [tB setAddress:hitsB.gpuAddress atIndex:9];
         [tB setResource:tlas.gpuResourceID atBufferIndex:8];
         [e4 setArgumentTable:tB];
-        [e4 dispatchThreads:MTLSizeMake(W,H,1) threadsPerThreadgroup:MTLSizeMake(8,8,1)];
+        [e4 dispatchThreads:MTLSizeMake(8,8,1) threadsPerThreadgroup:MTLSizeMake(8,8,1)];
         [e4 endEncoding];
         [c4 endCommandBuffer];
         commitAndWait(q4, c4);

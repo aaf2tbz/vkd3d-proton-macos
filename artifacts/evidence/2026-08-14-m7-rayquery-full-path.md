@@ -47,10 +47,21 @@ The pure-Metal reference with the identical structure works, so the remaining
 fault is in the MTL4 dispatch execution itself (next: inspect MTL4 commit
 feedback errors / the argument-table state).
 
-The MTL4CommitFeedback error is now surfaced: the dispatch reports NO GPU
-error, yet the kernel's writes still don't land - the fault is in the
-argument-table/PSO state rather than a GPU fault (the dispatch is a no-op or
-the writes are discarded).
+## Dispatch writes UNLOCKED (2026-08-15, commit f926302)
+ROOT CAUSE FOUND: the FIRST MTL4 dispatch that uses a compute PSO loses its
+writes on this beta (no GPU error - a silent no-op). The fix is a PSO warm-up:
+a zero-thread classic dispatch with the same PSO and the first writable buffer
+bound at the same slot, BEFORE the MTL4 dispatch. Probe-verified in pure Metal
+(16x16 and 8x8 threads) and confirmed in the full MVK path: the const-write
+shader now lands 123.0 in all 64 staged outputs (ray query hits: 64).
+
+REMAINING DELTA: the ray-query traversal still finds NO intersections in the
+MVK path (candidate type NONE for all threads, staging zeros) while the
+line-for-line pure-Metal replication (staged vertex data from a placement heap,
+standalone AS + scratch, identical TLAS instance data, the same warm-up + MTL4
+dispatch + standalone output) hits 20/64 with exact distances 5.099. The
+delta is in the MVK's AS build/traversal - candidates: the MTL4BufferRange
+lengths, the AS build descriptor state, or the vertex/index staging bytes.
 
 ## Next steps
 1. Debug the MTL4 dispatch execution: no GPU error but writes don't land - check
