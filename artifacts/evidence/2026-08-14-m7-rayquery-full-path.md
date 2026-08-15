@@ -47,9 +47,15 @@ The pure-Metal reference with the identical structure works, so the remaining
 fault is in the MTL4 dispatch execution itself (next: inspect MTL4 commit
 feedback errors / the argument-table state).
 
+The MTL4CommitFeedback error is now surfaced: the dispatch reports NO GPU
+error, yet the kernel's writes still don't land - the fault is in the
+argument-table/PSO state rather than a GPU fault (the dispatch is a no-op or
+the writes are discarded).
+
 ## Next steps
-1. Debug the MTL4 dispatch execution: why the kernel's writes don't land (commit
-   feedback errors, argument table state, PSO state).
+1. Debug the MTL4 dispatch execution: no GPU error but writes don't land - check
+   the argument-table state (the table may need the resources/addresses declared
+   differently), the PSO state, and the dispatch thread semantics.
 2. Distance verification once writes land (expect 5.000-5.431 like the
    pure-Metal reference).
 3. vkd3d-proton DXR 1.1 activation (M8) on top of the proven dispatch path.
