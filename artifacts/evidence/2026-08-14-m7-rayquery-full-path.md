@@ -59,9 +59,16 @@ REMAINING DELTA: the ray-query traversal still finds NO intersections in the
 MVK path (candidate type NONE for all threads, staging zeros) while the
 line-for-line pure-Metal replication (staged vertex data from a placement heap,
 standalone AS + scratch, identical TLAS instance data, the same warm-up + MTL4
-dispatch + standalone output) hits 20/64 with exact distances 5.099. The
-delta is in the MVK's AS build/traversal - candidates: the MTL4BufferRange
-lengths, the AS build descriptor state, or the vertex/index staging bytes.
+dispatch + standalone output) hits 20/64 with exact distances 5.099.
+
+FINDING (2026-08-15, committed 1c35b71): MTL4 BLAS builds with opaque=YES
+produce acceleration structures the inline intersection_query cannot traverse
+(pure-Metal isolate: opaque YES drops 20/64 hits to 0; opaque NO restores
+them). The MVK now forces opaque=NO (documented deviation). The staged vertex/
+index bytes are verified correct in the MVK build ((0,0,-5)(4,0,-5)(0,4,-5) +
+(0,1,2)). The MVK's traversal STILL finds nothing after the opaque fix - the
+remaining delta is in the build execution path (queue/command-buffer state),
+not the descriptors or the data.
 
 ## Next steps
 1. Debug the MTL4 dispatch execution: no GPU error but writes don't land - check
