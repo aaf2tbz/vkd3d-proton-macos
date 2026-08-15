@@ -73,9 +73,26 @@ the VK 3x4 transform, walking into the instance bitfields and corrupting the
 MTL 4th column (the identity's padding column contained customIndex|mask).
 Fixed: rows 0-2 mapped, 4th column zeroed.
 
-The MVK's traversal STILL finds nothing after both fixes - the remaining delta
-is in the AS build execution path (queue/command-buffer state), not the
-descriptors, the data, or the kernel.
+FINDING 3 - THE REAL BUG (committed 8c48bc1): the tdesc.instanceDescriptorBuffer
+assignment was accidentally lost during the debug edits, so the TLAS built with
+ZERO instances and the traversal found nothing. Restored.
+
+## FULL VULKAN INLINE RAY QUERY IS GREEN (2026-08-15)
+5/5 consistent: `INLINE RAY QUERY (FULL VULKAN PATH) WORKS`, ray query hits: 1,
+minD=5.000 - the EXACT ray parameter for the triangle at z=-5 from the origin
+(2,2,0). The complete fix stack for the MVK DXR path on this beta:
+1. Discrete AS descriptor sets (the AS as a direct [[buffer(N)]] resource; the
+   argument-buffer struct-member and classic-raw patterns cannot resolve ASes)
+2. MTL4 argument-table dispatch + PSO warm-up (the first MTL4 dispatch with a
+   PSO silently drops its writes; a zero-thread classic dispatch with the same
+   PSO + first writable buffer unlocks subsequent dispatches)
+3. Output staging through standalone shared buffers + blit copy-back (MTL4
+   tables cannot write placement-heap or private buffers)
+4. BLAS opaque=NO (opaque=YES BLASes are un-traversable on this beta)
+5. TLAS instance transform 4th column zeroed (VK 3x4 has no 4th row)
+6. TLAS instance buffer bound to the descriptor
+
+Next: M8 - vkd3d-proton DXR 1.1 activation on top of this proven path.
 
 ## Next steps
 1. Debug the MTL4 dispatch execution: no GPU error but writes don't land - check
