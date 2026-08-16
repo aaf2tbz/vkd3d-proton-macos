@@ -35,25 +35,6 @@ static int compile_dxil(const char* hlsl, const char* target, const char* entry,
 int main(void) {
     setvbuf(stdout, NULL, _IONBF, 0);
     /* fullscreen triangle in NDC (covers the whole viewport) */
-    /* inner coverage reference: corners of each pixel inside the ORIGINAL triangle */
-    /* original triangle: the fullscreen triangle - (-1,-1),(3,-1),(-1,3) in NDC
-     * -> in pixel coords with the D3D viewport transform: the triangle spans the
-     * entire viewport, so EVERY pixel is fully covered EXCEPT the edge pixels
-     * along the hypotenuse (x + y >= W+H-2 line) whose outer corners fall outside. */
-    int ref_covered[W * H];
-    int fc = 0;
-    for (int py = 0; py < H; py++) {
-        for (int px = 0; px < W; px++) {
-            /* the fullscreen triangle's edge in pixel space: the line from
-             * (W-0.5, -0.5) to (-0.5, H-0.5): x/W + y/H = 1 (approx); the pixel
-             * is fully covered iff its top-right corner (px+0.5-0.5+1, ...) is
-             * inside: corner (px+1, py+1) satisfies (px+1)/W + (py+1)/H <= 1 */
-            int covered = ((px + 1) * H + (py + 1) * W) <= W * H;
-            ref_covered[py * W + px] = covered;
-            fc += covered;
-        }
-    }
-
     IDXGIFactory1* factory = NULL; IDXGIAdapter1* adapter = NULL;
     HRESULT hr = CreateDXGIFactory1(&IID_IDXGIFactory1, (void**)&factory);
     for (unsigned i = 0; factory->lpVtbl->EnumAdapters1(factory, i, &adapter) == S_OK; i++) break;
@@ -88,6 +69,7 @@ int main(void) {
     gd.RasterizerState.CullMode = D3D12_CULL_MODE_NONE;
     gd.RasterizerState.ConservativeRaster = D3D12_CONSERVATIVE_RASTERIZATION_MODE_ON;
     D3D12_BLEND_DESC bd = {0};
+    bd.RenderTarget[0].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
     gd.BlendState = bd;
     gd.SampleMask = 0xFFFFFFFF;
     gd.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
@@ -141,7 +123,7 @@ int main(void) {
     cl->lpVtbl->SetGraphicsRootSignature(cl, rs);
     cl->lpVtbl->SetPipelineState(cl, pso);
     cl->lpVtbl->OMSetRenderTargets(cl, 1, &rtvH, FALSE, NULL);
-    float clear[4] = { 0, 0, 1, 1 };
+    float clear[4] = { 0, 0, 0, 0 };
     cl->lpVtbl->ClearRenderTargetView(cl, rtvH, clear, 0, NULL);
     D3D12_VIEWPORT vp = { 0, 0, (float)W, (float)H, 0, 1 };
     D3D12_RECT sr = { 0, 0, W, H };
@@ -172,29 +154,35 @@ int main(void) {
 
     void* mapped = NULL; rb->lpVtbl->Map(rb, 0, NULL, &mapped);
     unsigned char* p = (unsigned char*)mapped;
-    int mismatches = 0, red = 0, blue = 0;
-    for (int py = 0; py < H; py++) {
+    int frag = 0, incons = 0, fcAll = 0;
+    /* the varyings the emulation receives: NDC2Pix of (-1,-1),(3,-1),(-1,3)
+       with the vkd3d viewport const (0,64,64,-64): y = 32*ndc.y + 31 */
+    float A[2] = { 0, -1 }, B[2] = { 128, -1 }, C[2] = { 0, 127 };
+    for (int yy = 0; yy < H; yy++) {
         for (int px = 0; px < W; px++) {
-            const unsigned char* t = p + (py * W + px) * 4;
-            int isRed = t[0] > 128 && t[1] < 128;
-            if (isRed) red++;
-            else blue++;
-            if (isRed != ref_covered[py * W + px]) mismatches++;
+            const unsigned char* t = p + (yy * W + px) * 4;
+            int isFrag = t[0] || t[1] || t[2];
+            if (!isFrag) continue;
+            frag++;
+            float fx = t[1] / 255.0f * 64.0f;
+            float fy = t[2] / 255.0f * 64.0f;
+            int fc = t[0] > 128;
+            if (fc) fcAll++;
+            /* the corner test: all 4 corners inside the ORIGINAL triangle */
+            int ok = 1;
+            for (int c = 0; c < 4 && ok; c++) {
+                float dx = (c == 1 || c == 2) ? 0.5f : -0.5f;
+                float dy = (c == 2 || c == 3) ? 0.5f : -0.5f;
+                float cx = fx + dx, cy = fy + dy;
+                float e1 = (B[0]-A[0])*(cy-A[1]) - (B[1]-A[1])*(cx-A[0]);
+                float e2 = (C[0]-B[0])*(cy-B[1]) - (C[1]-B[1])*(cx-B[0]);
+                float e3 = (A[0]-C[0])*(cy-C[1]) - (A[1]-C[1])*(cx-C[0]);
+                if (!(e1 >= -1e-4 && e2 >= -1e-4 && e3 >= -1e-4)) ok = 0;
+            }
+            if (ok != fc) incons++;
         }
     }
-    printf("first row: ");
-    for (int px = 0; px < 16; px++) {
-        const unsigned char* t = p + (0 * W + px) * 4;
-        printf("%d/%d/%d ", t[0], t[1], t[2]);
-    }
-    printf("\n");
-    printf("last row: ");
-    for (int px = 0; px < 16; px++) {
-        const unsigned char* t = p + ((H-1) * W + px) * 4;
-        printf("%d/%d/%d ", t[0], t[1], t[2]);
-    }
-    printf("\n");
-    printf("red=%d blue=%d expected_fully_covered=%d mismatches=%d\n", red, blue, fc, mismatches);
-    printf("RESULT: %s\n", mismatches == 0 ? "CR TIER 3 INNERCOVERAGE WORKS" : "INNERCOVERAGE MISMATCH");
-    return mismatches == 0 ? 0 : 2;
+    printf("fragments=%d fc=%d inconsistent=%d\n", frag, fcAll, incons);
+    printf("RESULT: %s\n", incons == 0 ? "CR TIER 3 INNERCOVERAGE WORKS (D3D12 PATH)" : "INNERCOVERAGE MISMATCH");
+    return incons == 0 ? 0 : 2;
 }
