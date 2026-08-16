@@ -26,7 +26,7 @@ make docs-check
 For runtime changes, install the tools in
 [docs/requirements.md](docs/requirements.md), place fresh source trees under
 `sources/`, and use the root Makefile. The validated runtime is x86_64 PE
-under MetalSharp Wine/Rosetta with a universal MoltenVK dylib.
+under Wine/Rosetta with a universal MoltenVK dylib.
 
 ## What to include
 

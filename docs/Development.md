@@ -20,7 +20,7 @@ beginner's introduction to those tools.
 - `llvm-mingw-20260616-ucrt-macos-universal` with clang 22.1.8.
 - Meson 1.x, Ninja, CMake, Python 3, Git, `zstd`, and `pkg-config`.
 - DirectX Shader Compiler (`dxc`) for SM 6.x HLSL/DXIL probe shaders.
-- MetalSharp Wine 11.5 for Wine-side probes.
+- A compatible Wine installation for Wine-side probes.
 - `gh` authenticated with repository permissions for publishing releases.
 
 Run the repository checks before building:
@@ -43,7 +43,6 @@ fresh working trees at these paths:
 sources/vkd3d-proton/
 sources/MoltenVK/
 sources/SPIRV-Cross/
-sources/MetalSharp/
 ```
 
 `make vkd3d` requires the vkd3d-proton tree. `make moltenvk` requires
@@ -57,7 +56,9 @@ source scripts/env.sh
 ```
 
 The environment script configures the llvm-mingw path, Xcode developer
-directory, MetalSharp Wine runtime, and workspace output locations. The
+directory, generic Wine launcher, and workspace output locations. Set
+`WINE_BIN` to a specific Wine executable when it is not on `PATH`; set
+`WINE_UNIX_LIB` when that Wine build needs an explicit Unix-library path. The
 runtime target is x86_64 PE under Wine/Rosetta; MoltenVK is built universal
 (x86_64 + arm64).
 
@@ -171,13 +172,15 @@ explicit:
 ```bash
 export WINEDLLOVERRIDES="d3d12,d3d12core,dxgi=n,b"
 export VK_ICD_FILENAMES="$WS/artifacts/stage-dxr/MoltenVK_icd.json"
-export DYLD_LIBRARY_PATH="$WS/artifacts/stage-dxr:$MS_RUNTIME/lib/wine/x86_64-unix"
+export WINE_BIN="${WINE_BIN:-$(command -v wine)}"
+export WINEPREFIX="$WS/artifacts/prefix"
+export DYLD_LIBRARY_PATH="$WS/artifacts/stage-dxr${WINE_UNIX_LIB:+:$WINE_UNIX_LIB}"
 export DYLD_FALLBACK_LIBRARY_PATH="$DYLD_LIBRARY_PATH"
 ```
 
 Use `VKMT_ALLOW_NON_SINGLE_TEXEL_ALIGNMENT=1` and `MVK_PRESENT_MODE=1` only
-when reproducing the established MetalSharp launch shape. Feature-level
-forcing is not valid acceptance evidence.
+when reproducing the validated launch shape. Feature-level forcing is not
+valid acceptance evidence.
 
 ## Logs and evidence
 

@@ -2,15 +2,16 @@
 
 ## Runtime environment
 
-The probes run under MetalSharp Wine 11.5 with the candidate files staged
-beside the probe executable:
+The probes run under a compatible Wine installation with the candidate files
+staged beside the probe executable:
 
 ```bash
 source scripts/env.sh
 export WINEPREFIX="$WS/artifacts/prefix"
+export WINE_BIN="${WINE_BIN:-$(command -v wine)}"
 export WINEDLLOVERRIDES="d3d12,d3d12core,dxgi=n,b"
 export VK_ICD_FILENAMES="$WS/artifacts/stage-dxr/MoltenVK_icd.json"
-export DYLD_LIBRARY_PATH="$WS/artifacts/stage-dxr:$MS_RUNTIME/lib/wine/x86_64-unix"
+export DYLD_LIBRARY_PATH="$WS/artifacts/stage-dxr${WINE_UNIX_LIB:+:$WINE_UNIX_LIB}"
 export DYLD_FALLBACK_LIBRARY_PATH="$DYLD_LIBRARY_PATH"
 ```
 

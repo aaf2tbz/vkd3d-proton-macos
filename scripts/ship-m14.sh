@@ -3,9 +3,8 @@
 # Usage: bash scripts/ship-m14.sh
 # Produces artifacts/VKD3D-Proton-MacOS-<date>.tar.zst with:
 #   - the workspace's committed state (docs, scripts, evidence)
-#   - the four fork source trees with their git histories (build/ excluded)
+#   - the source trees with their git histories (build/ excluded)
 #   - the built artifacts (d3d12 pair, libMoltenVK, ICD)
-#   - the repackaged metalsharp-graphics-dll bundle
 #   - BUILD.md (toolchain + build steps + launch env)
 set -e
 WS="$(cd "$(dirname "$0")/.." && pwd)"
@@ -18,7 +17,7 @@ mkdir -p "$STAGE/VKD3D-Proton-MacOS-$DATE"
 # 1. workspace committed state
 (cd "$WS" && git archive HEAD | tar -x -C "$STAGE/VKD3D-Proton-MacOS-$DATE")
 # 2. fork trees with git history (exclude build dirs)
-for f in MoltenVK vkd3d-proton SPIRV-Cross MetalSharp; do
+for f in MoltenVK vkd3d-proton SPIRV-Cross; do
   SRC="$WS/sources/$f"
   DST="$STAGE/VKD3D-Proton-MacOS-$DATE/sources/$f"
   if [ -d "$SRC/.git" ]; then
@@ -47,9 +46,7 @@ cp "$WS/artifacts/build/vkd3d-proton/x86_64-windows/d3d12.dll" "$STAGE/VKD3D-Pro
 cp "$WS/artifacts/build/vkd3d-proton/x86_64-windows/d3d12core.dll" "$STAGE/VKD3D-Proton-MacOS-$DATE/artifacts/bin/"
 cp "$WS/sources/MoltenVK/Package/Release/MoltenVK/dynamic/dylib/macOS/libMoltenVK.dylib" "$STAGE/VKD3D-Proton-MacOS-$DATE/artifacts/bin/"
 cp "$WS/artifacts/build/moltenvk-vkmt/MoltenVK_icd.json" "$STAGE/VKD3D-Proton-MacOS-$DATE/artifacts/bin/"
-# 4. the repackaged bundle
-cp "$WS/artifacts/metalsharp-graphics-dll-m12.tar.zst" "$STAGE/VKD3D-Proton-MacOS-$DATE/artifacts/"
-# 5. BUILD.md
+# 4. BUILD.md
 cat > "$STAGE/VKD3D-Proton-MacOS-$DATE/BUILD.md" <<'BUILD'
 # Build & run (M14 ship)
 
@@ -63,11 +60,9 @@ cat > "$STAGE/VKD3D-Proton-MacOS-$DATE/BUILD.md" <<'BUILD'
 - MoltenVK: `bash scripts/build-moltenvk.sh` (produces libMoltenVK.dylib)
 - The built artifacts are also committed under artifacts/bin/
 
-## Bundle
-- artifacts/metalsharp-graphics-dll-m12.tar.zst: the repackaged graphics bundle
-  with the DXR-12_2 vkd3d lane + the MoltenVK lane (hash-pinned in
-  MetalSharp's installer.rs: d3d12.dll 0fc39950..., d3d12core.dll 1659e641...,
-  libMoltenVK.dylib 2e25de79...)
+## Runtime
+- artifacts/bin/: the matched vkd3d-proton DLL pair, universal MoltenVK dylib,
+  and ICD manifest
 
 ## Launch env (wine)
 ```

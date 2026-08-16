@@ -18,7 +18,7 @@ MoltenVK dylib is universal (x86_64 + arm64).
 | zstd | current supported version | release archives |
 | Git | current supported version | source and provenance management |
 | DirectX Shader Compiler (`dxc`) | SM 6.x-capable build | HLSL/DXIL acceptance shaders |
-| MetalSharp Wine 11.5 | installed launch runtime | Wine-side D3D12 probes |
+| Wine | compatible macOS Wine installation | Wine-side D3D12 probes |
 | `gh` | authenticated with repository/release permissions | optional GitHub release publishing |
 
 `make tools` runs the workspace validator. The validator expects the local
@@ -35,7 +35,6 @@ trees. Place fresh clones at:
 sources/vkd3d-proton
 sources/MoltenVK
 sources/SPIRV-Cross
-sources/MetalSharp
 ```
 
 `make vkd3d` requires `sources/vkd3d-proton`; `make moltenvk` requires

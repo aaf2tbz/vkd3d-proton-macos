@@ -7,11 +7,11 @@ export LLVM_MINGW="$WS/toolchain/llvm-mingw-20260616-ucrt-macos-universal"
 export PATH="$LLVM_MINGW/bin:/opt/homebrew/bin:$PATH"
 # Xcode 27 beta 4 (MSL/metallib/metal toolchain)
 export DEVELOPER_DIR="/Users/averyfelts/Downloads/Xcode-beta.app/Contents/Developer"
-# Installed MetalSharp Wine 11.5 runtime (launch/probe target only — never modified until M14)
-export MS_RUNTIME="/Users/averyfelts/.metalsharp/runtime/wine"
-export MS_WINE="$MS_RUNTIME/bin/wine"
-# Bundle archive the final PR upgrades (M14)
-export MS_GRAPHICS_TAR="/Users/averyfelts/Desktop/metalsharp-graphics-dll-clean.tar.zst"
+# Generic Wine launcher. Override WINE_BIN for a custom Wine build.
+export WINE_BIN="${WINE_BIN:-$(command -v wine 2>/dev/null || true)}"
+export WINEPREFIX="${WINEPREFIX:-$WS/artifacts/prefix}"
+# Optional directory containing Wine's x86_64 Unix libraries.
+export WINE_UNIX_LIB="${WINE_UNIX_LIB:-}"
 # Build outputs
 export VKD3D_BUILD="$WS/artifacts/build/vkd3d-proton-build"
 export MVK_PACKAGE="$WS/sources/MoltenVK/Package/Release/MoltenVK/dynamic/dylib/macOS"

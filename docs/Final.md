@@ -12,7 +12,7 @@ during development.
 D3D12 application
         │
         ▼
-MetalSharp Wine 11.5 / Rosetta x86_64
+Compatible Wine / Rosetta x86_64
         │
         ▼
 vkd3d-proton: d3d12.dll + d3d12core.dll

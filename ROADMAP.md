@@ -3,7 +3,7 @@
 **Workspace:** `/Volumes/AverySSD/VKD3D-Proton-MacOS`
 **Date:** 2026-08-14
 **Status:** **v1.0 SHIPPED** — the public `v1.0` release contains the tested x86_64 D3D12 pair and universal MoltenVK runtime. The feature-level ladder is green from 11_0 through 12_2 plus CORE_1_0; the consolidated final state is **docs/Final.md**, with practical workflows in **docs/README.md**.
-**Mandate:** Prove that the MetalSharp D3D12 route — `D3D12 app → vkd3d-proton (custom) → Vulkan → custom MoltenVK → Metal` — running on **MetalSharp Wine 11.5** fully supports every Direct3D 12 feature level: **11_0, 11_1, 12_0, 12_1, 12_2, and compute-only CORE_1_0**. Every claim must be backed by reproducible, hash-pinned, runtime-verified evidence.
+**Mandate:** Prove that the Wine D3D12 route — `D3D12 app → vkd3d-proton (custom) → Vulkan → custom MoltenVK → Metal` — running on a compatible Wine installation fully supports every Direct3D 12 feature level: **11_0, 11_1, 12_0, 12_1, 12_2, and compute-only CORE_1_0**. Every claim must be backed by reproducible, hash-pinned, runtime-verified evidence.
 
 ---
 
@@ -11,8 +11,8 @@
 
 1. Stand up a self-contained build+validation workspace on the external drive containing every tool needed to build MSL / metallib / MoltenVK / SPIRV-Cross / vkd3d-proton.
 2. Climb the D3D12 feature-level ladder one rung at a time, with each rung closed by a deterministic evidence gate — never by version strings, extension advertisements, or forced config flags.
-3. Land the result as a new MetalSharp PR against a **clean upstream tree**, with the upgraded `metalsharp-graphics-dll.tar.zst` (vkd3d-proton + MoltenVK lanes) as the shipped artifact.
-4. Leave the user's installed MetalSharp Wine 11.5 installation untouched until the final integration milestone.
+3. Publish the result from a **clean upstream tree** as a matched vkd3d-proton + MoltenVK runtime archive.
+4. Leave the user's installed Wine environment untouched until final integration.
 
 ## 2. Non-Goals / Hard Rules
 
@@ -20,7 +20,7 @@
 - **No GPTK/D3DMetal.** Apple's closed D3DMetal is not part of this route.
 - **No CPU fallbacks for correctness.** Software rasterization / CPU readback synthesis is forbidden as acceptance evidence for GPU features. Every feature must execute on the GPU with exact readback.
 - **No `VKD3D_FEATURE_LEVEL` / option-bit forcing as "support".** The shipped vkd3d-proton contains an env override that force-sets feature-level option bits. Advertising 11_1+ that way is a lie and is banned as evidence. (It is documented as a debug tool only.)
-- **Wine 11.5 only for launches.** The MetalSharp Wine 11.5 runtime (internal storage) is the only launcher. The VKMT wine 11.12 tree is a source reference only, never a launch target.
+- **Compatible Wine for launches.** The launcher is selected with `WINE_BIN`; no vendor-specific Wine runtime is required.
 - **x86_64 PE discipline.** The runtime is Rosetta x86_64. `d3d12.dll` + `d3d12core.dll` must always be the same x86_64 build; a mixed pair or an ARM64EC pair is an instant, confusing failure. 32-bit D3D12 is out of scope.
 - **Fresh trees only.** No prior worktrees are reused as the base of the PR. All sources in `sources/` are fresh clones. Prior sessions' findings may inform the plan but every new claim is re-proven.
 
@@ -36,7 +36,7 @@ d3d12core.dll    custom vkd3d-proton impl, Agility-split     [sha 8b643bfb…]
                  · built with clang 22.1.8 (llvm-mingw) ← we now have this exact toolchain
 dxgi.dll         DXVK (18.9 MB) — DXGI provider only
 d3d11.dll        DXVK — D3D11 titles routed to M12 render
-  │  winevulkan (Wine 11.5 runtime), VK_ICD_FILENAMES pinned
+  │  winevulkan (compatible Wine runtime), VK_ICD_FILENAMES pinned
   ▼
 libMoltenVK.dylib  custom MoltenVK 1.4.2, Vulkan 1.4.357     [sha 50e41de2…]
                    · 154 instance extensions / 130 device extensions
@@ -53,7 +53,7 @@ Metal (Apple M4 · GPU Family Metal 4 / Apple 9 · MSL 4.0)
 
 ## 4. Evidence summary (consolidated in `docs/Final.md`)
 
-Measured on 2026-08-14 from `metalsharp-graphics-dll-clean.tar.zst` + installed MetalSharp Wine 11.5:
+Measured on 2026-08-14 from the runtime archive and a compatible Wine installation:
 
 | Feature level | Supported today? | Decisive facts |
 |---|---|---|
@@ -89,7 +89,7 @@ Every rung condition above is a **checklist item** in Section 6.
 | 0.1 | Device-creation env repair | vkd3d | The bare-wine probe env returned `E_INVALIDARG` on the custom core's D3DKMT adapter path. Rebuild the probe env to match the real M12 route exactly (game-dir staging, DYLD paths, ICD pin) and fix any custom-build adapter plumbing so headless device creation works in CI. |
 | 0.2 | 11_0 conformance corpus | tests | D3D12 API surface at 11_0: command lists/bundles, descriptors, heaps, fences, multi-queue, MSAA, UAV-only rendering, SM 5.1 shader matrix, typed/buffer SRV/UAV formats. |
 | 0.3 | MSL compile-zero-error pass | MVK/SPIRV-Cross | Shader-dump → `xcrun metal` on the full 11_0 corpus; zero `casts away`/`is not allowed`/`undeclared identifier` failures. |
-| 0.4 | Regression games | MetalSharp | Control (870780) + a D3D11-via-M12 title (Schedule I) stay green after every later milestone. |
+| 0.4 | Regression games | Wine integration | Control (870780) + a D3D11-via-M12 title (Schedule I) stay green after every later milestone. |
 
 **Exit:** 11_0 probe suite green + MSL zero-error + Control acceptance, all hash-pinned to the workspace build.
 
@@ -138,7 +138,7 @@ Sub-rung 4A — **Ray tracing (DXR Tier 1.1)**:
 | 4A.2 | `VK_KHR_acceleration_structure` | MoltenVK | Build/update BLAS/TLAS, compaction, geometry flags, instance transforms, `VkAccelerationStructureBuildGeometryInfoKHR`. |
 | 4A.3 | `VK_KHR_ray_tracing_pipeline` | MoltenVK | Shader binding tables → Metal intersection function tables; pipeline stack sizes; `vkCmdTraceRaysKHR` → Metal ray dispatch. |
 | 4A.4 | `VK_KHR_ray_query` (inline RT) | MoltenVK | Required for tier 1.1. Metal has no inline `intersect` intrinsic in fragment/compute — map RayQuery to Metal `intersector` functions via precomputed pipeline state or a software ray traversal fallback **on GPU** (BVH traversal in MSL). This is the single largest risk in 12_2; needs a dedicated prototype before anything else in 4A. |
-| 4A.5 | vkd3d DXR activation | vkd3d | `acceleration_structure.c` / `raytracing_pipeline.c` light up once MVK exposes RT; verify `VKD3D_CONFIG=dxr` flow and MetalSharp env plumbing for DXR apps. |
+| 4A.5 | vkd3d DXR activation | vkd3d | `acceleration_structure.c` / `raytracing_pipeline.c` light up once MVK exposes RT; verify `VKD3D_CONFIG=dxr` flow and generic Wine environment plumbing for DXR apps. |
 | 4A.6 | SPIRV-Cross RT MSL | SPIRV-Cross | DXIL→SPIR-V→MSL for raygen/closest-hit/any-hit/miss/intersection + RayQuery lowering; fix gaps against the `metal` compiler. |
 | 4A.7 | DXR probes | tests | DXR triangle + procedural sphere (raygen-only first), closest-hit with attributes, any-hit alpha, inline RayQuery in CS, AABB intersection, TLAS instancing. |
 
@@ -188,7 +188,7 @@ Sub-rung 4D — **Remaining rung bits**:
 ### WS-A — MoltenVK capability work
 Everything in Section 5 marked "MoltenVK", plus:
 - **Feature-gate discipline**: each new Vulkan feature/extension ships disabled until its probe row is green; `VkPhysicalDeviceFeatures2` chains must report only proven bits.
-- **MVK configuration surface**: log/verify `MVK_CONFIG_*` (argument buffers, shader dump, pre-rotation) stays consistent with the MetalSharp launcher's env.
+- **MVK configuration surface**: log/verify `MVK_CONFIG_*` (argument buffers, shader dump, pre-rotation) stays consistent with the launch environment.
 - **Universal dylib**: keep x86_64+arm64 slices (runtime is Rosetta x86_64; arm64 slice needed for ICD/tooling parity).
 
 ### WS-B — vkd3d-proton macOS/VKMT-specific work
@@ -196,7 +196,7 @@ Everything in Section 5 marked "MoltenVK", plus:
   - D3DKMT adapter path under Wine (make headless device creation work — Rung 0.1),
   - transform-feedback policy (VKMT disables stream output; keep it off — D3D12 has no XFB),
   - DXVK interop interfaces (`ID3D12DXVKInteropDevice*`) ABI compatibility with the shipped DXVK dxgi,
-  - Forwarder/Agility split (`d3d12.dll` forwarder + `d3d12core.dll` exporting `D3D12GetInterface`/`D3D12SDKVersion`) — preserve the exact split so MetalSharp's override/deploy model is unchanged.
+  - Forwarder/Agility split (`d3d12.dll` forwarder + `d3d12core.dll` exporting `D3D12GetInterface`/`D3D12SDKVersion`) — preserve the exact split so Wine override/deployment remains reliable.
 - Feature-level ladder: keep in sync with upstream `device.c`; every custom change to the ladder must be justified + tested.
 
 ### WS-C — SPIRV-Cross MSL lowering
@@ -211,15 +211,15 @@ Everything in Section 5 marked "MoltenVK", plus:
 ### WS-E — Build & packaging
 - **vkd3d-proton PE build**: llvm-mingw 20260616 (clang 22.1.8 — exact match to the shipped build's compiler) + ninja + meson, cross file for `x86_64-w64-mingw32`, producing the forwarder pair into `artifacts/build/vkd3d-proton/x86_64-windows/`.
 - **MoltenVK build**: CMake/Xcode universal dylib + `MoltenVK_icd.json` (library_path relative), into `artifacts/build/moltenvk-vkmt/`.
-- **Bundle integration (final milestone)**: update `metalsharp-graphics-dll.tar.zst` lanes via `tools/dmg/update-graphics-bundle.py` (zstd level-19 repack, exact filenames, manifest regen, `--clobber` semantics, verify-by-redownload), refresh `VKD3D_PROTON_EXPECTED_HASHES` in `installer.rs` + M12 launch-contract assertions in `launcher.rs`, game-dir staging checks, `/diagnostics/m12/dry-run` proof before any user launch.
+- **Runtime integration (final milestone)**: publish the zstd runtime archive with exact filenames, manifest, checksums, and game-directory staging checks before any user launch.
 
 ### WS-F — Validation & conformance
 - `scripts/mvkprobe.c` (native Vulkan capability dump against an exact dylib path) — the Phase-0 tool, extended per rung with functional rows (not just enumeration): RT triangle, mesh cube, VRS image, sparse residency, logicOp render, CR coverage.
-- `scripts/flprobe` (D3D12 feature-level probe exe under Wine 11.5, staged DLLs) — the per-rung gate; extend with functional tests per rung.
+- `scripts/flprobe` (D3D12 feature-level probe exe under compatible Wine, staged DLLs) — the per-rung gate; extend with functional tests per rung.
 - Test-first rule from this project's history: **advertisement ≠ support**. Each promoted capability needs a GPU-executed row with deterministic readback.
 
-### WS-G — MetalSharp integration
-- Fresh upstream clone in `sources/MetalSharp`; PR branch per milestone group (feature-level PRs), roadmap-first commit, then harness, gates, fixes.
+### WS-G — Wine integration
+- Generic Wine launch environment; keep runtime staging and feature-level probes independent of any particular Wine distribution.
 - Release checklist from `docs/optimization-roadmap/release-checklist.md` (bundle lanes, ICD, dry-run, game acceptance).
 - Never touch the installed app until the PR ships; all iteration happens against the workspace builds + the extracted bundle archive.
 
@@ -228,7 +228,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 | M | Name | Exit evidence |
 |---|---|---|
 | **M0** | Workspace + toolchain | ✅ DONE 2026-08-14 — llvm-mingw 20260616 (clang 22.1.8, exact shipped-build compiler) + ninja/meson/cmake + Xcode 27b4 + CLT b5 verified; 4 fresh clones; `validate-toolchain.sh` 20/20; repo `VKD3D-Proton-MacOS` committed (587b89f) |
-| **M1** | Harness parity | ✅ DONE 2026-08-14 — headless D3D12CreateDevice works in the exact M12 env. Blocker root-caused: missing single-texel alignment is a HARD E_INVALIDARG (upstream device.c:3317-3321); real launch shape sets `VKMT_ALLOW_NON_SINGLE_TEXEL_ALIGNMENT=1` (+MVK_PRESENT_MODE=1) via metalsharp-wine. Evidence: artifacts/evidence/2026-08-14-m1-m2-headless-device.md, runs m1-runD/E. ABI finding: custom build uses mingw-renumbered D3D12_FEATURE enum (SM=7, O5=27, O6=30, O7=32). |
+| **M1** | Harness parity | ✅ DONE 2026-08-14 — headless D3D12CreateDevice works in the generic Wine launch environment. Blocker root-caused: missing single-texel alignment is a HARD E_INVALIDARG (upstream device.c:3317-3321); the validated launch shape sets `VKMT_ALLOW_NON_SINGLE_TEXEL_ALIGNMENT=1` (+MVK_PRESENT_MODE=1). Evidence: artifacts/evidence/2026-08-14-m1-m2-headless-device.md, runs m1-runD/E. ABI finding: custom build uses mingw-renumbered D3D12_FEATURE enum (SM=7, O5=27, O6=30, O7=32). |
 | **M2** | 11_0 conformant | ✅ DONE (query surface) 2026-08-14 — full empirical CheckFeatureSupport matrix captured (FEATURE_LEVELS max=11_0; RB tier 3; Tiled/CR NOT_SUPPORTED; ROVs=1; LogicOp=0; TIR=1; VA bits 40; DXR/VRS/mesh/sampler-feedback NOT_SUPPORTED). MSL zero-error corpus + game acceptance still open (M2 remainder). |
 | **M3+M4** | 11_1 rung | ✅ DONE 2026-08-14 — logic-op emulation implemented (MVK framebuffer-fetch MSL injection; 16/16 ops pixel-exact on GPU) + 64 storage-buffer descriptors (Tier-2 arg buffers). FEATURE_LEVELS max = 11_1 (0xb100), OutputMergerLogicOp=1, SM 6.5 on the fully self-built stack. Key finds: runtime wine loads a fused libMoltenVK.1.dylib (DYLD override injects ours); VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY=0/NONE=2. |
 | **M3** | logicOp prototype | Pixel-exact logic-op emulation A/B green (16 ops × formats × MSAA) |
@@ -260,7 +260,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 | int64 image atomics for sampler feedback (12_2) | HIGH | MEDIUM | Metal `atomic_ulong` availability on Apple9; vkd3d emulation fallback |
 | Per-pixel ROV ordering on tile-based Apple GPU | MEDIUM | HIGH | interlock already advertised; execution proof pending |
 | Shipped custom patch set is closed (vkd3d VKMT) | HIGH | HIGH | Re-derive from binary markers + upstream; ABI-compat tests against shipped pair |
-| Bundle self-heal wipes custom lanes on launch | MEDIUM | HIGH | Known MetalSharp behavior; acceptance = post-launch hash comparison + dry-run |
+| Runtime self-heal can replace custom lanes on launch | MEDIUM | HIGH | Acceptance = post-launch hash comparison and explicit runtime staging |
 | Rosetta x86_64-only runtime constraints | MEDIUM | HIGH | x86_64-only PE builds; universal dylib |
 | SM 6.6+ blocked (no compute derivatives) | LOW (12_2 needs 6.5 only) | HIGH | Stretch goal; implement `VK_KHR_compute_shader_derivatives` in MVK |
 
@@ -270,7 +270,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 2. **Binary-backed build**: artifact hashes recorded in `docs/Final.md` and the release archive (d3d12.dll, d3d12core.dll, libMoltenVK.dylib).
 3. **Capability gate**: the exact feature reports correctly through the *real* D3D12 `CheckFeatureSupport` / Vulkan `GetPhysicalDeviceFeatures2` chain (no env forcing).
 4. **Execution row**: a GPU-executed probe with deterministic, sentinel-verified readback for every promoted behavior.
-5. **Ladder proof**: vkd3d TRACE `Max feature level: 0xXXXX` captured from the real Wine 11.5 route.
+5. **Ladder proof**: vkd3d TRACE `Max feature level: 0xXXXX` captured from the real compatible Wine route.
 6. **Regression proof**: all lower rungs + Control still green.
 7. **Provenance proof**: loaded-module paths + hashes recorded for the game/probe process (the project's mandatory acceptance check).
 

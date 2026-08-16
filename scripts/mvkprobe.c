@@ -1,5 +1,4 @@
-/* Native Vulkan capability probe against the CUSTOM MoltenVK from
- * metalsharp-graphics-dll-clean.tar.zst (libMoltenVK.dylib).
+/* Native Vulkan capability probe against the custom libMoltenVK.dylib.
  * dlopen's the dylib directly so there is no ICD ambiguity.
  */
 #include <stdio.h>

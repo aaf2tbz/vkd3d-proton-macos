@@ -1,6 +1,6 @@
 /* D3D12 feature-level probe for the custom vkd3d-proton stack.
  * Uses OFFICIAL Microsoft D3D12_FEATURE numeric ids (mingw renumbers them).
- * Run under the installed MetalSharp Wine 11.5 with the tar's d3d12.dll,
+ * Run under a compatible Wine installation with the package's d3d12.dll,
  * d3d12core.dll (vkd3d-proton) and dxgi.dll (DXVK) staged next to this exe.
  */
 #include <windows.h>

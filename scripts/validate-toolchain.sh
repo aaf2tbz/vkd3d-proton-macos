@@ -52,12 +52,13 @@ echo "== CLT beta =="
 command -v clang >/dev/null && ok "clang ($(clang --version 2>/dev/null | head -1))" || bad "clang"
 xcode-select -p 2>/dev/null | grep -q CommandLineTools && ok "xcode-select → CLT" || bad "xcode-select"
 
-echo "== MetalSharp Wine 11.5 (launch target) =="
-[ -x "/Users/averyfelts/.metalsharp/runtime/wine/bin/wine" ] && ok "wine runtime present" || bad "wine runtime missing"
-[ -f "/Users/averyfelts/Desktop/metalsharp-graphics-dll-clean.tar.zst" ] && ok "graphics bundle present" || bad "graphics bundle missing"
+echo "== Wine runtime =="
+WINE_BIN="${WINE_BIN:-$(command -v wine 2>/dev/null || true)}"
+[ -n "$WINE_BIN" ] && ok "wine runtime present ($WINE_BIN)" || bad "wine runtime missing (set WINE_BIN)"
+[ -n "$WINE_BIN" ] && "$WINE_BIN" --version 2>/dev/null | head -1 | sed 's/^/      /' || true
 
 echo "== sources (fresh clones) =="
-for s in vkd3d-proton MoltenVK SPIRV-Cross MetalSharp; do
+for s in vkd3d-proton MoltenVK SPIRV-Cross; do
   if git -C "$WS/sources/$s" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     C=$(git -C "$WS/sources/$s" log -1 --format='%h %s' 2>/dev/null | cut -c1-60)
     ok "$s ($C)"
