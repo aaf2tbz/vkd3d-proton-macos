@@ -60,7 +60,7 @@ WINE_BIN="${WINE_BIN:-$(command -v wine 2>/dev/null || true)}"
 [ -n "$WINE_BIN" ] && "$WINE_BIN" --version 2>/dev/null | head -1 | sed 's/^/      /' || true
 
 echo "== sources (fresh clones) =="
-for s in vkd3d-proton MoltenVK SPIRV-Cross; do
+for s in vkd3d-proton MoltenVK SPIRV-Cross dxvk-macos; do
   if git -C "$WS/sources/$s" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     C=$(git -C "$WS/sources/$s" log -1 --format='%h %s' 2>/dev/null | cut -c1-60)
     ok "$s ($C)"

@@ -7,15 +7,20 @@ STAGE_DIR ?= $(ROOT)/artifacts/stage-dxr
 WINE_RUNNER ?= /tmp/run-probe.sh
 PACKAGE ?= $(ROOT)/vkd3d-proton-macos.tar.zst
 XCODE16_DEVELOPER_DIR ?= /Users/averyfelts/Downloads/Xcode.app/Contents/Developer
+DXVK_SRC ?= $(ROOT)/sources/dxvk-macos
+DXVK_COMMIT ?= 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 
 .PHONY: help tools docs-check env vkd3d moltenvk metal3 build flprobe stage ladder \
-	package test clean
+	dxgi dxgi-probe dxgi-test package test clean
 
 help:
 	@printf '%s\n' \
 	  'make tools       verify required host tools and source clones' \
 	  'make docs-check  validate documentation, links, and whitespace' \
 	  'make vkd3d       build the x86_64 D3D12 DLL pair' \
+	  'make dxgi        build the pinned DXVK macOS DXGI provider' \
+	  'make dxgi-probe  compile the DXGI adapter identity probe' \
+	  'make dxgi-test   run DXGI-1 identity, repeatability, and regression gates' \
 	  'make moltenvk    build the universal MoltenVK dylib (staged, not promoted)' \
 	  'make metal3      build MoltenVK with macOS 14 / Metal 3 compatibility target' \
 	  'make build       run both vkd3d and MoltenVK builds' \
@@ -51,6 +56,18 @@ env:
 vkd3d:
 	@bash scripts/build-vkd3d-proton.sh
 
+dxgi:
+	@DXVK_SRC="$(DXVK_SRC)" DXVK_COMMIT="$(DXVK_COMMIT)" bash scripts/build-dxgi.sh
+
+dxgi-probe: dxgi
+	@mkdir -p "$(STAGE_DIR)"
+	@"$(LLVM_MINGW)/bin/x86_64-w64-mingw32-clang" -O2 scripts/probes/dxgi/dxgi_probe.c \
+		-o "$(STAGE_DIR)/dxgi_probe.exe" -ldxgi -ld3d12
+	@file "$(STAGE_DIR)/dxgi_probe.exe"
+
+dxgi-test: stage dxgi-probe
+	@bash scripts/validate-dxgi-phase1.sh
+
 moltenvk:
 	@bash scripts/build-moltenvk.sh
 
@@ -66,14 +83,16 @@ flprobe:
 		-o "$(STAGE_DIR)/flprobe.exe" -ldxgi -ld3d12
 	@file "$(STAGE_DIR)/flprobe.exe"
 
-stage:
+stage: dxgi
 	@test -f "$(BUILD_DIR)/vkd3d-proton/x86_64-windows/d3d12.dll"
 	@test -f "$(BUILD_DIR)/vkd3d-proton/x86_64-windows/d3d12core.dll"
+	@test -f "$(BUILD_DIR)/dxvk-macos/x86_64-windows/dxgi.dll"
 	@test -f "$(BUILD_DIR)/moltenvk-vkmt/MoltenVK_icd.json"
 	@test -f "$(BUILD_DIR)/moltenvk-vkmt/libMoltenVK.dylib"
 	@mkdir -p "$(STAGE_DIR)"
 	@cp "$(BUILD_DIR)/vkd3d-proton/x86_64-windows/d3d12.dll" "$(STAGE_DIR)/"
 	@cp "$(BUILD_DIR)/vkd3d-proton/x86_64-windows/d3d12core.dll" "$(STAGE_DIR)/"
+	@cp "$(BUILD_DIR)/dxvk-macos/x86_64-windows/dxgi.dll" "$(STAGE_DIR)/"
 	@cp "$(BUILD_DIR)/moltenvk-vkmt/"{libMoltenVK.dylib,MoltenVK_icd.json} "$(STAGE_DIR)/"
 	@echo "staged runtime in $(STAGE_DIR)"
 
@@ -90,5 +109,7 @@ test: docs-check
 
 clean:
 	@rm -rf "$(ROOT)/artifacts/build/vkd3d-proton-build" \
+		"$(ROOT)/artifacts/build/dxvk-macos" \
 		"$(ROOT)/artifacts/build/moltenvk-vkmt.build.new" \
-		"$(ROOT)/artifacts/vkd3d-cross-x86_64.txt"
+		"$(ROOT)/artifacts/vkd3d-cross-x86_64.txt" \
+		"$(ROOT)/artifacts/dxvk-cross-x86_64.txt"

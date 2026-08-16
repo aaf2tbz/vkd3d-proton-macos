@@ -83,6 +83,32 @@ artifacts/build/vkd3d-proton/x86_64-windows/d3d12core.dll
 Both files must be PE32+ x86-64 and must come from the same build. Never mix
 DLLs from different lanes or build timestamps.
 
+## Build DXVK macOS DXGI
+
+Phase DXGI-1 uses the pinned DXVK macOS source at commit
+`8f1e28deed3ad30802f7e1bdff428ec14e6e7817`:
+
+```bash
+git clone https://github.com/Gcenx/DXVK-macOS.git sources/dxvk-macos
+git -C sources/dxvk-macos checkout 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
+make dxgi
+make dxgi-probe
+```
+
+The provider is built as an x86_64 PE DLL at
+`artifacts/build/dxvk-macos/x86_64-windows/dxgi.dll`. Stage it with the
+matched D3D12 pair using `make stage`. The complete Phase 1 gate is:
+
+```bash
+make dxgi-test
+```
+
+That runs the adapter/factory probe ten times, checks stable DXGI/D3D12 LUID
+identity against the MoltenVK GPU log, loads and checks the D3D12Core exports,
+runs invalid-input tests, and reruns the existing six-probe regression suite.
+DXGI-1 does not yet test windowed swapchains or gameplay presentation; those
+are DXGI-2 and later.
+
 ## Build MoltenVK
 
 Build the custom universal dylib candidate:

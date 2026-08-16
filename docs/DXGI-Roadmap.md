@@ -1,6 +1,6 @@
 # DXGI Stability Roadmap
 
-**Status:** planned next work after the v1.0 D3D12/MoltenVK release.
+**Status:** DXGI-1 complete; DXGI-2 presentation work is next.
 
 The current release proves device creation, off-screen D3D12 rendering, shader
 translation, and deterministic readback. It does **not** yet prove a stable
@@ -19,6 +19,17 @@ The existing package relies on the user's compatible Wine/DXGI installation;
 this roadmap moves DXVK macOS into a pinned, buildable, testable workspace
 lane and decides whether the resulting `dxgi.dll` is bundled with a later
 runtime release.
+
+### DXGI-1 completion record
+
+Phase 1 passed on 2026-08-16. The pinned source is Gcenx/DXVK-macOS commit
+`8f1e28deed3ad30802f7e1bdff428ec14e6e7817`, and `make dxgi` now produces the
+native x86_64 `dxgi.dll`. The adapter probe, ten-run repeatability gate,
+negative tests, module provenance checks, and existing six-probe regression
+suite are recorded in
+[`artifacts/evidence/dxgi-1-adapter-identity.md`](../artifacts/evidence/dxgi-1-adapter-identity.md).
+This closes adapter identity only; it does not claim swapchain or gameplay
+stability.
 
 ## Rules for every phase
 

@@ -21,6 +21,20 @@ The exact local runner may add `VKMT_ALLOW_NON_SINGLE_TEXEL_ALIGNMENT=1`,
 `MVK_PRESENT_MODE=1`, cache paths, and `WINEDEBUG=-all`. Keep those settings
 in the runner rather than changing the probes.
 
+## DXGI-1 adapter gate
+
+The pinned DXVK macOS DXGI provider and adapter identity gate run with:
+
+```bash
+make dxgi-test
+```
+
+This proves native `dxgi.dll` loading, DXGI factory creation, hardware adapter
+enumeration, stable DXGI/D3D12 LUID matching, D3D12Core loadability and exports,
+Vulkan/MoltenVK vendor/device identity, ten repeatable runs, invalid-input
+handling, and the complete regression suite. It does not create a swapchain;
+presentation begins in DXGI-2.
+
 ## Probe gate
 
 The M14 gate is green only when all of these pass:
