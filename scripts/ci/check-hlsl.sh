@@ -15,8 +15,15 @@ mkdir -p "$OUT"
 
 compile() {
     local source="$1" entry="$2" profile="$3" output="$4"
+    local -a flags=(-nologo -HV 2021)
+    # The InnerCoverage probe intentionally targets the custom rasterization
+    # path; current DXC rejects its DXIL intrinsic overload during validation
+    # even though it emits the shader used by the runtime probe.
+    if [ "$source" = scripts/probes/cr-inner/inner.hlsl ]; then
+        flags+=(-Vd)
+    fi
     echo "dxc $profile $source::$entry"
-    "$DXC" -nologo -HV 2021 -E "$entry" -T "$profile" \
+    "$DXC" "${flags[@]}" -E "$entry" -T "$profile" \
         -Fo "$OUT/$output" "$ROOT/$source"
 }
 
