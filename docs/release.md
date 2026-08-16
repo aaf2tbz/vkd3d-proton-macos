@@ -1,7 +1,7 @@
 # Runtime release archive
 
 The public runtime is distributed through the GitHub release asset
-[`vkd3d-proton-macos.tar.zst`](https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/v1.0).
+[`vkd3d-proton-macos.tar.zst`](https://github.com/metalsharp/vkd3d-proton-macos/releases/tag/v1.0).
 
 ## Archive contents
 

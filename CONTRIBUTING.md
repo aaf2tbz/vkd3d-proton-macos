@@ -18,7 +18,7 @@ to a pull request.
 ## Local setup
 
 ```bash
-git clone https://github.com/aaf2tbz/vkd3d-proton-macos.git
+git clone https://github.com/metalsharp/vkd3d-proton-macos.git
 cd vkd3d-proton-macos
 make docs-check
 ```
@@ -60,6 +60,12 @@ GPU-executed, deterministic readback evidence.
 - Link the relevant evidence or issue.
 - Keep generated artifacts and personal paths out of commits.
 - Be ready to revise documentation and tests as part of review.
+
+The `main` branch is protected. Changes require an approving review from the
+repository owner through [`.github/CODEOWNERS`](.github/CODEOWNERS); direct
+pushes are blocked for ordinary contributors. The repository owner may use
+the GitHub administrator bypass (`gh pr merge --admin`) when an exceptional
+direct merge is required.
 
 By contributing, you agree that your work can be distributed under the
 repository's [MIT License](LICENSE), unless a different upstream license

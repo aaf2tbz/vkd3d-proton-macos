@@ -54,7 +54,7 @@ docs-check:
 	@for f in docs/README.md docs/Final.md docs/requirements.md docs/Development.md docs/features.md docs/validation.md docs/release.md; do \
 		test -f "$$f" || { echo "missing $$f"; exit 1; }; \
 	done
-	@grep -q 'github.com/aaf2tbz/vkd3d-proton-macos' README.md
+	@grep -q 'github.com/metalsharp/vkd3d-proton-macos' README.md
 	@grep -q 'License-MIT' README.md
 	@grep -q 'Build' README.md
 	@git diff --check

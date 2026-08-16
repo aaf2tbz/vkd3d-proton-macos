@@ -14,10 +14,10 @@ should also be reported to the appropriate upstream project when applicable.
 Please do **not** report security vulnerabilities in a public issue or pull
 request. Use GitHub's private vulnerability reporting for this repository:
 
-<https://github.com/aaf2tbz/vkd3d-proton-macos/security/advisories/new>
+<https://github.com/metalsharp/vkd3d-proton-macos/security/advisories/new>
 
 If private reporting is unavailable, contact the maintainers through the
-project profile at <https://github.com/aaf2tbz> and do not include exploit
+project profile at <https://github.com/metalsharp> and do not include exploit
 details in a public thread.
 
 Include, when possible:

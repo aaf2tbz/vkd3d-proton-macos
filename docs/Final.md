@@ -1,6 +1,6 @@
 # VKD3D-Proton macOS — Final State
 
-**Status:** shipped and publicly released as [`v1.0`](https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/v1.0).
+**Status:** shipped and publicly released as [`v1.0`](https://github.com/metalsharp/vkd3d-proton-macos/releases/tag/v1.0).
 
 This is the consolidated final-state record for the Apple Silicon D3D12
 runtime. It replaces the numbered planning/evidence documents that were used
@@ -33,7 +33,7 @@ the MoltenVK side. Keep the ICD manifest beside the dylib and pin it with
 
 ## Released package
 
-Download [`vkd3d-proton-macos.tar.zst`](https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/v1.0).
+Download [`vkd3d-proton-macos.tar.zst`](https://github.com/metalsharp/vkd3d-proton-macos/releases/tag/v1.0).
 The archive contains:
 
 ```text
@@ -279,7 +279,7 @@ are in [Development.md](Development.md). Validation rules are in
 
 ## Final provenance
 
-- Public repository: <https://github.com/aaf2tbz/vkd3d-proton-macos>
+- Public repository: <https://github.com/metalsharp/vkd3d-proton-macos>
 - Release tag: `v1.0`
 - Final documentation/policy state is checked by `make docs-check`.
 - Generated source clones, build directories, and release archives remain

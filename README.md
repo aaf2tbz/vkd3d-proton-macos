@@ -7,15 +7,15 @@
 </p>
 
 <p>
-  <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/v1.0"><img src="https://img.shields.io/github/v/release/aaf2tbz/vkd3d-proton-macos?filter=v1.0&style=for-the-badge" alt="Release"></a>
+  <a href="https://github.com/metalsharp/vkd3d-proton-macos/releases/tag/v1.0"><img src="https://img.shields.io/github/v/release/metalsharp/vkd3d-proton-macos?filter=v1.0&style=for-the-badge" alt="Release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License"></a>
-  <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/actions/workflows/build.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaf2tbz/vkd3d-proton-macos/build.yml?branch=main&style=for-the-badge&label=Build" alt="Build"></a>
+  <a href="https://github.com/metalsharp/vkd3d-proton-macos/actions/workflows/build.yml"><img src="https://img.shields.io/github/actions/workflow/status/metalsharp/vkd3d-proton-macos/build.yml?branch=main&style=for-the-badge&label=Build" alt="Build"></a>
 </p>
 
 <pre>D3D12 application → vkd3d-proton → Vulkan → custom MoltenVK → Metal</pre>
 
 <p>
-  The public <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/v1.0">release</a>
+  The public <a href="https://github.com/metalsharp/vkd3d-proton-macos/releases/tag/v1.0">release</a>
   contains the tested x86_64 Wine D3D12 runtime pair and universal MoltenVK runtime.
 </p>
 
@@ -42,7 +42,7 @@ CORE_1_0 corpus, geometry-shader corpus, and the compute matrix.
 ## Quick start
 
 ```bash
-git clone https://github.com/aaf2tbz/vkd3d-proton-macos.git
+git clone https://github.com/metalsharp/vkd3d-proton-macos.git
 cd vkd3d-proton-macos
 make help
 make docs-check
