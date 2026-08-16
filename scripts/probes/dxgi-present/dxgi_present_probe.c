@@ -309,18 +309,27 @@ static int verify_pixels(ID3D12Resource *readback)
 {
     D3D12_RANGE range = { 0, READBACK_SIZE };
     unsigned char *pixels = NULL;
-    unsigned char center[4];
+    unsigned char red[4];
+    unsigned char green[4];
+    unsigned char blue[4];
     unsigned char corner[4];
     int ok;
     if (FAILED(readback->lpVtbl->Map(readback, 0, &range, (void **)&pixels)) || !pixels)
         return 0;
-    memcpy(center, pixels + (HEIGHT / 2) * ROW_PITCH + (WIDTH / 2) * 4, 4);
+    /* Sample well inside each colored vertex region, away from edges. */
+    memcpy(red, pixels + 360 * ROW_PITCH + 160 * 4, 4);
+    memcpy(green, pixels + 360 * ROW_PITCH + 480 * 4, 4);
+    memcpy(blue, pixels + 120 * ROW_PITCH + 320 * 4, 4);
     memcpy(corner, pixels, 4);
-    /* BGRA8: triangle is orange, clear is dark blue. */
-    ok = center[2] > 200 && center[1] < 80 && center[0] < 80 &&
+    /* BGRA8: RGB vertex colors, with a dark-blue clear outside the triangle. */
+    ok = red[2] > 180 && red[1] < 80 && red[0] < 80 &&
+            green[1] > 180 && green[2] < 80 && green[0] < 80 &&
+            blue[0] > 180 && blue[1] < 80 && blue[2] < 80 &&
             corner[2] < 80 && corner[1] < 80 && corner[0] > 20;
-    printf("  readback center=%02x%02x%02x%02x corner=%02x%02x%02x%02x: %s\n",
-            center[0], center[1], center[2], center[3],
+    printf("  readback rgb-red=%02x%02x%02x%02x rgb-green=%02x%02x%02x%02x rgb-blue=%02x%02x%02x%02x clear=%02x%02x%02x%02x: %s\n",
+            red[0], red[1], red[2], red[3],
+            green[0], green[1], green[2], green[3],
+            blue[0], blue[1], blue[2], blue[3],
             corner[0], corner[1], corner[2], corner[3], ok ? "PASS" : "FAIL");
     readback->lpVtbl->Unmap(readback, 0, NULL);
     return ok;

@@ -1,6 +1,6 @@
 # DXGI-2 windowed presentation evidence
 
-- Date: 2026-08-16T20:51:03Z
+- Date: 2026-08-16T21:00:45Z
 - DXVK source: Gcenx/DXVK-macOS
 - DXVK base commit: 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 - DXVK bridge patch: /Volumes/AverySSD/VKD3D-Proton-MacOS/patches/dxvk-macos-d3d12-dxgi.patch
@@ -13,7 +13,7 @@
 ```text
 /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/dxgi.dll
 /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/dxgi.dll: PE32+ executable (DLL) (GUI) x86-64, for MS Windows
-571e9f3b119aa0950993899ddf8df114be9277b347af8e1b12517eeb805d9aff  /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/dxgi.dll
+2480718f239358cbb00286ea3187fc4a191e13aabd78553b552a7d69f0e3446e  /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/dxgi.dll
 /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/d3d12.dll
 /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/d3d12.dll: PE32+ executable (DLL) (GUI) x86-64, for MS Windows
 ac2b8674798bdbdd21ce1aa48daf1e2657813ecc878b80e2641bf0d2c3f2a43e  /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/d3d12.dll
@@ -41,7 +41,7 @@ window/device/queue: PASS
 === CreateSwapChain flip-discard + Present ===
   create: hr=0x00000000 PASS
   Present(DXGI_PRESENT_TEST): hr=0x00000000 PASS
-  readback center=0020ffff corner=330505ff: PASS
+  readback rgb-red=2a16bfff rgb-green=2ac015ff rgb-blue=d41615ff clear=330505ff: PASS
   frames: 1000 / 1000
   sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING
   GetFrameStatistics: hr=0x00000000 PASS/UNSUPPORTED
@@ -49,7 +49,7 @@ window/device/queue: PASS
 === CreateSwapChain flip-sequential + Present ===
   create: hr=0x00000000 PASS
   Present(DXGI_PRESENT_TEST): hr=0x00000000 PASS
-  readback center=0020ffff corner=330505ff: PASS
+  readback rgb-red=2a16bfff rgb-green=2ac015ff rgb-blue=d41615ff clear=330505ff: PASS
   frames: 1000 / 1000
   sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING
   GetFrameStatistics: hr=0x00000000 PASS/UNSUPPORTED
@@ -57,7 +57,7 @@ window/device/queue: PASS
 === CreateSwapChainForHwnd flip-discard + Present1 ===
   create: hr=0x00000000 PASS
   Present1(DXGI_PRESENT_TEST): hr=0x00000000 PASS
-  readback center=0020ffff corner=330505ff: PASS
+  readback rgb-red=2a16bfff rgb-green=2ac015ff rgb-blue=d41615ff clear=330505ff: PASS
   frames: 1000 / 1000
   sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING
   GetFrameStatistics: hr=0x00000000 PASS/UNSUPPORTED
@@ -65,7 +65,7 @@ window/device/queue: PASS
 === CreateSwapChainForHwnd flip-sequential + Present1 ===
   create: hr=0x00000000 PASS
   Present1(DXGI_PRESENT_TEST): hr=0x00000000 PASS
-  readback center=0020ffff corner=330505ff: PASS
+  readback rgb-red=2a16bfff rgb-green=2ac015ff rgb-blue=d41615ff clear=330505ff: PASS
   frames: 1000 / 1000
   sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING
   GetFrameStatistics: hr=0x00000000 PASS/UNSUPPORTED

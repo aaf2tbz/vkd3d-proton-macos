@@ -1,4 +1,13 @@
 mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+00a4:err:ntoskrnl:ZwLoadDriver failed to create driver L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\winebth": c00000e5
+003c:fixme:service:scmdatabase_autostart_services Auto-start service L"winebth" failed to start: 1359
 === DXGI-2 windowed presentation probe ===
 module paths are emitted by the Wine/DXVK runtime logs
 mscompatdb: not found
@@ -187,6 +196,7 @@ mscompatdb: not found
 	VK_KHR_external_memory_capabilities v1
 	VK_KHR_external_semaphore_capabilities v1
 	VK_KHR_get_physical_device_properties2 v2
+mscompatdb: not found
 info:  Game: dxgi_present_probe.exe
 info:  DXVK: v1.10.3-20230507-async (macOS)
 info:  Built-in extension providers:
@@ -399,11 +409,11 @@ warn:  DXGI: MakeWindowAssociation: Ignoring flags
 selected adapter: vendor=0x106b device=0x1b000209 luid=00000000-000003f4
 warn:  DxgiAdapter::QueryInterface: Unknown interface query
 warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
-23594.959:00e0:00e4:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "dxgi_present_probe.exe" (hash: e7713e1ef2195178)
-23594.959:00e0:00e4:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
-23594.959:00e0:00e4:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
-23594.960:00e0:00e4:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
-23594.960:00e0:00e4:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 5d24bc718560d60+.
+24174.813:0020:0024:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "dxgi_present_probe.exe" (hash: e7713e1ef2195178)
+24174.813:0020:0024:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
+24174.813:0020:0024:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
+24174.814:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
+24174.814:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 5d24bc718560d60+.
 [mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
 	The following 164 Vulkan extensions are supported:
 	VK_KHR_16bit_storage v1
@@ -593,11 +603,11 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_KHR_surface_maintenance1 v1
 	VK_EXT_metal_surface v1
 	VK_EXT_surface_maintenance1 v1
-00e4:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
-00e4:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
-23594.982:00e0:00e4:info:vkd3d-proton:vkd3d_physical_device_info_init_maint9: Implementation does not support eliding QFOT for non-compressed optimal images.
-23594.982:00e0:00e4:err:vkd3d-proton:vkd3d_init_device_caps: Lacking support for single texel alignment.
-23594.982:00e0:00e4:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
+0024:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
+0024:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
+24174.839:0020:0024:info:vkd3d-proton:vkd3d_physical_device_info_init_maint9: Implementation does not support eliding QFOT for non-compressed optimal images.
+24174.839:0020:0024:err:vkd3d-proton:vkd3d_init_device_caps: Lacking support for single texel alignment.
+24174.839:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
 [mvk-info] Created VkDevice to run on GPU Apple M4 with the following 35 Vulkan extensions enabled:
@@ -636,18 +646,18 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_EXT_shader_stencil_export v1
 	VK_EXT_swapchain_maintenance1 v1
 	VK_EXT_vertex_attribute_divisor v3
-23594.993:00e0:00e4:info:vkd3d-proton:vkd3d_memory_info_decide_hvv_usage: Topology: UMA-like topology.
-23594.993:00e0:00e4:info:vkd3d-proton:vkd3d_memory_info_upload_hvv_memory_properties: Topology: HVV usage is allowed, using DEVICE_LOCAL | HOST_COHERENT for UPLOAD.
-23594.993:00e0:00e4:info:vkd3d-proton:vkd3d_bindless_state_get_bindless_flags: Device does not support VK_EXT_mutable_descriptor_type (or VALVE).
+24174.851:0020:0024:info:vkd3d-proton:vkd3d_memory_info_decide_hvv_usage: Topology: UMA-like topology.
+24174.851:0020:0024:info:vkd3d-proton:vkd3d_memory_info_upload_hvv_memory_properties: Topology: HVV usage is allowed, using DEVICE_LOCAL | HOST_COHERENT for UPLOAD.
+24174.852:0020:0024:info:vkd3d-proton:vkd3d_bindless_state_get_bindless_flags: Device does not support VK_EXT_mutable_descriptor_type (or VALVE).
 [MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10e9b0 stageCount0=2
 [mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Blending is enabled for attachment with format VK_FORMAT_R8_UINT, which does not support it.
 [MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10e9b0 stageCount0=2
 [mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Blending is enabled for attachment with format VK_FORMAT_R8_UINT, which does not support it.
-23595.019:00e0:00e4:fixme:vkd3d-proton:d3d12_device_caps_init_feature_options1: TotalLaneCount = 1024, may be inaccurate.
-23595.019:00e0:00e4:info:vkd3d-proton:d3d12_device_determine_ray_tracing_tier: DXR 1.1 support enabled (inline ray query only, no TraceRay).
-23595.019:00e0:00e4:info:vkd3d-proton:d3d12_device_caps_init_feature_level: DX Ultimate supported!
-23595.019:00e0:00e4:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Remapping VKD3D_SHADER_CACHE to: vkd3d-proton.cache.
-23595.019:00e0:00e4:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Attempting to load disk cache from: vkd3d-proton.cache.
+24174.875:0020:0024:fixme:vkd3d-proton:d3d12_device_caps_init_feature_options1: TotalLaneCount = 1024, may be inaccurate.
+24174.875:0020:0024:info:vkd3d-proton:d3d12_device_determine_ray_tracing_tier: DXR 1.1 support enabled (inline ray query only, no TraceRay).
+24174.875:0020:0024:info:vkd3d-proton:d3d12_device_caps_init_feature_level: DX Ultimate supported!
+24174.876:0020:0024:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Remapping VKD3D_SHADER_CACHE to: vkd3d-proton.cache.
+24174.876:0020:0024:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Attempting to load disk cache from: vkd3d-proton.cache.
 [mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
 	The following 164 Vulkan extensions are supported:
 	VK_KHR_16bit_storage v1
@@ -833,82 +843,82 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_KHR_external_memory_capabilities v1
 	VK_KHR_external_semaphore_capabilities v1
 	VK_KHR_get_physical_device_properties2 v2
-23595.020:00e0:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Performing async setup of stream archive ...
+24174.876:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Performing async setup of stream archive ...
 D3D12 adapter LUID: 00000000-000003f4 (MATCH)
-23595.020:00e0:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_merge: No write cache exists. No need to merge any disk caches.
-23595.020:00e0:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.590 ms.
-23595.024:00e0:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Mapping read-only cache took 2.238 ms.
-23595.024:00e0:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Parsing stream archive took 0.267 ms.
-23595.024:00e0:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
+24174.877:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_merge: No write cache exists. No need to merge any disk caches.
+24174.877:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.557 ms.
+24174.880:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Mapping read-only cache took 2.016 ms.
+24174.880:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Parsing stream archive took 0.286 ms.
+24174.880:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
 [MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10e7d0 stageCount0=2
 [mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
 tearing support: hr=0x00000000 supported=1
 window/device/queue: PASS
-23595.030:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
-23595.034:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
-23595.034:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+24174.885:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+24174.888:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+24174.888:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
 
 === CreateSwapChain flip-discard + Present ===
   create: hr=0x00000000 PASS
   Present(DXGI_PRESENT_TEST): hr=0x00000000 PASS
-  readback center=0020ffff corner=330505ff: PASS
-[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x6000039ad950) on screen Main Screen.
-23595.274:00e0:0130:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  readback rgb-red=2a16bfff rgb-green=2ac015ff rgb-blue=d41615ff clear=330505ff: PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003ad6220) on screen Main Screen.
+24175.136:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
 [MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x38dee10 stageCount0=2
-[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x6000039ad950) on screen Main Screen.
-23595.278:00e0:0130:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003ad6220) on screen Main Screen.
+24175.140:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
   frames: 1000 / 1000
   sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING
 warn:  DxgiSwapChain::GetFrameStatistics: Semi-stub
   GetFrameStatistics: hr=0x00000000 PASS/UNSUPPORTED
   GetLastPresentCount: hr=0x00000000 count=1000 PASS/UNSUPPORTED
   mode result: PASS
-23603.598:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
-23603.599:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
-23603.599:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+24183.446:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+24183.447:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+24183.447:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
 
 === CreateSwapChain flip-sequential + Present ===
   create: hr=0x00000000 PASS
   Present(DXGI_PRESENT_TEST): hr=0x00000000 PASS
-  readback center=0020ffff corner=330505ff: PASS
-[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x6000039902a0) on screen Main Screen.
-23603.602:00e0:0130:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
-[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x6000039902a0) on screen Main Screen.
-23603.604:00e0:0130:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  readback rgb-red=2a16bfff rgb-green=2ac015ff rgb-blue=d41615ff clear=330505ff: PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003b217a0) on screen Main Screen.
+24183.449:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003b217a0) on screen Main Screen.
+24183.451:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
   frames: 1000 / 1000
   sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING
   GetFrameStatistics: hr=0x00000000 PASS/UNSUPPORTED
   GetLastPresentCount: hr=0x00000000 count=1000 PASS/UNSUPPORTED
   mode result: PASS
-23611.917:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
-23611.917:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
-23611.918:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+24191.761:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+24191.761:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+24191.762:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
 
 === CreateSwapChainForHwnd flip-discard + Present1 ===
   create: hr=0x00000000 PASS
   Present1(DXGI_PRESENT_TEST): hr=0x00000000 PASS
-  readback center=0020ffff corner=330505ff: PASS
-[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x6000039be190) on screen Main Screen.
-23611.921:00e0:0130:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
-[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x6000039be190) on screen Main Screen.
-23611.923:00e0:0130:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  readback rgb-red=2a16bfff rgb-green=2ac015ff rgb-blue=d41615ff clear=330505ff: PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003b30bd0) on screen Main Screen.
+24191.764:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003b30bd0) on screen Main Screen.
+24191.767:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
   frames: 1000 / 1000
   sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING
   GetFrameStatistics: hr=0x00000000 PASS/UNSUPPORTED
   GetLastPresentCount: hr=0x00000000 count=1000 PASS/UNSUPPORTED
   mode result: PASS
-23620.246:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
-23620.247:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
-23620.247:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+24202.276:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+24202.277:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+24202.277:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
 
 === CreateSwapChainForHwnd flip-sequential + Present1 ===
   create: hr=0x00000000 PASS
   Present1(DXGI_PRESENT_TEST): hr=0x00000000 PASS
-  readback center=0020ffff corner=330505ff: PASS
-[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003990330) on screen Main Screen.
-23620.250:00e0:0130:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
-[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003990330) on screen Main Screen.
-23620.252:00e0:0130:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  readback rgb-red=2a16bfff rgb-green=2ac015ff rgb-blue=d41615ff clear=330505ff: PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003b223d0) on screen Main Screen.
+24202.279:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600003b223d0) on screen Main Screen.
+24202.281:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
   frames: 1000 / 1000
   sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING
   GetFrameStatistics: hr=0x00000000 PASS/UNSUPPORTED
@@ -916,9 +926,9 @@ warn:  DxgiSwapChain::GetFrameStatistics: Semi-stub
   mode result: PASS
   invalid buffer count: hr=0x80070057 PASS
   invalid format: hr=0x80070057 PASS
-23628.581:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
-23628.582:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
-23628.582:00e0:00e4:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+24210.611:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+24210.612:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+24210.612:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
   post-release presentation (retained COM ref): hr=0x00000000 PASS
 negative result: PASS (0 failures)
 [mvk-info] Destroyed VkDevice on GPU Apple M4 with 35 Vulkan extensions enabled.

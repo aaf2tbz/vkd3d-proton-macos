@@ -209,11 +209,11 @@ info:      Memory Type[1]: Property Flags = 0xf
 info:      Memory Type[2]: Property Flags = 0x11
 warn:  DxgiAdapter::QueryInterface: Unknown interface query
 warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
-23663.409:01a4:01a8:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "mesh_probe.exe" (hash: 082426a1486c290d)
-23663.409:01a4:01a8:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
-23663.409:01a4:01a8:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
-23663.410:01a4:01a8:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
-23663.410:01a4:01a8:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 5d24bc718560d60+.
+24245.486:0194:0198:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "mesh_probe.exe" (hash: 082426a1486c290d)
+24245.487:0194:0198:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
+24245.487:0194:0198:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
+24245.487:0194:0198:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
+24245.487:0194:0198:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 5d24bc718560d60+.
 [mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
 	The following 164 Vulkan extensions are supported:
 	VK_KHR_16bit_storage v1
@@ -403,11 +403,11 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_KHR_surface_maintenance1 v1
 	VK_EXT_metal_surface v1
 	VK_EXT_surface_maintenance1 v1
-01a8:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
-01a8:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
-23663.430:01a4:01a8:info:vkd3d-proton:vkd3d_physical_device_info_init_maint9: Implementation does not support eliding QFOT for non-compressed optimal images.
-23663.431:01a4:01a8:err:vkd3d-proton:vkd3d_init_device_caps: Lacking support for single texel alignment.
-23663.431:01a4:01a8:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
+0198:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
+0198:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
+24245.506:0194:0198:info:vkd3d-proton:vkd3d_physical_device_info_init_maint9: Implementation does not support eliding QFOT for non-compressed optimal images.
+24245.507:0194:0198:err:vkd3d-proton:vkd3d_init_device_caps: Lacking support for single texel alignment.
+24245.507:0194:0198:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
 [mvk-info] Created VkDevice to run on GPU Apple M4 with the following 35 Vulkan extensions enabled:
@@ -446,18 +446,18 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_EXT_shader_stencil_export v1
 	VK_EXT_swapchain_maintenance1 v1
 	VK_EXT_vertex_attribute_divisor v3
-23663.440:01a4:01a8:info:vkd3d-proton:vkd3d_memory_info_decide_hvv_usage: Topology: UMA-like topology.
-23663.440:01a4:01a8:info:vkd3d-proton:vkd3d_memory_info_upload_hvv_memory_properties: Topology: HVV usage is allowed, using DEVICE_LOCAL | HOST_COHERENT for UPLOAD.
-23663.441:01a4:01a8:info:vkd3d-proton:vkd3d_bindless_state_get_bindless_flags: Device does not support VK_EXT_mutable_descriptor_type (or VALVE).
+24245.516:0194:0198:info:vkd3d-proton:vkd3d_memory_info_decide_hvv_usage: Topology: UMA-like topology.
+24245.516:0194:0198:info:vkd3d-proton:vkd3d_memory_info_upload_hvv_memory_properties: Topology: HVV usage is allowed, using DEVICE_LOCAL | HOST_COHERENT for UPLOAD.
+24245.517:0194:0198:info:vkd3d-proton:vkd3d_bindless_state_get_bindless_flags: Device does not support VK_EXT_mutable_descriptor_type (or VALVE).
 [MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x91e920 stageCount0=2
 [mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Blending is enabled for attachment with format VK_FORMAT_R8_UINT, which does not support it.
 [MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x91e920 stageCount0=2
 [mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Blending is enabled for attachment with format VK_FORMAT_R8_UINT, which does not support it.
-23663.463:01a4:01a8:fixme:vkd3d-proton:d3d12_device_caps_init_feature_options1: TotalLaneCount = 1024, may be inaccurate.
-23663.463:01a4:01a8:info:vkd3d-proton:d3d12_device_determine_ray_tracing_tier: DXR 1.1 support enabled (inline ray query only, no TraceRay).
-23663.463:01a4:01a8:info:vkd3d-proton:d3d12_device_caps_init_feature_level: DX Ultimate supported!
-23663.463:01a4:01a8:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Remapping VKD3D_SHADER_CACHE to: vkd3d-proton.cache.
-23663.463:01a4:01a8:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Attempting to load disk cache from: vkd3d-proton.cache.
+24245.538:0194:0198:fixme:vkd3d-proton:d3d12_device_caps_init_feature_options1: TotalLaneCount = 1024, may be inaccurate.
+24245.538:0194:0198:info:vkd3d-proton:d3d12_device_determine_ray_tracing_tier: DXR 1.1 support enabled (inline ray query only, no TraceRay).
+24245.538:0194:0198:info:vkd3d-proton:d3d12_device_caps_init_feature_level: DX Ultimate supported!
+24245.538:0194:0198:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Remapping VKD3D_SHADER_CACHE to: vkd3d-proton.cache.
+24245.538:0194:0198:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Attempting to load disk cache from: vkd3d-proton.cache.
 [mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
 	The following 164 Vulkan extensions are supported:
 	VK_KHR_16bit_storage v1
@@ -643,13 +643,13 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_KHR_external_memory_capabilities v1
 	VK_KHR_external_semaphore_capabilities v1
 	VK_KHR_get_physical_device_properties2 v2
-23663.464:01a4:01b0:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Performing async setup of stream archive ...
-23663.464:01a4:01b0:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_merge: No write cache exists. No need to merge any disk caches.
-device: 0x00000000
-23663.464:01a4:01b0:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.592 ms.
-23663.467:01a4:01b0:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Mapping read-only cache took 0.532 ms.
-23663.467:01a4:01b0:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Parsing stream archive took 0.450 ms.
-23663.467:01a4:01b0:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
+24245.539:0194:01a0:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Performing async setup of stream archive ...
+device: 0x0000000024245.540:0194:01a0:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_merge: No write cache exists. No need to merge any disk caches.
+
+24245.540:0194:01a0:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.627 ms.
+24245.542:0194:01a0:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Mapping read-only cache took 0.354 ms.
+24245.542:0194:01a0:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Parsing stream archive took 0.169 ms.
+24245.542:0194:01a0:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
 [MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x91e740 stageCount0=2
 mesh PSO: 0x00000000
 fragments=4096 / 4096
