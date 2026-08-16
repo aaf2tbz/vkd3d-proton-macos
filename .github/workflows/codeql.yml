@@ -1,0 +1,68 @@
+name: CodeQL and shader CI
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '23 4 * * 1'
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  pull-requests: read
+
+jobs:
+  codeql:
+    name: CodeQL C/C++ and Objective-C(++)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: c-cpp
+          build-mode: none
+          queries: security-extended
+
+      # The c-cpp extractor covers C, C++, Objective-C, and Objective-C++.
+      - name: Analyze with CodeQL
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: /language:c-cpp
+          # Fork PRs cannot upload security events; they still run the full analysis.
+          upload: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+
+  metal:
+    name: Metal source compilation
+    runs-on: macos-14
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Compile Metal sources
+        run: bash scripts/ci/check-metal.sh
+
+  hlsl:
+    name: HLSL/DXIL source compilation
+    runs-on: ubuntu-latest
+    env:
+      DXC_ARCHIVE: linux_dxc_2026_07_29.x86_x64.tar.gz
+      DXC_URL: https://github.com/microsoft/DirectXShaderCompiler/releases/download/v1.9.2607/linux_dxc_2026_07_29.x86_x64.tar.gz
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Install pinned DirectX Shader Compiler
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 "$DXC_URL" --output "$RUNNER_TEMP/$DXC_ARCHIVE"
+          mkdir -p "$RUNNER_TEMP/dxc"
+          tar -xzf "$RUNNER_TEMP/$DXC_ARCHIVE" -C "$RUNNER_TEMP/dxc" --strip-components=1
+          echo "$RUNNER_TEMP/dxc/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/dxc/bin/dxc" -help >/dev/null
+      - name: Compile HLSL to DXIL
+        run: bash scripts/ci/check-hlsl.sh

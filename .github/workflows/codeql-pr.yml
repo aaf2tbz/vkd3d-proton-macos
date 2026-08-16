@@ -1,0 +1,20 @@
+name: CodeQL and shader CI (pull request)
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  pull-requests: read
+
+jobs:
+  checks:
+    name: Run CodeQL and shader checks
+    uses: ./.github/workflows/codeql.yml
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
