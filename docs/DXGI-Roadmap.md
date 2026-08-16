@@ -1,6 +1,6 @@
 # DXGI Stability Roadmap
 
-**Status:** DXGI-2 complete; DXGI-3 lifecycle work is next.
+**Status:** DXGI-3 complete; DXGI-4 format/color coverage is next.
 
 The current release proves device creation, off-screen D3D12 rendering, shader
 translation, and deterministic readback. It does **not** yet prove a stable
@@ -51,6 +51,28 @@ suite remained green. Full hashes and logs are in
 This closes basic windowed presentation only. It does **not** claim resize,
 minimize, fullscreen, long-run recovery, or broad gameplay stability; those
 remain later phase gates.
+
+### DXGI-3 completion record
+
+Phase 3 passed on 2026-08-16 with `make dxgi-lifecycle-test`. The probe uses a
+real Win32 window and the Phase-1 adapter, renders the RGB triangle and clear
+color with GPU readback after every accepted operation, and verifies
+PRESENT/render-target/COPY_SOURCE/PRESENT transitions. It passed normal
+multi-size `ResizeBuffers`, zero-size minimized behavior with explicit
+unsupported classification where no drawable exists, occlusion/test Present,
+fullscreen query and windowed fallback, window destruction/recreation, invalid
+parameters, an outstanding-backbuffer-reference negative case, and 100
+create/resize/destroy cycles. It also checks ordered shutdown and was
+repeatable across two runs. The vkd3d lifecycle dimension guard is the checked-
+in patch `patches/vkd3d-proton-dxgi-lifecycle.patch`, applied only during the
+build and reverted afterwards.
+
+The DXGI-1, DXGI-2, and six-probe suites were rerun by the Phase-3 validator.
+Full module hashes, source revisions, Wine/DXVK/vkd3d/MoltenVK output, and
+acceptance logs are in
+[`artifacts/evidence/dxgi-3-lifecycle.md`](../artifacts/evidence/dxgi-3-lifecycle.md).
+This closes the tested lifecycle lane only; it does **not** claim broad
+gameplay stability, later format/HDR coverage, or a final package promotion.
 
 ## Rules for every phase
 

@@ -1,0 +1,2164 @@
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+00a4:err:ntoskrnl:ZwLoadDriver failed to create driver L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\winebth": c00000e5
+003c:fixme:service:scmdatabase_autostart_services Auto-start service L"winebth" failed to start: 1359
+=== DXGI-3 window lifecycle probe (RGB triangle) ===
+resize, minimize, occlusion, fullscreen, destruction, recreation, and 100-cycle stress
+mscompatdb: not found
+[mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
+	The following 164 Vulkan extensions are supported:
+	VK_KHR_16bit_storage v1
+	VK_KHR_8bit_storage v1
+	VK_KHR_bind_memory2 v1
+	VK_KHR_buffer_device_address v1
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_copy_commands2 v1
+	VK_KHR_create_renderpass2 v1
+	VK_KHR_dedicated_allocation v3
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_depth_stencil_resolve v1
+	VK_KHR_descriptor_update_template v1
+	VK_KHR_device_group v4
+	VK_KHR_device_group_creation v1
+	VK_KHR_draw_indirect_count v1
+	VK_KHR_driver_properties v1
+	VK_KHR_dynamic_rendering v1
+	VK_KHR_dynamic_rendering_local_read v1
+	VK_KHR_external_fence v1
+	VK_KHR_external_fence_capabilities v1
+	VK_KHR_external_memory v1
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_format_feature_flags2 v2
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_get_memory_requirements2 v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_global_priority v1
+	VK_KHR_image_format_list v1
+	VK_KHR_imageless_framebuffer v1
+	VK_KHR_incremental_present v2
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_line_rasterization v1
+	VK_KHR_load_store_op_none v1
+	VK_KHR_maintenance1 v2
+	VK_KHR_maintenance2 v1
+	VK_KHR_maintenance3 v1
+	VK_KHR_maintenance4 v2
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_map_memory2 v1
+	VK_KHR_multiview v1
+	VK_KHR_portability_subset v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_relaxed_block_layout v1
+	VK_KHR_robustness2 v1
+	VK_KHR_sampler_mirror_clamp_to_edge v3
+	VK_KHR_sampler_ycbcr_conversion v14
+	VK_KHR_separate_depth_stencil_layouts v1
+	VK_KHR_shader_draw_parameters v1
+	VK_KHR_shader_expect_assume v1
+	VK_KHR_shader_float_controls v4
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_float16_int8 v1
+	VK_KHR_shader_fma v1
+	VK_KHR_shader_integer_dot_product v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_shader_non_semantic_info v1
+	VK_KHR_shader_quad_control v1
+	VK_KHR_shader_relaxed_extended_instruction v1
+	VK_KHR_shader_subgroup_extended_types v1
+	VK_KHR_shader_subgroup_rotate v2
+	VK_KHR_shader_subgroup_uniform_control_flow v1
+	VK_KHR_shader_terminate_invocation v1
+	VK_KHR_spirv_1_4 v1
+	VK_KHR_storage_buffer_storage_class v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_KHR_surface_protected_capabilities v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_KHR_swapchain_mutable_format v1
+	VK_KHR_synchronization2 v1
+	VK_KHR_timeline_semaphore v2
+	VK_KHR_uniform_buffer_standard_layout v1
+	VK_KHR_variable_pointers v1
+	VK_KHR_vertex_attribute_divisor v1
+	VK_KHR_vulkan_memory_model v3
+	VK_KHR_zero_initialize_workgroup_memory v1
+	VK_EXT_4444_formats v1
+	VK_EXT_buffer_device_address v2
+	VK_EXT_calibrated_timestamps v2
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_debug_marker v4
+	VK_EXT_debug_report v10
+	VK_EXT_debug_utils v2
+	VK_EXT_depth_clip_control v1
+	VK_EXT_descriptor_indexing v2
+	VK_EXT_extended_dynamic_state v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_external_memory_metal v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_global_priority v2
+	VK_EXT_global_priority_query v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_headless_surface v1
+	VK_EXT_host_image_copy v1
+	VK_EXT_host_query_reset v1
+	VK_EXT_image_2d_view_of_3d v1
+	VK_EXT_image_robustness v1
+	VK_EXT_index_type_uint8 v1
+	VK_EXT_inline_uniform_block v1
+	VK_EXT_layer_settings v2
+	VK_EXT_legacy_dithering v2
+	VK_EXT_line_rasterization v1
+	VK_EXT_load_store_op_none v1
+	VK_EXT_memory_budget v1
+	VK_EXT_metal_objects v2
+	VK_EXT_metal_surface v1
+	VK_EXT_multi_draw v1
+	VK_EXT_nested_command_buffer v1
+	VK_EXT_non_seamless_cube_map v1
+	VK_EXT_pipeline_creation_cache_control v3
+	VK_EXT_pipeline_creation_feedback v1
+	VK_EXT_pipeline_robustness v1
+	VK_EXT_post_depth_coverage v1
+	VK_EXT_primitive_topology_list_restart v1
+	VK_EXT_private_data v1
+	VK_EXT_provoking_vertex v1
+	VK_EXT_robustness2 v1
+	VK_EXT_sample_locations v1
+	VK_EXT_sampler_filter_minmax v2
+	VK_EXT_scalar_block_layout v1
+	VK_EXT_separate_stencil_usage v1
+	VK_EXT_shader_atomic_float v1
+	VK_EXT_shader_demote_to_helper_invocation v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_shader_subgroup_ballot v1
+	VK_EXT_shader_subgroup_vote v1
+	VK_EXT_shader_viewport_index_layer v1
+	VK_EXT_subgroup_size_control v2
+	VK_EXT_surface_maintenance1 v1
+	VK_EXT_swapchain_colorspace v5
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_texel_buffer_alignment v1
+	VK_EXT_texture_compression_astc_hdr v1
+	VK_EXT_tooling_info v1
+	VK_EXT_vertex_attribute_divisor v3
+	VK_EXT_ycbcr_2plane_444_formats v1
+	VK_AMD_gpu_shader_half_float v2
+	VK_AMD_negative_viewport_height v1
+	VK_AMD_shader_image_load_store_lod v1
+	VK_AMD_shader_trinary_minmax v1
+	VK_GOOGLE_display_timing v1
+	VK_IMG_format_pvrtc v1
+	VK_INTEL_shader_integer_functions2 v1
+	VK_MVK_macos_surface v3
+	VK_MVK_moltenvk v37
+	VK_NV_fragment_shader_barycentric v1
+[mvk-info] GPU device:
+	model: Apple M4
+	type: Integrated
+	vendorID: 0x106b
+	deviceID: 0x1b000209
+	pipelineCacheUUID: 13E3C967-1B00-0209-0000-000100000000
+	GPU memory available: 12124 MB
+	GPU memory used: 0 MB
+	Metal Shading Language 4.0
+	supports the following GPU Features:
+		GPU Family Metal 4
+		GPU Family Apple 9
+		GPU Family Mac 1
+		GPU Family Mac 2
+		Read-Write Texture Tier 2
+[mvk-info] Created VkInstance for Vulkan version 1.0.357, as requested by app, with the following 3 Vulkan extensions enabled:
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_get_physical_device_properties2 v2
+mscompatdb: not found
+info:  Game: dxgi_lifecycle_probe.exe
+info:  DXVK: v1.10.3-20230507-async (macOS)
+info:  Built-in extension providers:
+info:    Win32 WSI
+info:    OpenVR
+info:    OpenXR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:  Enabled instance extensions:
+info:    VK_KHR_get_surface_capabilities2
+info:    VK_KHR_surface
+info:    VK_KHR_win32_surface
+[mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
+	The following 164 Vulkan extensions are supported:
+	VK_KHR_16bit_storage v1
+	VK_KHR_8bit_storage v1
+	VK_KHR_bind_memory2 v1
+	VK_KHR_buffer_device_address v1
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_copy_commands2 v1
+	VK_KHR_create_renderpass2 v1
+	VK_KHR_dedicated_allocation v3
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_depth_stencil_resolve v1
+	VK_KHR_descriptor_update_template v1
+	VK_KHR_device_group v4
+	VK_KHR_device_group_creation v1
+	VK_KHR_draw_indirect_count v1
+	VK_KHR_driver_properties v1
+	VK_KHR_dynamic_rendering v1
+	VK_KHR_dynamic_rendering_local_read v1
+	VK_KHR_external_fence v1
+	VK_KHR_external_fence_capabilities v1
+	VK_KHR_external_memory v1
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_format_feature_flags2 v2
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_get_memory_requirements2 v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_global_priority v1
+	VK_KHR_image_format_list v1
+	VK_KHR_imageless_framebuffer v1
+	VK_KHR_incremental_present v2
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_line_rasterization v1
+	VK_KHR_load_store_op_none v1
+	VK_KHR_maintenance1 v2
+	VK_KHR_maintenance2 v1
+	VK_KHR_maintenance3 v1
+	VK_KHR_maintenance4 v2
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_map_memory2 v1
+	VK_KHR_multiview v1
+	VK_KHR_portability_subset v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_relaxed_block_layout v1
+	VK_KHR_robustness2 v1
+	VK_KHR_sampler_mirror_clamp_to_edge v3
+	VK_KHR_sampler_ycbcr_conversion v14
+	VK_KHR_separate_depth_stencil_layouts v1
+	VK_KHR_shader_draw_parameters v1
+	VK_KHR_shader_expect_assume v1
+	VK_KHR_shader_float_controls v4
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_float16_int8 v1
+	VK_KHR_shader_fma v1
+	VK_KHR_shader_integer_dot_product v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_shader_non_semantic_info v1
+	VK_KHR_shader_quad_control v1
+	VK_KHR_shader_relaxed_extended_instruction v1
+	VK_KHR_shader_subgroup_extended_types v1
+	VK_KHR_shader_subgroup_rotate v2
+	VK_KHR_shader_subgroup_uniform_control_flow v1
+	VK_KHR_shader_terminate_invocation v1
+	VK_KHR_spirv_1_4 v1
+	VK_KHR_storage_buffer_storage_class v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_KHR_surface_protected_capabilities v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_KHR_swapchain_mutable_format v1
+	VK_KHR_synchronization2 v1
+	VK_KHR_timeline_semaphore v2
+	VK_KHR_uniform_buffer_standard_layout v1
+	VK_KHR_variable_pointers v1
+	VK_KHR_vertex_attribute_divisor v1
+	VK_KHR_vulkan_memory_model v3
+	VK_KHR_zero_initialize_workgroup_memory v1
+	VK_EXT_4444_formats v1
+	VK_EXT_buffer_device_address v2
+	VK_EXT_calibrated_timestamps v2
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_debug_marker v4
+	VK_EXT_debug_report v10
+	VK_EXT_debug_utils v2
+	VK_EXT_depth_clip_control v1
+	VK_EXT_descriptor_indexing v2
+	VK_EXT_extended_dynamic_state v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_external_memory_metal v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_global_priority v2
+	VK_EXT_global_priority_query v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_headless_surface v1
+	VK_EXT_host_image_copy v1
+	VK_EXT_host_query_reset v1
+	VK_EXT_image_2d_view_of_3d v1
+	VK_EXT_image_robustness v1
+	VK_EXT_index_type_uint8 v1
+	VK_EXT_inline_uniform_block v1
+	VK_EXT_layer_settings v2
+	VK_EXT_legacy_dithering v2
+	VK_EXT_line_rasterization v1
+	VK_EXT_load_store_op_none v1
+	VK_EXT_memory_budget v1
+	VK_EXT_metal_objects v2
+	VK_EXT_metal_surface v1
+	VK_EXT_multi_draw v1
+	VK_EXT_nested_command_buffer v1
+	VK_EXT_non_seamless_cube_map v1
+	VK_EXT_pipeline_creation_cache_control v3
+	VK_EXT_pipeline_creation_feedback v1
+	VK_EXT_pipeline_robustness v1
+	VK_EXT_post_depth_coverage v1
+	VK_EXT_primitive_topology_list_restart v1
+	VK_EXT_private_data v1
+	VK_EXT_provoking_vertex v1
+	VK_EXT_robustness2 v1
+	VK_EXT_sample_locations v1
+	VK_EXT_sampler_filter_minmax v2
+	VK_EXT_scalar_block_layout v1
+	VK_EXT_separate_stencil_usage v1
+	VK_EXT_shader_atomic_float v1
+	VK_EXT_shader_demote_to_helper_invocation v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_shader_subgroup_ballot v1
+	VK_EXT_shader_subgroup_vote v1
+	VK_EXT_shader_viewport_index_layer v1
+	VK_EXT_subgroup_size_control v2
+	VK_EXT_surface_maintenance1 v1
+	VK_EXT_swapchain_colorspace v5
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_texel_buffer_alignment v1
+	VK_EXT_texture_compression_astc_hdr v1
+	VK_EXT_tooling_info v1
+	VK_EXT_vertex_attribute_divisor v3
+	VK_EXT_ycbcr_2plane_444_formats v1
+	VK_AMD_gpu_shader_half_float v2
+	VK_AMD_negative_viewport_height v1
+	VK_AMD_shader_image_load_store_lod v1
+	VK_AMD_shader_trinary_minmax v1
+	VK_GOOGLE_display_timing v1
+	VK_IMG_format_pvrtc v1
+	VK_INTEL_shader_integer_functions2 v1
+	VK_MVK_macos_surface v3
+	VK_MVK_moltenvk v37
+	VK_NV_fragment_shader_barycentric v1
+[mvk-info] GPU device:
+	model: Apple M4
+	type: Integrated
+	vendorID: 0x106b
+	deviceID: 0x1b000209
+	pipelineCacheUUID: 13E3C967-1B00-0209-0000-000100000000
+	GPU memory available: 12124 MB
+	GPU memory used: 0 MB
+	Metal Shading Language 4.0
+	supports the following GPU Features:
+		GPU Family Metal 4
+		GPU Family Apple 9
+		GPU Family Mac 1
+		GPU Family Mac 2
+		Read-Write Texture Tier 2
+[mvk-info] Created VkInstance for Vulkan version 1.1.357, as requested by app, with the following 5 Vulkan extensions enabled:
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_surface v25
+	VK_EXT_metal_surface v1
+info:  Apple M4:
+info:    Driver: 0.2.2211
+info:    Vulkan: 1.1.357
+info:    Memory Heap[0]: 
+info:      Size: 16384 MiB
+info:      Flags: 0x1
+info:      Memory Type[0]: Property Flags = 0x1
+info:      Memory Type[1]: Property Flags = 0xf
+info:      Memory Type[2]: Property Flags = 0x11
+warn:  DXGI: MakeWindowAssociation: Ignoring flags
+selected adapter: vendor=0x106b device=0x1b000209 luid=00000000-000003f4
+warn:  DxgiAdapter::QueryInterface: Unknown interface query
+warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
+25585.592:0020:0024:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "dxgi_lifecycle_probe.exe" (hash: 07988c1c346803bb)
+25585.592:0020:0024:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
+25585.592:0020:0024:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
+25585.592:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
+25585.592:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 5d24bc718560d60+.
+[mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
+	The following 164 Vulkan extensions are supported:
+	VK_KHR_16bit_storage v1
+	VK_KHR_8bit_storage v1
+	VK_KHR_bind_memory2 v1
+	VK_KHR_buffer_device_address v1
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_copy_commands2 v1
+	VK_KHR_create_renderpass2 v1
+	VK_KHR_dedicated_allocation v3
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_depth_stencil_resolve v1
+	VK_KHR_descriptor_update_template v1
+	VK_KHR_device_group v4
+	VK_KHR_device_group_creation v1
+	VK_KHR_draw_indirect_count v1
+	VK_KHR_driver_properties v1
+	VK_KHR_dynamic_rendering v1
+	VK_KHR_dynamic_rendering_local_read v1
+	VK_KHR_external_fence v1
+	VK_KHR_external_fence_capabilities v1
+	VK_KHR_external_memory v1
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_format_feature_flags2 v2
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_get_memory_requirements2 v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_global_priority v1
+	VK_KHR_image_format_list v1
+	VK_KHR_imageless_framebuffer v1
+	VK_KHR_incremental_present v2
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_line_rasterization v1
+	VK_KHR_load_store_op_none v1
+	VK_KHR_maintenance1 v2
+	VK_KHR_maintenance2 v1
+	VK_KHR_maintenance3 v1
+	VK_KHR_maintenance4 v2
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_map_memory2 v1
+	VK_KHR_multiview v1
+	VK_KHR_portability_subset v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_relaxed_block_layout v1
+	VK_KHR_robustness2 v1
+	VK_KHR_sampler_mirror_clamp_to_edge v3
+	VK_KHR_sampler_ycbcr_conversion v14
+	VK_KHR_separate_depth_stencil_layouts v1
+	VK_KHR_shader_draw_parameters v1
+	VK_KHR_shader_expect_assume v1
+	VK_KHR_shader_float_controls v4
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_float16_int8 v1
+	VK_KHR_shader_fma v1
+	VK_KHR_shader_integer_dot_product v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_shader_non_semantic_info v1
+	VK_KHR_shader_quad_control v1
+	VK_KHR_shader_relaxed_extended_instruction v1
+	VK_KHR_shader_subgroup_extended_types v1
+	VK_KHR_shader_subgroup_rotate v2
+	VK_KHR_shader_subgroup_uniform_control_flow v1
+	VK_KHR_shader_terminate_invocation v1
+	VK_KHR_spirv_1_4 v1
+	VK_KHR_storage_buffer_storage_class v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_KHR_surface_protected_capabilities v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_KHR_swapchain_mutable_format v1
+	VK_KHR_synchronization2 v1
+	VK_KHR_timeline_semaphore v2
+	VK_KHR_uniform_buffer_standard_layout v1
+	VK_KHR_variable_pointers v1
+	VK_KHR_vertex_attribute_divisor v1
+	VK_KHR_vulkan_memory_model v3
+	VK_KHR_zero_initialize_workgroup_memory v1
+	VK_EXT_4444_formats v1
+	VK_EXT_buffer_device_address v2
+	VK_EXT_calibrated_timestamps v2
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_debug_marker v4
+	VK_EXT_debug_report v10
+	VK_EXT_debug_utils v2
+	VK_EXT_depth_clip_control v1
+	VK_EXT_descriptor_indexing v2
+	VK_EXT_extended_dynamic_state v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_external_memory_metal v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_global_priority v2
+	VK_EXT_global_priority_query v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_headless_surface v1
+	VK_EXT_host_image_copy v1
+	VK_EXT_host_query_reset v1
+	VK_EXT_image_2d_view_of_3d v1
+	VK_EXT_image_robustness v1
+	VK_EXT_index_type_uint8 v1
+	VK_EXT_inline_uniform_block v1
+	VK_EXT_layer_settings v2
+	VK_EXT_legacy_dithering v2
+	VK_EXT_line_rasterization v1
+	VK_EXT_load_store_op_none v1
+	VK_EXT_memory_budget v1
+	VK_EXT_metal_objects v2
+	VK_EXT_metal_surface v1
+	VK_EXT_multi_draw v1
+	VK_EXT_nested_command_buffer v1
+	VK_EXT_non_seamless_cube_map v1
+	VK_EXT_pipeline_creation_cache_control v3
+	VK_EXT_pipeline_creation_feedback v1
+	VK_EXT_pipeline_robustness v1
+	VK_EXT_post_depth_coverage v1
+	VK_EXT_primitive_topology_list_restart v1
+	VK_EXT_private_data v1
+	VK_EXT_provoking_vertex v1
+	VK_EXT_robustness2 v1
+	VK_EXT_sample_locations v1
+	VK_EXT_sampler_filter_minmax v2
+	VK_EXT_scalar_block_layout v1
+	VK_EXT_separate_stencil_usage v1
+	VK_EXT_shader_atomic_float v1
+	VK_EXT_shader_demote_to_helper_invocation v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_shader_subgroup_ballot v1
+	VK_EXT_shader_subgroup_vote v1
+	VK_EXT_shader_viewport_index_layer v1
+	VK_EXT_subgroup_size_control v2
+	VK_EXT_surface_maintenance1 v1
+	VK_EXT_swapchain_colorspace v5
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_texel_buffer_alignment v1
+	VK_EXT_texture_compression_astc_hdr v1
+	VK_EXT_tooling_info v1
+	VK_EXT_vertex_attribute_divisor v3
+	VK_EXT_ycbcr_2plane_444_formats v1
+	VK_AMD_gpu_shader_half_float v2
+	VK_AMD_negative_viewport_height v1
+	VK_AMD_shader_image_load_store_lod v1
+	VK_AMD_shader_trinary_minmax v1
+	VK_GOOGLE_display_timing v1
+	VK_IMG_format_pvrtc v1
+	VK_INTEL_shader_integer_functions2 v1
+	VK_MVK_macos_surface v3
+	VK_MVK_moltenvk v37
+	VK_NV_fragment_shader_barycentric v1
+[mvk-info] GPU device:
+	model: Apple M4
+	type: Integrated
+	vendorID: 0x106b
+	deviceID: 0x1b000209
+	pipelineCacheUUID: 13E3C967-1B00-0209-0000-000100000000
+	GPU memory available: 12124 MB
+	GPU memory used: 0 MB
+	Metal Shading Language 4.0
+	supports the following GPU Features:
+		GPU Family Metal 4
+		GPU Family Apple 9
+		GPU Family Mac 1
+		GPU Family Mac 2
+		Read-Write Texture Tier 2
+[mvk-info] Created VkInstance for Vulkan version 1.3.357, as requested by app, with the following 7 Vulkan extensions enabled:
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_EXT_metal_surface v1
+	VK_EXT_surface_maintenance1 v1
+0024:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
+0024:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
+25585.612:0020:0024:info:vkd3d-proton:vkd3d_physical_device_info_init_maint9: Implementation does not support eliding QFOT for non-compressed optimal images.
+25585.612:0020:0024:err:vkd3d-proton:vkd3d_init_device_caps: Lacking support for single texel alignment.
+25585.612:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
+[mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
+[mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
+[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 35 Vulkan extensions enabled:
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_line_rasterization v1
+	VK_EXT_memory_budget v1
+	VK_EXT_robustness2 v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_vertex_attribute_divisor v3
+25585.622:0020:0024:info:vkd3d-proton:vkd3d_memory_info_decide_hvv_usage: Topology: UMA-like topology.
+25585.623:0020:0024:info:vkd3d-proton:vkd3d_memory_info_upload_hvv_memory_properties: Topology: HVV usage is allowed, using DEVICE_LOCAL | HOST_COHERENT for UPLOAD.
+25585.623:0020:0024:info:vkd3d-proton:vkd3d_bindless_state_get_bindless_flags: Device does not support VK_EXT_mutable_descriptor_type (or VALVE).
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10e9e0 stageCount0=2
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Blending is enabled for attachment with format VK_FORMAT_R8_UINT, which does not support it.
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10e9e0 stageCount0=2
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Blending is enabled for attachment with format VK_FORMAT_R8_UINT, which does not support it.
+25585.646:0020:0024:fixme:vkd3d-proton:d3d12_device_caps_init_feature_options1: TotalLaneCount = 1024, may be inaccurate.
+25585.646:0020:0024:info:vkd3d-proton:d3d12_device_determine_ray_tracing_tier: DXR 1.1 support enabled (inline ray query only, no TraceRay).
+25585.646:0020:0024:info:vkd3d-proton:d3d12_device_caps_init_feature_level: DX Ultimate supported!
+25585.646:0020:0024:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Remapping VKD3D_SHADER_CACHE to: vkd3d-proton.cache.
+25585.646:0020:0024:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Attempting to load disk cache from: vkd3d-proton.cache.
+[mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
+	The following 164 Vulkan extensions are supported:
+	VK_KHR_16bit_storage v1
+	VK_KHR_8bit_storage v1
+	VK_KHR_bind_memory2 v1
+	VK_KHR_buffer_device_address v1
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_copy_commands2 v1
+	VK_KHR_create_renderpass2 v1
+	VK_KHR_dedicated_allocation v3
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_depth_stencil_resolve v1
+	VK_KHR_descriptor_update_template v1
+	VK_KHR_device_group v4
+	VK_KHR_device_group_creation v1
+	VK_KHR_draw_indirect_count v1
+	VK_KHR_driver_properties v1
+	VK_KHR_dynamic_rendering v1
+	VK_KHR_dynamic_rendering_local_read v1
+	VK_KHR_external_fence v1
+	VK_KHR_external_fence_capabilities v1
+	VK_KHR_external_memory v1
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_format_feature_flags2 v2
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_get_memory_requirements2 v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_global_priority v1
+	VK_KHR_image_format_list v1
+	VK_KHR_imageless_framebuffer v1
+	VK_KHR_incremental_present v2
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_line_rasterization v1
+	VK_KHR_load_store_op_none v1
+	VK_KHR_maintenance1 v2
+	VK_KHR_maintenance2 v1
+	VK_KHR_maintenance3 v1
+	VK_KHR_maintenance4 v2
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_map_memory2 v1
+	VK_KHR_multiview v1
+	VK_KHR_portability_subset v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_relaxed_block_layout v1
+	VK_KHR_robustness2 v1
+	VK_KHR_sampler_mirror_clamp_to_edge v3
+	VK_KHR_sampler_ycbcr_conversion v14
+	VK_KHR_separate_depth_stencil_layouts v1
+	VK_KHR_shader_draw_parameters v1
+	VK_KHR_shader_expect_assume v1
+	VK_KHR_shader_float_controls v4
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_float16_int8 v1
+	VK_KHR_shader_fma v1
+	VK_KHR_shader_integer_dot_product v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_shader_non_semantic_info v1
+	VK_KHR_shader_quad_control v1
+	VK_KHR_shader_relaxed_extended_instruction v1
+	VK_KHR_shader_subgroup_extended_types v1
+	VK_KHR_shader_subgroup_rotate v2
+	VK_KHR_shader_subgroup_uniform_control_flow v1
+	VK_KHR_shader_terminate_invocation v1
+	VK_KHR_spirv_1_4 v1
+	VK_KHR_storage_buffer_storage_class v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_KHR_surface_protected_capabilities v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_KHR_swapchain_mutable_format v1
+	VK_KHR_synchronization2 v1
+	VK_KHR_timeline_semaphore v2
+	VK_KHR_uniform_buffer_standard_layout v1
+	VK_KHR_variable_pointers v1
+	VK_KHR_vertex_attribute_divisor v1
+	VK_KHR_vulkan_memory_model v3
+	VK_KHR_zero_initialize_workgroup_memory v1
+	VK_EXT_4444_formats v1
+	VK_EXT_buffer_device_address v2
+	VK_EXT_calibrated_timestamps v2
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_debug_marker v4
+	VK_EXT_debug_report v10
+	VK_EXT_debug_utils v2
+	VK_EXT_depth_clip_control v1
+	VK_EXT_descriptor_indexing v2
+	VK_EXT_extended_dynamic_state v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_external_memory_metal v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_global_priority v2
+	VK_EXT_global_priority_query v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_headless_surface v1
+	VK_EXT_host_image_copy v1
+	VK_EXT_host_query_reset v1
+	VK_EXT_image_2d_view_of_3d v1
+	VK_EXT_image_robustness v1
+	VK_EXT_index_type_uint8 v1
+	VK_EXT_inline_uniform_block v1
+	VK_EXT_layer_settings v2
+	VK_EXT_legacy_dithering v2
+	VK_EXT_line_rasterization v1
+	VK_EXT_load_store_op_none v1
+	VK_EXT_memory_budget v1
+	VK_EXT_metal_objects v2
+	VK_EXT_metal_surface v1
+	VK_EXT_multi_draw v1
+	VK_EXT_nested_command_buffer v1
+	VK_EXT_non_seamless_cube_map v1
+	VK_EXT_pipeline_creation_cache_control v3
+	VK_EXT_pipeline_creation_feedback v1
+	VK_EXT_pipeline_robustness v1
+	VK_EXT_post_depth_coverage v1
+	VK_EXT_primitive_topology_list_restart v1
+	VK_EXT_private_data v1
+	VK_EXT_provoking_vertex v1
+	VK_EXT_robustness2 v1
+	VK_EXT_sample_locations v1
+	VK_EXT_sampler_filter_minmax v2
+	VK_EXT_scalar_block_layout v1
+	VK_EXT_separate_stencil_usage v1
+	VK_EXT_shader_atomic_float v1
+	VK_EXT_shader_demote_to_helper_invocation v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_shader_subgroup_ballot v1
+	VK_EXT_shader_subgroup_vote v1
+	VK_EXT_shader_viewport_index_layer v1
+	VK_EXT_subgroup_size_control v2
+	VK_EXT_surface_maintenance1 v1
+	VK_EXT_swapchain_colorspace v5
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_texel_buffer_alignment v1
+	VK_EXT_texture_compression_astc_hdr v1
+	VK_EXT_tooling_info v1
+	VK_EXT_vertex_attribute_divisor v3
+	VK_EXT_ycbcr_2plane_444_formats v1
+	VK_AMD_gpu_shader_half_float v2
+	VK_AMD_negative_viewport_height v1
+	VK_AMD_shader_image_load_store_lod v1
+	VK_AMD_shader_trinary_minmax v1
+	VK_GOOGLE_display_timing v1
+	VK_IMG_format_pvrtc v1
+	VK_INTEL_shader_integer_functions2 v1
+	VK_MVK_macos_surface v3
+	VK_MVK_moltenvk v37
+	VK_NV_fragment_shader_barycentric v1
+[mvk-info] GPU device:
+	model: Apple M4
+	type: Integrated
+	vendorID: 0x106b
+	deviceID: 0x1b000209
+	pipelineCacheUUID: 13E3C967-1B00-0209-0000-000100000000
+	GPU memory available: 12124 MB
+	GPU memory used: 0 MB
+	Metal Shading Language 4.0
+	supports the following GPU Features:
+		GPU Family Metal 4
+		GPU Family Apple 9
+		GPU Family Mac 1
+		GPU Family Mac 2
+		Read-Write Texture Tier 2
+[mvk-info] Created VkInstance for Vulkan version 1.0.357, as requested by app, with the following 3 Vulkan extensions enabled:
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_get_physical_device_properties2 v2
+25585.647:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Performing async setup of stream archive ...
+D3D12 adapter LUID: 00000000-000003f4 (MATCH)
+25585.647:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_merge: No write cache exists. No need to merge any disk caches.
+25585.648:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.609 ms.
+25585.651:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Mapping read-only cache took 1.808 ms.
+25585.651:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Parsing stream archive took 0.321 ms.
+25585.651:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10e800 stageCount0=2
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+tearing support: hr=0x00000000 supported=1
+window/device/queue: PASS
+25585.656:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+25585.659:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25585.660:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 640x480 format=0x57 buffers=2 PASS
+  readback 640x480 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
+
+=== resize matrix ===
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e2ecd0) on screen Main Screen.
+25585.676:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x38dee10 stageCount0=2
+25585.901:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (800 x 600), BufferCount = 2.
+  ResizeBuffers(800,600): hr=0x00000000 PASS
+  desc: 800x600 format=0x57 buffers=2 PASS
+  readback 800x600 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e2ecd0) on screen Main Screen.
+25585.904:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25585.905:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (320 x 240), BufferCount = 2.
+  ResizeBuffers(320,240): hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+  readback 320x240 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
+25585.907:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (1024 x 512), BufferCount = 2.
+  ResizeBuffers(1024,512): hr=0x00000000 PASS
+  desc: 1024x512 format=0x57 buffers=2 PASS
+  readback 1024x512 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
+
+=== deterministic negative lifecycle tests ===
+  invalid resize dimensions: hr=0x887a0001 PASS
+25585.921:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 480), BufferCount = 2.
+  recover after invalid resize: hr=0x00000000 PASS
+  desc: 640x480 format=0x57 buffers=2 PASS
+  resize with outstanding backbuffer reference: hr=0x887a0001 PASS
+  desc: 640x480 format=0x57 buffers=2 PASS
+  invalid ResizeTarget(NULL): hr=0x887a0001 PASS
+  invalid windowed fullscreen target: hr=0x887a0001 PASS
+  valid ResizeTarget(1,1): hr=0x00000000 PASS
+
+=== minimize/restore and occlusion ===
+  minimized occlusion/test Present: hr=0x087a0001 PASS
+25585.928:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (0 x 0), BufferCount = 2.
+  minimized ResizeBuffers(0,0): hr=0x00000000 SUPPORTED
+  minimized dimensions: UNSUPPORTED (zero drawable)
+25585.930:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 480), BufferCount = 2.
+  restore ResizeBuffers: hr=0x00000000 PASS
+  desc: 640x480 format=0x57 buffers=2 PASS
+  readback 640x480 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
+
+=== fullscreen and windowed fallback ===
+  GetFullscreenState(initial): hr=0x00000000 windowed=1 PASS
+25585.949:0020:0024:fixme:vkd3d-proton:dxgi_vk_swap_chain_SetGammaControl: iface 0000000000ad7340, NumControlPoints 1024, pControlPoints 0000000000ae5608 stub!
+  SetFullscreenState(TRUE): hr=0x00000000 SUPPORTED
+  GetFullscreenState(after TRUE): hr=0x00000000 fullscreen=1 PASS
+  ResizeTarget(lifecycle): hr=0x00000000 PASS
+info:  Restoring display mode: 1920x1080@60
+info:  Setting display mode: 1920x1080@60
+info:  Restoring display mode: 1920x1200@60
+info:  Setting display mode: 1920x1200@60
+25585.950:0020:0024:fixme:vkd3d-proton:dxgi_vk_swap_chain_SetGammaControl: iface 0000000000ad7340, NumControlPoints 0, pControlPoints 0000000000000000 stub!
+  SetFullscreenState(FALSE) fallback: hr=0x00000000 PASS
+
+=== window destruction and recreation ===
+  Present after window destruction: hr=0x00000000 PASS
+warn:  DXGI: MakeWindowAssociation: Ignoring flags
+25586.017:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+25586.019:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.019:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 640x480 format=0x57 buffers=2 PASS
+  readback 640x480 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
+
+=== 100 create/resize/destroy cycles ===
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f44cc0) on screen Main Screen.
+25586.022:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.026:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25586.026:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.026:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+  readback 384x288 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e16dc0) on screen Main Screen.
+25586.028:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.029:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e16dc0) on screen Main Screen.
+25586.031:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.040:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25586.041:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.041:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e17780) on screen Main Screen.
+25586.042:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.043:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e17780) on screen Main Screen.
+25586.045:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.053:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25586.053:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.054:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e14a50) on screen Main Screen.
+25586.056:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.058:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e14a50) on screen Main Screen.
+25586.059:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.067:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25586.067:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.067:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7f900) on screen Main Screen.
+25586.068:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.070:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7f900) on screen Main Screen.
+25586.072:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.080:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 336), BufferCount = 2.
+25586.080:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.080:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7f7e0) on screen Main Screen.
+25586.082:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.083:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7f7e0) on screen Main Screen.
+25586.084:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.092:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 240), BufferCount = 2.
+25586.092:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.092:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7f6c0) on screen Main Screen.
+25586.093:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.094:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7f6c0) on screen Main Screen.
+25586.096:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.104:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 288), BufferCount = 2.
+25586.104:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.104:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f76c70) on screen Main Screen.
+25586.108:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.110:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f76c70) on screen Main Screen.
+25586.111:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.119:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 336), BufferCount = 2.
+25586.119:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.119:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f74d50) on screen Main Screen.
+25586.120:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.121:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f74d50) on screen Main Screen.
+25586.122:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.131:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 240), BufferCount = 2.
+25586.132:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.132:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f57fc0) on screen Main Screen.
+25586.133:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.134:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f57fc0) on screen Main Screen.
+25586.135:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.143:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 288), BufferCount = 2.
+25586.143:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.143:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f5f930) on screen Main Screen.
+25586.145:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.146:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f5f930) on screen Main Screen.
+25586.147:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.159:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 336), BufferCount = 2.
+25586.160:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.160:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f58720) on screen Main Screen.
+25586.161:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.162:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f58720) on screen Main Screen.
+25586.164:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.171:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 240), BufferCount = 2.
+25586.172:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.172:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f76d90) on screen Main Screen.
+25586.175:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.176:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f76d90) on screen Main Screen.
+25586.178:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.185:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25586.187:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.187:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f786c0) on screen Main Screen.
+25586.190:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.190:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f786c0) on screen Main Screen.
+25586.192:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.200:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25586.200:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.200:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f58690) on screen Main Screen.
+25586.202:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.202:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f58690) on screen Main Screen.
+25586.204:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.211:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25586.212:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.212:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0c1e0) on screen Main Screen.
+25586.213:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.214:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0c1e0) on screen Main Screen.
+25586.215:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.225:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25586.225:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.225:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f4f210) on screen Main Screen.
+25586.226:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.227:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f4f210) on screen Main Screen.
+25586.229:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.238:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 336), BufferCount = 2.
+25586.238:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.238:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7f810) on screen Main Screen.
+25586.240:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.240:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7f810) on screen Main Screen.
+25586.242:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.251:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 240), BufferCount = 2.
+25586.251:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.251:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0cf60) on screen Main Screen.
+25586.253:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.254:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0cf60) on screen Main Screen.
+25586.257:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.264:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 288), BufferCount = 2.
+25586.264:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.265:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f793e0) on screen Main Screen.
+25586.266:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.267:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f793e0) on screen Main Screen.
+25586.269:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.276:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 336), BufferCount = 2.
+25586.276:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.276:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f79560) on screen Main Screen.
+25586.278:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.279:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f79560) on screen Main Screen.
+25586.280:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.291:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 240), BufferCount = 2.
+25586.291:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.291:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f08180) on screen Main Screen.
+25586.293:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.294:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f08180) on screen Main Screen.
+25586.295:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.304:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 288), BufferCount = 2.
+25586.305:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.305:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0dcb0) on screen Main Screen.
+25586.306:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.307:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0dcb0) on screen Main Screen.
+25586.309:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.317:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 336), BufferCount = 2.
+25586.317:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.317:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f08810) on screen Main Screen.
+25586.319:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.320:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f08810) on screen Main Screen.
+25586.323:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.325:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 240), BufferCount = 2.
+25586.325:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.325:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f08ae0) on screen Main Screen.
+25586.327:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.327:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f08ae0) on screen Main Screen.
+25586.329:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.337:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25586.337:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.337:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f08e10) on screen Main Screen.
+25586.340:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.340:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f08e10) on screen Main Screen.
+25586.342:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  create/resize/destroy cycles: 25 / 100
+25586.350:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25586.351:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.351:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0e820) on screen Main Screen.
+25586.353:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.354:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0e820) on screen Main Screen.
+25586.356:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.364:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25586.364:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.364:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f09140) on screen Main Screen.
+25586.366:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.367:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f09140) on screen Main Screen.
+25586.368:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.376:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25586.376:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.376:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7b900) on screen Main Screen.
+25586.378:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.379:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7b900) on screen Main Screen.
+25586.380:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.388:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 336), BufferCount = 2.
+25586.388:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.388:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0eee0) on screen Main Screen.
+25586.390:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.391:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0eee0) on screen Main Screen.
+25586.392:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.400:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 240), BufferCount = 2.
+25586.401:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.401:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0f150) on screen Main Screen.
+25586.403:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.406:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0f150) on screen Main Screen.
+25586.408:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.414:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 288), BufferCount = 2.
+25586.415:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.415:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f095c0) on screen Main Screen.
+25586.416:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.417:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f095c0) on screen Main Screen.
+25586.420:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.424:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 336), BufferCount = 2.
+25586.424:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.424:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7ffc0) on screen Main Screen.
+25586.426:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.427:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f7ffc0) on screen Main Screen.
+25586.429:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.437:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 240), BufferCount = 2.
+25586.437:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.438:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0ebb0) on screen Main Screen.
+25586.439:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.441:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0ebb0) on screen Main Screen.
+25586.443:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.449:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 288), BufferCount = 2.
+25586.449:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.450:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0f6f0) on screen Main Screen.
+25586.451:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.452:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0f6f0) on screen Main Screen.
+25586.454:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.458:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 336), BufferCount = 2.
+25586.459:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.459:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f046c0) on screen Main Screen.
+25586.461:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.461:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f046c0) on screen Main Screen.
+25586.463:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.472:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 240), BufferCount = 2.
+25586.472:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.472:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e172a0) on screen Main Screen.
+25586.473:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.474:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002e172a0) on screen Main Screen.
+25586.476:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.484:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25586.484:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.484:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f055f0) on screen Main Screen.
+25586.486:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.487:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f055f0) on screen Main Screen.
+25586.489:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.497:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25586.498:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.498:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0ab50) on screen Main Screen.
+25586.499:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.500:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0ab50) on screen Main Screen.
+25586.502:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.509:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25586.509:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.509:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f05560) on screen Main Screen.
+25586.511:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.512:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f05560) on screen Main Screen.
+25586.514:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.524:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25586.524:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.524:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f5ffc0) on screen Main Screen.
+25586.526:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.527:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f5ffc0) on screen Main Screen.
+25586.529:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.537:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 336), BufferCount = 2.
+25586.537:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.537:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f001e0) on screen Main Screen.
+25586.540:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.541:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f001e0) on screen Main Screen.
+25586.543:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.550:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 240), BufferCount = 2.
+25586.551:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.551:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0ae20) on screen Main Screen.
+25586.554:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.555:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0ae20) on screen Main Screen.
+25586.557:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.565:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 288), BufferCount = 2.
+25586.565:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.565:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0b6f0) on screen Main Screen.
+25586.567:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.568:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0b6f0) on screen Main Screen.
+25586.570:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.575:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 336), BufferCount = 2.
+25586.576:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.576:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0f060) on screen Main Screen.
+25586.577:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.578:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0f060) on screen Main Screen.
+25586.581:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.590:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 240), BufferCount = 2.
+25586.590:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.590:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0fc30) on screen Main Screen.
+25586.592:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.594:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0fc30) on screen Main Screen.
+25586.596:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.604:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 288), BufferCount = 2.
+25586.604:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.604:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f722b0) on screen Main Screen.
+25586.606:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.607:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f722b0) on screen Main Screen.
+25586.609:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.616:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 336), BufferCount = 2.
+25586.616:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.617:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f00fc0) on screen Main Screen.
+25586.618:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.619:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f00fc0) on screen Main Screen.
+25586.621:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.625:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 240), BufferCount = 2.
+25586.625:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.625:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0bb40) on screen Main Screen.
+25586.627:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.628:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f0bb40) on screen Main Screen.
+25586.629:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.637:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25586.637:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.638:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f01890) on screen Main Screen.
+25586.639:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.640:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f01890) on screen Main Screen.
+25586.642:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.649:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25586.650:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.650:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1c1e0) on screen Main Screen.
+25586.652:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.654:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1c1e0) on screen Main Screen.
+25586.655:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  create/resize/destroy cycles: 50 / 100
+25586.663:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25586.664:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.664:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f07e10) on screen Main Screen.
+25586.666:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.667:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f07e10) on screen Main Screen.
+25586.668:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.676:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25586.677:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.677:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18270) on screen Main Screen.
+25586.678:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.679:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18270) on screen Main Screen.
+25586.681:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.689:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 336), BufferCount = 2.
+25586.689:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.689:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18540) on screen Main Screen.
+25586.691:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.692:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18540) on screen Main Screen.
+25586.694:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.702:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 240), BufferCount = 2.
+25586.704:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.704:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f02610) on screen Main Screen.
+25586.706:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.707:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f02610) on screen Main Screen.
+25586.709:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.717:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 288), BufferCount = 2.
+25586.717:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.717:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f184b0) on screen Main Screen.
+25586.720:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.721:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f184b0) on screen Main Screen.
+25586.723:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.731:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 336), BufferCount = 2.
+25586.732:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.732:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18ea0) on screen Main Screen.
+25586.734:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.735:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18ea0) on screen Main Screen.
+25586.738:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.745:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 240), BufferCount = 2.
+25586.745:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.745:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18990) on screen Main Screen.
+25586.747:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.748:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18990) on screen Main Screen.
+25586.751:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.758:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 288), BufferCount = 2.
+25586.758:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.758:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18a50) on screen Main Screen.
+25586.760:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.761:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f18a50) on screen Main Screen.
+25586.763:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.772:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 336), BufferCount = 2.
+25586.772:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.772:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f02dc0) on screen Main Screen.
+25586.774:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.775:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f02dc0) on screen Main Screen.
+25586.777:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.785:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 240), BufferCount = 2.
+25586.785:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.785:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f72af0) on screen Main Screen.
+25586.787:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.788:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f72af0) on screen Main Screen.
+25586.791:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.799:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25586.799:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.799:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f72c10) on screen Main Screen.
+25586.801:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.803:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f72c10) on screen Main Screen.
+25586.806:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.808:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25586.809:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.809:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1e6a0) on screen Main Screen.
+25586.812:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.814:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1e6a0) on screen Main Screen.
+25586.816:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.824:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25586.824:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.825:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1d980) on screen Main Screen.
+25586.827:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.828:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1d980) on screen Main Screen.
+25586.829:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.837:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25586.838:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.838:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f03bd0) on screen Main Screen.
+25586.840:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.841:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f03bd0) on screen Main Screen.
+25586.842:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.850:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 336), BufferCount = 2.
+25586.850:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.850:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f19740) on screen Main Screen.
+25586.852:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.854:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f19740) on screen Main Screen.
+25586.857:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.863:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 240), BufferCount = 2.
+25586.863:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.864:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f73990) on screen Main Screen.
+25586.865:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.866:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f73990) on screen Main Screen.
+25586.868:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.875:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 288), BufferCount = 2.
+25586.876:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.876:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f145a0) on screen Main Screen.
+25586.877:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.878:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f145a0) on screen Main Screen.
+25586.880:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.888:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 336), BufferCount = 2.
+25586.888:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.888:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f14360) on screen Main Screen.
+25586.890:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.891:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f14360) on screen Main Screen.
+25586.892:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.900:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 240), BufferCount = 2.
+25586.900:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.900:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1a100) on screen Main Screen.
+25586.902:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.903:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1a100) on screen Main Screen.
+25586.905:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.912:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 288), BufferCount = 2.
+25586.913:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.913:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f11020) on screen Main Screen.
+25586.914:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.915:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f11020) on screen Main Screen.
+25586.917:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.925:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 336), BufferCount = 2.
+25586.925:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.925:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1a310) on screen Main Screen.
+25586.927:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.927:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1a310) on screen Main Screen.
+25586.929:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.938:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 240), BufferCount = 2.
+25586.938:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.938:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f110e0) on screen Main Screen.
+25586.940:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.940:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f110e0) on screen Main Screen.
+25586.942:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.950:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25586.950:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.950:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1a970) on screen Main Screen.
+25586.952:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.953:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1a970) on screen Main Screen.
+25586.955:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.963:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25586.964:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.964:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1abe0) on screen Main Screen.
+25586.965:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.966:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1abe0) on screen Main Screen.
+25586.968:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.974:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25586.975:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.975:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f15500) on screen Main Screen.
+25586.977:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.977:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f15500) on screen Main Screen.
+25586.979:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  create/resize/destroy cycles: 75 / 100
+25586.987:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25586.987:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25586.987:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f15230) on screen Main Screen.
+25586.989:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.990:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f15230) on screen Main Screen.
+25586.992:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25586.999:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 336), BufferCount = 2.
+25587.000:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.000:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1aeb0) on screen Main Screen.
+25587.002:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.002:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1aeb0) on screen Main Screen.
+25587.004:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.012:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 240), BufferCount = 2.
+25587.012:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.012:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1ae50) on screen Main Screen.
+25587.014:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.015:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1ae50) on screen Main Screen.
+25587.016:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.024:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 288), BufferCount = 2.
+25587.024:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.024:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f160d0) on screen Main Screen.
+25587.026:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.027:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f160d0) on screen Main Screen.
+25587.028:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.037:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 336), BufferCount = 2.
+25587.037:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.037:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f16280) on screen Main Screen.
+25587.038:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.039:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f16280) on screen Main Screen.
+25587.041:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.049:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 240), BufferCount = 2.
+25587.049:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.049:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1b390) on screen Main Screen.
+25587.051:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.052:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1b390) on screen Main Screen.
+25587.054:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.062:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 288), BufferCount = 2.
+25587.062:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.062:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1b240) on screen Main Screen.
+25587.064:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.065:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1b240) on screen Main Screen.
+25587.066:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.074:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 336), BufferCount = 2.
+25587.075:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.075:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2e580) on screen Main Screen.
+25587.077:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.078:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2e580) on screen Main Screen.
+25587.080:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.088:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 240), BufferCount = 2.
+25587.089:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.089:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f16a00) on screen Main Screen.
+25587.091:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.092:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f16a00) on screen Main Screen.
+25587.093:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.101:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25587.102:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.102:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1b7e0) on screen Main Screen.
+25587.103:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.104:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1b7e0) on screen Main Screen.
+25587.106:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.114:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25587.114:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.114:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f11bf0) on screen Main Screen.
+25587.116:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.117:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f11bf0) on screen Main Screen.
+25587.119:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.127:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25587.127:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.127:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1b900) on screen Main Screen.
+25587.129:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.130:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1b900) on screen Main Screen.
+25587.132:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.141:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25587.141:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.142:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1bdb0) on screen Main Screen.
+25587.143:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.144:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1bdb0) on screen Main Screen.
+25587.146:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.155:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 336), BufferCount = 2.
+25587.155:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.155:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2f6f0) on screen Main Screen.
+25587.157:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.158:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2f6f0) on screen Main Screen.
+25587.160:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.168:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 240), BufferCount = 2.
+25587.168:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.168:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f73a20) on screen Main Screen.
+25587.170:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.171:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f73a20) on screen Main Screen.
+25587.173:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.180:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 288), BufferCount = 2.
+25587.181:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.181:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2f600) on screen Main Screen.
+25587.183:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.183:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2f600) on screen Main Screen.
+25587.185:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.193:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 336), BufferCount = 2.
+25587.193:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.194:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1fd80) on screen Main Screen.
+25587.195:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.196:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f1fd80) on screen Main Screen.
+25587.198:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.207:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 240), BufferCount = 2.
+25587.208:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.208:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f286c0) on screen Main Screen.
+25587.210:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.211:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f286c0) on screen Main Screen.
+25587.212:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.220:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 288), BufferCount = 2.
+25587.220:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.221:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f28db0) on screen Main Screen.
+25587.222:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.223:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f28db0) on screen Main Screen.
+25587.225:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.233:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 336), BufferCount = 2.
+25587.233:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.233:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f247b0) on screen Main Screen.
+25587.236:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.237:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 408), BufferCount = 2.
+  ResizeBuffers(768,408): hr=0x00000000 PASS
+  desc: 768x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f247b0) on screen Main Screen.
+25587.239:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.246:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 240), BufferCount = 2.
+25587.247:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.247:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f29890) on screen Main Screen.
+25587.249:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.249:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 360), BufferCount = 2.
+  ResizeBuffers(640,360): hr=0x00000000 PASS
+  desc: 640x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f29890) on screen Main Screen.
+25587.251:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.259:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (384 x 288), BufferCount = 2.
+25587.259:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.260:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 384x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f24e10) on screen Main Screen.
+25587.261:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.262:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 408), BufferCount = 2.
+  ResizeBuffers(704,408): hr=0x00000000 PASS
+  desc: 704x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f24e10) on screen Main Screen.
+25587.264:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.274:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (448 x 336), BufferCount = 2.
+25587.274:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.274:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 448x336 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f25020) on screen Main Screen.
+25587.276:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.277:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (768 x 360), BufferCount = 2.
+  ResizeBuffers(768,360): hr=0x00000000 PASS
+  desc: 768x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f25020) on screen Main Screen.
+25587.279:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.287:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (512 x 240), BufferCount = 2.
+25587.288:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.288:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 512x240 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2a3d0) on screen Main Screen.
+25587.289:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.290:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (640 x 408), BufferCount = 2.
+  ResizeBuffers(640,408): hr=0x00000000 PASS
+  desc: 640x408 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2a3d0) on screen Main Screen.
+25587.292:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.300:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (320 x 288), BufferCount = 2.
+25587.300:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.301:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 320x288 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2a760) on screen Main Screen.
+25587.303:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+25587.304:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_ChangeProperties: Reallocating swapchain (704 x 360), BufferCount = 2.
+  ResizeBuffers(704,360): hr=0x00000000 PASS
+  desc: 704x360 format=0x57 buffers=2 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2a760) on screen Main Screen.
+25587.306:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  create/resize/destroy cycles: 100 / 100
+25587.314:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+25587.315:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+25587.315:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+  create lifecycle swapchain: hr=0x00000000 PASS
+  desc: 640x480 format=0x57 buffers=2 PASS
+  readback 640x480 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
+  shutdown: GPU idle
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x600002f2a5b0) on screen Main Screen.
+25587.318:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  shutdown: RTVs/resources
+  shutdown: swapchain
+  shutdown: queue/fence
+  shutdown: device
+[mvk-info] Destroyed VkDevice on GPU Apple M4 with 35 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 206 MB of GPU memory still allocated.
+[mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
+  shutdown: adapter
+  shutdown: factory
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 206 MB of GPU memory still allocated.
+[mvk-info] Destroying VkInstance for Vulkan version 1.1.357 with 5 Vulkan extensions enabled.
+  shutdown: window
+DXGI-3 result: PASS (0 failures)

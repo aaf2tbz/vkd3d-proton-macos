@@ -1,0 +1,4 @@
+PASS: 10 deterministic adapter identity runs
+PASS: negative adapter/feature-level tests
+PASS: existing six-probe regression suite
+PASS: evidence written to artifacts/evidence

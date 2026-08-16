@@ -1,0 +1,3 @@
+PASS: two deterministic four-mode presentation runs
+PASS: existing six-probe regression suite
+PASS: evidence written to artifacts/evidence

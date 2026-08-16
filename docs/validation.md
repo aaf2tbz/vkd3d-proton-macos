@@ -64,6 +64,35 @@ paths, SHA-256 hashes, source revisions, and Wine/DXVK/vkd3d/MoltenVK output in
 Phase 2 does not cover resize, minimize, fullscreen, recovery stress, or broad
 gameplay stability. Those claims remain blocked until later phase gates pass.
 
+## DXGI-3 lifecycle gate
+
+Run the lifecycle probe and its full preservation gates with:
+
+```bash
+make dxgi-lifecycle-test
+```
+
+The validator requires the clean pinned DXVK base plus the checked-in bridge
+patch, matched x86_64 `dxgi.dll`/D3D12 modules, and the staged MoltenVK ICD.
+It runs two deterministic passes of a real Win32 window using the Phase-1
+adapter. Each pass verifies normal multi-size `ResizeBuffers`, RTV and
+backbuffer reacquisition, deterministic RGB-triangle/clear readback and state
+transitions, minimize/restore and occlusion, destruction/recreation, and
+fullscreen query/target/windowed-fallback behavior. Zero-size and exclusive
+fullscreen results are accepted only when explicitly reported supported or
+unsupported.
+
+The negative matrix covers invalid dimensions, outstanding backbuffer
+references, invalid `ResizeTarget`/fullscreen parameters, and presentation
+after window destruction. The stress section performs 100 create/resize/destroy
+cycles and checks ordered GPU-idle/resource/swapchain/queue/device/adapter/
+factory/window shutdown. The validator then reruns the DXGI-1 and DXGI-2 gates
+and all six existing regression probes. Evidence is written to
+`artifacts/evidence/dxgi-3-lifecycle.md` and the adjacent `dxgi-3-*` logs.
+
+DXGI-3 proves this tested lifecycle lane only. It does not claim broad gameplay
+stability, later format/HDR coverage, or final package promotion.
+
 ## Probe gate
 
 The M14 gate is green only when all of these pass:

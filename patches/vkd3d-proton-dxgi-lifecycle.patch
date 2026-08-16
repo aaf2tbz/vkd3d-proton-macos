@@ -1,0 +1,21 @@
+diff --git a/libs/vkd3d/swapchain.c b/libs/vkd3d/swapchain.c
+index 5f2e935..5359c70 100644
+--- a/libs/vkd3d/swapchain.c
++++ b/libs/vkd3d/swapchain.c
+@@ -863,6 +863,16 @@ static HRESULT STDMETHODCALLTYPE dxgi_vk_swap_chain_ChangeProperties(IDXGIVkSwap
+ 
+     /* TODO: Validate pNodeMasks and ppPresentQueues. */
+ 
++    /* Reject dimensions which cannot be represented by the native Metal
++     * surface before they reach image allocation.  In particular, a
++     * malformed ResizeBuffers request must return an HRESULT rather than
++     * allowing the backend to validate an UINT_MAX-sized texture. */
++    if (!pDesc || pDesc->Width > 16384 || pDesc->Height > 16384)
++    {
++        WARN("Invalid swapchain dimensions %ux%u.\n", pDesc ? pDesc->Width : 0, pDesc ? pDesc->Height : 0);
++        return DXGI_ERROR_INVALID_CALL;
++    }
++
+     /* Public ref-counts must be 0 for this to be allowed. */
+     for (i = 0; i < chain->desc.BufferCount; i++)
+         if (chain->user.backbuffers[i]->refcount != 0)

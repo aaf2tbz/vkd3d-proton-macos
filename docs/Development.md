@@ -143,6 +143,37 @@ logs under `artifacts/evidence/`.
 This target intentionally does not test resize, minimize, fullscreen, or
 general gameplay stability; those are later DXGI phases.
 
+## Build and validate DXGI-3 lifecycle
+
+The lifecycle lane uses the same pinned DXVK bridge and applies the checked-in
+vkd3d guard patch `patches/vkd3d-proton-dxgi-lifecycle.patch` only while
+building. `make vkd3d` reverts that temporary source change before returning,
+so the downloaded source checkout remains clean apart from the workspace's
+pre-existing local vkd3d changes:
+
+```bash
+make dxgi-lifecycle-probe
+make dxgi-lifecycle-test
+```
+
+The probe creates a real Win32 window, selects the Phase-1 adapter, and
+recreates RTVs/readback resources after each accepted `ResizeBuffers`. It
+renders the deterministic RGB triangle and clear color after normal and
+minimized/zero-size transitions, checks dimensions, formats, barriers, and
+GPU readback, and exercises occlusion, destruction/recreation, fullscreen
+queries, `ResizeTarget`, and windowed fallback. Unsupported zero-size or
+exclusive-fullscreen behavior must be reported as `UNSUPPORTED`, never
+silently treated as success.
+
+The deterministic negatives cover oversized resize dimensions, outstanding
+backbuffer references, invalid target/fullscreen parameters, and presentation
+after window destruction. The stress loop performs 100 create/resize/destroy
+cycles and the probe prints the required shutdown order. The validator runs
+two lifecycle passes, reruns DXGI-1 and DXGI-2, reruns the six-probe suite, and
+writes complete module/hash/source/log evidence under `artifacts/evidence/`.
+DXGI-3 remains a lifecycle validation claim only; it is not a broad gameplay
+stability or final-release claim.
+
 ## Build MoltenVK
 
 Build the custom universal dylib candidate:

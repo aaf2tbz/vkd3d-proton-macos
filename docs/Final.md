@@ -84,6 +84,30 @@ presentation gate, not a claim of resize, fullscreen, recovery, or broad
 gameplay stability, and the v1.0 archive remains the separately documented
 runtime release until a later package promotion.
 
+## DXGI-3 lifecycle validation
+
+The follow-on lifecycle gate is now green with `make dxgi-lifecycle-test`.
+Evidence is consolidated in
+[`dxgi-3-lifecycle.md`](../artifacts/evidence/dxgi-3-lifecycle.md). Two
+repeatable runs used a real Win32 window and the Phase-1 adapter and passed:
+
+- normal 800x600, 320x240, and 1024x512 resizes with RTV recreation and
+  pixel-correct RGB-triangle/clear readback;
+- minimize/restore, zero-size behavior, occlusion/test Present, fullscreen
+  query, `ResizeTarget`, and safe windowed fallback;
+- destruction/recreation, invalid dimensions and target parameters,
+  outstanding-backbuffer-reference handling, and post-destruction Present;
+- 100 create/resize/destroy cycles and ordered GPU-idle through window
+  shutdown; and
+- the DXGI-1, DXGI-2, and existing six-probe regression gates.
+
+The lifecycle dimension guard is reproduced by
+`patches/vkd3d-proton-dxgi-lifecycle.patch`, applied transiently by
+`scripts/build-vkd3d-proton.sh`. Zero-size drawable and exclusive fullscreen
+are reported according to the host's actual HRESULTs. This is a validated
+lifecycle lane, not a claim of broad gameplay stability or a replacement for
+the later format, pacing, recovery, and real-game phases.
+
 ## Feature-level ladder
 
 The final `flprobe.exe` run on Apple M4 returned `S_OK` and `dev=CREATED` for

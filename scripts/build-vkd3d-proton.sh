@@ -6,8 +6,28 @@ WS="$(cd "$(dirname "$0")/.." && pwd)"
 source "$WS/scripts/env.sh"
 SRC="$WS/sources/vkd3d-proton"
 OUT="$WS/artifacts/build/vkd3d-proton-build"
+DXGI_LIFECYCLE_PATCH="$WS/patches/vkd3d-proton-dxgi-lifecycle.patch"
 
 [ -d "$SRC/libs/vkd3d" ] || { echo "vkd3d-proton source missing"; exit 1; }
+[ -s "$DXGI_LIFECYCLE_PATCH" ] || { echo "vkd3d lifecycle patch missing"; exit 1; }
+
+# Keep the downloaded source checkout at its pinned revision.  The lifecycle
+# guard is a small source patch applied only for this build and then reverted,
+# just like the checked-in DXVK bridge lane.
+patch_applied=0
+cleanup() {
+    if [ "$patch_applied" -eq 1 ]; then
+        git -C "$SRC" apply -R "$DXGI_LIFECYCLE_PATCH" || true
+    fi
+}
+trap cleanup EXIT
+git -C "$SRC" diff --quiet -- libs/vkd3d/swapchain.c || {
+    echo "swapchain.c has uncommitted changes; refusing to apply lifecycle patch" >&2
+    exit 1
+}
+git -C "$SRC" apply --check "$DXGI_LIFECYCLE_PATCH"
+git -C "$SRC" apply "$DXGI_LIFECYCLE_PATCH"
+patch_applied=1
 
 cat > "$WS/artifacts/vkd3d-cross-x86_64.txt" <<'EOF'
 [binaries]

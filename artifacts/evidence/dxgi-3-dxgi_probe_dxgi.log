@@ -1,0 +1,42 @@
+info:  Game: dxgi_probe.exe
+info:  DXVK: v1.10.3-20230507-async (macOS)
+info:  Built-in extension providers:
+info:    Win32 WSI
+info:    OpenVR
+info:    OpenXR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:  Enabled instance extensions:
+info:    VK_KHR_get_surface_capabilities2
+info:    VK_KHR_surface
+info:    VK_KHR_win32_surface
+info:  Apple M4:
+info:    Driver: 0.2.2211
+info:    Vulkan: 1.1.357
+info:    Memory Heap[0]: 
+info:      Size: 16384 MiB
+info:      Flags: 0x1
+info:      Memory Type[0]: Property Flags = 0x1
+info:      Memory Type[1]: Property Flags = 0xf
+info:      Memory Type[2]: Property Flags = 0x11
+info:  Game: dxgi_probe.exe
+info:  DXVK: v1.10.3-20230507-async (macOS)
+info:  Built-in extension providers:
+info:    Win32 WSI
+info:    OpenVR
+info:    OpenXR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:  Enabled instance extensions:
+info:    VK_KHR_get_surface_capabilities2
+info:    VK_KHR_surface
+info:    VK_KHR_win32_surface
+info:  Apple M4:
+info:    Driver: 0.2.2211
+info:    Vulkan: 1.1.357
+info:    Memory Heap[0]: 
+info:      Size: 16384 MiB
+info:      Flags: 0x1
+info:      Memory Type[0]: Property Flags = 0x1
+info:      Memory Type[1]: Property Flags = 0xf
+info:      Memory Type[2]: Property Flags = 0x11
