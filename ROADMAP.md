@@ -2,7 +2,7 @@
 
 **Workspace:** `/Volumes/AverySSD/VKD3D-Proton-MacOS`
 **Date:** 2026-08-14
-**Status:** **M14 SHIPPED** — the public `m14` release contains the tested x86_64 D3D12 pair and universal MoltenVK runtime. The feature-level ladder is green from 11_0 through 12_2 plus CORE_1_0; the current build, feature, validation, and release instructions live in **docs/README.md**. Historical execution plans remain in **docs/07-followup-roadmap.md**, **docs/08-remaining-plan.md**, and **docs/09-mesh-samplerfeedback-plan.md**.
+**Status:** **v1.0 SHIPPED** — the public `v1.0` release contains the tested x86_64 D3D12 pair and universal MoltenVK runtime. The feature-level ladder is green from 11_0 through 12_2 plus CORE_1_0; the consolidated final state is **docs/Final.md**, with practical workflows in **docs/README.md**.
 **Mandate:** Prove that the MetalSharp D3D12 route — `D3D12 app → vkd3d-proton (custom) → Vulkan → custom MoltenVK → Metal` — running on **MetalSharp Wine 11.5** fully supports every Direct3D 12 feature level: **11_0, 11_1, 12_0, 12_1, 12_2, and compute-only CORE_1_0**. Every claim must be backed by reproducible, hash-pinned, runtime-verified evidence.
 
 ---
@@ -51,7 +51,7 @@ Metal (Apple M4 · GPU Family Metal 4 / Apple 9 · MSL 4.0)
 - **vkd3d-proton**: upstream 3.1-era source + VKMT patches. Observed custom markers in the shipped binaries: `stream output is disabled (VKMT)` (transform feedback off), D3DKMT-based adapter resolution (`D3DKMTOpenAdapterFromLuid`), DXVK interop interfaces (`ID3D12DXVKInteropDevice*`), `d3d12core_CreateDeviceFromFactory`, OpenXR/OpenVR hooks, and the `MoltenVK 0.2.2210`-style device labeling. The exact patch set is **not** public; our workspace fork must re-derive equivalent patches on top of upstream master and produce an ABI-compatible `d3d12.dll` + `d3d12core.dll` pair.
 - **MoltenVK**: Khronos 1.4.2 base + VKMT patches. Observed: Vulkan 1.4.357 surface, `VK_KHR_deferred_host_operations` advertised (partial RT groundwork), fragment-shader interlock (pixel+sample), robust2, maintenance4-9, barycentrics (KHR+NV), `drawIndirectCount` feature **off**, sparse **off**, geometry shaders **off**, ray tracing **off**, mesh shaders **off**, VRS **off**, conservative rasterization **off**, transform feedback **off**, logicOp **off**.
 
-## 4. Phase 0 — Evidence Lock (already collected, `docs/01-feature-level-evidence.md`)
+## 4. Evidence summary (consolidated in `docs/Final.md`)
 
 Measured on 2026-08-14 from `metalsharp-graphics-dll-clean.tar.zst` + installed MetalSharp Wine 11.5:
 
@@ -267,7 +267,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 ## 9. Definition of Done (per feature, per rung)
 
 1. **Source-backed design**: change documented in the workspace fork with commit hashes.
-2. **Binary-backed build**: artifact hash recorded in `docs/01-feature-level-evidence.md` (d3d12.dll, d3d12core.dll, libMoltenVK.dylib).
+2. **Binary-backed build**: artifact hashes recorded in `docs/Final.md` and the release archive (d3d12.dll, d3d12core.dll, libMoltenVK.dylib).
 3. **Capability gate**: the exact feature reports correctly through the *real* D3D12 `CheckFeatureSupport` / Vulkan `GetPhysicalDeviceFeatures2` chain (no env forcing).
 4. **Execution row**: a GPU-executed probe with deterministic, sentinel-verified readback for every promoted behavior.
 5. **Ladder proof**: vkd3d TRACE `Max feature level: 0xXXXX` captured from the real Wine 11.5 route.
@@ -276,8 +276,9 @@ Everything in Section 5 marked "MoltenVK", plus:
 
 ## 10. References
 
-- `docs/01-feature-level-evidence.md` — Phase 0 measurements, hashes, probe outputs
-- `docs/02-build-toolchain.md` — toolchain inventory + build recipes
-- `docs/03-validation-harnesses.md` — probe design and runbook
+- `docs/Final.md` — consolidated final state, hashes, features, and acceptance
+- `docs/Development.md` — prerequisites, build targets, validation, and release workflow
+- `docs/features.md` — current feature matrix
+- `docs/validation.md` — current probe gate
 - `README.md` — workspace map
 - Upstream ladders: `sources/vkd3d-proton/libs/vkd3d/device.c` (`d3d12_device_caps_init_feature_level`, `d3d12_device_determine_tiled_resources_tier`, `d3d12_device_determine_conservative_rasterization_tier`, `d3d12_device_determine_ray_tracing_tier`, `d3d12_device_determine_mesh_shader_tier`, `d3d12_device_determine_variable_shading_rate_tier`, SM ladder)

@@ -84,7 +84,7 @@ Start at [docs/README.md](docs/README.md), then see:
 - [Feature-level matrix](docs/features.md)
 - [Validation and regression](docs/validation.md)
 - [Release and packaging](docs/release.md)
-- [Dated evidence](docs/01-feature-level-evidence.md)
+- [Final state](docs/Final.md)
 
 ## Project policies
 

@@ -56,7 +56,7 @@ cat > "$STAGE/VKD3D-Proton-MacOS-$DATE/BUILD.md" <<'BUILD'
 ## Toolchain
 - llvm-mingw-20260616-ucrt-macos-universal (clang 22.1.8) - exact shipped compiler
 - ninja, meson, Xcode (beta) for MoltenVK
-- See docs/02-build-toolchain.md
+- See docs/Development.md and docs/requirements.md
 
 ## Fork builds (sources/<fork>)
 - vkd3d-proton: `bash scripts/build-vkd3d-proton.sh` (produces d3d12.dll + d3d12core.dll)
