@@ -1,6 +1,6 @@
 # DXGI Stability Roadmap
 
-**Status:** DXGI-1 complete; DXGI-2 presentation work is next.
+**Status:** DXGI-2 complete; DXGI-3 lifecycle work is next.
 
 The current release proves device creation, off-screen D3D12 rendering, shader
 translation, and deterministic readback. It does **not** yet prove a stable
@@ -30,6 +30,27 @@ suite are recorded in
 [`artifacts/evidence/dxgi-1-adapter-identity.md`](../artifacts/evidence/dxgi-1-adapter-identity.md).
 This closes adapter identity only; it does not claim swapchain or gameplay
 stability.
+
+### DXGI-2 completion record
+
+Phase 2 passed on 2026-08-16. The pinned DXVK macOS base remains commit
+`8f1e28deed3ad30802f7e1bdff428ec14e6e7817`; the D3D12 windowed bridge is the
+checked-in patch `patches/dxvk-macos-d3d12-dxgi.patch`. The native provider now
+consumes vkd3d-proton's Vulkan-backed swapchain factory, creates a real Win32
+surface, and exposes the D3D12 backbuffers through the DXGI frontend.
+
+`make dxgi-present-test` passed two deterministic runs of all four accepted
+combinations: `CreateSwapChain`/`CreateSwapChainForHwnd` × flip-discard/
+flip-sequential. Each mode rendered and read back the deterministic clear and
+triangle for 1,000 frames, exercised sync intervals 0 and 1, tearing, both
+`Present` forms, `DXGI_PRESENT_TEST`, frame statistics, last-present count, and
+the invalid-descriptor/post-release negative tests. The six-probe regression
+suite remained green. Full hashes and logs are in
+[`artifacts/evidence/dxgi-2-presentation.md`](../artifacts/evidence/dxgi-2-presentation.md).
+
+This closes basic windowed presentation only. It does **not** claim resize,
+minimize, fullscreen, long-run recovery, or broad gameplay stability; those
+remain later phase gates.
 
 ## Rules for every phase
 

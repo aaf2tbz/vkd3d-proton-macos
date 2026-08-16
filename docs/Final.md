@@ -58,6 +58,32 @@ Release artifact hashes:
 `libMoltenVK.dylib` is a universal x86_64/arm64 Mach-O with a valid adhoc
 signature for the isolated runtime override path.
 
+## DXGI-2 windowed presentation validation
+
+After the v1.0 runtime release, the pinned DXVK macOS lane was extended with
+the checked-in `patches/dxvk-macos-d3d12-dxgi.patch`. This bridge lets the
+native DXVK `dxgi.dll` consume vkd3d-proton's Vulkan-backed D3D12 swapchain
+frontend instead of reporting an unsupported device type. The complete gate is
+`make dxgi-present-test`, with evidence in
+[`dxgi-2-presentation.md`](../artifacts/evidence/dxgi-2-presentation.md).
+
+Two repeatable runs passed all four windowed combinations:
+
+```text
+CreateSwapChain        + flip-discard    + Present
+CreateSwapChain        + flip-sequential + Present
+CreateSwapChainForHwnd + flip-discard    + Present1
+CreateSwapChainForHwnd + flip-sequential + Present1
+```
+
+Each mode rendered a deterministic clear and triangle with GPU readback for
+1,000 frames, checked transitions, sync intervals, tearing, test presents,
+statistics, last-present count, and negative release/descriptor cases. The
+existing six-probe regression suite remained green. This is a basic windowed
+presentation gate, not a claim of resize, fullscreen, recovery, or broad
+gameplay stability, and the v1.0 archive remains the separately documented
+runtime release until a later package promotion.
+
 ## Feature-level ladder
 
 The final `flprobe.exe` run on Apple M4 returned `S_OK` and `dev=CREATED` for

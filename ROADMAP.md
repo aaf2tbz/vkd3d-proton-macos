@@ -26,7 +26,7 @@ claim broad gameplay stability until the final phase passes on a real macOS
 
 ## 2. Non-Goals / Hard Rules
 
-- **No DXMT.** The M12 route is strictly vkd3d-proton → Vulkan → custom MoltenVK → Metal. DXVK remains only the M12 D3D11/DXGI provider.
+- **No DXMT.** The route is strictly vkd3d-proton → Vulkan → custom MoltenVK → Metal. DXVK supplies the pinned DXGI/D3D11 provider and its explicit D3D12 presentation bridge; it is not a D3D12 renderer.
 - **No GPTK/D3DMetal.** Apple's closed D3DMetal is not part of this route.
 - **No CPU fallbacks for correctness.** Software rasterization / CPU readback synthesis is forbidden as acceptance evidence for GPU features. Every feature must execute on the GPU with exact readback.
 - **No `VKD3D_FEATURE_LEVEL` / option-bit forcing as "support".** The shipped vkd3d-proton contains an env override that force-sets feature-level option bits. Advertising 11_1+ that way is a lie and is banned as evidence. (It is documented as a debug tool only.)
@@ -44,7 +44,7 @@ d3d12.dll        custom vkd3d-proton forwarder (446,464 B)   [sha 7a34f49a…]
 d3d12core.dll    custom vkd3d-proton impl, Agility-split     [sha 8b643bfb…]
                  · vkd3d-proton 3.1.0, build 3300fe64cc1ecf5+
                  · built with clang 22.1.8 (llvm-mingw) ← we now have this exact toolchain
-dxgi.dll         DXVK (18.9 MB) — DXGI provider only
+dxgi.dll         DXVK macOS + checked-in vkd3d D3D12 bridge — DXGI/presentation provider
 d3d11.dll        DXVK — D3D11 titles routed to M12 render
   │  winevulkan (compatible Wine runtime), VK_ICD_FILENAMES pinned
   ▼
@@ -256,6 +256,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 | **M13** | CORE_1_0 | ✅ GREEN 2026-08-15 — 1_0_CORE device creation (dev=CREATED), compute matrix (UAV readback 42.0), and SM 6.0 corpus/geometry-shader corpus. Evidence: 2026-08-15-m13-core-1-0.md |
 | **M14** | Public macOS runtime release | ✅ SHIPPED — public repository `aaf2tbz/vkd3d-proton-macos`, tag `v1.0`, runtime tarball, feature matrix, and full regression evidence. |
 | **DXGI-1** | Adapter identity | ✅ COMPLETE 2026-08-16 — pinned DXVK macOS `dxgi.dll`, factory/adapter probe, DXGI↔D3D12 LUID match, Vulkan/MoltenVK identity, ten repeatable runs, negative tests, and six-probe regression. Evidence: `artifacts/evidence/dxgi-1-adapter-identity.md` |
+| **DXGI-2** | Windowed presentation | ✅ COMPLETE 2026-08-16 — four flip/API combinations, deterministic GPU readback, 1,000 frames per mode, sync/tearing/statistics/negative tests, two repeatable runs, and six-probe regression. Evidence: `artifacts/evidence/dxgi-2-presentation.md` |
 
 **Ordering note:** M3–M12 are strictly sequential rungs (the ladder depends downward). Within 12_2, 4A/4B/4C/4D may be parallelized across lanes but each promotes only with its own gate green.
 

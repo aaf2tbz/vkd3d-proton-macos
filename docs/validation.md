@@ -35,6 +35,35 @@ Vulkan/MoltenVK vendor/device identity, ten repeatable runs, invalid-input
 handling, and the complete regression suite. It does not create a swapchain;
 presentation begins in DXGI-2.
 
+## DXGI-2 windowed presentation gate
+
+Run the complete Phase 2 gate with:
+
+```bash
+make dxgi-present-test
+```
+
+The validator requires a native x86_64 DXVK `dxgi.dll` built from the pinned
+base plus the checked-in D3D12 bridge patch, a real Win32 window, and a
+DXGI/D3D12 LUID match. It runs two deterministic passes of all four accepted
+windowed combinations:
+
+- `CreateSwapChain` with flip-discard and flip-sequential, followed by `Present`;
+- `CreateSwapChainForHwnd` with flip-discard and flip-sequential, followed by
+  `Present1`.
+
+Every accepted mode renders a deterministic clear and triangle, checks
+backbuffer transitions and CPU readback, runs 1,000 frames, alternates sync
+intervals 0/1, requests `DXGI_PRESENT_ALLOW_TEARING` only when reported,
+executes `DXGI_PRESENT_TEST`, and checks frame statistics and last-present
+count. Invalid descriptors and post-release presentation are negative tests.
+The validator then reruns the six-probe regression suite and records module
+paths, SHA-256 hashes, source revisions, and Wine/DXVK/vkd3d/MoltenVK output in
+`artifacts/evidence/dxgi-2-presentation.md` and its adjacent logs.
+
+Phase 2 does not cover resize, minimize, fullscreen, recovery stress, or broad
+gameplay stability. Those claims remain blocked until later phase gates pass.
+
 ## Probe gate
 
 The M14 gate is green only when all of these pass:

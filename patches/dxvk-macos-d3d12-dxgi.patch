@@ -1,0 +1,421 @@
+diff --git a/src/dxgi/dxgi_d3d12.cpp b/src/dxgi/dxgi_d3d12.cpp
+new file mode 100644
+index 0000000..a258037
+--- /dev/null
++++ b/src/dxgi/dxgi_d3d12.cpp
+@@ -0,0 +1,195 @@
++#include "dxgi_d3d12.h"
++
++#include "dxgi_factory.h"
++#include "dxgi_swapchain.h"
++
++namespace dxvk {
++
++  DxgiWin32SurfaceFactory::DxgiWin32SurfaceFactory(
++    const Rc<DxvkInstance>& instance,
++          HWND              window)
++  : m_instance(instance), m_window(window) {
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiWin32SurfaceFactory::QueryInterface(
++          REFIID riid, void** ppvObject) {
++    if (!ppvObject)
++      return E_POINTER;
++    *ppvObject = nullptr;
++
++    if (riid == __uuidof(IUnknown) || riid == __uuidof(IDXGIVkd3dSurfaceFactory)) {
++      *ppvObject = ref(this);
++      return S_OK;
++    }
++    return E_NOINTERFACE;
++  }
++
++  VkResult STDMETHODCALLTYPE DxgiWin32SurfaceFactory::CreateSurface(
++          VkInstance instance,
++          VkPhysicalDevice adapter,
++          VkSurfaceKHR* pSurface) {
++    if (!instance || !adapter || !pSurface || !m_window)
++      return VK_ERROR_INITIALIZATION_FAILED;
++
++    HINSTANCE hinstance = reinterpret_cast<HINSTANCE>(
++      GetWindowLongPtr(m_window, GWLP_HINSTANCE));
++    VkWin32SurfaceCreateInfoKHR info;
++    info.sType = VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR;
++    info.pNext = nullptr;
++    info.flags = 0;
++    info.hinstance = hinstance;
++    info.hwnd = m_window;
++
++    VkResult status = m_instance->vki()->vkCreateWin32SurfaceKHR(
++      instance, &info, nullptr, pSurface);
++    if (status != VK_SUCCESS)
++      return status;
++
++    /* vkd3d-proton performs the presentation-support query with the actual
++     * command-queue family.  The surface factory ABI intentionally does not
++     * carry that family index, so do not guess one here. */
++    return VK_SUCCESS;
++  }
++
++  DxgiD3D12Presenter::DxgiD3D12Presenter(IDXGIVkd3dSwapChain* swapChain)
++  : m_swapChain(swapChain) {
++  }
++
++  DxgiD3D12Presenter::~DxgiD3D12Presenter() = default;
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::QueryInterface(
++          REFIID riid, void** ppvObject) {
++    if (!ppvObject)
++      return E_POINTER;
++    *ppvObject = nullptr;
++    if (riid == __uuidof(IUnknown) || riid == __uuidof(IDXGIVkSwapChain)) {
++      *ppvObject = ref(this);
++      return S_OK;
++    }
++    return E_NOINTERFACE;
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::GetDesc(DXGI_SWAP_CHAIN_DESC1* desc) {
++    return m_swapChain->GetDesc(desc);
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::GetAdapter(REFIID riid, void** object) {
++    return m_swapChain->GetAdapter(riid, object);
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::GetDevice(REFIID riid, void** object) {
++    return m_swapChain->GetDevice(riid, object);
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::GetImage(
++          UINT bufferId, REFIID riid, void** buffer) {
++    return m_swapChain->GetImage(bufferId, riid, buffer);
++  }
++
++  UINT STDMETHODCALLTYPE DxgiD3D12Presenter::GetImageIndex() {
++    return m_swapChain->GetImageIndex();
++  }
++
++  UINT STDMETHODCALLTYPE DxgiD3D12Presenter::GetFrameLatency() {
++    return m_swapChain->GetFrameLatency();
++  }
++
++  HANDLE STDMETHODCALLTYPE DxgiD3D12Presenter::GetFrameLatencyEvent() {
++    return m_swapChain->GetFrameLatencyEvent();
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::ChangeProperties(
++    const DXGI_SWAP_CHAIN_DESC1* desc) {
++    return m_swapChain->ChangeProperties(desc, nullptr, nullptr);
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::SetPresentRegion(const RECT* region) {
++    return m_swapChain->SetPresentRegion(region);
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::SetGammaControl(
++          UINT numControlPoints, const DXGI_RGB* controlPoints) {
++    return m_swapChain->SetGammaControl(numControlPoints, controlPoints);
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::SetFrameLatency(UINT maxLatency) {
++    return m_swapChain->SetFrameLatency(maxLatency);
++  }
++
++  HRESULT STDMETHODCALLTYPE DxgiD3D12Presenter::Present(
++          UINT syncInterval, UINT presentFlags,
++    const DXGI_PRESENT_PARAMETERS* presentParameters) {
++    return m_swapChain->Present(syncInterval, presentFlags, presentParameters);
++  }
++
++  void STDMETHODCALLTYPE DxgiD3D12Presenter::NotifyModeChange(
++          BOOL windowed, const DXGI_MODE_DESC* displayMode) {
++    /* The vkd3d swapchain is windowed-only for this phase. */
++    (void)windowed;
++    (void)displayMode;
++  }
++
++  HRESULT createD3D12SwapChain(
++          IDXGIFactory* factory,
++          IUnknown* device,
++          HWND window,
++    const DXGI_SWAP_CHAIN_DESC1* desc,
++    const DXGI_SWAP_CHAIN_FULLSCREEN_DESC* fullscreenDesc,
++          IDXGIOutput* restrictToOutput,
++          IDXGISwapChain1** swapChain,
++    const Rc<DxvkInstance>& instance) {
++    InitReturnPtr(swapChain);
++    if (!factory || !device || !window || !desc || !swapChain)
++      return DXGI_ERROR_INVALID_CALL;
++
++    /* Flip-model rules are part of the DXGI contract.  Validate them here so
++     * malformed descriptors do not reach the vkd3d allocator (which may
++     * otherwise create an empty chain for BufferCount == 0). */
++    if ((desc->SwapEffect == DXGI_SWAP_EFFECT_FLIP_DISCARD
++      || desc->SwapEffect == DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL)
++      && (desc->BufferCount < 2 || desc->BufferCount > DXGI_MAX_SWAP_CHAIN_BUFFERS))
++      return E_INVALIDARG;
++
++    if (desc->Format != DXGI_FORMAT_B8G8R8A8_UNORM
++      && desc->Format != DXGI_FORMAT_R8G8B8A8_UNORM
++      && desc->Format != DXGI_FORMAT_B8G8R8A8_UNORM_SRGB
++      && desc->Format != DXGI_FORMAT_R8G8B8A8_UNORM_SRGB)
++      return E_INVALIDARG;
++
++    Com<IDXGIVkd3dSwapChainFactory> vkd3dFactory;
++    HRESULT hr = device->QueryInterface(__uuidof(IDXGIVkd3dSwapChainFactory),
++      reinterpret_cast<void**>(&vkd3dFactory));
++    if (FAILED(hr))
++      return DXGI_ERROR_UNSUPPORTED;
++
++    DXGI_SWAP_CHAIN_FULLSCREEN_DESC fsDesc;
++    if (fullscreenDesc) {
++      fsDesc = *fullscreenDesc;
++    } else {
++      fsDesc.RefreshRate = { 0, 0 };
++      fsDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
++      fsDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
++      fsDesc.Windowed = TRUE;
++    }
++
++    Com<DxgiWin32SurfaceFactory> surfaceFactory =
++      new DxgiWin32SurfaceFactory(instance, window);
++    Com<IDXGIVkd3dSwapChain> vkd3dSwapChain;
++    hr = vkd3dFactory->CreateSwapChain(surfaceFactory.ptr(), desc,
++      &vkd3dSwapChain);
++    if (FAILED(hr))
++      return hr;
++
++    Com<DxgiD3D12Presenter> presenter = new DxgiD3D12Presenter(
++      vkd3dSwapChain.ptr());
++    try {
++      *swapChain = ref(new DxgiSwapChain(factory, presenter.ptr(), window,
++        desc, &fsDesc));
++    } catch (const DxvkError& error) {
++      Logger::err(error.message());
++      return E_INVALIDARG;
++    }
++    return S_OK;
++  }
++
++}
+diff --git a/src/dxgi/dxgi_d3d12.h b/src/dxgi/dxgi_d3d12.h
+new file mode 100644
+index 0000000..9176157
+--- /dev/null
++++ b/src/dxgi/dxgi_d3d12.h
+@@ -0,0 +1,84 @@
++#pragma once
++
++#include "dxgi_interfaces.h"
++
++#include "../dxvk/dxvk_instance.h"
++
++namespace dxvk {
++
++  class DxgiWin32SurfaceFactory : public ComObject<IDXGIVkd3dSurfaceFactory> {
++  public:
++    DxgiWin32SurfaceFactory(
++      const Rc<DxvkInstance>& instance,
++            HWND              window);
++
++    HRESULT STDMETHODCALLTYPE QueryInterface(
++            REFIID            riid,
++            void**            ppvObject);
++
++    VkResult STDMETHODCALLTYPE CreateSurface(
++            VkInstance        instance,
++            VkPhysicalDevice  adapter,
++            VkSurfaceKHR*     pSurface);
++
++  private:
++    Rc<DxvkInstance> m_instance;
++    HWND             m_window;
++  };
++
++  class DxgiD3D12Presenter : public ComObject<IDXGIVkSwapChain> {
++  public:
++    explicit DxgiD3D12Presenter(IDXGIVkd3dSwapChain* swapChain);
++    ~DxgiD3D12Presenter();
++
++    HRESULT STDMETHODCALLTYPE QueryInterface(
++            REFIID                    riid,
++            void**                    ppvObject);
++
++    HRESULT STDMETHODCALLTYPE GetDesc(
++            DXGI_SWAP_CHAIN_DESC1*    pDesc);
++    HRESULT STDMETHODCALLTYPE GetAdapter(
++            REFIID                    riid,
++            void**                    ppvObject);
++    HRESULT STDMETHODCALLTYPE GetDevice(
++            REFIID                    riid,
++            void**                    ppvObject);
++    HRESULT STDMETHODCALLTYPE GetImage(
++            UINT                      bufferId,
++            REFIID                    riid,
++            void**                    ppBuffer);
++    UINT STDMETHODCALLTYPE GetImageIndex();
++    UINT STDMETHODCALLTYPE GetFrameLatency();
++    HANDLE STDMETHODCALLTYPE GetFrameLatencyEvent();
++    HRESULT STDMETHODCALLTYPE ChangeProperties(
++      const DXGI_SWAP_CHAIN_DESC1*    pDesc);
++    HRESULT STDMETHODCALLTYPE SetPresentRegion(
++      const RECT*                     pRegion);
++    HRESULT STDMETHODCALLTYPE SetGammaControl(
++            UINT                      numControlPoints,
++      const DXGI_RGB*                 controlPoints);
++    HRESULT STDMETHODCALLTYPE SetFrameLatency(
++            UINT                      maxLatency);
++    HRESULT STDMETHODCALLTYPE Present(
++            UINT                      syncInterval,
++            UINT                      presentFlags,
++      const DXGI_PRESENT_PARAMETERS*  presentParameters);
++    void STDMETHODCALLTYPE NotifyModeChange(
++            BOOL                      windowed,
++      const DXGI_MODE_DESC*            displayMode);
++
++  private:
++    Com<IDXGIVkd3dSwapChain> m_swapChain;
++  };
++
++  HRESULT createD3D12SwapChain(
++          IDXGIFactory*                 factory,
++          IUnknown*                     device,
++          HWND                          window,
++    const DXGI_SWAP_CHAIN_DESC1*        desc,
++    const DXGI_SWAP_CHAIN_FULLSCREEN_DESC* fullscreenDesc,
++          IDXGIOutput*                  restrictToOutput,
++          IDXGISwapChain1**             swapChain,
++    const Rc<DxvkInstance>&             instance);
++
++}
+diff --git a/src/dxgi/dxgi_factory.cpp b/src/dxgi/dxgi_factory.cpp
+index f159999..6292ecf 100644
+--- a/src/dxgi/dxgi_factory.cpp
++++ b/src/dxgi/dxgi_factory.cpp
+@@ -1,4 +1,5 @@
+ #include "dxgi_factory.h"
++#include "dxgi_d3d12.h"
+ #include "dxgi_swapchain.h"
+ #include "dxgi_swapchain_dispatcher.h"
+ 
+@@ -144,9 +145,19 @@ namespace dxvk {
+ 
+       return hr;
+     }
+-    
+-    Logger::err("DXGI: CreateSwapChainForHwnd: Unsupported device type");
+-    return DXGI_ERROR_UNSUPPORTED;
++
++    /* Native DXVK's DXGI provider normally receives a D3D11 device.  When it
++     * is also the overridden DXGI provider for vkd3d-proton, use vkd3d's
++     * Vulkan-backed swapchain frontend instead of falling through to an
++     * unsupported-device error. */
++    HRESULT hr = createD3D12SwapChain(this, pDevice, hWnd, pDesc,
++      pFullscreenDesc, pRestrictToOutput, ppSwapChain, m_instance);
++    if (SUCCEEDED(hr))
++      return hr;
++
++    if (hr == DXGI_ERROR_UNSUPPORTED)
++      Logger::err("DXGI: CreateSwapChainForHwnd: Unsupported device type");
++    return hr;
+   }
+   
+   
+diff --git a/src/dxgi/dxgi_interfaces.h b/src/dxgi/dxgi_interfaces.h
+index f7a9395..1630bd0 100644
+--- a/src/dxgi/dxgi_interfaces.h
++++ b/src/dxgi/dxgi_interfaces.h
+@@ -16,6 +16,62 @@ namespace dxvk {
+ 
+ struct IDXGIVkInteropDevice;
+ 
++/*
++ * vkd3d-proton's native DXGI bridge.  These interfaces are deliberately kept
++ * private: they are the ABI used between the DXVK DXGI provider and the
++ * vkd3d-proton D3D12 command queue when the Wine builtin DXGI DLL is not in
++ * the override chain.
++ */
++MIDL_INTERFACE("1e7895a1-1bc3-4f9c-a670-290a4bc9581a")
++IDXGIVkd3dSurfaceFactory : public IUnknown {
++  virtual VkResult STDMETHODCALLTYPE CreateSurface(
++          VkInstance                instance,
++          VkPhysicalDevice          adapter,
++          VkSurfaceKHR*             pSurface) = 0;
++};
++
++MIDL_INTERFACE("e4a9059e-b569-46ab-8de7-501bd2bc7f7a")
++IDXGIVkd3dSwapChain : public IUnknown {
++  virtual HRESULT STDMETHODCALLTYPE GetDesc(
++          DXGI_SWAP_CHAIN_DESC1*    pDesc) = 0;
++  virtual HRESULT STDMETHODCALLTYPE GetAdapter(
++          REFIID                    riid,
++          void**                    ppvObject) = 0;
++  virtual HRESULT STDMETHODCALLTYPE GetDevice(
++          REFIID                    riid,
++          void**                    ppvObject) = 0;
++  virtual HRESULT STDMETHODCALLTYPE GetImage(
++          UINT                      BufferId,
++          REFIID                    riid,
++          void**                    ppBuffer) = 0;
++  virtual UINT STDMETHODCALLTYPE GetImageIndex() = 0;
++  virtual UINT STDMETHODCALLTYPE GetFrameLatency() = 0;
++  virtual HANDLE STDMETHODCALLTYPE GetFrameLatencyEvent() = 0;
++  virtual HRESULT STDMETHODCALLTYPE ChangeProperties(
++    const DXGI_SWAP_CHAIN_DESC1*    pDesc,
++    const UINT*                     pNodeMasks,
++          IUnknown* const*          ppPresentQueues) = 0;
++  virtual HRESULT STDMETHODCALLTYPE SetPresentRegion(
++    const RECT*                     pRegion) = 0;
++  virtual HRESULT STDMETHODCALLTYPE SetGammaControl(
++          UINT                      NumControlPoints,
++    const DXGI_RGB*                 pControlPoints) = 0;
++  virtual HRESULT STDMETHODCALLTYPE SetFrameLatency(
++          UINT                      MaxLatency) = 0;
++  virtual HRESULT STDMETHODCALLTYPE Present(
++          UINT                      SyncInterval,
++          UINT                      PresentFlags,
++    const DXGI_PRESENT_PARAMETERS*  pPresentParameters) = 0;
++};
++
++MIDL_INTERFACE("e7d6c3ca-23a0-4e08-9f2f-ea5231df6633")
++IDXGIVkd3dSwapChainFactory : public IUnknown {
++  virtual HRESULT STDMETHODCALLTYPE CreateSwapChain(
++          IDXGIVkd3dSurfaceFactory* pSurfaceFactory,
++    const DXGI_SWAP_CHAIN_DESC1*    pDesc,
++          IDXGIVkd3dSwapChain**     ppSwapChain) = 0;
++};
++
+ 
+ /**
+  * \brief Per-monitor data
+@@ -365,6 +421,9 @@ struct __declspec(uuid("e2ef5fa5-dc21-4af7-90c4-f67ef6a09324")) IDXGIVkInteropDe
+ struct __declspec(uuid("5546cf8c-77e7-4341-b05d-8d4d5000e77d")) IDXGIVkInteropSurface;
+ struct __declspec(uuid("104001a6-7f36-4957-b932-86ade9567d91")) IDXGIVkSwapChain;
+ struct __declspec(uuid("53cb4ff0-c25a-4164-a891-0e83db0a7aac")) IWineDXGISwapChainFactory;
++struct __declspec(uuid("1e7895a1-1bc3-4f9c-a670-290a4bc9581a")) IDXGIVkd3dSurfaceFactory;
++struct __declspec(uuid("e4a9059e-b569-46ab-8de7-501bd2bc7f7a")) IDXGIVkd3dSwapChain;
++struct __declspec(uuid("e7d6c3ca-23a0-4e08-9f2f-ea5231df6633")) IDXGIVkd3dSwapChainFactory;
+ #else
+ __CRT_UUID_DECL(IDXGIDXVKAdapter,          0x907bf281,0xea3c,0x43b4,0xa8,0xe4,0x9f,0x23,0x11,0x07,0xb4,0xff);
+ __CRT_UUID_DECL(IDXGIDXVKDevice,           0x92a5d77b,0xb6e1,0x420a,0xb2,0x60,0xfd,0xf7,0x01,0x27,0x28,0x27);
+@@ -375,4 +434,7 @@ __CRT_UUID_DECL(IDXGIVkInteropDevice1,     0xe2ef5fa5,0xdc21,0x4af7,0x90,0xc4,0x
+ __CRT_UUID_DECL(IDXGIVkInteropSurface,     0x5546cf8c,0x77e7,0x4341,0xb0,0x5d,0x8d,0x4d,0x50,0x00,0xe7,0x7d);
+ __CRT_UUID_DECL(IDXGIVkSwapChain,          0x104001a6,0x7f36,0x4957,0xb9,0x32,0x86,0xad,0xe9,0x56,0x7d,0x91);
+ __CRT_UUID_DECL(IWineDXGISwapChainFactory, 0x53cb4ff0,0xc25a,0x4164,0xa8,0x91,0x0e,0x83,0xdb,0x0a,0x7a,0xac);
++__CRT_UUID_DECL(IDXGIVkd3dSurfaceFactory,   0x1e7895a1,0x1bc3,0x4f9c,0xa6,0x70,0x29,0x0a,0x4b,0xc9,0x58,0x1a);
++__CRT_UUID_DECL(IDXGIVkd3dSwapChain,       0xe4a9059e,0xb569,0x46ab,0x8d,0xe7,0x50,0x1b,0xd2,0xbc,0x7f,0x7a);
++__CRT_UUID_DECL(IDXGIVkd3dSwapChainFactory, 0xe7d6c3ca,0x23a0,0x4e08,0x9f,0x2f,0xea,0x52,0x31,0xdf,0x66,0x33);
+ #endif
+diff --git a/src/dxgi/meson.build b/src/dxgi/meson.build
+index daa790f..8cdc8c1 100644
+--- a/src/dxgi/meson.build
++++ b/src/dxgi/meson.build
+@@ -2,6 +2,7 @@ dxgi_res = wrc_generator.process('version.rc')
+ 
+ dxgi_src = [
+   'dxgi_adapter.cpp',
++  'dxgi_d3d12.cpp',
+   'dxgi_enums.cpp',
+   'dxgi_factory.cpp',
+   'dxgi_format.cpp',

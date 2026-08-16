@@ -11,7 +11,7 @@ DXVK_SRC ?= $(ROOT)/sources/dxvk-macos
 DXVK_COMMIT ?= 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 
 .PHONY: help tools docs-check env vkd3d moltenvk metal3 build flprobe stage ladder \
-	dxgi dxgi-probe dxgi-test package test clean
+	dxgi dxgi-probe dxgi-test dxgi-present-probe dxgi-present-test package test clean
 
 help:
 	@printf '%s\n' \
@@ -21,6 +21,8 @@ help:
 	  'make dxgi        build the pinned DXVK macOS DXGI provider' \
 	  'make dxgi-probe  compile the DXGI adapter identity probe' \
 	  'make dxgi-test   run DXGI-1 identity, repeatability, and regression gates' \
+	  'make dxgi-present-probe  build the DXGI-2 windowed presentation probe' \
+	  'make dxgi-present-test   run DXGI-2 swapchain/present validation' \
 	  'make moltenvk    build the universal MoltenVK dylib (staged, not promoted)' \
 	  'make metal3      build MoltenVK with macOS 14 / Metal 3 compatibility target' \
 	  'make build       run both vkd3d and MoltenVK builds' \
@@ -67,6 +69,17 @@ dxgi-probe: dxgi
 
 dxgi-test: stage dxgi-probe
 	@bash scripts/validate-dxgi-phase1.sh
+
+dxgi-present-probe: dxgi
+	@DXGI_PRESENT_SHADER_DIR="$(STAGE_DIR)/dxgi-present" \
+		bash scripts/build-dxgi-present-shaders.sh
+	@mkdir -p "$(STAGE_DIR)"
+	@"$(LLVM_MINGW)/bin/x86_64-w64-mingw32-clang" -O2 scripts/probes/dxgi-present/dxgi_present_probe.c \
+		-o "$(STAGE_DIR)/dxgi_present_probe.exe" -ldxgi -ld3d12 -luser32 -lgdi32
+	@file "$(STAGE_DIR)/dxgi_present_probe.exe"
+
+dxgi-present-test: stage dxgi-present-probe
+	@bash scripts/validate-dxgi-phase2.sh
 
 moltenvk:
 	@bash scripts/build-moltenvk.sh

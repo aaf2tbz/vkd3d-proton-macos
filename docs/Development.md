@@ -109,6 +109,40 @@ runs invalid-input tests, and reruns the existing six-probe regression suite.
 DXGI-1 does not yet test windowed swapchains or gameplay presentation; those
 are DXGI-2 and later.
 
+## Build and validate DXGI-2 presentation
+
+The DXGI-2 lane applies the checked-in
+`patches/dxvk-macos-d3d12-dxgi.patch` to the clean pinned DXVK base while
+building. The source checkout is restored to the pinned commit after the
+build, so verify it remains clean:
+
+```bash
+make dxgi-present-probe
+make dxgi-present-test
+```
+
+`dxgi-present-test` stages the native x86_64 `dxgi.dll` beside the matched
+`d3d12.dll`/`d3d12core.dll`, builds the DXIL triangle shaders, and runs the
+real-Win32-window probe under the configured `WINE_RUNNER`. It accepts only
+the four windowed combinations supported by this lane:
+
+```text
+CreateSwapChain           + flip-discard     + Present
+CreateSwapChain           + flip-sequential  + Present
+CreateSwapChainForHwnd    + flip-discard     + Present1
+CreateSwapChainForHwnd    + flip-sequential  + Present1
+```
+
+Each mode must complete 1,000 frames with GPU readback matching the clear and
+triangle reference. The gate also checks adapter LUID identity, sync intervals
+0/1, `DXGI_PRESENT_TEST`, tearing reporting, frame statistics, last-present
+count, invalid descriptors, and presentation after releasing the caller's
+swapchain reference. It leaves evidence and full Wine/vkd3d/MoltenVK/DXVK
+logs under `artifacts/evidence/`.
+
+This target intentionally does not test resize, minimize, fullscreen, or
+general gameplay stability; those are later DXGI phases.
+
 ## Build MoltenVK
 
 Build the custom universal dylib candidate:
