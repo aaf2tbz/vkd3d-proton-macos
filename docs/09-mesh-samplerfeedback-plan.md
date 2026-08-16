@@ -1,8 +1,17 @@
 # Closing Gaps Plan: Mesh pipelines + Sampler feedback (2026-08-15)
 
-No ship until both slices are DONE with runtime acceptance. The feature-level
-gates are green and the D3D12 graphics-draw path is fixed (MVK 13e3c96); the
-two remaining execution-machinery slices are:
+> **M14 status:** the mesh-only execution path and sampler-feedback path are
+> complete and shipped. The D3D12 ladder reports mesh tier 1 and sampler
+> feedback tier 0_9; the mesh dispatch and feedback readback probes are green.
+> The optional task/object amplification variant remains a follow-up and is
+> not represented as a shipped acceptance claim.
+
+The original ship gate required both slices to be DONE with runtime
+acceptance. That gate is now closed for M14: the mesh-only path and sampler
+feedback path are accepted. The optional task/object amplification variant is
+still tracked separately. The feature-level gates are green and the D3D12
+graphics-draw path is fixed (MVK 13e3c96); the historical implementation
+breakdown is:
 
 1. **Slice 1 — Mesh/task pipeline machinery** (the MVK side; the vkd3d side is
    already complete).

@@ -1,5 +1,9 @@
 # Phase 0 — Feature-Level Evidence Lock (2026-08-14)
 
+> This file is the historical Phase 0 baseline. It is retained for
+> provenance; see [features.md](features.md) and
+> `artifacts/evidence/rung-ladder-2026-08-16.txt` for the current M14 result.
+
 Source artifact: `/Users/averyfelts/Desktop/metalsharp-graphics-dll-clean.tar.zst` (120,978,648 bytes, extracted with zstd).
 Runtime: installed MetalSharp Wine 11.5 (`/Users/averyfelts/.metalsharp/runtime/wine`), Rosetta x86_64.
 Host: Apple M4 (vendor 0x106b, device 0x1b000209), MSL 4.0, GPU Family Metal 4 / Apple 9.

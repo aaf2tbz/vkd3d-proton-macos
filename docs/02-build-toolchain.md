@@ -1,5 +1,10 @@
 # Build Toolchain — Inventory & Recipes
 
+> The root [Makefile](../Makefile) is now the canonical build interface.
+> This file retains the detailed inventory and low-level recipes; current
+> prerequisites and target semantics are summarized in
+> [requirements.md](requirements.md) and [build.md](build.md).
+
 All paths relative to the workspace root `/Volumes/AverySSD/VKD3D-Proton-MacOS` unless absolute.
 
 ## 1. Toolchain inventory (verified 2026-08-14)

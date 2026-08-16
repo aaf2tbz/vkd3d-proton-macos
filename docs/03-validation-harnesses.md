@@ -1,5 +1,9 @@
 # Validation Harnesses — Design & Runbook
 
+> This file contains the original harness design. The M14 gate is complete;
+> use [validation.md](validation.md) for the current probe list, environment,
+> and acceptance rules.
+
 Two probe layers + game acceptance. Every promoted feature needs a **GPU-executed row with deterministic readback** — advertisement, enumeration, or compile success is never enough.
 
 ## 1. `mvkprobe` — native Vulkan gate (dlopen, no ICD ambiguity)

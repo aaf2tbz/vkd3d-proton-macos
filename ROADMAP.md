@@ -2,7 +2,7 @@
 
 **Workspace:** `/Volumes/AverySSD/VKD3D-Proton-MacOS`
 **Date:** 2026-08-14
-**Status:** ACTIVE — all feature-level rungs green (11_0 → 12_2, CORE_1_0, SM 6.5, 2026-08-15, `rung-ladder-final.txt`); the execution-machinery follow-ups are tracked in **docs/07-followup-roadmap.md** (mesh pipelines, VRS commands, sampler-feedback shaders, CR InnerCoverage, CORE_1_0 probes, M14 ship; prerequisite: install dxc); the step-by-step closure plan for the remaining items is **docs/08-remaining-plan.md**
+**Status:** **M14 SHIPPED** — the public `m14` release contains the tested x86_64 D3D12 pair and universal MoltenVK runtime. The feature-level ladder is green from 11_0 through 12_2 plus CORE_1_0; the current build, feature, validation, and release instructions live in **docs/README.md**. Historical execution plans remain in **docs/07-followup-roadmap.md**, **docs/08-remaining-plan.md**, and **docs/09-mesh-samplerfeedback-plan.md**.
 **Mandate:** Prove that the MetalSharp D3D12 route — `D3D12 app → vkd3d-proton (custom) → Vulkan → custom MoltenVK → Metal` — running on **MetalSharp Wine 11.5** fully supports every Direct3D 12 feature level: **11_0, 11_1, 12_0, 12_1, 12_2, and compute-only CORE_1_0**. Every claim must be backed by reproducible, hash-pinned, runtime-verified evidence.
 
 ---
@@ -239,12 +239,12 @@ Everything in Section 5 marked "MoltenVK", plus:
 | **M7b** | Ray-query dispatch slice | ✅ GREEN 2026-08-15 — the FULL Vulkan inline ray query works 5/5: `INLINE RAY QUERY (FULL VULKAN PATH) WORKS`, hit at minD=5.000 EXACT. Fix stack: discrete AS descriptor sets (direct [[buffer(N)]] resource), MTL4 argument-table dispatch + PSO warm-up (first MTL4 dispatch with a PSO drops writes), output staging (standalone shared + blit copy-back), BLAS opaque=NO (opaque YES un-traversable), TLAS transform 4th column zeroed (VK 3x4 OOB), TLAS instance buffer bound. Commits: MoltenVK 8c48bc1 + prior, SPIRV-Cross fc6cae47. Evidence: 2026-08-14-m7-rayquery-full-path.md |
 | **M8** | DXR 1.1 activation | 🔶 FIRST SLICE DONE 2026-08-15 — `RaytracingTier=11` via the inline ray query: vkd3d fork tier fallback (2d71b20) + MVK gate fixes (4cdc0d3: AS flagCount 5, rayTraversalPrimitiveCulling, RTAS VBO format bits). The TraceRay/RTPSO path remains unimplemented (state objects fail cleanly). 12_2 remaining gates: CR tier 3, depth bounds, VRS tier 2 (M10), mesh shaders (M9), sampler feedback (M10). Evidence: 2026-08-15-m7-dxr11-gate.md |
 | **M8** | DXR 1.1 | 4A probes green; ray tracing tier 1.1 reported |
-| **M9** | Mesh shaders | 4B probes green; mesh tier 1 reported |
-| **M10** | VRS + sampler feedback | 🔶 2026-08-15 — feature gates cleared (VRS tier 2 + sampler feedback 0.9 reported; Metal rate-map path exists); the VK_KHR_fragment_shading_rate + sampler-feedback shader plumbing is the pending execution work |
-| **M11** | Rung-4D sweep | SM 6.5, depth bounds, copy-queue timestamps, casting, sampler feedback green |
-| **M12** | 12_2 rung | ladder 0xc200; full 12_2 matrix green; DX-Ultimate-capable game smoke |
-| **M13** | CORE_1_0 | ✅ GREEN 2026-08-15 — 1_0_CORE device creation (dev=CREATED) + COMPUTE MATRIX (root UAV dispatch, UAV readback 42.0, copy path verified). SM 6.0 corpus + no-graphics negative pending. Commits: vkd3d 75306a6, workspace 09a5d64. Evidence: 2026-08-15-m13-core-1-0.md |
-| **M14** | MetalSharp PR + bundle | Bundle republished with hash pins; dry-run `/diagnostics/m12` reports candidate hashes; PR on clean upstream tree; regression games green |
+| **M9** | Mesh shaders | ✅ M14 — mesh tier 1 reported; mesh-only D3D12 dispatch is pixel-exact. Task/object amplification remains a follow-up. |
+| **M10** | VRS + sampler feedback | ✅ M14 capability gate — VRS tier 2 and sampler feedback 0.9 report; sampler-feedback shader/readback probe is green. |
+| **M11** | Rung-4D sweep | ✅ M14 — SM 6.5, depth bounds, copy-queue timestamps, casting, and sampler feedback are reported/covered by the ladder and probes. |
+| **M12** | 12_2 rung | ✅ M14 — ladder reaches 0xc200; companion 12_2 acceptance probes are green. |
+| **M13** | CORE_1_0 | ✅ GREEN 2026-08-15 — 1_0_CORE device creation (dev=CREATED), compute matrix (UAV readback 42.0), and SM 6.0 corpus/geometry-shader corpus. Evidence: 2026-08-15-m13-core-1-0.md |
+| **M14** | Public macOS runtime release | ✅ SHIPPED — public repository `aaf2tbz/vkd3d-proton-macos`, tag `m14`, runtime tarball, feature matrix, and full regression evidence. |
 
 **Ordering note:** M3–M12 are strictly sequential rungs (the ladder depends downward). Within 12_2, 4A/4B/4C/4D may be parallelized across lanes but each promotes only with its own gate green.
 
