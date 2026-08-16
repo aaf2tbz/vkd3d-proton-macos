@@ -21,9 +21,9 @@
 
 </div>
 
-## M14 capabilities
+## Capabilities
 
-The Apple M4 validation lane reports and exercises:
+The Apple validation lane reports and exercises:
 
 - D3D12 feature levels **12_2, 12_1, 12_0, 11_1, 11_0**, and **CORE_1_0**
 - Shader Model **6.5**
