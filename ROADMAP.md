@@ -14,6 +14,16 @@
 3. Publish the result from a **clean upstream tree** as a matched vkd3d-proton + MoltenVK runtime archive.
 4. Leave the user's installed Wine environment untouched until final integration.
 
+### Next program: DXGI gameplay stability
+
+The v1.0 release proves the D3D12 device and off-screen rendering path. The
+next sequential program is the DXVK macOS DXGI presentation lane: adapter
+identity, swapchains, lifecycle, formats, synchronization/recovery, and real
+game acceptance. Its phase gates and deliverables are tracked in
+[docs/DXGI-Roadmap.md](docs/DXGI-Roadmap.md). The public runtime must not
+claim broad gameplay stability until the final phase passes on a real macOS
+14 / Metal 3 host.
+
 ## 2. Non-Goals / Hard Rules
 
 - **No DXMT.** The M12 route is strictly vkd3d-proton → Vulkan → custom MoltenVK → Metal. DXVK remains only the M12 D3D11/DXGI provider.

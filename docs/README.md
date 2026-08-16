@@ -13,6 +13,7 @@ final-state record for the shipped runtime.
 | [features.md](features.md) | D3D12 feature-level ladder and validated capability matrix |
 | [validation.md](validation.md) | Probe staging, runtime environment, and regression gate |
 | [release.md](release.md) | Runtime archive contents and installation instructions |
+| [DXGI-Roadmap.md](DXGI-Roadmap.md) | DXVK macOS DXGI stability and gameplay acceptance plan |
 
 ## Project policies
 

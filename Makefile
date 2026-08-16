@@ -36,7 +36,7 @@ docs-check:
 	@test -f CONTRIBUTING.md
 	@test -f SECURITY.md
 	@test -f CODE_OF_CONDUCT.md
-	@for f in docs/README.md docs/Final.md docs/requirements.md docs/Development.md docs/features.md docs/validation.md docs/release.md; do \
+	@for f in docs/README.md docs/Final.md docs/requirements.md docs/Development.md docs/features.md docs/validation.md docs/release.md docs/DXGI-Roadmap.md; do \
 		test -f "$$f" || { echo "missing $$f"; exit 1; }; \
 	done
 	@grep -q 'github.com/aaf2tbz/vkd3d-proton-macos' README.md
