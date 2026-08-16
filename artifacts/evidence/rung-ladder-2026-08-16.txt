@@ -1,0 +1,63 @@
+# D3D12 feature-level ladder — all rungs PASS (2026-08-16)
+
+Run via `scripts/flprobe.c` under the freshly rebuilt staged pair
+(`artifacts/stage-dxr/`: vkd3d-proton fork d3d12core.dll+d3d12.dll built from the
+fully-repaired `state.c` with the MS/AS PSO-desc fix, + MoltenVK `libMoltenVK.dylib`
+codesigned adhoc). Command: `cd artifacts/stage-dxr && rm -f vkd3d-proton.cache*; /tmp/run-probe.sh flprobe.exe`
+
+Exit code 0. Raw transcript: `/tmp/ladder.txt` (filtered: `rung-ladder-2026-08-16.txt`).
+
+## Adapter
+```
+  adapter 0: vendor 0x106b device 0x0000 "Apple M4"
+```
+
+## Feature-level rungs — ALL CREATED
+```
+  min 12_2     : hr=0x00000000 dev=CREATED
+  min 12_1     : hr=0x00000000 dev=CREATED
+  min 12_0     : hr=0x00000000 dev=CREATED
+  min 11_1     : hr=0x00000000 dev=CREATED
+  min 11_0     : hr=0x00000000 dev=CREATED
+  min 1_0_CORE : hr=0x00000000 dev=CREATED
+```
+
+## CheckFeatureSupport (device @ 11_0)
+```
+  FEATURE_LEVELS      : hr=0x00000000 max=12_2 (0xc200)
+  OPTIONS             : hr=0x00000000
+    TiledResourcesTier    : 4
+    ConservativeRasterTier: 3
+    ROVsSupported         : 1
+    OutputMergerLogicOp   : 1   (11_1 logical blend ops)
+  OPTIONS2            : hr=0x00000000 DepthBoundsTestSupported=1 ProgrammableSamplePositionsTier=0
+  OPTIONS3            : hr=0x00000000 CopyQueueTimestampQueries=1 CastingFullyTyped=1 Barycentrics=1
+  OPTIONS5 (DXR)      : mingw id 27 hr=0x00000000 RaytracingTier=11   (DXR 1.1)
+  OPTIONS6 (VRS)      : official id 20 = E_INVALIDARG (known mingw-renumber quirk); mingw id 30 = tier 0 (VRS tier 2 pending)
+  OPTIONS7 (mesh)     : mingw id 32 hr=0x00000000 MeshShaderTier=10   (t1)
+                        SamplerFeedbackTier=90                        (tier 0_9)
+```
+
+## Notes
+- Official D3D12_FEATURE ids 18–21 (SHADER_MODEL/OPTIONS5/6/7) return
+  E_INVALIDARG because the custom VKMT mingw-w64 build renumbers the
+  D3D12_FEATURE enum; the flprobe falls back to the mingw ids (7/27/30/32)
+  per the shipped ABI (see scripts/flprobe.c and evidence/dxr11-flprobe.txt).
+  SHADER_MODEL mingw id 7 = SM 6.5 (highest=0x65).
+- **This is the first ladder run in which the mesh+sampler-feedback slice
+  capabilities are observable end-to-end via the D3D12 OPTIONS7 query:
+  MeshShaderTier=10 AND SamplerFeedbackTier=90** — both gated by the vkd3d
+  caps relaxation, the MVK VK_EXT_mesh_shader implementation, and the
+  SPIRV-Cross atomics lowering.
+- MoltenVK signature verified: `codesign -dv` exit 0, `Signature=adhoc`
+  (universal x86_64 arm64).
+
+## Companion probe gate (all green, this session)
+```
+  cr_inner_probe.exe => CR TIER 3 INNERCOVERAGE WORKS (D3D12 PATH)
+  feedback_probe.exe => SAMPLER FEEDBACK MATCHES THE CPU REFERENCE EXACTLY
+  mesh_probe.exe     => MESH DISPATCH PIXEL-EXACT (D3D12 PATH)
+  corpus.exe         => CORE_1_0 SM 6.0 CORPUS WORKS
+  corpus_gs.exe      => CORE_1_0 SM 6.0 CORPUS WORKS
+  compute_matrix.exe => CORE_1_0 COMPUTE MATRIX WORKS
+```

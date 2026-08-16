@@ -8,11 +8,21 @@ source "$WS/scripts/env.sh"
 SRC="$WS/sources/MoltenVK"
 OUT="$WS/artifacts/build/moltenvk-vkmt"
 
+
+
 [ -d "$SRC/MoltenVK" ] || { echo "MoltenVK source missing"; exit 1; }
 
 cd "$SRC"
 # 1) externals (SPIRV-Cross, SPIRV-Tools, Vulkan-Headers, glslang, ...) — builds XCFrameworks
+# the fetch re-checks out the pinned SPIRV-Cross; the fork's patch script
+# re-applies the BuiltInFullyCoveredEXT MSL emission changes before the
+# XCFramework build.
+export MVK_FORK_SCRIPT_DIR="$WS/scripts"
 ./fetchDependencies --macos
+# The MoltenVKShaderConverter has its own SPIRV-Cross checkout; apply the fork
+# patches there too (the MVK dylib links the converter's SPIRV-Cross code).
+"$WS/scripts/patch-spirv-cross.sh" "$SRC/MoltenVKShaderConverter/SPIRV-Cross/spirv_msl.cpp"
+"$WS/scripts/patch-spirv-cross.sh" "$SRC/MoltenVKShaderConverter/SPIRV-Cross/spirv_cross.cpp" 2>/dev/null || true
 
 # 2) dylib package
 make macos

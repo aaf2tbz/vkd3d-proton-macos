@@ -9,6 +9,7 @@
 #include <d3d12.h>
 #include <dxgi1_4.h>
 #include <stdio.h>
+#include "../d3d12_pso_desc_ms.h"
 #include <string.h>
 #include <math.h>
 
@@ -67,7 +68,7 @@ int main(void) {
     if (load_file("cr-inner/inner_vs.dxil", &vs_blob, &vs_sz) != 0) { printf("MISSING inner_vs.dxil\n"); return 1; }
     if (load_file("feedback/feedback_ps.dxil", &ps_blob, &ps_sz) != 0) { printf("MISSING feedback_ps.dxil\n"); return 1; }
 
-    D3D12_GRAPHICS_PIPELINE_STATE_DESC gd = {0};
+    D3D12_GRAPHICS_PIPELINE_STATE_DESC_MS gd = {0};
     gd.pRootSignature = rs;
     gd.VS.pShaderBytecode = vs_blob; gd.VS.BytecodeLength = vs_sz;
     gd.PS.pShaderBytecode = ps_blob; gd.PS.BytecodeLength = ps_sz;
@@ -85,7 +86,7 @@ int main(void) {
     gd.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
     gd.SampleDesc.Count = 1;
     ID3D12PipelineState* pso = NULL;
-    hr = dev->lpVtbl->CreateGraphicsPipelineState(dev, &gd, &IID_ID3D12PipelineState, (void**)&pso);
+    hr = dev->lpVtbl->CreateGraphicsPipelineState(dev, (const D3D12_GRAPHICS_PIPELINE_STATE_DESC*)(const void*)&gd, &IID_ID3D12PipelineState, (void**)&pso);
     printf("graphics PSO (feedback PS): %s\n", hr_hex(hr));
     if (FAILED(hr)) return 1;
 
