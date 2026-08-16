@@ -320,9 +320,9 @@ After promotion and validation, create the deterministic runtime archive:
 make package PACKAGE=./vkd3d-proton-macos.tar.zst
 ```
 
-The archive contains the two D3D12 DLLs, universal MoltenVK, ICD manifest,
-README, and SHA-256 checksums. Publish it as a GitHub release asset rather
-than committing generated binaries:
+The archive contains the bundled native DXVK-macOS `dxgi.dll`, the two D3D12
+DLLs, universal MoltenVK, ICD manifest, README, and SHA-256 checksums. Publish
+it as a GitHub release asset rather than committing generated binaries:
 
 ```bash
 gh release upload v1.0 ./vkd3d-proton-macos.tar.zst --clobber

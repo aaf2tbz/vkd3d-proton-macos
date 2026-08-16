@@ -11,11 +11,12 @@ trap 'rm -rf "$TMP" "$OUT.tar"' EXIT
 ROOT="$TMP/vkd3d-proton-macos"
 mkdir -p "$ROOT"
 
-for f in "$STAGE/d3d12.dll" "$STAGE/d3d12core.dll" \
+for f in "$STAGE/dxgi.dll" "$STAGE/d3d12.dll" "$STAGE/d3d12core.dll" \
          "$MVK/libMoltenVK.dylib" "$MVK/MoltenVK_icd.json"; do
 	[ -f "$f" ] || { echo "missing runtime file: $f" >&2; exit 1; }
 done
 
+cp "$STAGE/dxgi.dll" "$ROOT/"
 cp "$STAGE/d3d12.dll" "$ROOT/"
 cp "$STAGE/d3d12core.dll" "$ROOT/"
 cp "$MVK/libMoltenVK.dylib" "$ROOT/"

@@ -38,6 +38,7 @@ The archive contains:
 
 ```text
 vkd3d-proton-macos/
+├── dxgi.dll
 ├── d3d12.dll
 ├── d3d12core.dll
 ├── libMoltenVK.dylib
@@ -50,9 +51,10 @@ Release artifact hashes:
 
 | Artifact | SHA-256 |
 |---|---|
+| `dxgi.dll` | `943dc921530aeba8bc5add09f5a3c5fac7da50e90a84ca2f41f1b87ba532846e` |
 | `d3d12.dll` | `ac2b8674798bdbdd21ce1aa48daf1e2657813ecc878b80e2641bf0d2c3f2a43e` |
-| `d3d12core.dll` | `581c028a1e16bedad42671f2fb52fd8fc0d6b2b9b8f069852c8bcdc0e0509b52` |
-| `libMoltenVK.dylib` | `5f7fb30c669e95a2a041015af799694ee03ce924f6555679e5e6789d4d171fea` |
+| `d3d12core.dll` | `78ab917a20dbc050ba3d0def8c0241e53c90ded0a036462955108e0ef78022a8` |
+| `libMoltenVK.dylib` | `38e0a7c3839390d524a3bb4b1165d13e96a2c3e771a14df2510c1ad5ab598bde` |
 | `MoltenVK_icd.json` | `578ff08cd0d8734619357541771a5abc9c3470ca300030219a971a9e9dbbe466` |
 
 `libMoltenVK.dylib` is a universal x86_64/arm64 Mach-O with a valid adhoc
@@ -60,6 +62,7 @@ signature for the isolated runtime override path.
 
 ## DXGI-2 windowed presentation validation
 
+The v1.0 runtime bundle now includes the native x86_64 DXVK-macOS `dxgi.dll`.
 After the v1.0 runtime release, the pinned DXVK macOS lane was extended with
 the checked-in `patches/dxvk-macos-d3d12-dxgi.patch`. This bridge lets the
 native DXVK `dxgi.dll` consume vkd3d-proton's Vulkan-backed D3D12 swapchain

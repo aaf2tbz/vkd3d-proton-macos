@@ -1,7 +1,8 @@
 # DXGI Stability Roadmap
 
-**Status:** DXGI-5 synchronization/recovery complete; DXGI-6 packaging and
-real-game acceptance remain next.
+**Status:** DXGI-1 through DXGI-5 validation complete; DXGI-6 packaging is
+complete. Real-game acceptance is intentionally deferred until after the
+MetalSharp release.
 
 The current release proves device creation, off-screen D3D12 rendering, shader
 translation, and deterministic readback. It does **not** yet prove a stable
@@ -255,37 +256,30 @@ early-release/out-of-order negatives must be reported accurately; no backend
 assertion may be treated as recovery. The synthetic recovery classification is
 deterministic and logged, but does not promote a gameplay-stability claim.
 
-## Phase 6 — Packaging and real-game acceptance
+## Phase 6 — Bundled runtime packaging
 
-**Goal:** prove that the complete DXGI+D3D12 runtime supports gameplay and can
-be shipped reproducibly.
+**Goal:** publish the validated DXGI+D3D12 runtime reproducibly. This phase
+does not include real-game testing or a broad gameplay-stability claim.
 
 ### Work
 
-- Add first-class Make targets for the DXVK macOS lane, for example:
-  `make dxgi`, `make dxgi-probe`, `make dxgi-test`, and `make dxgi-package`.
-- Stage and hash `dxgi.dll` beside the matched D3D12 pair. Decide, based on
-  licensing and Wine coupling, whether it belongs in the public archive or
-  remains a separately installed dependency.
+- Stage and hash the native x86_64 DXVK-macOS `dxgi.dll` beside the matched
+  `d3d12.dll` and `d3d12core.dll` pair.
+- Bundle `dxgi.dll` in the existing `v1.0` release asset rather than creating
+  a second release or requiring a separate DXGI download.
 - Extend the package README with exact DLL override order, supported Wine
   requirements, and known DXGI limitations.
-- Run the complete probe suite plus the DXGI presentation/lifecycle suite.
-- Perform smoke tests with representative D3D12 games covering:
-  - borderless/windowed presentation;
-  - resize and alt-tab;
-  - shader compilation and pipeline cache creation;
-  - streaming/resource churn;
-  - controller/input behavior; and
-  - any required DXR, mesh, sampler-feedback, or VRS path.
-- Repeat the acceptance matrix on a real macOS 14 / Metal 3 host.
+- Preserve the Phase 1–5 validation evidence and publish complete module
+  provenance, hashes, installation instructions, and unsupported-feature
+  documentation.
 
 ### Exit gate
 
-The runtime is gameplay-ready only when all five earlier phases are green, the
-full regression suite remains green, and representative games complete a
-repeatable launch-to-gameplay session on macOS 14. The release must include
-module provenance, hashes, installation instructions, and an explicit list of
-features not supported by the selected DXVK/Wine lane.
+The package is complete when all five earlier phases and the full regression
+suite remain green, the existing `v1.0` archive has been replaced with the
+bundle, and the release includes module provenance, hashes, installation
+instructions, and an explicit list of features not supported by the selected
+DXVK/Wine lane. Real-game acceptance is a later, separate effort.
 
 ## Dependency order and milestone names
 
@@ -296,7 +290,7 @@ features not supported by the selected DXVK/Wine lane.
 | DXGI-3 | 3 | Resize/minimize/fullscreen lifecycle stress probe |
 | DXGI-4 | 4 | Format, sRGB, HDR, tearing, and color-space matrix |
 | DXGI-5 | 5 | Fence/pacing/recovery stress and long-run stability evidence |
-| DXGI-6 | 6 | Bundled/dependency decision, game matrix, macOS 14 release gate |
+| DXGI-6 | 6 | Bundle DXVK-macOS `dxgi.dll` and replace the v1.0 archive |
 
 The phases are sequential. Phase 4 can develop format rows in parallel with
 late Phase 3 work, but it cannot be promoted until adapter identity and basic

@@ -7,6 +7,7 @@ The public runtime is distributed through the GitHub release asset
 
 ```text
 vkd3d-proton-macos/
+├── dxgi.dll
 ├── d3d12.dll
 ├── d3d12core.dll
 ├── libMoltenVK.dylib
@@ -15,7 +16,9 @@ vkd3d-proton-macos/
 └── SHA256SUMS
 ```
 
-The DLLs are x86_64 PE files for Wine/Rosetta. MoltenVK is universal
+`dxgi.dll` is the native x86_64 DXGI provider built from the pinned
+DXVK-macOS lane and is bundled with the matched D3D12 runtime. The DLLs are
+x86_64 PE files for Wine/Rosetta. MoltenVK is universal
 x86_64/arm64 and adhoc codesigned for the isolated runtime override path.
 
 ## macOS 14 / Metal 3 compatibility
@@ -40,8 +43,9 @@ cd vkd3d-proton-macos
 shasum -a 256 -c SHA256SUMS
 ```
 
-Stage `d3d12.dll` and `d3d12core.dll` in the Wine application/runtime DLL
-directory. Launch with the MoltenVK directory in the dynamic-library path:
+Stage `dxgi.dll`, `d3d12.dll`, and `d3d12core.dll` in the Wine application or
+runtime DLL directory. Launch with the MoltenVK directory in the
+dynamic-library path:
 
 ```bash
 export WINEDLLOVERRIDES="d3d12,d3d12core,dxgi=n,b"
