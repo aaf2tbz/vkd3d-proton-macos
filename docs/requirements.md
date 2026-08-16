@@ -40,7 +40,7 @@ sources/MetalSharp
 
 `make vkd3d` requires `sources/vkd3d-proton`; `make moltenvk` requires
 `sources/MoltenVK` and its fetched dependencies. See
-[build.md](build.md) for the exact commands.
+[Development.md](Development.md) for the exact commands.
 
 ## Runtime constraints
 

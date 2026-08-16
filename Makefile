@@ -31,7 +31,7 @@ docs-check:
 	@test -f README.md
 	@test -f LICENSE
 	@test -f Makefile
-	@for f in docs/README.md docs/requirements.md docs/build.md docs/features.md docs/validation.md docs/release.md; do \
+	@for f in docs/README.md docs/requirements.md docs/Development.md docs/features.md docs/validation.md docs/release.md; do \
 		test -f "$$f" || { echo "missing $$f"; exit 1; }; \
 	done
 	@grep -q 'github.com/aaf2tbz/vkd3d-proton-macos' README.md

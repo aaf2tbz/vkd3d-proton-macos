@@ -8,7 +8,7 @@ engineering evidence that backs the M14 runtime.
 | Guide | Purpose |
 |---|---|
 | [requirements.md](requirements.md) | Host, compiler, SDK, Wine, shader, and release prerequisites |
-| [build.md](build.md) | Make targets and the complete build sequence |
+| [Development.md](Development.md) | Prerequisites, setup, Make targets, builds, debugging, and release workflow |
 | [features.md](features.md) | D3D12 feature-level ladder and validated capability matrix |
 | [validation.md](validation.md) | Probe staging, runtime environment, and regression gate |
 | [release.md](release.md) | Runtime archive contents and installation instructions |

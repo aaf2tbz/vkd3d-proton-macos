@@ -59,7 +59,7 @@ make moltenvk   # build the universal libMoltenVK.dylib
 make flprobe    # build the D3D12 feature-level probe
 ```
 
-The full target map is documented in [docs/build.md](docs/build.md). Do not
+The full target map is documented in [docs/Development.md](docs/Development.md). Do not
 mix `d3d12.dll` and `d3d12core.dll` from different builds.
 
 ## Repository layout
@@ -80,7 +80,7 @@ mix `d3d12.dll` and `d3d12core.dll` from different builds.
 Start at [docs/README.md](docs/README.md), then see:
 
 - [Requirements](docs/requirements.md)
-- [Build and Make targets](docs/build.md)
+- [Development and Make targets](docs/Development.md)
 - [Feature-level matrix](docs/features.md)
 - [Validation and regression](docs/validation.md)
 - [Release and packaging](docs/release.md)

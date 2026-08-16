@@ -3,7 +3,7 @@
 > The root [Makefile](../Makefile) is now the canonical build interface.
 > This file retains the detailed inventory and low-level recipes; current
 > prerequisites and target semantics are summarized in
-> [requirements.md](requirements.md) and [build.md](build.md).
+> [requirements.md](requirements.md) and [Development.md](Development.md).
 
 All paths relative to the workspace root `/Volumes/AverySSD/VKD3D-Proton-MacOS` unless absolute.
 
