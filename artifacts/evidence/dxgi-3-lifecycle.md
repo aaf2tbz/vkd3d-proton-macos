@@ -1,6 +1,6 @@
 # DXGI-3 window lifecycle evidence
 
-- Date: 2026-08-16T21:27:52Z
+- Date: 2026-08-16T21:29:41Z
 - DXGI source: Gcenx/DXVK-macOS, clean pinned base
 - DXVK base commit: 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 - DXVK bridge patch: /Volumes/AverySSD/VKD3D-Proton-MacOS/patches/dxvk-macos-d3d12-dxgi.patch
@@ -17,7 +17,7 @@
 ```text
 /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/dxgi.dll
 /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/dxgi.dll: PE32+ executable (DLL) (GUI) x86-64, for MS Windows
-1fbc9342605e9889731e42be9cb5916a6a271bff90f3bf4d31c1f4c7e4cbd030  /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/dxgi.dll
+988cc93ce9996a63f7c455a8411185b40d0ccec126dc00f78b696d323e513f77  /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/dxgi.dll
 /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/d3d12.dll
 /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/d3d12.dll: PE32+ executable (DLL) (GUI) x86-64, for MS Windows
 ac2b8674798bdbdd21ce1aa48daf1e2657813ecc878b80e2641bf0d2c3f2a43e  /Volumes/AverySSD/VKD3D-Proton-MacOS/artifacts/stage-dxr/d3d12.dll
