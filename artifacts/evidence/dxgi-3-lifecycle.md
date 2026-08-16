@@ -1,6 +1,6 @@
 # DXGI-3 window lifecycle evidence
 
-- Date: 2026-08-16T21:24:25Z
+- Date: 2026-08-16T21:27:52Z
 - DXGI source: Gcenx/DXVK-macOS, clean pinned base
 - DXVK base commit: 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 - DXVK bridge patch: /Volumes/AverySSD/VKD3D-Proton-MacOS/patches/dxvk-macos-d3d12-dxgi.patch
@@ -8,6 +8,7 @@
 - vkd3d-proton source revision: 5d24bc718560d6019fc2d74a41981be87bb2d9bd
 - MoltenVK source revision: 13e3c967fd14e0dd8a00f456fd218380efbce73c
 - Wine runner: /tmp/run-probe.sh
+- Wine runtime: wine-11.5
 - Host: 27.0
 - Compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
 
@@ -65,6 +66,8 @@ window/device/queue: PASS
   desc: 640x480 format=0x57 buffers=2 PASS
   invalid ResizeTarget(NULL): hr=0x887a0001 PASS
   invalid windowed fullscreen target: hr=0x887a0001 PASS
+  readback 640x480 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
 === minimize/restore and occlusion ===
   minimized occlusion/test Present: hr=0x087a0001 PASS
   minimized ResizeBuffers(0,0): hr=0x00000000 SUPPORTED
@@ -77,7 +80,11 @@ window/device/queue: PASS
   SetFullscreenState(TRUE): hr=0x00000000 SUPPORTED
   GetFullscreenState(after TRUE): hr=0x00000000 fullscreen=1 PASS
   ResizeTarget(lifecycle): hr=0x00000000 PASS
+  readback 640x480 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
   SetFullscreenState(FALSE) fallback: hr=0x00000000 PASS
+  readback 640x480 rgb-red=2a16bf rgb-green=2ac015 rgb-blue=d41615 clear=330505: PASS
+  Present after lifecycle event: hr=0x00000000 PASS
 === window destruction and recreation ===
   Present after window destruction: hr=0x00000000 PASS
   create lifecycle swapchain: hr=0x00000000 PASS

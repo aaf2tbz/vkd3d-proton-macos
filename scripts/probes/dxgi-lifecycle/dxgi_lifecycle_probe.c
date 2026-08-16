@@ -675,6 +675,7 @@ static int lifecycle_invalid_tests(Runtime *runtime, Lifecycle *lc)
     printf("  valid ResizeTarget(1,1): hr=%s %s\n", hr_text(hr),
             SUCCEEDED(hr) ? "PASS" : (accepted_unsupported(hr) ? "UNSUPPORTED" : "FAIL"));
     if (FAILED(hr) && !accepted_unsupported(hr)) failures++;
+    if (SUCCEEDED(hr) && !lifecycle_render(runtime, lc, 1)) failures++;
     return failures;
 }
 
@@ -761,11 +762,13 @@ static int lifecycle_fullscreen(Runtime *runtime, Lifecycle *lc)
     printf("  ResizeTarget(lifecycle): hr=%s %s\n", hr_text(hr),
             SUCCEEDED(hr) ? "PASS" : (accepted_unsupported(hr) ? "UNSUPPORTED" : "FAIL"));
     if (FAILED(hr) && !accepted_unsupported(hr)) failures++;
+    if (SUCCEEDED(hr) && !lifecycle_render(runtime, lc, 1)) failures++;
 
     hr = lc->swapchain->lpVtbl->SetFullscreenState(lc->swapchain, FALSE, NULL);
     printf("  SetFullscreenState(FALSE) fallback: hr=%s %s\n", hr_text(hr),
             SUCCEEDED(hr) ? "PASS" : "FAIL");
     if (FAILED(hr)) failures++;
+    if (!lifecycle_render(runtime, lc, 1)) failures++;
     return failures;
 }
 

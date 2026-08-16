@@ -96,7 +96,7 @@ run_lifecycle_probe 1
 run_lifecycle_probe 2
 
 summary_pattern='^(selected adapter:|D3D12 adapter LUID:|tearing support:|window/device/queue:|=== |  create lifecycle|  desc:|  readback|  Present after|  ResizeBuffers|  invalid |  recover |  minimized |  GetFullscreen|  SetFullscreen|  ResizeTarget|  create/resize/destroy cycles:|  shutdown:|DXGI-3 result:|[0-9a-f]{8}-[0-9a-f]{8} \(MATCH\)$)'
-repeat_pattern='^(selected adapter:|tearing support:|window/device/queue:|=== |  create lifecycle|  desc:|  readback|  Present after|  ResizeBuffers|  invalid |  recover |  minimized |  GetFullscreen|  SetFullscreen|  ResizeTarget|  create/resize/destroy cycles:|  shutdown:|DXGI-3 result:)'
+repeat_pattern='^(selected adapter:|tearing support:|window/device/queue:|=== |  create lifecycle|  desc:|  readback|  Present after|  ResizeBuffers|  invalid |  recover |  minimized ResizeBuffers|  minimized dimensions|  GetFullscreen|  SetFullscreen|  ResizeTarget|  create/resize/destroy cycles:|  shutdown:|DXGI-3 result:)'
 cmp -s <(grep -E "$repeat_pattern" "$TMP/lifecycle-1.log") \
     <(grep -E "$repeat_pattern" "$TMP/lifecycle-2.log") \
     || fail "lifecycle result was not repeatable"
@@ -149,6 +149,11 @@ source_rev() {
     if [ -d "$dir/.git" ]; then git -C "$dir" rev-parse HEAD; else echo unavailable; fi
 }
 
+wine_version="unavailable"
+if [ -n "${WINE_BIN:-}" ] && [ -x "$WINE_BIN" ]; then
+    wine_version="$("$WINE_BIN" --version 2>&1 | head -1)"
+fi
+
 {
     echo "# DXGI-3 window lifecycle evidence"
     echo
@@ -160,6 +165,7 @@ source_rev() {
     echo "- vkd3d-proton source revision: $(source_rev "$WS/sources/vkd3d-proton")"
     echo "- MoltenVK source revision: $(source_rev "$WS/sources/MoltenVK")"
     echo "- Wine runner: $RUNNER"
+    echo "- Wine runtime: $wine_version"
     echo "- Host: $(sw_vers -productVersion)"
     echo "- Compiler: $("$WS/toolchain/llvm-mingw-20260616-ucrt-macos-universal/bin/x86_64-w64-mingw32-clang" --version | head -1)"
     echo
