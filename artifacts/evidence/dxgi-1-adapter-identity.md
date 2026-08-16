@@ -1,6 +1,6 @@
 # DXGI-1 adapter identity evidence
 
-- Date: 2026-08-16T20:15:26Z
+- Date: 2026-08-16T20:16:35Z
 - DXVK source: Gcenx/DXVK-macOS
 - DXVK commit: 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 - Wine runner: /tmp/run-probe.sh
@@ -27,7 +27,7 @@ ac2b8674798bdbdd21ce1aa48daf1e2657813ecc878b80e2641bf0d2c3f2a43e  /Volumes/Avery
 warn:  CreateDXGIFactory2: Ignoring flags
 	VK_EXT_shader_stencil_export v1
 	VK_EXT_shader_stencil_export v1
-21522.635:0020:0024:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "dxgi_probe.exe" (hash: 2b9f368979fa842c)
+21591.874:0020:0024:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "dxgi_probe.exe" (hash: 2b9f368979fa842c)
 	VK_EXT_shader_stencil_export v1
 	VK_EXT_shader_stencil_export v1
 	VK_EXT_shader_stencil_export v1
@@ -93,3 +93,14 @@ Ten repeated runs produced the same selected adapter LUID:
 ```
 
 The full first-run and negative-test logs are stored beside this record.
+
+## Regression summary
+
+```text
+cr_inner_probe.exe: RESULT: CR TIER 3 INNERCOVERAGE WORKS (D3D12 PATH)
+feedback_probe.exe: RESULT: SAMPLER FEEDBACK MATCHES THE CPU REFERENCE EXACTLY
+mesh_probe.exe: RESULT: MESH DISPATCH PIXEL-EXACT (D3D12 PATH)
+corpus.exe: RESULT: CORE_1_0 SM 6.0 CORPUS WORKS
+corpus_gs.exe: RESULT: CORE_1_0 SM 6.0 CORPUS WORKS
+compute_matrix.exe: RESULT: CORE_1_0 COMPUTE MATRIX WORKS
+```

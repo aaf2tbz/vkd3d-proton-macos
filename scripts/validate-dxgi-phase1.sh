@@ -54,12 +54,14 @@ for probe in cr_inner_probe.exe feedback_probe.exe mesh_probe.exe corpus.exe cor
     log="$TMP/$probe.log"
     "$RUNNER" "$probe" >"$log" 2>&1 || fail "regression failed: $probe"
     grep -Eq 'RESULT:|WORKS' "$log" || fail "regression has no success marker: $probe"
+    grep -E 'RESULT:|WORKS' "$log" | tr -d '\r' | tail -1 | sed "s#^#$probe: #" >> "$TMP/regression-summary.txt"
 done
 pass "existing six-probe regression suite"
 
 mkdir -p "$EVIDENCE"
 cp "$TMP/run-1.log" "$EVIDENCE/dxgi-1-probe-run1.txt"
 cp "$TMP/negative.log" "$EVIDENCE/dxgi-1-negative.txt"
+cp "$TMP/regression-summary.txt" "$EVIDENCE/dxgi-1-regression-summary.txt"
 {
     echo "# DXGI-1 adapter identity evidence"
     echo
@@ -90,5 +92,11 @@ cp "$TMP/negative.log" "$EVIDENCE/dxgi-1-negative.txt"
     echo '```'
     echo
     echo "The full first-run and negative-test logs are stored beside this record."
+    echo
+    echo "## Regression summary"
+    echo
+    echo '```text'
+    cat "$TMP/regression-summary.txt"
+    echo '```'
 } > "$EVIDENCE/dxgi-1-adapter-identity.md"
 pass "evidence written to artifacts/evidence"

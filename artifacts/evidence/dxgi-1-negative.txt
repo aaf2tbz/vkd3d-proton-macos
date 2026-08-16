@@ -415,11 +415,11 @@ info:      Flags: 0x1
 info:      Memory Type[0]: Property Flags = 0x1
 info:      Memory Type[1]: Property Flags = 0xf
 info:      Memory Type[2]: Property Flags = 0x11
-21525.477:01ac:01b0:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "dxgi_probe.exe" (hash: 2b9f368979fa842c)
-21525.477:01ac:01b0:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
-21525.477:01ac:01b0:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
-21525.478:01ac:01b0:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
-21525.478:01ac:01b0:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 5d24bc718560d60+.
+21594.631:01ac:01b0:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "dxgi_probe.exe" (hash: 2b9f368979fa842c)
+21594.631:01ac:01b0:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
+21594.631:01ac:01b0:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
+21594.631:01ac:01b0:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
+21594.631:01ac:01b0:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 5d24bc718560d60+.
 [mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
 	The following 164 Vulkan extensions are supported:
 	VK_KHR_16bit_storage v1
