@@ -17,3 +17,4 @@ artifacts/VKD3D-Proton-MacOS-*.tar.zst
 artifacts/toolchain/dxc/
 
 artifacts/metalsharp-graphics-dll-*.tar.zst
+vkd3d-proton-macos-M14.tar.zst
