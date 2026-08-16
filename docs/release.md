@@ -18,6 +18,18 @@ vkd3d-proton-macos/
 The DLLs are x86_64 PE files for Wine/Rosetta. MoltenVK is universal
 x86_64/arm64 and adhoc codesigned for the isolated runtime override path.
 
+## macOS 14 / Metal 3 compatibility
+
+The bundled `libMoltenVK.dylib` is built with the current Xcode beta and
+`MACOSX_DEPLOYMENT_TARGET=14.0`. Its Mach-O `LC_BUILD_VERSION` reports
+`minos 14.0` for both architectures, so the native runtime has a macOS 14
+deployment floor. The D3D12 DLLs remain x86_64 Windows binaries and run
+through a compatible Wine/Rosetta environment.
+
+The packaged candidate passed the complete regression suite on Apple M4.
+That host is newer than macOS 14/Metal 3; functional execution specifically
+on Metal 3 still requires a macOS 14 host.
+
 ## Install/use
 
 Extract the archive and keep the ICD manifest beside the dylib:
