@@ -108,6 +108,28 @@ are reported according to the host's actual HRESULTs. This is a validated
 lifecycle lane, not a claim of broad gameplay stability or a replacement for
 the later format, pacing, recovery, and real-game phases.
 
+## DXGI-4 format and color policy validation
+
+The format/color gate is green with `make dxgi-formats-test`; complete evidence
+is in [`dxgi-4-formats.md`](../artifacts/evidence/dxgi-4-formats.md). Two runs
+passed exact GPU readback and presentation for BGRA8 UNORM, BGRA8 sRGB, and
+RGBA8 UNORM. The matrix also covers format support, RTV/resource creation,
+backbuffer descriptors, barriers, MSAA resolve/readback, alpha reporting, SDR color space, tearing,
+depth/DSV behavior, invalid descriptors, invalid alpha modes, incompatible
+HDR color space, and HDR metadata error handling.
+
+R10G10B10A2 is reported as D3D12/resource-supported but unsupported for this
+native DXGI swapchain/readback lane. D24/D32 depth planes pass deterministic
+readback; stencil clear and DSV behavior execute, while the backend's stencil
+copy plane is explicitly unsupported. The configured DXGI path reports SDR
+P709 supported and scRGB/HDR10/P2020 unsupported. The HDR metadata setter's
+HRESULT is not treated as HDR support, and no HDR claim is made for either the
+TV or the MacBook display without a supported DXGI color-space result and GPU
+readback. DXGI-1/2/3 and the six-probe regression suite remain green.
+
+This is format and presentation-policy validation only; it does not claim
+broad gameplay stability or cover the later synchronization/recovery phase.
+
 ## Feature-level ladder
 
 The final `flprobe.exe` run on Apple M4 returned `S_OK` and `dev=CREATED` for

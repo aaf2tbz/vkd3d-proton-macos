@@ -14,13 +14,13 @@
 3. Publish the result from a **clean upstream tree** as a matched vkd3d-proton + MoltenVK runtime archive.
 4. Leave the user's installed Wine environment untouched until final integration.
 
-### Next program: DXGI format, pacing, and recovery stability
+### Next program: DXGI synchronization, pacing, and recovery stability
 
 The v1.0 release proves the D3D12 device and off-screen rendering path. The
 next sequential program is the DXVK macOS DXGI presentation lane. Adapter
-identity, windowed presentation, and lifecycle are now closed; formats,
-synchronization/recovery, and real-game acceptance remain. Its phase gates and
-deliverables are tracked in
+identity, windowed presentation, lifecycle, and format/color policy are now
+closed; synchronization/recovery and real-game acceptance remain. Its phase
+gates and deliverables are tracked in
 [docs/DXGI-Roadmap.md](docs/DXGI-Roadmap.md). The public runtime must not
 claim broad gameplay stability until the final phase passes on a real macOS
 14 / Metal 3 host.
@@ -259,6 +259,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 | **DXGI-1** | Adapter identity | ✅ COMPLETE 2026-08-16 — pinned DXVK macOS `dxgi.dll`, factory/adapter probe, DXGI↔D3D12 LUID match, Vulkan/MoltenVK identity, ten repeatable runs, negative tests, and six-probe regression. Evidence: `artifacts/evidence/dxgi-1-adapter-identity.md` |
 | **DXGI-2** | Windowed presentation | ✅ COMPLETE 2026-08-16 — four flip/API combinations, deterministic GPU readback, 1,000 frames per mode, sync/tearing/statistics/negative tests, two repeatable runs, and six-probe regression. Evidence: `artifacts/evidence/dxgi-2-presentation.md` |
 | **DXGI-3** | Window lifecycle | ✅ COMPLETE 2026-08-16 — resize matrix, minimized/zero-size classification, occlusion, fullscreen/windowed fallback, destruction/recreation, negative tests, 100 create/resize/destroy cycles, ordered shutdown, two repeatable runs, and preserved DXGI-1/DXGI-2/six-probe gates. Evidence: `artifacts/evidence/dxgi-3-lifecycle.md` |
+| **DXGI-4** | Formats and color policy | ✅ COMPLETE 2026-08-16 — exact BGRA8/RGBA8 UNORM and sRGB GPU readback, R10/depth-stencil capability boundaries, alpha/color-space/HDR metadata policy, tearing, negative tests, two repeatable runs, and preserved DXGI-1/2/3/six-probe gates. Evidence: `artifacts/evidence/dxgi-4-formats.md` |
 
 **Ordering note:** M3–M12 are strictly sequential rungs (the ladder depends downward). Within 12_2, 4A/4B/4C/4D may be parallelized across lanes but each promotes only with its own gate green.
 

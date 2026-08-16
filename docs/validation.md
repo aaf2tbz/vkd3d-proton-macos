@@ -93,6 +93,39 @@ and all six existing regression probes. Evidence is written to
 DXGI-3 proves this tested lifecycle lane only. It does not claim broad gameplay
 stability, later format/HDR coverage, or final package promotion.
 
+## DXGI-4 format and color-policy gate
+
+Run the format/color/HDR matrix with:
+
+```bash
+make dxgi-formats-test
+```
+
+The validator runs two deterministic passes using the real Win32 window and
+Phase-1 adapter. It requires exact GPU readback for BGRA8 UNORM, BGRA8 sRGB,
+and RGBA8 UNORM, including channel order, alpha, linear values, and sRGB
+conversion. It validates D3D12 format-support results, render-target resource
+and RTV creation, dimensions, barriers, an MSAA `ResolveSubresource`, backbuffer
+acquisition, Present, and tearing policy. R10G10B10A2 is classified separately: the current lane reports
+D3D12 support and resource/RTV creation but rejects the swapchain and does not
+perform unsafe GPU conversion readback.
+
+D24/D32 depth-stencil resources and DSVs are created, cleared, transitioned,
+and depth-read back. Stencil clear/DSV behavior is exercised, while the
+backend's missing stencil copy plane is recorded as unsupported. The policy
+matrix checks alpha mode, `CheckColorSpaceSupport`, `SetColorSpace1`, HDR
+metadata, invalid color-space/alpha/format/descriptor inputs, incompatible
+SDR/HDR combinations, and tearing flags. DXGI 1.4/1.5 expose Check/Set color
+space methods but no `GetColorSpace1`; the probe records that API as not
+exposed. A successful HDR metadata setter is never used as HDR evidence.
+
+On the current configured runner, SDR P709 is supported while scRGB, HDR10 PQ,
+and extended P2020 are accurately reported unsupported. The TV is not used as
+HDR evidence; a display's capability alone does not override the actual DXGI
+and GPU result. Evidence is stored in
+`artifacts/evidence/dxgi-4-formats.md` and adjacent `dxgi-4-*` logs. Phase 4
+does not claim broad gameplay stability or begin synchronization/recovery work.
+
 ## Probe gate
 
 The M14 gate is green only when all of these pass:

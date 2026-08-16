@@ -1,0 +1,13 @@
+diff --git a/src/dxgi/dxgi_factory.cpp b/src/dxgi/dxgi_factory.cpp
+--- a/src/dxgi/dxgi_factory.cpp
++++ b/src/dxgi/dxgi_factory.cpp
+@@ -126,6 +126,9 @@
+     
+     if (!ppSwapChain || !pDesc || !hWnd || !pDevice)
+       return DXGI_ERROR_INVALID_CALL;
++
++    if (pDesc->AlphaMode > DXGI_ALPHA_MODE_IGNORE)
++      return E_INVALIDARG;
+     
+     Com<IWineDXGISwapChainFactory> wineDevice;
+     

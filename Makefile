@@ -12,7 +12,8 @@ DXVK_COMMIT ?= 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 
 .PHONY: help tools docs-check env vkd3d moltenvk metal3 build flprobe stage ladder \
 	dxgi dxgi-probe dxgi-test dxgi-present-probe dxgi-present-test \
-	dxgi-lifecycle-probe dxgi-lifecycle-test package test clean
+	dxgi-lifecycle-probe dxgi-lifecycle-test dxgi-formats-probe \
+	dxgi-formats-test package test clean
 
 help:
 	@printf '%s\n' \
@@ -26,6 +27,8 @@ help:
 	  'make dxgi-present-test   run DXGI-2 swapchain/present validation' \
 	  'make dxgi-lifecycle-probe build the DXGI-3 window lifecycle probe' \
 	  'make dxgi-lifecycle-test  run DXGI-3 lifecycle validation and regressions' \
+	  'make dxgi-formats-probe   build the DXGI-4 format/color probe' \
+	  'make dxgi-formats-test    run DXGI-4 format/color/HDR validation' \
 	  'make moltenvk    build the universal MoltenVK dylib (staged, not promoted)' \
 	  'make metal3      build MoltenVK with macOS 14 / Metal 3 compatibility target' \
 	  'make build       run both vkd3d and MoltenVK builds' \
@@ -94,6 +97,17 @@ dxgi-lifecycle-probe: dxgi
 
 dxgi-lifecycle-test: stage dxgi-probe dxgi-present-probe dxgi-lifecycle-probe
 	@bash scripts/validate-dxgi-phase3.sh
+
+dxgi-formats-probe: dxgi
+	@DXGI_PRESENT_SHADER_DIR="$(STAGE_DIR)/dxgi-present" \
+		bash scripts/build-dxgi-present-shaders.sh
+	@mkdir -p "$(STAGE_DIR)"
+	@"$(LLVM_MINGW)/bin/x86_64-w64-mingw32-clang" -O2 scripts/probes/dxgi-formats/dxgi_formats_probe.c \
+		-o "$(STAGE_DIR)/dxgi_formats_probe.exe" -ldxgi -ld3d12 -luser32 -lgdi32 -lm
+	@file "$(STAGE_DIR)/dxgi_formats_probe.exe"
+
+dxgi-formats-test: stage dxgi-probe dxgi-present-probe dxgi-lifecycle-probe dxgi-formats-probe
+	@bash scripts/validate-dxgi-phase4.sh
 
 moltenvk:
 	@bash scripts/build-moltenvk.sh

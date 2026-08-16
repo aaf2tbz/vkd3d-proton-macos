@@ -174,6 +174,40 @@ writes complete module/hash/source/log evidence under `artifacts/evidence/`.
 DXGI-3 remains a lifecycle validation claim only; it is not a broad gameplay
 stability or final-release claim.
 
+## Build and validate DXGI-4 formats and color policy
+
+The DXGI-4 lane applies the checked-in
+`patches/dxvk-macos-dxgi-phase4.patch` after the D3D12 bridge patch while
+building. The phase patch validates swapchain alpha modes and is reverted with
+the downloaded DXVK source after the build:
+
+```bash
+make dxgi-formats-probe
+make dxgi-formats-test
+```
+
+The probe runs the real Win32 window and Phase-1 adapter through a format
+matrix. It performs exact GPU readback for BGRA8 UNORM, BGRA8 sRGB, and RGBA8
+UNORM, checking channel ordering, alpha, linear values, and sRGB transfer.
+It also resolves a deterministic 4x MSAA BGRA8 target into a single-sample
+resource and verifies the resolved clear-color readback.
+R10G10B10A2 support and resource/RTV creation are queried separately; the
+current native DXGI lane rejects its swapchain and reports GPU readback
+unsupported rather than risking a backend hang. D24/D32 DSV creation, clear,
+barrier, and depth-plane readback are covered; stencil readback is explicitly
+reported unsupported because the backend copy footprint exposes no stencil
+plane.
+
+The policy matrix exercises alpha reporting, `CheckColorSpaceSupport`,
+`SetColorSpace1`, HDR metadata, invalid color-space/alpha/format/descriptor
+inputs, incompatible SDR/HDR combinations, and tearing flags. The Win32 DXGI
+interfaces expose Check/Set color-space methods but no `GetColorSpace1`; the
+probe records that fact instead of inventing an API result. HDR10/scRGB/P2020
+are accepted only when the configured runner reports support and GPU output;
+the current run reports them unsupported. The validator runs two format passes,
+reruns DXGI-1/2/3 and the six-probe suite, and stores hashes and full logs in
+`artifacts/evidence/dxgi-4-*`. This phase makes no gameplay-stability claim.
+
 ## Build MoltenVK
 
 Build the custom universal dylib candidate:

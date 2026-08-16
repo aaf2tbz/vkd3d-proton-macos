@@ -41,7 +41,10 @@ run_present_probe() {
     "$RUNNER" dxgi_present_probe.exe >"$raw" 2>&1 || fail "DXGI-2 probe run $run exited nonzero"
     tr -d '\r' <"$raw" >"$log"
     grep -q 'DXGI-2 result: PASS' "$log" || fail "DXGI-2 probe run $run failed"
-    grep -q '^D3D12 adapter LUID: .* (MATCH)$' "$log" || fail "DXGI/D3D12 adapter identity did not match on run $run"
+    # Wine's asynchronous logger can write between the probe's LUID prefix
+    # and its MATCH suffix.  Validate both stable pieces independently.
+    grep -q '^D3D12 adapter LUID:' "$log" || fail "D3D12 adapter identity line missing on run $run"
+    grep -q ' (MATCH)$' "$log" || fail "DXGI/D3D12 adapter identity did not match on run $run"
     [ "$(grep -c '^  mode result: PASS$' "$log")" -eq 4 ] || fail "not all four presentation modes passed on run $run"
     [ "$(grep -c '^  frames: 1000 / 1000$' "$log")" -eq 4 ] || fail "not all modes completed 1000 frames on run $run"
     [ "$(grep -c '^  sync intervals exercised: 0 and 1; tearing flag on interval 0: ALLOW_TEARING$' "$log")" -eq 4 ] || fail "sync/tearing coverage missing on run $run"

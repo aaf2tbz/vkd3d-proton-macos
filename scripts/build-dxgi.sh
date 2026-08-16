@@ -8,6 +8,7 @@ source "$WS/scripts/env.sh" >/dev/null
 DXVK_SRC="${DXVK_SRC:-$WS/sources/dxvk-macos}"
 DXVK_COMMIT="${DXVK_COMMIT:-8f1e28deed3ad30802f7e1bdff428ec14e6e7817}"
 DXVK_PATCH="${DXVK_PATCH:-$WS/patches/dxvk-macos-d3d12-dxgi.patch}"
+DXVK_PHASE4_PATCH="${DXVK_PHASE4_PATCH:-$WS/patches/dxvk-macos-dxgi-phase4.patch}"
 OUT="${DXVK_BUILD_DIR:-$WS/artifacts/build/dxvk-macos}"
 CROSS="$WS/artifacts/dxvk-cross-x86_64.txt"
 LLVM_MINGW="${LLVM_MINGW:?LLVM_MINGW is not set}"
@@ -43,6 +44,14 @@ if [ -f "$DXVK_PATCH" ]; then
     patch_applied=1
 else
     echo "DXVK patch missing: $DXVK_PATCH" >&2
+    exit 1
+fi
+
+if [ -f "$DXVK_PHASE4_PATCH" ]; then
+    git -C "$DXVK_SRC" apply --check "$DXVK_PHASE4_PATCH"
+    git -C "$DXVK_SRC" apply "$DXVK_PHASE4_PATCH"
+else
+    echo "DXVK Phase-4 patch missing: $DXVK_PHASE4_PATCH" >&2
     exit 1
 fi
 
@@ -83,3 +92,5 @@ shasum -a 256 "$DEST/dxgi.dll"
 echo "source: $actual_commit"
 echo "source patch: $DXVK_PATCH"
 shasum -a 256 "$DXVK_PATCH"
+echo "phase-4 patch: $DXVK_PHASE4_PATCH"
+shasum -a 256 "$DXVK_PHASE4_PATCH"

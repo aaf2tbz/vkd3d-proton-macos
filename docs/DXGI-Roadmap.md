@@ -1,6 +1,6 @@
 # DXGI Stability Roadmap
 
-**Status:** DXGI-3 complete; DXGI-4 format/color coverage is next.
+**Status:** DXGI-4 complete; DXGI-5 synchronization/recovery work is next.
 
 The current release proves device creation, off-screen D3D12 rendering, shader
 translation, and deterministic readback. It does **not** yet prove a stable
@@ -73,6 +73,31 @@ acceptance logs are in
 [`artifacts/evidence/dxgi-3-lifecycle.md`](../artifacts/evidence/dxgi-3-lifecycle.md).
 This closes the tested lifecycle lane only; it does **not** claim broad
 gameplay stability, later format/HDR coverage, or a final package promotion.
+
+### DXGI-4 completion record
+
+Phase 4 passed on 2026-08-16 with `make dxgi-formats-test`. The pinned lane
+rendered and read back `B8G8R8A8_UNORM`, `B8G8R8A8_UNORM_SRGB`, and
+`R8G8B8A8_UNORM` swapchains with exact channel/alpha values, including the
+sRGB transfer results. It validated D3D12 format support, resource/RTV
+creation, descriptors, barriers, an MSAA `ResolveSubresource`, backbuffer
+acquisition, presentation, and tearing policy. `R10G10B10A2_UNORM` is reported accurately: D3D12 advertises
+the format and an RTV can be created, but this DXGI/MoltenVK lane rejects its
+swapchain and does not attempt unsafe GPU readback.
+
+The D24/D32 depth-stencil cases create resources and DSVs, clear depth and
+stencil, exercise barriers, and read back the depth plane. The current
+backend's copy footprint does not expose a stencil readback plane, which is
+recorded as unsupported rather than synthesized. SDR P709 is supported;
+scRGB, HDR10 PQ, and extended P2020 are reported unsupported by the configured
+DXGI path on this run. A successful HDR metadata setter call is not treated as
+HDR support without `CheckColorSpaceSupport` and deterministic output.
+
+Two format/color runs passed, and the DXGI-1/2/3 plus six-probe suites were
+rerun. Complete hashes, revisions, module paths, and logs are in
+[`artifacts/evidence/dxgi-4-formats.md`](../artifacts/evidence/dxgi-4-formats.md).
+This closes format and policy coverage only; it does not claim HDR support or
+broad gameplay stability.
 
 ## Rules for every phase
 

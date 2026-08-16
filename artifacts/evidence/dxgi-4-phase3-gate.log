@@ -1,0 +1,4 @@
+PASS: two deterministic DXGI-3 lifecycle runs
+PASS: DXGI-1 and DXGI-2 gates
+PASS: existing six-probe regression suite
+PASS: evidence written to artifacts/evidence
