@@ -1,6 +1,6 @@
-// M7c isolation: separates BLAS health / classic intersector / TLAS instancing /
+// TLAS isolation isolation: separates BLAS health / classic intersector / TLAS instancing /
 // intersection_query API. Kernel A = classic intersector on the BLAS (the known
-// good M7 pattern). Kernel B = intersection_query on the TLAS (the SPIRV-Cross
+// good ray-query pattern). Kernel B = intersection_query on the TLAS (the SPIRV-Cross
 // shape). Both use DIRECT resource bindings (no struct-member raw data).
 #import <Metal/Metal.h>
 #import <simd/simd.h>

@@ -178,7 +178,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -198,7 +198,7 @@ info:    VK_KHR_win32_surface
 	VK_KHR_get_surface_capabilities2 v1
 	VK_KHR_surface v25
 	VK_EXT_metal_surface v1
-info:  Apple M4:
+info:  Apple GPU:
 info:    Driver: 0.2.2211
 info:    Vulkan: 1.1.357
 info:    Memory Heap[0]: 
@@ -381,7 +381,7 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -410,7 +410,7 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 24245.780:01ac:01b0:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 35 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 35 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_acceleration_structure v13
 	VK_EXT_mesh_shader v1
@@ -625,7 +625,7 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209

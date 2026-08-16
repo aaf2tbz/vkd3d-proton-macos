@@ -21,7 +21,7 @@ The native-Vulkan mesh probe (mesh shader emitting the fullscreen triangle,
 3 verts / 1 prim, `vkCmdDrawMeshTasksEXT(1,1,1)`) renders NOTHING (red=0/4096).
 The same result is reproduced in a PLAIN-METAL baseline (no MVK): a hand-written
 `[[mesh]]` function + the fragment + `drawMeshThreadgroups` renders nothing on
-the Apple M4 / macOS 26, with:
+the Apple GPU / macOS 26, with:
 - mesh-only and object+mesh pipelines (both compile, both draw nothing)
 - `drawMeshThreadgroups` and `drawMeshThreads`
 - mesh threadgroup sizes 3, 32, 64; cull-mode none; small and fullscreen

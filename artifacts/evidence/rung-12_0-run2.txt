@@ -4,7 +4,7 @@
   module dxgi.dll       : Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\stage-self\dxgi.dll
 
 === adapter enumeration (CreateDXGIFactory1: 0x00000000) ===
-  adapter 0: vendor 0x106b device 0x1b000209 "Apple M4"
+  adapter 0: vendor 0x106b device 0x1b000209 "Apple GPU"
 
 === D3D12CreateDevice per minimum feature level ===
   min 12_2     : hr=0x80070057 dev=NULL  | NULL-adapter: hr=0x80070057 dev=NULL

@@ -1,4 +1,4 @@
-// M13: compute-only matrix on a CORE_1_0 device: compute PSO + dispatch + UAV readback.
+// CORE_1_0: compute-only matrix on a CORE_1_0 device: compute PSO + dispatch + UAV readback.
 #include <windows.h>
 #define INITGUID
 #include <initguid.h>

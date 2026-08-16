@@ -1,7 +1,7 @@
 #import <Metal/Metal.h>
 #import <Foundation/Foundation.h>
 #include <stdio.h>
-// Test: does Metal support min/max filtering (sampler reduction) on Apple M4?
+// Test: does Metal support min/max filtering (sampler reduction) on Apple GPU?
 int main(void) {
     @autoreleasepool {
         id<MTLDevice> dev = MTLCreateSystemDefaultDevice();
@@ -41,7 +41,7 @@ int main(void) {
         [cb commit]; [cb waitUntilCompleted];
         float *r = (float*)ob.contents;
         printf("min/max sample result: %f (min=0.2 max=0.8; between -> min filter gives 0.2)\n", r[0]);
-        printf("RESULT: %s\n", (r[0] == 0.2f) ? "MIN/MAX FILTERING WORKS ON M4" : "not min/max");
+        printf("RESULT: %s\n", (r[0] == 0.2f) ? "MIN/MAX FILTERING WORKS ON GPU" : "not min/max");
         fflush(stdout);
     }
     return 0;

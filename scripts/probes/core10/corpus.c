@@ -1,4 +1,4 @@
-// M13/Slice5: SM 6.0 compute corpus on a CORE_1_0 device.
+// CORE_1_0/Slice5: SM 6.0 compute corpus on a CORE_1_0 device.
 // Loads corpus/<name>.dxil (dxc-compiled cs_6_0), creates a compute PSO from
 // the DXIL directly, dispatches, verifies GPU readbacks.
 // Negatives: DIRECT queue + graphics PSO must FAIL on the CORE_1_0 device.
@@ -101,7 +101,7 @@ static int run_dispatch(struct ctx* c, const char* name, unsigned dx, unsigned d
     clD->lpVtbl->SetPipelineState(clD, c->pso);
     clD->lpVtbl->Dispatch(clD, dx, dy, dz);
     /* warm-up dispatch with the same PSO: the first dispatch with a fresh
-     * compute PSO may silently drop its writes on this stack (the exp3/M13
+     * compute PSO may silently drop its writes on this stack (the exp3/CORE_1_0
      * evidence); the second dispatch with the same PSO always lands */
     clD->lpVtbl->Dispatch(clD, dx, dy, dz);
     clD->lpVtbl->Close(clD);
@@ -252,7 +252,7 @@ int main(void) {
         { void* mp=NULL; c.rb->lpVtbl->Map(c.rb,0,NULL,&mp); unsigned* uu=(unsigned*)mp;
           printf("    wave raw: %u %u %u %u %u %u %u %u | %u %u %u %u\n", uu[0],uu[1],uu[2],uu[3],uu[4],uu[5],uu[6],uu[7],uu[8],uu[9],uu[10],uu[11]);
           c.rb->lpVtbl->Unmap(c.rb,0,NULL); }
-        /* the wave size on the M4 with 8-thread threadgroups is 8 lanes:
+        /* the wave size on the GPU with 8-thread threadgroups is 8 lanes:
          * buf[i] = WaveGetLaneCount() + (i mod wave) - the pattern 32..39 wraps
          * every 8 threads */
         int ok = 1;

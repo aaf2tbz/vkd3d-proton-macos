@@ -130,7 +130,7 @@ index 0000000..a258037
 +
 +  void STDMETHODCALLTYPE DxgiD3D12Presenter::NotifyModeChange(
 +          BOOL windowed, const DXGI_MODE_DESC* displayMode) {
-+    /* The vkd3d swapchain is windowed-only for this phase. */
++    /* The vkd3d swapchain is windowed-only for this stage. */
 +    (void)windowed;
 +    (void)displayMode;
 +  }

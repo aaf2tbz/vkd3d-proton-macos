@@ -1,6 +1,6 @@
 # SM 6.0 verified + SM ladder analysis (2026-08-14)
 
-## Shader model query (self-built stack, evidence m1-smquery.txt)
+## Shader model query (self-built stack, evidence headless-smquery.txt)
 D3D12_FEATURE_DATA_SHADER_MODEL is IN-OUT (app requests max, driver returns min).
 With HighestShaderModel input = 0x66 (6_6):
     -> mingw id 7 : S_OK, highest = 0x60  (D3D_SHADER_MODEL_6_0)

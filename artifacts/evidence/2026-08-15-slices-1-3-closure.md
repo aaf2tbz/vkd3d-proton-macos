@@ -1,14 +1,14 @@
 # Slices 1–3 closure: mesh / VRS / sampler-feedback — clean-failure evidence (2026-08-15)
 
-Per the plan (docs/08-remaining-plan.md Phase C), each slice's decision gate:
+Per the plan (docs/08-remaining-plan.md stage C), each slice's decision gate:
 the FEATURE-LEVEL gate is green (the tiers are reported by the fork relaxations
 and the ladder passes); the execution machinery is evaluated for value vs the
 documented Metal limitations. Verdict for all three: CLOSE AS DOCUMENTED —
 the API surface fails cleanly, the tier gates remain the reported state, and
 the evidence below records the runtime behavior.
 
-## Slice 1 — Mesh (M9 pipeline machinery)
-Probe (`scripts/probes/cleanfail.c`, real MoltenVK on the Apple M4):
+## Slice 1 — Mesh (mesh pipeline machinery)
+Probe (`scripts/probes/cleanfail.c`, real MoltenVK on the Apple GPU):
 ```
 MESH: vkCmdDrawMeshTasksEXT MISSING (clean failure: no mesh draw entry)
 ```
@@ -31,7 +31,7 @@ VRS: vkCmdSetFragmentShadingRateKHR MISSING (clean failure: no VRS entry)
 ```
 - The MVK does not export VK_KHR_fragment_shading_rate at all; the tier-2 VRS
   gate is reported by the fork relaxation; any VRS call fails cleanly.
-- The per-primitive path has no Metal equivalent (roadmap 4C.3) — the
+- The per-primitive path has no Metal equivalent (history 4C.3) — the
   documented-hard-blocker outcome was chosen; the tier-2 gate stays the
   reported state.
 

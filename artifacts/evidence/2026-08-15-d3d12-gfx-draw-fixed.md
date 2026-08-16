@@ -28,7 +28,7 @@ Diagnostic trail (all recorded):
   the smoking gun.
 
 ## Slice 4 acceptance: CR TIER 3 INNERCOVERAGE WORKS (D3D12 PATH)
-`cr_inner_probe` (D3D12, wine, real MoltenVK on the Apple M4):
+`cr_inner_probe` (D3D12, wine, real MoltenVK on the Apple GPU):
 ```
 CR tier: 3 (hr=0x00000000)
 graphics PSO (CR on + InnerCoverage PS): 0x00000000

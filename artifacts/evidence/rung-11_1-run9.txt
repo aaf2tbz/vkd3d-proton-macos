@@ -178,7 +178,7 @@ mscompatdb: not found
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -363,7 +363,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -545,7 +545,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -563,7 +563,7 @@ info:    VK_KHR_win32_surface
 	VK_KHR_external_memory_capabilities v1
 	VK_KHR_external_semaphore_capabilities v1
 	VK_KHR_get_physical_device_properties2 v2
-info:  Found device: Apple M4 (MoltenVK 0.2.2211)
+info:  Found device: Apple GPU (MoltenVK 0.2.2211)
 46157.745:0020:0024:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "flprobe.exe" (hash: e07fe74079cdc60f)
 46157.746:0020:0024:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
 46157.746:0020:0024:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
@@ -730,7 +730,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -756,7 +756,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46157.768:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -799,8 +799,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.176:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.414 ms.
 46158.177:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.177:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
 46158.184:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
 46158.184:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 3300fe64cc1ecf5+.
@@ -965,7 +965,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -991,7 +991,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.204:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -1034,8 +1034,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.225:0020:0120:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.106 ms.
 46158.225:0020:0120:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.225:0020:0120:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
 === loaded module identity ===
   module d3d12.dll      : Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\stage-full\d3d12.dll
@@ -1043,7 +1043,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
   module dxgi.dll       : Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\stage-full\dxgi.dll
 
 === adapter enumeration (CreateDXGIFactory1: 0x00000000) ===
-  adapter 0: vendor 0x106b device 0x1b000209 "Apple M4"
+  adapter 0: vendor 0x106b device 0x1b000209 "Apple GPU"
 
 === D3D12CreateDevice per minimum feature level ===
   min 12_2     : hr=0x80070057 dev=NULL  | NULL-adapter: hr=0x80070057 dev=NULL
@@ -1210,7 +1210,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -1236,7 +1236,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.247:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -1279,8 +1279,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.269:0020:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.099 ms.
 46158.269:0020:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.269:0020:0128:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
 46158.271:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
 46158.271:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 3300fe64cc1ecf5+.
@@ -1445,7 +1445,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -1471,7 +1471,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.291:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -1514,8 +1514,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.312:0020:0130:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.105 ms.
 46158.312:0020:0130:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.312:0020:0130:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
   min 12_1     : hr=0x80070057 dev=NULL  | NULL-adapter: hr=0x80070057 dev=NULL
 46158.314:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
@@ -1681,7 +1681,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -1707,7 +1707,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.334:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -1750,8 +1750,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.357:0020:0138:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.097 ms.
 46158.357:0020:0138:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.357:0020:0138:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
 46158.359:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
 46158.359:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 3300fe64cc1ecf5+.
@@ -1916,7 +1916,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -1942,7 +1942,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.379:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -1985,8 +1985,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.401:0020:0140:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.109 ms.
 46158.401:0020:0140:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.401:0020:0140:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
   min 12_0     : hr=0x80070057 dev=NULL  | NULL-adapter: hr=0x80070057 dev=NULL
 46158.403:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
@@ -2152,7 +2152,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -2178,7 +2178,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.423:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -2222,8 +2222,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.444:0020:0148:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.111 ms.
 46158.444:0020:0148:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.444:0020:0148:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
 46158.447:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
 46158.447:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 3300fe64cc1ecf5+.
@@ -2388,7 +2388,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -2414,7 +2414,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.467:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -2458,8 +2458,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.491:0020:0150:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.099 ms.
 46158.491:0020:0150:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.491:0020:0150:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
 46158.493:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
 46158.493:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 3300fe64cc1ecf5+.
@@ -2624,7 +2624,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -2646,7 +2646,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_KHR_surface_maintenance1 v1
 	VK_EXT_metal_surface v1
 	VK_EXT_surface_maintenance1 v1
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
 46158.494:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
 46158.494:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 3300fe64cc1ecf5+.
@@ -2811,7 +2811,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -2833,7 +2833,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_KHR_surface_maintenance1 v1
 	VK_EXT_metal_surface v1
 	VK_EXT_surface_maintenance1 v1
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
   min 1_0_CORE : hr=0x80070057 dev=NULL  | NULL-adapter: hr=0x80070057 dev=NULL
 46158.494:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
@@ -2999,7 +2999,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -3025,7 +3025,7 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.514:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 29 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 29 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_deferred_host_operations v4
 	VK_KHR_fragment_shader_barycentric v1
@@ -3068,8 +3068,8 @@ info:  Found device: Apple M4 (MoltenVK 0.2.2211)
 46158.535:0020:0158:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.200 ms.
 46158.535:0020:0158:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Failed to map read-only cache: Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\caches\vkd3d\vkd3d-proton.flprobe.exe.cache.
 46158.535:0020:0158:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 29 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 29 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
 
 (queries run on device created via enumerated adapter)

@@ -18,6 +18,6 @@ Probe (flprobe, staged with DXVK dxgi + runtime ICD + VKMT env, Wine 11.5):
   SHADER_MODEL: official id 18 -> E_INVALIDARG; mingw id 7 -> S_OK (highest=0)
   OPTIONS5/6/7: official ids 19/20/21 -> E_INVALIDARG; mingw ids 27/30/32 -> S_OK
                 (DXR tier 0, VRS tier 0, mesh tier 0, sampler feedback 0)
-  -> IDENTICAL to the shipped pair (evidence m1-runD/E). ABI note: the
+  -> IDENTICAL to the shipped pair (evidence headless-runD/E). ABI note: the
      mingw-renumbered D3D12_FEATURE enum is a build-toolchain consequence
      (llvm-mingw ships mingw-w64 headers), confirmed by reproducing it.

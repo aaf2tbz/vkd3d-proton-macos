@@ -85,7 +85,7 @@ DLLs from different lanes or build timestamps.
 
 ## Build DXVK macOS DXGI
 
-Phase DXGI-1 uses the pinned DXVK macOS source at commit
+stage DXGI-1 uses the pinned DXVK macOS source at commit
 `8f1e28deed3ad30802f7e1bdff428ec14e6e7817`:
 
 ```bash
@@ -97,7 +97,7 @@ make dxgi-probe
 
 The provider is built as an x86_64 PE DLL at
 `artifacts/build/dxvk-macos/x86_64-windows/dxgi.dll`. Stage it with the
-matched D3D12 pair using `make stage`. The complete Phase 1 gate is:
+matched D3D12 pair using `make stage`. The complete stage 1 gate is:
 
 ```bash
 make dxgi-test
@@ -141,7 +141,7 @@ swapchain reference. It leaves evidence and full Wine/vkd3d/MoltenVK/DXVK
 logs under `artifacts/evidence/`.
 
 This target intentionally does not test resize, minimize, fullscreen, or
-general gameplay stability; those are later DXGI phases.
+general gameplay stability; those are later DXGI stages.
 
 ## Build and validate DXGI-3 lifecycle
 
@@ -156,7 +156,7 @@ make dxgi-lifecycle-probe
 make dxgi-lifecycle-test
 ```
 
-The probe creates a real Win32 window, selects the Phase-1 adapter, and
+The probe creates a real Win32 window, selects the stage-1 adapter, and
 recreates RTVs/readback resources after each accepted `ResizeBuffers`. It
 renders the deterministic RGB triangle and clear color after normal and
 minimized/zero-size transitions, checks dimensions, formats, barriers, and
@@ -177,8 +177,8 @@ stability or final-release claim.
 ## Build and validate DXGI-4 formats and color policy
 
 The DXGI-4 lane applies the checked-in
-`patches/dxvk-macos-dxgi-phase4.patch` after the D3D12 bridge patch while
-building. The phase patch validates swapchain alpha modes and is reverted with
+`patches/dxvk-macos-dxgi-formats.patch` after the D3D12 bridge patch while
+building. The stage patch validates swapchain alpha modes and is reverted with
 the downloaded DXVK source after the build:
 
 ```bash
@@ -186,7 +186,7 @@ make dxgi-formats-probe
 make dxgi-formats-test
 ```
 
-The probe runs the real Win32 window and Phase-1 adapter through a format
+The probe runs the real Win32 window and stage-1 adapter through a format
 matrix. It performs exact GPU readback for BGRA8 UNORM, BGRA8 sRGB, and RGBA8
 UNORM, checking channel ordering, alpha, linear values, and sRGB transfer.
 It also resolves a deterministic 4x MSAA BGRA8 target into a single-sample
@@ -206,11 +206,11 @@ probe records that fact instead of inventing an API result. HDR10/scRGB/P2020
 are accepted only when the configured runner reports support and GPU output;
 the current run reports them unsupported. The validator runs two format passes,
 reruns DXGI-1/2/3 and the six-probe suite, and stores hashes and full logs in
-`artifacts/evidence/dxgi-4-*`. This phase makes no gameplay-stability claim.
+`artifacts/evidence/dxgi-4-*`. This stage makes no gameplay-stability claim.
 
 ## Build and validate DXGI-5 synchronization and pacing
 
-The DXGI-5 probe uses the same pinned DXVK bridge and the Phase-4 swapchain.
+The DXGI-5 probe uses the same pinned DXVK bridge and the stage-4 swapchain.
 Build and run it with:
 
 ```bash
@@ -236,7 +236,7 @@ hashes, runtime logs, fence timelines, memory samples, short-run repeatability,
 the 100,000-frame result, and the preserved DXGI-1/2/3/4 and six-probe gates
 are stored under `artifacts/evidence/dxgi-5-*`.
 
-This phase proves synthetic synchronization and pacing only. It does not claim
+This stage proves synthetic synchronization and pacing only. It does not claim
 device-loss recovery, real-game compatibility, or broad gameplay stability.
 
 ## Build MoltenVK

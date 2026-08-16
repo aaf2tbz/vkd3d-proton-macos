@@ -67,7 +67,6 @@ mix `d3d12.dll` and `d3d12core.dll` from different builds.
 ```text
 .
 ├── Makefile                         # build, probe, package, and doc targets
-├── ROADMAP.md                       # milestone history and technical roadmap
 ├── docs/                            # current guides plus dated evidence
 ├── scripts/                         # environment, build, probe, and recovery tools
 ├── sources/                         # local source clones (intentionally ignored)

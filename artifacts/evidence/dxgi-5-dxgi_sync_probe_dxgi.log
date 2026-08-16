@@ -10,7 +10,7 @@ info:  Enabled instance extensions:
 info:    VK_KHR_get_surface_capabilities2
 info:    VK_KHR_surface
 info:    VK_KHR_win32_surface
-info:  Apple M4:
+info:  Apple GPU:
 info:    Driver: 0.2.2211
 info:    Vulkan: 1.1.357
 info:    Memory Heap[0]:

@@ -1,6 +1,6 @@
 /* DXGI-2 windowed presentation probe.
  * This intentionally stops at swapchain/present validation. Resize, fullscreen,
- * and long-run recovery belong to later DXGI phases.
+ * and long-run recovery belong to later DXGI stages.
  */
 #include <windows.h>
 #define COBJMACROS

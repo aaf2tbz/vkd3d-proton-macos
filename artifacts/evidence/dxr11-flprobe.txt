@@ -2,7 +2,7 @@ flprobe (2026-08-15, stage-dxr: vkd3d fork 2d71b20 + MVK 659e056):
   FEATURE_LEVELS      : hr=0x00000000 max=12_1 (0xc100)
   SHADER_MODEL        : mingw id 7 : hr=0x00000000 highest=0x65 (SM 6.5)
   OPTIONS5 (DXR)      : mingw id 27: hr=0x00000000 RaytracingTier=11 (0=not,10=t1_0,11=t1_1)  <- DXR 1.1 ENABLED
-  OPTIONS6 (VRS)      : mingw id 30: hr=0x00000000 tier=0 (VRS tier 2 pending - M10)
+  OPTIONS6 (VRS)      : mingw id 30: hr=0x00000000 tier=0 (VRS tier 2 pending - VRS and sampler feedback)
   OPTIONS7 (mesh)     : mingw id 32: hr=0x00000000 MeshShaderTier=10 (t1) SamplerFeedbackTier=0
 Note: the flprobe's enumerated-adapter section is flaky (the vkd3d
 d3d12_find_physical_device DXGI mismatch appears intermittently); the mingw-id

@@ -3,10 +3,10 @@
 ## Depth bounds test
 - Metal API exists: -[MTLRenderCommandEncoder setDepthTestMinBound:maxBound:] (macOS 26+)
 - MVK gates features.depthBounds on supportsMTLGPUFamily(Apple10)
-- PROVEN on Apple M4 (Apple9): calling the API TRAPS (Trace/BPT) -> hardware
+- PROVEN on Apple GPU (Apple9): calling the API TRAPS (Trace/BPT) -> hardware
   requires Apple10+ (probe: scripts/probes/metal-depthbounds-probe.mm; baseline
   render works, bounds call traps)
-- => DepthBoundsTestSupported=0 on M4. Paths: (a) shader-emulation in MVK
+- => DepthBoundsTestSupported=0 on GPU. Paths: (a) shader-emulation in MVK
   (fragment discard vs interpolated depth + implicit depth-bounds buffer; PS-runs-
   then-discards deviation; [[position]] collision handling needed) - DESIGN ONLY
   so far; (b) Apple10+ hardware. 12_2 ladder requires this option = 1.

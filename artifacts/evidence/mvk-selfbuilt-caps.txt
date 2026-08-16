@@ -1,6 +1,6 @@
 loaded /Volumes/AverySSD/VKD3D-Proton-MacOS/sources/MoltenVK/Package/Release/MoltenVK/dynamic/dylib/macOS/libMoltenVK.dylib
 instance api_version : 1.4.357
-device               : Apple M4
+device               : Apple GPU
 device api_version   : 1.3.357
 driverID             : 14 (MoltenVK)
 device extensions    : 134

@@ -513,9 +513,9 @@ window/device/queue: PASS
 DXGI-3 result: PASS (0 failures)
 ```
 
-The probe creates a real Win32 window, selects the Phase-1 adapter, renders the RGB triangle and clear color with GPU readback after each accepted lifecycle operation, and tracks PRESENT -> render-target -> copy-source -> PRESENT transitions. It exercises normal and zero/minimized resize, occlusion, fullscreen queries and fallback, destruction/recreation, invalid parameters, outstanding references, and 100 create/resize/destroy cycles. Shutdown is checked in GPU-idle, resources, swapchain, queue/fence, device, adapter, factory, window order.
+The probe creates a real Win32 window, selects the stage-1 adapter, renders the RGB triangle and clear color with GPU readback after each accepted lifecycle operation, and tracks PRESENT -> render-target -> copy-source -> PRESENT transitions. It exercises normal and zero/minimized resize, occlusion, fullscreen queries and fallback, destruction/recreation, invalid parameters, outstanding references, and 100 create/resize/destroy cycles. Shutdown is checked in GPU-idle, resources, swapchain, queue/fence, device, adapter, factory, window order.
 
-DXGI-1 and DXGI-2 were rerun by the validator; their complete logs and the six-probe regression logs are adjacent to this document. This phase does not claim broad gameplay stability, resize/fullscreen support beyond the tested lane, or release readiness for later phases.
+DXGI-1 and DXGI-2 were rerun by the validator; their complete logs and the six-probe regression logs are adjacent to this document. This stage does not claim broad gameplay stability, resize/fullscreen support beyond the tested lane, or release readiness for later stages.
 
 ## Six-probe regression summary
 

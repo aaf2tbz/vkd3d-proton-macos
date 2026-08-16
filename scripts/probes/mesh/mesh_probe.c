@@ -1,4 +1,4 @@
-// D3D12 mesh-shader acceptance probe (Slice 1 / M1.4).
+// D3D12 mesh-shader acceptance probe (Slice 1 / headless.4).
 // DispatchMesh over a fullscreen-triangle mesh shader; the render target
 // readback must match a CPU barycentric reference exactly.
 #include <windows.h>

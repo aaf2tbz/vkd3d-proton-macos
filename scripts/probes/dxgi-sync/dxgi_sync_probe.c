@@ -575,10 +575,10 @@ static int resource_churn(Runtime *runtime, UINT64 frame_number)
     return ok;
 }
 
-static int check_device_reason(Runtime *runtime, const char *phase)
+static int check_device_reason(Runtime *runtime, const char *stage)
 {
     HRESULT hr = runtime->device->lpVtbl->GetDeviceRemovedReason(runtime->device);
-    printf("GetDeviceRemovedReason(%s): hr=%s %s\n", phase, hr_text(hr),
+    printf("GetDeviceRemovedReason(%s): hr=%s %s\n", stage, hr_text(hr),
             hr == S_OK ? "S_OK" : "REPORTED");
     return hr == S_OK;
 }

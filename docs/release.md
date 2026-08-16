@@ -29,7 +29,7 @@ The bundled `libMoltenVK.dylib` is built with the current Xcode beta and
 deployment floor. The D3D12 DLLs remain x86_64 Windows binaries and run
 through a compatible Wine/Rosetta environment.
 
-The packaged candidate passed the complete regression suite on Apple M4.
+The packaged candidate passed the complete regression suite on Apple GPU.
 That host is newer than macOS 14/Metal 3; functional execution specifically
 on Metal 3 still requires a macOS 14 host.
 

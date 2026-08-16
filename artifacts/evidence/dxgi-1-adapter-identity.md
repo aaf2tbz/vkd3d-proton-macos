@@ -39,12 +39,12 @@ warn:  CreateDXGIFactory2: Ignoring flags
   CreateDXGIFactory1: 0x00000000 PASS
   CreateDXGIFactory2: 0x00000000 PASS
   adapter 0: desc=0x00000000 vendor=0x106b device=0x1b000209 flags=0x0
-    name: Apple M4
+    name: Apple GPU
   adapter LUID      : 00000000-000003f4
     outputs: 2
   total outputs: 2
   selected hardware adapter: PASS
-    name: Apple M4
+    name: Apple GPU
   selected LUID     : 00000000-000003f4
 === D3D12 adapter identity ===
   D3D12CreateDevice(adapter): 0x00000000 PASS
@@ -55,26 +55,26 @@ warn:  CreateDXGIFactory2: Ignoring flags
   D3D12GetInterface export: PASS
   D3D12SDKVersion export: PASS
 DXGI-1 result: PASS (0 failures)
-	model: Apple M4
+	model: Apple GPU
 	vendorID: 0x106b
 	deviceID: 0x1b000209
-	model: Apple M4
+	model: Apple GPU
 	vendorID: 0x106b
 	deviceID: 0x1b000209
-	model: Apple M4
+	model: Apple GPU
 	vendorID: 0x106b
 	deviceID: 0x1b000209
-	model: Apple M4
+	model: Apple GPU
 	vendorID: 0x106b
 	deviceID: 0x1b000209
-	model: Apple M4
+	model: Apple GPU
 	vendorID: 0x106b
 	deviceID: 0x1b000209
-	model: Apple M4
+	model: Apple GPU
 	vendorID: 0x106b
 	deviceID: 0x1b000209
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 35 Vulkan extensions enabled:
-	model: Apple M4
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 35 Vulkan extensions enabled:
+	model: Apple GPU
 ```
 
 Ten repeated runs produced the same selected adapter LUID:

@@ -37,7 +37,7 @@ presentation begins in DXGI-2.
 
 ## DXGI-2 windowed presentation gate
 
-Run the complete Phase 2 gate with:
+Run the complete stage 2 gate with:
 
 ```bash
 make dxgi-present-test
@@ -61,8 +61,8 @@ The validator then reruns the six-probe regression suite and records module
 paths, SHA-256 hashes, source revisions, and Wine/DXVK/vkd3d/MoltenVK output in
 `artifacts/evidence/dxgi-2-presentation.md` and its adjacent logs.
 
-Phase 2 does not cover resize, minimize, fullscreen, recovery stress, or broad
-gameplay stability. Those claims remain blocked until later phase gates pass.
+stage 2 does not cover resize, minimize, fullscreen, recovery stress, or broad
+gameplay stability. Those claims remain blocked until later stage gates pass.
 
 ## DXGI-3 lifecycle gate
 
@@ -74,7 +74,7 @@ make dxgi-lifecycle-test
 
 The validator requires the clean pinned DXVK base plus the checked-in bridge
 patch, matched x86_64 `dxgi.dll`/D3D12 modules, and the staged MoltenVK ICD.
-It runs two deterministic passes of a real Win32 window using the Phase-1
+It runs two deterministic passes of a real Win32 window using the stage-1
 adapter. Each pass verifies normal multi-size `ResizeBuffers`, RTV and
 backbuffer reacquisition, deterministic RGB-triangle/clear readback and state
 transitions, minimize/restore and occlusion, destruction/recreation, and
@@ -102,7 +102,7 @@ make dxgi-formats-test
 ```
 
 The validator runs two deterministic passes using the real Win32 window and
-Phase-1 adapter. It requires exact GPU readback for BGRA8 UNORM, BGRA8 sRGB,
+stage-1 adapter. It requires exact GPU readback for BGRA8 UNORM, BGRA8 sRGB,
 and RGBA8 UNORM, including channel order, alpha, linear values, and sRGB
 conversion. It validates D3D12 format-support results, render-target resource
 and RTV creation, dimensions, barriers, an MSAA `ResolveSubresource`, backbuffer
@@ -123,7 +123,7 @@ On the current configured runner, SDR P709 is supported while scRGB, HDR10 PQ,
 and extended P2020 are accurately reported unsupported. The TV is not used as
 HDR evidence; a display's capability alone does not override the actual DXGI
 and GPU result. Evidence is stored in
-`artifacts/evidence/dxgi-4-formats.md` and adjacent `dxgi-4-*` logs. Phase 4
+`artifacts/evidence/dxgi-4-formats.md` and adjacent `dxgi-4-*` logs. The format
 does not claim broad gameplay stability or begin synchronization/recovery work.
 
 ## DXGI-5 synchronization and pacing gate
@@ -153,13 +153,13 @@ success.
 
 Evidence is consolidated in
 `artifacts/evidence/dxgi-5-synchronization.md`, with short-run, long-stress,
-phase-gate, module, and backend logs in adjacent `dxgi-5-*` files. DXGI-5 is
+stage-gate, module, and backend logs in adjacent `dxgi-5-*` files. DXGI-5 is
 synthetic synchronization evidence only and does not claim device-loss
 recovery or broad gameplay stability.
 
 ## Probe gate
 
-The M14 gate is green only when all of these pass:
+The release gate is green only when all of these pass:
 
 | Probe | Required result |
 |---|---|
@@ -190,7 +190,7 @@ Each promoted runtime must record:
 4. the full ladder and regression output; and
 5. MoltenVK architecture and code-signature checks.
 
-The authoritative M14 ladder evidence is
+The authoritative release ladder evidence is
 `artifacts/evidence/rung-ladder-2026-08-16.txt`. The release archive repeats
 its own SHA-256 checksums so a downloaded runtime can be checked independently.
 

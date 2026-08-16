@@ -12,10 +12,10 @@ artifacts/stage-self/
 scripts/probes/metal-sparse-map-probe
 sources/
 toolchain/
-artifacts/m14-*.log
+artifacts/release-*.log
 artifacts/VKD3D-Proton-MacOS-*.tar.zst
 artifacts/toolchain/dxc/
 artifacts/dxvk-cross-x86_64.txt
 
 artifacts/metalsharp-graphics-dll-*.tar.zst
-vkd3d-proton-macos-M14.tar.zst
+vkd3d-proton-macos-release.tar.zst

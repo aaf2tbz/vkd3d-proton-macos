@@ -178,7 +178,7 @@ mscompatdb: not found
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -363,7 +363,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -545,7 +545,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -563,11 +563,11 @@ info:    VK_KHR_win32_surface
 	VK_KHR_external_memory_capabilities v1
 	VK_KHR_external_semaphore_capabilities v1
 	VK_KHR_get_physical_device_properties2 v2
-info:  Found device: Apple M4 (MoltenVK 0.2.2211)
+info:  Found device: Apple GPU (MoltenVK 0.2.2211)
 info:    Skipping: Device does not support required feature 'robustBufferAccess2' (extension: VK_EXT_robustness2)
 warn:  DXVK: No adapters found. Please check your device filter settings
 warn:  and Vulkan drivers. A Vulkan 1.3 capable setup is required.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 6 Vulkan extensions enabled.
 err:   Failed to initialize DXVK.
 wine: Unhandled page fault on read access to 0000000000000020 at address 00006FFFFC798504 (thread 0024), starting debugger...

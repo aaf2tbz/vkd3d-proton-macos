@@ -24,7 +24,7 @@
  * D3D12_FEATURE enum. Its feature switch uses the mingw values:
  *   SHADER_MODEL=7, OPTIONS5=27, OPTIONS6=30, OPTIONS7=32
  * Empirically official ids 18-21 return E_INVALIDARG on the shipped pair
- * (2026-08-14, evidence m1-runD.txt). */
+ * (2026-08-14, evidence headless-runD.txt). */
 #define FEAT_SHADER_MODEL_MINGW ((D3D12_FEATURE)7)
 #define FEAT_OPTIONS2_MINGW     ((D3D12_FEATURE)18)
 #define FEAT_OPTIONS3_MINGW     ((D3D12_FEATURE)21)

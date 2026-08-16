@@ -1,7 +1,7 @@
 /* DXGI-3 window lifecycle probe.
  * Resize, minimize/restore, occlusion, fullscreen fallback, destruction, and
  * repeated create/resize/destroy behavior are covered here. Broad gameplay
- * stability and later format/HDR work remain separate phases.
+ * stability and later format/HDR work remain separate stages.
  */
 #include <windows.h>
 #define COBJMACROS

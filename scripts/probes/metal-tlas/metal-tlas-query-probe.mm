@@ -1,4 +1,4 @@
-// M7b: TLAS + instancing query as a pure-Metal reference: BLAS -> instance -> TLAS,
+// ray-query dispatch: TLAS + instancing query as a pure-Metal reference: BLAS -> instance -> TLAS,
 // then a compute kernel with the instancing intersector (classic intersect()).
 #import <Metal/Metal.h>
 #import <simd/simd.h>

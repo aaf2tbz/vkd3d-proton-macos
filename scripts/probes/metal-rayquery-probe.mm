@@ -1,4 +1,4 @@
-// M7 FEASIBILITY: inline ray query on Metal (macOS 26 / Apple GPU).
+// ray-query FEASIBILITY: inline ray query on Metal (macOS 26 / Apple GPU).
 // Builds a BLAS (one triangle) + TLAS (one instance) via the MTL4 API, then
 // runs a COMPUTE kernel with the metal::raytracing intersector (inline
 // intersection, the RayQuery analog) over a ray grid, and verifies the hit

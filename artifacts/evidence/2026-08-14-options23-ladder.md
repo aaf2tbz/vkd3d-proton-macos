@@ -12,9 +12,9 @@ Self-built stack under Wine 11.5, flprobe extended with OPTIONS2/3 (mingw ids 18
   CopyQueueTimestampQueries      ✅ (MVK timestampValidBits=64 on all families)
   CastingFullyTypedFormat        ✅ (vkd3d hardcodes TRUE)
   RB tier >= 3                   ✅ (hardcoded 3)
-  CR tier >= 3                   ❌ M6
-  Tiled tier >= 3                ❌ M5
-  RaytracingTier >= 1.1          ❌ M8
-  VRS tier >= 2                  ❌ M10
-  MeshShaderTier >= 1            ❌ M9
-  SamplerFeedbackTier >= 0.9     ❌ M11
+  CR tier >= 3                   ❌ 12_1
+  Tiled tier >= 3                ❌ 12_0
+  RaytracingTier >= 1.1          ❌ DXR
+  VRS tier >= 2                  ❌ VRS and sampler feedback
+  MeshShaderTier >= 1            ❌ mesh
+  SamplerFeedbackTier >= 0.9     ❌ SM 6.5

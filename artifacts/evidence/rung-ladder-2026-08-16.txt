@@ -9,7 +9,7 @@ Exit code 0. Raw transcript: `/tmp/ladder.txt` (filtered: `rung-ladder-2026-08-1
 
 ## Adapter
 ```
-  adapter 0: vendor 0x106b device 0x0000 "Apple M4"
+  adapter 0: vendor 0x106b device 0x0000 "Apple GPU"
 ```
 
 ## Feature-level rungs — ALL CREATED

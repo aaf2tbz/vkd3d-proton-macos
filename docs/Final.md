@@ -92,7 +92,7 @@ runtime release until a later package promotion.
 The follow-on lifecycle gate is now green with `make dxgi-lifecycle-test`.
 Evidence is consolidated in
 [`dxgi-3-lifecycle.md`](../artifacts/evidence/dxgi-3-lifecycle.md). Two
-repeatable runs used a real Win32 window and the Phase-1 adapter and passed:
+repeatable runs used a real Win32 window and the stage-1 adapter and passed:
 
 - normal 800x600, 320x240, and 1024x512 resizes with RTV recreation and
   pixel-correct RGB-triangle/clear readback;
@@ -109,7 +109,7 @@ The lifecycle dimension guard is reproduced by
 `scripts/build-vkd3d-proton.sh`. Zero-size drawable and exclusive fullscreen
 are reported according to the host's actual HRESULTs. This is a validated
 lifecycle lane, not a claim of broad gameplay stability or a replacement for
-the later format, pacing, recovery, and real-game phases.
+the later format, pacing, recovery, and real-game stages.
 
 ## DXGI-4 format and color policy validation
 
@@ -131,7 +131,7 @@ TV or the MacBook display without a supported DXGI color-space result and GPU
 readback. DXGI-1/2/3 and the six-probe regression suite remain green.
 
 This is format and presentation-policy validation only; it does not claim
-broad gameplay stability or cover the later synchronization/recovery phase.
+broad gameplay stability or cover the later synchronization/recovery stage.
 
 ## DXGI-5 synchronization and pacing validation
 
@@ -139,7 +139,7 @@ The synthetic synchronization gate is green with `make dxgi-sync-test`.
 Evidence is consolidated in
 [`dxgi-5-synchronization.md`](../artifacts/evidence/dxgi-5-synchronization.md).
 It passed repeatable short runs with two, three, and four frames in flight and
-a 100,000-frame stress run using the real Win32 window, Phase-1 adapter, and
+a 100,000-frame stress run using the real Win32 window, stage-1 adapter, and
 DXGI-4 swapchain.
 
 The gate checks D3D12 fence signals and event completion, bounded CPU waits,
@@ -157,7 +157,7 @@ device-loss recovery, real-game compatibility, or broad gameplay stability.
 
 ## Feature-level ladder
 
-The final `flprobe.exe` run on Apple M4 returned `S_OK` and `dev=CREATED` for
+The final `flprobe.exe` run on Apple GPU returned `S_OK` and `dev=CREATED` for
 every requested minimum level:
 
 | Minimum feature level | Result |

@@ -2,7 +2,7 @@
 
 ## D3D12 ladder
 
-The M14 Apple M4 validation run used `scripts/flprobe.c` against the staged
+The release Apple GPU validation run used `scripts/flprobe.c` against the staged
 runtime pair. Every requested minimum level created a device:
 
 | Minimum level | Result |
@@ -38,7 +38,7 @@ The complete captured result is
 
 The mesh acceptance probe covers the mesh-only dispatch path. The optional
 task/object amplification variant remains a separate follow-up and is not
-claimed as an M14 acceptance requirement.
+claimed as an release acceptance requirement.
 
 ## What the numbers mean
 

@@ -51,7 +51,7 @@ docs-check:
 	@test -f CONTRIBUTING.md
 	@test -f SECURITY.md
 	@test -f CODE_OF_CONDUCT.md
-	@for f in docs/README.md docs/Final.md docs/requirements.md docs/Development.md docs/features.md docs/validation.md docs/release.md docs/DXGI-Roadmap.md docs/DXGI-5-goal.md; do \
+	@for f in docs/README.md docs/Final.md docs/requirements.md docs/Development.md docs/features.md docs/validation.md docs/release.md; do \
 		test -f "$$f" || { echo "missing $$f"; exit 1; }; \
 	done
 	@grep -q 'github.com/aaf2tbz/vkd3d-proton-macos' README.md
@@ -76,7 +76,7 @@ dxgi-probe: dxgi
 	@file "$(STAGE_DIR)/dxgi_probe.exe"
 
 dxgi-test: stage dxgi-probe
-	@bash scripts/validate-dxgi-phase1.sh
+	@bash scripts/validate-dxgi-adapter.sh
 
 dxgi-present-probe: dxgi
 	@DXGI_PRESENT_SHADER_DIR="$(STAGE_DIR)/dxgi-present" \
@@ -87,7 +87,7 @@ dxgi-present-probe: dxgi
 	@file "$(STAGE_DIR)/dxgi_present_probe.exe"
 
 dxgi-present-test: stage dxgi-present-probe
-	@bash scripts/validate-dxgi-phase2.sh
+	@bash scripts/validate-dxgi-presentation.sh
 
 dxgi-lifecycle-probe: dxgi
 	@DXGI_PRESENT_SHADER_DIR="$(STAGE_DIR)/dxgi-present" \
@@ -98,7 +98,7 @@ dxgi-lifecycle-probe: dxgi
 	@file "$(STAGE_DIR)/dxgi_lifecycle_probe.exe"
 
 dxgi-lifecycle-test: stage dxgi-probe dxgi-present-probe dxgi-lifecycle-probe
-	@bash scripts/validate-dxgi-phase3.sh
+	@bash scripts/validate-dxgi-lifecycle.sh
 
 dxgi-formats-probe: dxgi
 	@DXGI_PRESENT_SHADER_DIR="$(STAGE_DIR)/dxgi-present" \
@@ -109,7 +109,7 @@ dxgi-formats-probe: dxgi
 	@file "$(STAGE_DIR)/dxgi_formats_probe.exe"
 
 dxgi-formats-test: stage dxgi-probe dxgi-present-probe dxgi-lifecycle-probe dxgi-formats-probe
-	@bash scripts/validate-dxgi-phase4.sh
+	@bash scripts/validate-dxgi-formats.sh
 
 dxgi-sync-probe: dxgi
 	@DXGI_PRESENT_SHADER_DIR="$(STAGE_DIR)/dxgi-present" \
@@ -120,7 +120,7 @@ dxgi-sync-probe: dxgi
 	@file "$(STAGE_DIR)/dxgi_sync_probe.exe"
 
 dxgi-sync-test: stage dxgi-probe dxgi-present-probe dxgi-lifecycle-probe dxgi-formats-probe dxgi-sync-probe
-	@bash scripts/validate-dxgi-phase5.sh
+	@bash scripts/validate-dxgi-sync.sh
 
 moltenvk:
 	@bash scripts/build-moltenvk.sh

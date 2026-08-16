@@ -3,7 +3,7 @@
 - Date: 2026-08-16T22:24:32Z
 - DXVK source commit: 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 - DXVK bridge patch SHA-256: 366dbead003bec2e58fae03e138b82d01f3fece36af329a5c5976e20e2deeec1
-- DXGI-4 patch: /Volumes/AverySSD/VKD3D-Proton-MacOS/patches/dxvk-macos-dxgi-phase4.patch
+- DXGI-4 patch: /Volumes/AverySSD/VKD3D-Proton-MacOS/patches/dxvk-macos-dxgi-formats.patch
 - DXGI-4 patch SHA-256: 894ace3c52e59a8ba4327c5bc4d502d798b90e0f1f15019dbf57fbed1a2261ee
 - vkd3d-proton source revision: 5d24bc718560d6019fc2d74a41981be87bb2d9bd
 - MoltenVK source revision: 13e3c967fd14e0dd8a00f456fd218380efbce73c
@@ -92,4 +92,4 @@ DXGI-4 result: PASS (0 failures)
 
 The configured runner reports HDR10/scRGB/P2020 presentation unsupported through DXGI on this run, despite the physical main display's capabilities. The TV was not used as evidence. The HDR setter's REPORTED HRESULT is not treated as HDR support; CheckColorSpaceSupport is authoritative. R10G10B10A2 is D3D12-format-supported and resource/RTV-creatable, but this native DXGI lane rejects its swapchain and the Metal conversion readback path is explicitly reported unsupported rather than synthesized. Stencil clear/DSV behavior is exercised; the backend copy footprint does not expose a stencil readback plane and that limitation is recorded explicitly.
 
-The full two-run Wine/vkd3d/MoltenVK output is in dxgi-4-probe-run.txt and dxgi-4-probe-repeat.txt. DXGI-3 preservation output is in dxgi-4-phase3-gate.log. No broad gameplay-stability claim is made.
+The full two-run Wine/vkd3d/MoltenVK output is in dxgi-4-probe-run.txt and dxgi-4-probe-repeat.txt. DXGI-3 preservation output is in dxgi-4-lifecycle-gate.log. No broad gameplay-stability claim is made.

@@ -184,7 +184,7 @@ mscompatdb: not found
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -374,7 +374,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -394,7 +394,7 @@ info:    VK_KHR_win32_surface
 	VK_KHR_get_surface_capabilities2 v1
 	VK_KHR_surface v25
 	VK_EXT_metal_surface v1
-info:  Apple M4:
+info:  Apple GPU:
 info:    Driver: 0.2.2211
 info:    Vulkan: 1.1.357
 info:    Memory Heap[0]: 
@@ -403,7 +403,7 @@ info:      Flags: 0x1
 info:      Memory Type[0]: Property Flags = 0x1
 info:      Memory Type[1]: Property Flags = 0xf
 info:      Memory Type[2]: Property Flags = 0x11
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.1.357 with 5 Vulkan extensions enabled.
 info:  Game: dxgi_probe.exe
 info:  DXVK: v1.10.3-20230507-async (macOS)
@@ -584,7 +584,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -604,7 +604,7 @@ info:    VK_KHR_win32_surface
 	VK_KHR_get_surface_capabilities2 v1
 	VK_KHR_surface v25
 	VK_EXT_metal_surface v1
-info:  Apple M4:
+info:  Apple GPU:
 info:    Driver: 0.2.2211
 info:    Vulkan: 1.1.357
 info:    Memory Heap[0]: 
@@ -613,7 +613,7 @@ info:      Flags: 0x1
 info:      Memory Type[0]: Property Flags = 0x1
 info:      Memory Type[1]: Property Flags = 0xf
 info:      Memory Type[2]: Property Flags = 0x11
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.1.357 with 5 Vulkan extensions enabled.
 warn:  CreateDXGIFactory2: Ignoring flags
 info:  Game: dxgi_probe.exe
@@ -795,7 +795,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -815,7 +815,7 @@ info:    VK_KHR_win32_surface
 	VK_KHR_get_surface_capabilities2 v1
 	VK_KHR_surface v25
 	VK_EXT_metal_surface v1
-info:  Apple M4:
+info:  Apple GPU:
 info:    Driver: 0.2.2211
 info:    Vulkan: 1.1.357
 info:    Memory Heap[0]: 
@@ -824,7 +824,7 @@ info:      Flags: 0x1
 info:      Memory Type[0]: Property Flags = 0x1
 info:      Memory Type[1]: Property Flags = 0xf
 info:      Memory Type[2]: Property Flags = 0x11
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.1.357 with 5 Vulkan extensions enabled.
 info:  Game: dxgi_probe.exe
 info:  DXVK: v1.10.3-20230507-async (macOS)
@@ -1005,7 +1005,7 @@ info:    VK_KHR_win32_surface
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -1025,7 +1025,7 @@ info:    VK_KHR_win32_surface
 	VK_KHR_get_surface_capabilities2 v1
 	VK_KHR_surface v25
 	VK_EXT_metal_surface v1
-info:  Apple M4:
+info:  Apple GPU:
 info:    Driver: 0.2.2211
 info:    Vulkan: 1.1.357
 info:    Memory Heap[0]: 
@@ -1208,7 +1208,7 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -1237,7 +1237,7 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 21591.896:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
 [mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
 [mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
-[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 35 Vulkan extensions enabled:
+[mvk-info] Created VkDevice to run on GPU Apple GPU with the following 35 Vulkan extensions enabled:
 	VK_KHR_calibrated_timestamps v1
 	VK_KHR_acceleration_structure v13
 	VK_EXT_mesh_shader v1
@@ -1452,7 +1452,7 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 	VK_MVK_moltenvk v37
 	VK_NV_fragment_shader_barycentric v1
 [mvk-info] GPU device:
-	model: Apple M4
+	model: Apple GPU
 	type: Integrated
 	vendorID: 0x106b
 	deviceID: 0x1b000209
@@ -1477,10 +1477,10 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 21591.937:0020:0118:info:vkd3d-proton:d3d12_pipeline_library_read_blob_stream_format: Device teardown request received, stopping parse early.
 21591.937:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Parsing stream archive took 0.014 ms.
 21591.937:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
-[mvk-info] Destroyed VkDevice on GPU Apple M4 with 35 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkDevice on GPU Apple GPU with 35 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
-[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 0 MB of GPU memory still allocated.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple GPU with 0 MB of GPU memory still allocated.
 [mvk-info] Destroying VkInstance for Vulkan version 1.1.357 with 5 Vulkan extensions enabled.
 === DXGI-1 module identity ===
   module dxgi.dll    : Z:\Volumes\AverySSD\VKD3D-Proton-MacOS\artifacts\stage-dxr\dxgi.dll
@@ -1494,13 +1494,13 @@ warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
 
 === adapter enumeration ===
   adapter 0: desc=0x00000000 vendor=0x106b device=0x1b000209 flags=0x0
-    name: Apple M4
+    name: Apple GPU
   adapter LUID      : 00000000-000003f4
     dedicated VRAM: 16384 MB
     outputs: 2
   total outputs: 2
   selected hardware adapter: PASS
-    name: Apple M4
+    name: Apple GPU
   selected LUID     : 00000000-000003f4
 
 === D3D12 adapter identity ===
