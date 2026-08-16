@@ -129,14 +129,39 @@ Grounding facts (verified in the tree):
 - The reads stay 64-bit loads (Metal supports them) — no change needed on
   the decode side unless the layout forces it.
 
-### S3.3 D3D12 acceptance probe (the roadmap gate)
+### S3.3 D3D12 acceptance probe (the roadmap gate) — DONE 2026-08-16
 - `scripts/probes/feedback/feedback_probe.c` + the dxc shader:
-  the feedback resource (R64_UINT, the D3D12 feedback view), a dispatch
-  with the WriteSamplerFeedback over a known region, the readback of the
-  feedback resource, and the CPU reference: the expected mip levels +
-  the written-flag counts per texel.
-- The readback must match the CPU reference exactly.
-- Regression: the CORE_1_0 corpus + the ladder stay green.
+  the feedback resource (the SAMPLER_FEEDBACK_MIN_MIP_OPAQUE view, created
+  via `ID3D12Device8::CreateCommittedResource2` with a valid
+  `SamplerFeedbackMipRegion`), a fullscreen draw with the
+  WriteSamplerFeedback PS, the readback of the feedback resource, and the
+  CPU reference: the expected mip levels + the written-flag counts per
+  texel.
+- The readback matches the CPU reference EXACTLY (3/3 runs) — evidence
+  `artifacts/evidence/2026-08-16-samplerfeedback-done.md`.
+- Regression: the CORE_1_0 corpus + the ladder stay green (the corpus
+  probe needed strictly-increasing fence signal values; the readbacks were
+  racing an already-passed monotonic fence).
+
+### S3 implementation notes (the three bugs that were fixed)
+1. The 64-bit simd-OR statement in the SPIRV-Cross patch had two unclosed
+   parens; the corrected form is
+   `(uint64_t)simd_or((uint)(v & 0xFFFFFFFFu)) | (((uint64_t)simd_or((uint)(v >> 32u))) << 32u)`.
+2. The atomic emulation assumed a direct-image operand; the actual SPIR-V is
+   `OpImageTexelPointer` (the `img@coord` virtual expression) + `OpAtomicOr`
+   with op1 = the value and op2 unused. The patch now splits `img@coord` at
+   `@`, uses op1 as the value, emits `img.atomic_fetch_or(coord,
+   uint4(low, high, 0u, 0u))` (MSL: `vec<T,4> atomic_fetch_or(uint2,
+   vec<T,4>)`), reconstructs the 64-bit result from `.y/.x`, and returns
+   before the upstream 32-bit emission.
+3. `fixup_image_load_store_access()` marks every storage image
+   non-writable/non-readable and only the direct texel-pointer backing var
+   gets loosened; an array element reached through a function parameter
+   stayed restricted and the MSL array type lost `access::read_write`. The
+   fork patch `fixup_image_load_store_access_atomic_aware` scans the raw
+   SPIR-V for `OpImageTexelPointer`, resolves the base variable through
+   access chains and function-call arguments, and keeps those storage
+   images read-write.
 
 ### Risks / fallbacks (recorded)
 - The CAS-loop ordering/consistency: the feedback writes are relaxed by
@@ -156,7 +181,11 @@ Grounding facts (verified in the tree):
 2. M1.1 → M1.2 → M1.3 (native-Vulkan mesh probe green) → M1.4 (D3D12 mesh
    probe green). The D3D12 graphics path is the regression net after every
    MVK pipeline change (`cr_inner_probe` + the ladder).
-3. S3.2 → S3.3 (D3D12 feedback probe green).
+3. S3.2 → S3.3 (D3D12 feedback probe green) — DONE 2026-08-16: the
+   feedback readback matches the CPU reference exactly; the corpus probe's
+   fence-signal reuse was fixed (strictly-increasing values); the full
+   regression set is green (corpus, InnerCoverage, compute matrix,
+   feedback).
 4. Final: refresh the M14 artifact (the d3d12 pair + libMoltenVK with the
    mesh + feedback machinery), re-run the full probe suite (ladder, corpus,
    DXR, InnerCoverage, mesh, feedback), update the roadmap statuses, and

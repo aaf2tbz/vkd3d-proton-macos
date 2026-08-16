@@ -3,6 +3,7 @@
 // the DXIL directly, dispatches, verifies GPU readbacks.
 // Negatives: DIRECT queue + graphics PSO must FAIL on the CORE_1_0 device.
 #include <windows.h>
+#include <stdint.h>
 #define INITGUID
 #include <initguid.h>
 #include <d3d12.h>
@@ -44,6 +45,7 @@ struct ctx {
     ID3D12Fence* fence;
     HANDLE ev;
     D3D12_CPU_DESCRIPTOR_HANDLE cpuH;
+    uint64_t fence_seq; /* strictly increasing signal values across tests */
 };
 
 static int setup_one(struct ctx* c, const char* dxil_path) {
@@ -84,32 +86,51 @@ static int run_dispatch(struct ctx* c, const char* name, unsigned dx, unsigned d
     cl2->lpVtbl->Close(cl2);
     ID3D12CommandList* lists2[1] = { (ID3D12CommandList*)cl2 };
     c->cq->lpVtbl->ExecuteCommandLists(c->cq, 1, lists2);
-    c->cq->lpVtbl->Signal(c->cq, c->fence, 1);
-    c->fence->lpVtbl->SetEventOnCompletion(c->fence, 1, c->ev);
+    c->cq->lpVtbl->Signal(c->cq, c->fence, c->fence_seq + 1);
+    c->fence->lpVtbl->SetEventOnCompletion(c->fence, c->fence_seq + 1, c->ev);
     WaitForSingleObject(c->ev, INFINITE);
 
-    c->ca->lpVtbl->Reset(c->ca);
-    c->cl->lpVtbl->Reset(c->cl, c->ca, NULL);
-    c->cl->lpVtbl->SetComputeRootSignature(c->cl, c->rs);
+    ID3D12CommandAllocator* caD = NULL;
+    c->dev->lpVtbl->CreateCommandAllocator(c->dev, D3D12_COMMAND_LIST_TYPE_COMPUTE, &IID_ID3D12CommandAllocator, (void**)&caD);
+    ID3D12GraphicsCommandList* clD = NULL;
+    c->dev->lpVtbl->CreateCommandList(c->dev, 0, D3D12_COMMAND_LIST_TYPE_COMPUTE, caD, NULL, &IID_ID3D12GraphicsCommandList, (void**)&clD);
+    clD->lpVtbl->SetComputeRootSignature(clD, c->rs);
     ID3D12DescriptorHeap* heaps[1] = { c->dheap };
-    c->cl->lpVtbl->SetDescriptorHeaps(c->cl, 1, heaps);
-    c->cl->lpVtbl->SetComputeRootUnorderedAccessView(c->cl, 0, c->uav->lpVtbl->GetGPUVirtualAddress(c->uav));
-    c->cl->lpVtbl->SetPipelineState(c->cl, c->pso);
-    c->cl->lpVtbl->Dispatch(c->cl, dx, dy, dz);
+    clD->lpVtbl->SetDescriptorHeaps(clD, 1, heaps);
+    clD->lpVtbl->SetComputeRootUnorderedAccessView(clD, 0, c->uav->lpVtbl->GetGPUVirtualAddress(c->uav));
+    clD->lpVtbl->SetPipelineState(clD, c->pso);
+    clD->lpVtbl->Dispatch(clD, dx, dy, dz);
     /* warm-up dispatch with the same PSO: the first dispatch with a fresh
      * compute PSO may silently drop its writes on this stack (the exp3/M13
      * evidence); the second dispatch with the same PSO always lands */
-    c->cl->lpVtbl->Dispatch(c->cl, dx, dy, dz);
+    clD->lpVtbl->Dispatch(clD, dx, dy, dz);
+    clD->lpVtbl->Close(clD);
+    ID3D12CommandList* lists[1] = { (ID3D12CommandList*)clD };
+    c->cq->lpVtbl->ExecuteCommandLists(c->cq, 1, lists);
+    c->cq->lpVtbl->Signal(c->cq, c->fence, c->fence_seq + 2);
+    c->fence->lpVtbl->SetEventOnCompletion(c->fence, c->fence_seq + 2, c->ev);
+    WaitForSingleObject(c->ev, INFINITE);
+
+    /* follow-up copy list: the in-list UAV->readback copy races the dispatch
+     * on this stack (the Metal hazard tracking does not cover the
+     * argument-table-indirected writes - the exp3 evidence); a separate copy
+     * list after the dispatch's fence always reads the current data. */
+    ca2->lpVtbl->Reset(ca2);
+    cl2->lpVtbl->Reset(cl2, ca2, NULL);
     D3D12_RESOURCE_BARRIER bar = { D3D12_RESOURCE_BARRIER_TYPE_TRANSITION };
     bar.Transition.pResource = c->uav; bar.Transition.StateBefore = D3D12_RESOURCE_STATE_UNORDERED_ACCESS; bar.Transition.StateAfter = D3D12_RESOURCE_STATE_COPY_SOURCE;
-    c->cl->lpVtbl->ResourceBarrier(c->cl, 1, &bar);
-    c->cl->lpVtbl->CopyBufferRegion(c->cl, c->rb, 0, c->uav, 0, 4096);
-    c->cl->lpVtbl->Close(c->cl);
-    ID3D12CommandList* lists[1] = { (ID3D12CommandList*)c->cl };
-    c->cq->lpVtbl->ExecuteCommandLists(c->cq, 1, lists);
-    c->cq->lpVtbl->Signal(c->cq, c->fence, 2);
-    c->fence->lpVtbl->SetEventOnCompletion(c->fence, 2, c->ev);
+    cl2->lpVtbl->ResourceBarrier(cl2, 1, &bar);
+    cl2->lpVtbl->CopyBufferRegion(cl2, c->rb, 0, c->uav, 0, 4096);
+    D3D12_RESOURCE_BARRIER bar2 = { D3D12_RESOURCE_BARRIER_TYPE_TRANSITION };
+    bar2.Transition.pResource = c->uav; bar2.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_SOURCE; bar2.Transition.StateAfter = D3D12_RESOURCE_STATE_UNORDERED_ACCESS;
+    cl2->lpVtbl->ResourceBarrier(cl2, 1, &bar2);
+    cl2->lpVtbl->Close(cl2);
+    ID3D12CommandList* lists2b[1] = { (ID3D12CommandList*)cl2 };
+    c->cq->lpVtbl->ExecuteCommandLists(c->cq, 1, lists2b);
+    c->cq->lpVtbl->Signal(c->cq, c->fence, c->fence_seq + 3);
+    c->fence->lpVtbl->SetEventOnCompletion(c->fence, c->fence_seq + 3, c->ev);
     WaitForSingleObject(c->ev, INFINITE);
+    c->fence_seq += 3;
     (void)name;
     return 0;
 }
@@ -236,6 +257,8 @@ int main(void) {
          * every 8 threads */
         int ok = 1;
         for (unsigned i = 0; i < 64 && ok; i++) { unsigned e = 32u + (i & 7u); unsigned v = readback(&c, i); if (v != e) { printf("    mismatch i=%u got=%u exp=%u\n", i, v, e); ok = 0; } }
+        { void* mp=NULL; c.rb->lpVtbl->Map(c.rb,0,NULL,&mp); unsigned* uu=(unsigned*)mp;
+          printf("    wave64 raw: %u %u %u %u %u %u %u %u\n", uu[0],uu[1],uu[2],uu[3],uu[4],uu[5],uu[6],uu[7]); c.rb->lpVtbl->Unmap(c.rb,0,NULL); }
         check("wave64 lane count + prefix sum", ok);
         c.pso->lpVtbl->Release(c.pso); c.pso = NULL;
     }
@@ -245,6 +268,8 @@ int main(void) {
         run_dispatch(&c, "int64", 1, 1, 1);
         int ok = readback(&c, 0) == 0u;
         for (unsigned i = 1; i < 8 && ok; i++) if (readback(&c, i) != 1u) ok = 0;
+        { void* mp=NULL; c.rb->lpVtbl->Map(c.rb,0,NULL,&mp); unsigned* uu=(unsigned*)mp;
+          printf("    int64 raw: %u %u %u %u %u %u %u %u\n", uu[0],uu[1],uu[2],uu[3],uu[4],uu[5],uu[6],uu[7]); c.rb->lpVtbl->Unmap(c.rb,0,NULL); }
         check("int64 mul+carry math", ok);
         c.pso->lpVtbl->Release(c.pso); c.pso = NULL;
     }
