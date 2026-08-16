@@ -24,7 +24,7 @@ Vulkan / winevulkan
 custom MoltenVK: universal x86_64 + arm64
         │
         ▼
-Apple Metal 4 / Apple M4
+Apple Metal 3 / macOS 14 compatibility target
 ```
 
 The runtime is intentionally x86_64 on the Wine/D3D12 side and universal on
@@ -99,6 +99,33 @@ Capability reporting is distinguished from full API-surface claims. In
 particular, the full TraceRay/RTPSO path and the optional task/object mesh
 amplification variant remain separate follow-up work; the shipped acceptance
 claims are the inline ray-query and mesh-only paths listed above.
+
+## macOS 14 / Metal 3 compatibility status
+
+The compatibility build profile is now reproducible with the current Xcode
+beta:
+
+```bash
+make metal3
+```
+
+The resulting universal `libMoltenVK.dylib` compiled successfully with
+`MACOSX_DEPLOYMENT_TARGET=14.0`; its Mach-O `LC_BUILD_VERSION` reports
+`minos 14.0` for both arm64 and x86_64. The build used the Xcode 27 SDK while
+targeting macOS 14, and the source runtime already selects Metal 3 language
+and feature paths through OS/GPU availability checks.
+
+The downloaded Xcode 16 profile is ready but its license must be accepted
+locally before it can run:
+
+```bash
+sudo xcodebuild -license accept
+XCODE16_DEVELOPER_DIR=/Users/averyfelts/Downloads/Xcode.app/Contents/Developer make metal3
+```
+
+Compilation against Xcode 16 and functional execution on an actual macOS 14
+Metal 3 host remain separate validation gates. A newer Metal 4 host can prove
+the macOS 14 deployment target but cannot prove runtime behavior on Metal 3.
 
 ## Regression gate
 

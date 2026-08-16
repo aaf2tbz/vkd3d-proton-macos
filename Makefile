@@ -6,8 +6,9 @@ BUILD_DIR ?= $(ROOT)/artifacts/build
 STAGE_DIR ?= $(ROOT)/artifacts/stage-dxr
 WINE_RUNNER ?= /tmp/run-probe.sh
 PACKAGE ?= $(ROOT)/vkd3d-proton-macos.tar.zst
+XCODE16_DEVELOPER_DIR ?= /Users/averyfelts/Downloads/Xcode.app/Contents/Developer
 
-.PHONY: help tools docs-check env vkd3d moltenvk build flprobe stage ladder \
+.PHONY: help tools docs-check env vkd3d moltenvk metal3 build flprobe stage ladder \
 	package test clean
 
 help:
@@ -16,6 +17,7 @@ help:
 	  'make docs-check  validate documentation, links, and whitespace' \
 	  'make vkd3d       build the x86_64 D3D12 DLL pair' \
 	  'make moltenvk    build the universal MoltenVK dylib (staged, not promoted)' \
+	  'make metal3      build MoltenVK with macOS 14 / Metal 3 compatibility target' \
 	  'make build       run both vkd3d and MoltenVK builds' \
 	  'make flprobe     compile the D3D12 feature-level probe' \
 	  'make stage       stage the matched D3D12 pair and MoltenVK ICD' \
@@ -51,6 +53,10 @@ vkd3d:
 
 moltenvk:
 	@bash scripts/build-moltenvk.sh
+
+metal3:
+	@XCODE_DEVELOPER_DIR="$(XCODE16_DEVELOPER_DIR)" \
+		MACOSX_DEPLOYMENT_TARGET=14.0 bash scripts/build-moltenvk.sh
 
 build: vkd3d moltenvk
 

@@ -2,6 +2,7 @@
 # One-shot verification of every tool the workspace promises.
 set -u
 WS="$(cd "$(dirname "$0")/.." && pwd)"
+source "$WS/scripts/env.sh" >/dev/null
 pass=0; fail=0
 ok()  { echo "  PASS  $1"; pass=$((pass+1)); }
 bad() { echo "  FAIL  $1"; fail=$((fail+1)); }
@@ -18,12 +19,13 @@ for t in ninja meson cmake; do
   command -v $t >/dev/null && ok "$t ($(command -v $t))" || bad "$t missing"
 done
 
-echo "== Xcode 27 beta 4 =="
-XB="/Users/averyfelts/Downloads/Xcode-beta.app/Contents/Developer"
-[ -d "$XB" ] && ok "Xcode-beta.app present" || bad "Xcode-beta.app missing"
+echo "== Xcode / Metal toolchain =="
+XB="${DEVELOPER_DIR:-${XCODE_DEVELOPER_DIR:-$(xcode-select -p 2>/dev/null || true)}}"
+[ -d "$XB" ] && ok "Xcode developer directory present ($XB)" || bad "Xcode developer directory missing"
 DV=$(DEVELOPER_DIR="$XB" xcodebuild -version 2>/dev/null | head -2 | tr '\n' ' ')
 echo "      $DV"
-echo "$DV" | grep -q 'Xcode 27' && ok "Xcode 27" || bad "Xcode 27 expected"
+XV=$(printf '%s\n' "$DV" | sed -n 's/.*Xcode \([0-9][0-9]*\)\..*/\1/p')
+[ -n "$XV" ] && [ "$XV" -ge 16 ] && ok "Xcode 16+" || bad "Xcode 16+ expected"
 
 echo "== metal / metallib / MSL =="
 MT=$(DEVELOPER_DIR="$XB" xcrun -sdk macosx metal --version 2>&1 | head -1)

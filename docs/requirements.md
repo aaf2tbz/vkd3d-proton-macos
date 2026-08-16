@@ -2,15 +2,16 @@
 
 ## Supported validation host
 
-The shipped M14 runtime was validated on an Apple M4 Mac running macOS with
-Metal 4. The runtime DLLs are x86_64 PE binaries for Wine/Rosetta; the
-MoltenVK dylib is universal (x86_64 + arm64).
+The compatibility target is macOS 14 with Metal 3. The runtime DLLs are
+x86_64 PE binaries for Wine/Rosetta; the MoltenVK dylib is universal
+(x86_64 + arm64). A newer macOS host can verify compilation but cannot prove
+the macOS 14 runtime path by itself.
 
 ## Required tools
 
 | Tool | Requirement | Used for |
 |---|---|---|
-| Xcode + Command Line Tools | Xcode 27 beta 4 / CLT beta 5 in the validation workspace | Metal, metallib, Xcode universal MoltenVK build |
+| Xcode + Command Line Tools | Xcode 16+; Xcode 16 is the macOS 14 reference | Metal 3, metallib, universal MoltenVK build |
 | llvm-mingw | `20260616-ucrt-macos-universal`, clang 22.1.8 | x86_64 Windows DLLs and PE probes |
 | Meson + Ninja | current Homebrew versions | vkd3d-proton configuration/build |
 | CMake | current Homebrew version | MoltenVK dependencies/build tooling |
@@ -21,10 +22,9 @@ MoltenVK dylib is universal (x86_64 + arm64).
 | Wine | compatible macOS Wine installation | Wine-side D3D12 probes |
 | `gh` | authenticated with repository/release permissions | optional GitHub release publishing |
 
-`make tools` runs the workspace validator. The validator expects the local
-source clones and the exact validation paths configured in `scripts/env.sh`.
-For a different machine, copy `scripts/env.sh` to a local override or edit
-its paths; do not commit machine-specific paths.
+`make tools` runs the workspace validator. Set `XCODE_DEVELOPER_DIR` to the
+selected Xcode and `WINE_BIN` to the Wine executable when they are not the
+defaults. Do not commit machine-specific paths.
 
 ## Source trees
 

@@ -2,8 +2,10 @@
 
 ## Runtime environment
 
-The probes run under a compatible Wine installation with the candidate files
-staged beside the probe executable:
+The probes run under a compatible Wine installation on the target macOS
+host, with the candidate files staged beside the probe executable. For the
+compatibility claim, the host must be macOS 14 / Metal 3; running on a newer
+host is only a newer-host smoke test.
 
 ```bash
 source scripts/env.sh

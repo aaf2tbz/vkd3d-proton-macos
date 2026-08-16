@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build the custom MoltenVK universal dylib (x86_64 + arm64) using Xcode 27b4.
+# Build the custom MoltenVK universal dylib (x86_64 + arm64).
 # Verified working 2026-08-14 (evidence full-selfbuild-run1: the built dylib runs
 # the full D3D12 probe stack). Stages to $OUT.build.new; promotion requires probe evidence.
 set -e
@@ -24,8 +24,14 @@ export MVK_FORK_SCRIPT_DIR="$WS/scripts"
 "$WS/scripts/patch-spirv-cross.sh" "$SRC/MoltenVKShaderConverter/SPIRV-Cross/spirv_msl.cpp"
 "$WS/scripts/patch-spirv-cross.sh" "$SRC/MoltenVKShaderConverter/SPIRV-Cross/spirv_cross.cpp" 2>/dev/null || true
 
-# 2) dylib package
-make macos
+# 2) dylib package. Pass the deployment target as an xcodebuild setting;
+# relying on the environment alone makes Xcode use the SDK's current version.
+DEVELOPER_DIR="$DEVELOPER_DIR" xcodebuild build \
+    -project MoltenVKPackaging.xcodeproj \
+    -scheme "MoltenVK Package (macOS only)" \
+    -destination "generic/platform=macOS" \
+    -configuration Release \
+    MACOSX_DEPLOYMENT_TARGET="$MACOSX_DEPLOYMENT_TARGET"
 
 NEW="$OUT.build.new"
 rm -rf "$NEW"

@@ -14,9 +14,10 @@ beginner's introduction to those tools.
 
 ## Prerequisites
 
-- Apple Silicon Mac with a Metal 4-capable GPU for the validated lane.
+- Apple Silicon Mac with a Metal 3-capable GPU for the compatibility lane.
 - macOS with Xcode and Command Line Tools installed.
-- Xcode 27 beta 4 and CLT beta 5 for reproducing the M14 validation build.
+- Xcode 16+ with the Metal toolchain. Xcode 16 is the reference macOS 14
+  compatibility toolchain; newer Xcode versions may target macOS 14 too.
 - `llvm-mingw-20260616-ucrt-macos-universal` with clang 22.1.8.
 - Meson 1.x, Ninja, CMake, Python 3, Git, `zstd`, and `pkg-config`.
 - DirectX Shader Compiler (`dxc`) for SM 6.x HLSL/DXIL probe shaders.
@@ -30,9 +31,9 @@ make docs-check
 make tools
 ```
 
-`make tools` is intentionally strict about the exact validation host and
-source-clone paths. On another machine, adjust `scripts/env.sh` locally; do
-not commit machine-specific paths.
+`make tools` checks the selected Xcode and source-clone paths. On another
+machine, set `XCODE_DEVELOPER_DIR` and `WINE_BIN` locally; do not commit
+machine-specific paths.
 
 ## Source setup
 
@@ -56,7 +57,8 @@ source scripts/env.sh
 ```
 
 The environment script configures the llvm-mingw path, Xcode developer
-directory, generic Wine launcher, and workspace output locations. Set
+directory, generic Wine launcher, macOS deployment target, and workspace
+output locations. Set
 `WINE_BIN` to a specific Wine executable when it is not on `PATH`; set
 `WINE_UNIX_LIB` when that Wine build needs an explicit Unix-library path. The
 runtime target is x86_64 PE under Wine/Rosetta; MoltenVK is built universal
@@ -105,6 +107,27 @@ Build both runtime components with:
 ```bash
 make build
 ```
+
+To build the compatibility profile with the downloaded Xcode 16 and a macOS
+14 deployment target:
+
+```bash
+make metal3
+```
+
+To select the downloaded Xcode 16 explicitly:
+
+```bash
+XCODE16_DEVELOPER_DIR=/Users/averyfelts/Downloads/Xcode.app/Contents/Developer make metal3
+```
+
+Accept that Xcode installation's license first if `xcodebuild` reports
+license error 69.
+
+This verifies compilation against the current Xcode SDK while targeting
+macOS 14. The runtime must still be exercised on a macOS 14 host to prove
+Metal 3 behavior; a newer host will report and execute its own newer Metal
+family.
 
 ## Build and stage probes
 
