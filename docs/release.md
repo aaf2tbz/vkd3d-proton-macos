@@ -1,7 +1,7 @@
 # Runtime release archive
 
 The public runtime is distributed through the GitHub release asset
-[`vkd3d-proton-macos.tar.zst`](https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/m14).
+[`vkd3d-proton-macos.tar.zst`](https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/v1.0).
 
 ## Archive contents
 
@@ -47,7 +47,7 @@ After the validation gate passes:
 
 ```bash
 make package PACKAGE=./vkd3d-proton-macos.tar.zst
-gh release upload m14 ./vkd3d-proton-macos.tar.zst --clobber
+gh release upload v1.0 ./vkd3d-proton-macos.tar.zst --clobber
 ```
 
 Do not commit generated release archives or the large local source/build

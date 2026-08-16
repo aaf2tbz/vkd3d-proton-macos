@@ -244,7 +244,7 @@ Everything in Section 5 marked "MoltenVK", plus:
 | **M11** | Rung-4D sweep | ✅ M14 — SM 6.5, depth bounds, copy-queue timestamps, casting, and sampler feedback are reported/covered by the ladder and probes. |
 | **M12** | 12_2 rung | ✅ M14 — ladder reaches 0xc200; companion 12_2 acceptance probes are green. |
 | **M13** | CORE_1_0 | ✅ GREEN 2026-08-15 — 1_0_CORE device creation (dev=CREATED), compute matrix (UAV readback 42.0), and SM 6.0 corpus/geometry-shader corpus. Evidence: 2026-08-15-m13-core-1-0.md |
-| **M14** | Public macOS runtime release | ✅ SHIPPED — public repository `aaf2tbz/vkd3d-proton-macos`, tag `m14`, runtime tarball, feature matrix, and full regression evidence. |
+| **M14** | Public macOS runtime release | ✅ SHIPPED — public repository `aaf2tbz/vkd3d-proton-macos`, tag `v1.0`, runtime tarball, feature matrix, and full regression evidence. |
 
 **Ordering note:** M3–M12 are strictly sequential rungs (the ladder depends downward). Within 12_2, 4A/4B/4C/4D may be parallelized across lanes but each promotes only with its own gate green.
 
