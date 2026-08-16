@@ -1,0 +1,1082 @@
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+mscompatdb: not found
+00a4:err:ntoskrnl:ZwLoadDriver failed to create driver L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\winebth": c00000e5
+003c:fixme:service:scmdatabase_autostart_services Auto-start service L"winebth" failed to start: 1359
+=== DXGI-5 synchronization/pacing/recovery probe ===
+frames=64, accepted frames-in-flight=2..4, deterministic RGB triangle
+mscompatdb: not found
+[mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
+	The following 164 Vulkan extensions are supported:
+	VK_KHR_16bit_storage v1
+	VK_KHR_8bit_storage v1
+	VK_KHR_bind_memory2 v1
+	VK_KHR_buffer_device_address v1
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_copy_commands2 v1
+	VK_KHR_create_renderpass2 v1
+	VK_KHR_dedicated_allocation v3
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_depth_stencil_resolve v1
+	VK_KHR_descriptor_update_template v1
+	VK_KHR_device_group v4
+	VK_KHR_device_group_creation v1
+	VK_KHR_draw_indirect_count v1
+	VK_KHR_driver_properties v1
+	VK_KHR_dynamic_rendering v1
+	VK_KHR_dynamic_rendering_local_read v1
+	VK_KHR_external_fence v1
+	VK_KHR_external_fence_capabilities v1
+	VK_KHR_external_memory v1
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_format_feature_flags2 v2
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_get_memory_requirements2 v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_global_priority v1
+	VK_KHR_image_format_list v1
+	VK_KHR_imageless_framebuffer v1
+	VK_KHR_incremental_present v2
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_line_rasterization v1
+	VK_KHR_load_store_op_none v1
+	VK_KHR_maintenance1 v2
+	VK_KHR_maintenance2 v1
+	VK_KHR_maintenance3 v1
+	VK_KHR_maintenance4 v2
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_map_memory2 v1
+	VK_KHR_multiview v1
+	VK_KHR_portability_subset v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_relaxed_block_layout v1
+	VK_KHR_robustness2 v1
+	VK_KHR_sampler_mirror_clamp_to_edge v3
+	VK_KHR_sampler_ycbcr_conversion v14
+	VK_KHR_separate_depth_stencil_layouts v1
+	VK_KHR_shader_draw_parameters v1
+	VK_KHR_shader_expect_assume v1
+	VK_KHR_shader_float_controls v4
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_float16_int8 v1
+	VK_KHR_shader_fma v1
+	VK_KHR_shader_integer_dot_product v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_shader_non_semantic_info v1
+	VK_KHR_shader_quad_control v1
+	VK_KHR_shader_relaxed_extended_instruction v1
+	VK_KHR_shader_subgroup_extended_types v1
+	VK_KHR_shader_subgroup_rotate v2
+	VK_KHR_shader_subgroup_uniform_control_flow v1
+	VK_KHR_shader_terminate_invocation v1
+	VK_KHR_spirv_1_4 v1
+	VK_KHR_storage_buffer_storage_class v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_KHR_surface_protected_capabilities v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_KHR_swapchain_mutable_format v1
+	VK_KHR_synchronization2 v1
+	VK_KHR_timeline_semaphore v2
+	VK_KHR_uniform_buffer_standard_layout v1
+	VK_KHR_variable_pointers v1
+	VK_KHR_vertex_attribute_divisor v1
+	VK_KHR_vulkan_memory_model v3
+	VK_KHR_zero_initialize_workgroup_memory v1
+	VK_EXT_4444_formats v1
+	VK_EXT_buffer_device_address v2
+	VK_EXT_calibrated_timestamps v2
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_debug_marker v4
+	VK_EXT_debug_report v10
+	VK_EXT_debug_utils v2
+	VK_EXT_depth_clip_control v1
+	VK_EXT_descriptor_indexing v2
+	VK_EXT_extended_dynamic_state v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_external_memory_metal v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_global_priority v2
+	VK_EXT_global_priority_query v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_headless_surface v1
+	VK_EXT_host_image_copy v1
+	VK_EXT_host_query_reset v1
+	VK_EXT_image_2d_view_of_3d v1
+	VK_EXT_image_robustness v1
+	VK_EXT_index_type_uint8 v1
+	VK_EXT_inline_uniform_block v1
+	VK_EXT_layer_settings v2
+	VK_EXT_legacy_dithering v2
+	VK_EXT_line_rasterization v1
+	VK_EXT_load_store_op_none v1
+	VK_EXT_memory_budget v1
+	VK_EXT_metal_objects v2
+	VK_EXT_metal_surface v1
+	VK_EXT_multi_draw v1
+	VK_EXT_nested_command_buffer v1
+	VK_EXT_non_seamless_cube_map v1
+	VK_EXT_pipeline_creation_cache_control v3
+	VK_EXT_pipeline_creation_feedback v1
+	VK_EXT_pipeline_robustness v1
+	VK_EXT_post_depth_coverage v1
+	VK_EXT_primitive_topology_list_restart v1
+	VK_EXT_private_data v1
+	VK_EXT_provoking_vertex v1
+	VK_EXT_robustness2 v1
+	VK_EXT_sample_locations v1
+	VK_EXT_sampler_filter_minmax v2
+	VK_EXT_scalar_block_layout v1
+	VK_EXT_separate_stencil_usage v1
+	VK_EXT_shader_atomic_float v1
+	VK_EXT_shader_demote_to_helper_invocation v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_shader_subgroup_ballot v1
+	VK_EXT_shader_subgroup_vote v1
+	VK_EXT_shader_viewport_index_layer v1
+	VK_EXT_subgroup_size_control v2
+	VK_EXT_surface_maintenance1 v1
+	VK_EXT_swapchain_colorspace v5
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_texel_buffer_alignment v1
+	VK_EXT_texture_compression_astc_hdr v1
+	VK_EXT_tooling_info v1
+	VK_EXT_vertex_attribute_divisor v3
+	VK_EXT_ycbcr_2plane_444_formats v1
+	VK_AMD_gpu_shader_half_float v2
+	VK_AMD_negative_viewport_height v1
+	VK_AMD_shader_image_load_store_lod v1
+	VK_AMD_shader_trinary_minmax v1
+	VK_GOOGLE_display_timing v1
+	VK_IMG_format_pvrtc v1
+	VK_INTEL_shader_integer_functions2 v1
+	VK_MVK_macos_surface v3
+	VK_MVK_moltenvk v37
+	VK_NV_fragment_shader_barycentric v1
+[mvk-info] GPU device:
+	model: Apple M4
+	type: Integrated
+	vendorID: 0x106b
+	deviceID: 0x1b000209
+	pipelineCacheUUID: 13E3C967-1B00-0209-0000-000100000000
+	GPU memory available: 12124 MB
+	GPU memory used: 0 MB
+	Metal Shading Language 4.0
+	supports the following GPU Features:
+		GPU Family Metal 4
+		GPU Family Apple 9
+		GPU Family Mac 1
+		GPU Family Mac 2
+		Read-Write Texture Tier 2
+[mvk-info] Created VkInstance for Vulkan version 1.0.357, as requested by app, with the following 3 Vulkan extensions enabled:
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_get_physical_device_properties2 v2
+mscompatdb: not found
+info:  Game: dxgi_sync_probe.exe
+info:  DXVK: v1.10.3-20230507-async (macOS)
+info:  Built-in extension providers:
+info:    Win32 WSI
+info:    OpenVR
+info:    OpenXR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:  Enabled instance extensions:
+info:    VK_KHR_get_surface_capabilities2
+info:    VK_KHR_surface
+info:    VK_KHR_win32_surface
+[mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
+	The following 164 Vulkan extensions are supported:
+	VK_KHR_16bit_storage v1
+	VK_KHR_8bit_storage v1
+	VK_KHR_bind_memory2 v1
+	VK_KHR_buffer_device_address v1
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_copy_commands2 v1
+	VK_KHR_create_renderpass2 v1
+	VK_KHR_dedicated_allocation v3
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_depth_stencil_resolve v1
+	VK_KHR_descriptor_update_template v1
+	VK_KHR_device_group v4
+	VK_KHR_device_group_creation v1
+	VK_KHR_draw_indirect_count v1
+	VK_KHR_driver_properties v1
+	VK_KHR_dynamic_rendering v1
+	VK_KHR_dynamic_rendering_local_read v1
+	VK_KHR_external_fence v1
+	VK_KHR_external_fence_capabilities v1
+	VK_KHR_external_memory v1
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_format_feature_flags2 v2
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_get_memory_requirements2 v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_global_priority v1
+	VK_KHR_image_format_list v1
+	VK_KHR_imageless_framebuffer v1
+	VK_KHR_incremental_present v2
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_line_rasterization v1
+	VK_KHR_load_store_op_none v1
+	VK_KHR_maintenance1 v2
+	VK_KHR_maintenance2 v1
+	VK_KHR_maintenance3 v1
+	VK_KHR_maintenance4 v2
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_map_memory2 v1
+	VK_KHR_multiview v1
+	VK_KHR_portability_subset v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_relaxed_block_layout v1
+	VK_KHR_robustness2 v1
+	VK_KHR_sampler_mirror_clamp_to_edge v3
+	VK_KHR_sampler_ycbcr_conversion v14
+	VK_KHR_separate_depth_stencil_layouts v1
+	VK_KHR_shader_draw_parameters v1
+	VK_KHR_shader_expect_assume v1
+	VK_KHR_shader_float_controls v4
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_float16_int8 v1
+	VK_KHR_shader_fma v1
+	VK_KHR_shader_integer_dot_product v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_shader_non_semantic_info v1
+	VK_KHR_shader_quad_control v1
+	VK_KHR_shader_relaxed_extended_instruction v1
+	VK_KHR_shader_subgroup_extended_types v1
+	VK_KHR_shader_subgroup_rotate v2
+	VK_KHR_shader_subgroup_uniform_control_flow v1
+	VK_KHR_shader_terminate_invocation v1
+	VK_KHR_spirv_1_4 v1
+	VK_KHR_storage_buffer_storage_class v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_KHR_surface_protected_capabilities v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_KHR_swapchain_mutable_format v1
+	VK_KHR_synchronization2 v1
+	VK_KHR_timeline_semaphore v2
+	VK_KHR_uniform_buffer_standard_layout v1
+	VK_KHR_variable_pointers v1
+	VK_KHR_vertex_attribute_divisor v1
+	VK_KHR_vulkan_memory_model v3
+	VK_KHR_zero_initialize_workgroup_memory v1
+	VK_EXT_4444_formats v1
+	VK_EXT_buffer_device_address v2
+	VK_EXT_calibrated_timestamps v2
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_debug_marker v4
+	VK_EXT_debug_report v10
+	VK_EXT_debug_utils v2
+	VK_EXT_depth_clip_control v1
+	VK_EXT_descriptor_indexing v2
+	VK_EXT_extended_dynamic_state v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_external_memory_metal v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_global_priority v2
+	VK_EXT_global_priority_query v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_headless_surface v1
+	VK_EXT_host_image_copy v1
+	VK_EXT_host_query_reset v1
+	VK_EXT_image_2d_view_of_3d v1
+	VK_EXT_image_robustness v1
+	VK_EXT_index_type_uint8 v1
+	VK_EXT_inline_uniform_block v1
+	VK_EXT_layer_settings v2
+	VK_EXT_legacy_dithering v2
+	VK_EXT_line_rasterization v1
+	VK_EXT_load_store_op_none v1
+	VK_EXT_memory_budget v1
+	VK_EXT_metal_objects v2
+	VK_EXT_metal_surface v1
+	VK_EXT_multi_draw v1
+	VK_EXT_nested_command_buffer v1
+	VK_EXT_non_seamless_cube_map v1
+	VK_EXT_pipeline_creation_cache_control v3
+	VK_EXT_pipeline_creation_feedback v1
+	VK_EXT_pipeline_robustness v1
+	VK_EXT_post_depth_coverage v1
+	VK_EXT_primitive_topology_list_restart v1
+	VK_EXT_private_data v1
+	VK_EXT_provoking_vertex v1
+	VK_EXT_robustness2 v1
+	VK_EXT_sample_locations v1
+	VK_EXT_sampler_filter_minmax v2
+	VK_EXT_scalar_block_layout v1
+	VK_EXT_separate_stencil_usage v1
+	VK_EXT_shader_atomic_float v1
+	VK_EXT_shader_demote_to_helper_invocation v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_shader_subgroup_ballot v1
+	VK_EXT_shader_subgroup_vote v1
+	VK_EXT_shader_viewport_index_layer v1
+	VK_EXT_subgroup_size_control v2
+	VK_EXT_surface_maintenance1 v1
+	VK_EXT_swapchain_colorspace v5
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_texel_buffer_alignment v1
+	VK_EXT_texture_compression_astc_hdr v1
+	VK_EXT_tooling_info v1
+	VK_EXT_vertex_attribute_divisor v3
+	VK_EXT_ycbcr_2plane_444_formats v1
+	VK_AMD_gpu_shader_half_float v2
+	VK_AMD_negative_viewport_height v1
+	VK_AMD_shader_image_load_store_lod v1
+	VK_AMD_shader_trinary_minmax v1
+	VK_GOOGLE_display_timing v1
+	VK_IMG_format_pvrtc v1
+	VK_INTEL_shader_integer_functions2 v1
+	VK_MVK_macos_surface v3
+	VK_MVK_moltenvk v37
+	VK_NV_fragment_shader_barycentric v1
+[mvk-info] GPU device:
+	model: Apple M4
+	type: Integrated
+	vendorID: 0x106b
+	deviceID: 0x1b000209
+	pipelineCacheUUID: 13E3C967-1B00-0209-0000-000100000000
+	GPU memory available: 12124 MB
+	GPU memory used: 0 MB
+	Metal Shading Language 4.0
+	supports the following GPU Features:
+		GPU Family Metal 4
+		GPU Family Apple 9
+		GPU Family Mac 1
+		GPU Family Mac 2
+		Read-Write Texture Tier 2
+[mvk-info] Created VkInstance for Vulkan version 1.1.357, as requested by app, with the following 5 Vulkan extensions enabled:
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_surface v25
+	VK_EXT_metal_surface v1
+info:  Apple M4:
+info:    Driver: 0.2.2211
+info:    Vulkan: 1.1.357
+info:    Memory Heap[0]:
+info:      Size: 16384 MiB
+info:      Flags: 0x1
+info:      Memory Type[0]: Property Flags = 0x1
+info:      Memory Type[1]: Property Flags = 0xf
+info:      Memory Type[2]: Property Flags = 0x11
+warn:  DXGI: MakeWindowAssociation: Ignoring flags
+selected adapter: vendor=0x106b device=0x1b000209 luid=00000000-000003f9
+warn:  DxgiAdapter::QueryInterface: Unknown interface query
+warn:  f0db4c7f-fe5a-42a2-bd62-f2a6cf6fc83e
+31620.795:0020:0024:info:vkd3d-proton:vkd3d_instance_apply_application_workarounds: Program name: "dxgi_sync_probe.exe" (hash: 5fc5a02aa0ec57e8)
+31620.795:0020:0024:info:vkd3d-proton:vkd3d_instance_deduce_config_flags_from_environment: shader_cache is used, global_pipeline_cache is enforced.
+31620.795:0020:0024:info:vkd3d-proton:vkd3d_config_flags_init_once: VKD3D_CONFIG=''.
+31620.796:0020:0024:info:vkd3d-proton:vkd3d_get_vk_version: vkd3d-proton - applicationVersion: 3.1.0.
+31620.796:0020:0024:info:vkd3d-proton:vkd3d_instance_init: vkd3d-proton - build: 5d24bc718560d60+.
+[mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
+	The following 164 Vulkan extensions are supported:
+	VK_KHR_16bit_storage v1
+	VK_KHR_8bit_storage v1
+	VK_KHR_bind_memory2 v1
+	VK_KHR_buffer_device_address v1
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_copy_commands2 v1
+	VK_KHR_create_renderpass2 v1
+	VK_KHR_dedicated_allocation v3
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_depth_stencil_resolve v1
+	VK_KHR_descriptor_update_template v1
+	VK_KHR_device_group v4
+	VK_KHR_device_group_creation v1
+	VK_KHR_draw_indirect_count v1
+	VK_KHR_driver_properties v1
+	VK_KHR_dynamic_rendering v1
+	VK_KHR_dynamic_rendering_local_read v1
+	VK_KHR_external_fence v1
+	VK_KHR_external_fence_capabilities v1
+	VK_KHR_external_memory v1
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_format_feature_flags2 v2
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_get_memory_requirements2 v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_global_priority v1
+	VK_KHR_image_format_list v1
+	VK_KHR_imageless_framebuffer v1
+	VK_KHR_incremental_present v2
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_line_rasterization v1
+	VK_KHR_load_store_op_none v1
+	VK_KHR_maintenance1 v2
+	VK_KHR_maintenance2 v1
+	VK_KHR_maintenance3 v1
+	VK_KHR_maintenance4 v2
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_map_memory2 v1
+	VK_KHR_multiview v1
+	VK_KHR_portability_subset v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_relaxed_block_layout v1
+	VK_KHR_robustness2 v1
+	VK_KHR_sampler_mirror_clamp_to_edge v3
+	VK_KHR_sampler_ycbcr_conversion v14
+	VK_KHR_separate_depth_stencil_layouts v1
+	VK_KHR_shader_draw_parameters v1
+	VK_KHR_shader_expect_assume v1
+	VK_KHR_shader_float_controls v4
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_float16_int8 v1
+	VK_KHR_shader_fma v1
+	VK_KHR_shader_integer_dot_product v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_shader_non_semantic_info v1
+	VK_KHR_shader_quad_control v1
+	VK_KHR_shader_relaxed_extended_instruction v1
+	VK_KHR_shader_subgroup_extended_types v1
+	VK_KHR_shader_subgroup_rotate v2
+	VK_KHR_shader_subgroup_uniform_control_flow v1
+	VK_KHR_shader_terminate_invocation v1
+	VK_KHR_spirv_1_4 v1
+	VK_KHR_storage_buffer_storage_class v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_KHR_surface_protected_capabilities v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_KHR_swapchain_mutable_format v1
+	VK_KHR_synchronization2 v1
+	VK_KHR_timeline_semaphore v2
+	VK_KHR_uniform_buffer_standard_layout v1
+	VK_KHR_variable_pointers v1
+	VK_KHR_vertex_attribute_divisor v1
+	VK_KHR_vulkan_memory_model v3
+	VK_KHR_zero_initialize_workgroup_memory v1
+	VK_EXT_4444_formats v1
+	VK_EXT_buffer_device_address v2
+	VK_EXT_calibrated_timestamps v2
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_debug_marker v4
+	VK_EXT_debug_report v10
+	VK_EXT_debug_utils v2
+	VK_EXT_depth_clip_control v1
+	VK_EXT_descriptor_indexing v2
+	VK_EXT_extended_dynamic_state v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_external_memory_metal v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_global_priority v2
+	VK_EXT_global_priority_query v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_headless_surface v1
+	VK_EXT_host_image_copy v1
+	VK_EXT_host_query_reset v1
+	VK_EXT_image_2d_view_of_3d v1
+	VK_EXT_image_robustness v1
+	VK_EXT_index_type_uint8 v1
+	VK_EXT_inline_uniform_block v1
+	VK_EXT_layer_settings v2
+	VK_EXT_legacy_dithering v2
+	VK_EXT_line_rasterization v1
+	VK_EXT_load_store_op_none v1
+	VK_EXT_memory_budget v1
+	VK_EXT_metal_objects v2
+	VK_EXT_metal_surface v1
+	VK_EXT_multi_draw v1
+	VK_EXT_nested_command_buffer v1
+	VK_EXT_non_seamless_cube_map v1
+	VK_EXT_pipeline_creation_cache_control v3
+	VK_EXT_pipeline_creation_feedback v1
+	VK_EXT_pipeline_robustness v1
+	VK_EXT_post_depth_coverage v1
+	VK_EXT_primitive_topology_list_restart v1
+	VK_EXT_private_data v1
+	VK_EXT_provoking_vertex v1
+	VK_EXT_robustness2 v1
+	VK_EXT_sample_locations v1
+	VK_EXT_sampler_filter_minmax v2
+	VK_EXT_scalar_block_layout v1
+	VK_EXT_separate_stencil_usage v1
+	VK_EXT_shader_atomic_float v1
+	VK_EXT_shader_demote_to_helper_invocation v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_shader_subgroup_ballot v1
+	VK_EXT_shader_subgroup_vote v1
+	VK_EXT_shader_viewport_index_layer v1
+	VK_EXT_subgroup_size_control v2
+	VK_EXT_surface_maintenance1 v1
+	VK_EXT_swapchain_colorspace v5
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_texel_buffer_alignment v1
+	VK_EXT_texture_compression_astc_hdr v1
+	VK_EXT_tooling_info v1
+	VK_EXT_vertex_attribute_divisor v3
+	VK_EXT_ycbcr_2plane_444_formats v1
+	VK_AMD_gpu_shader_half_float v2
+	VK_AMD_negative_viewport_height v1
+	VK_AMD_shader_image_load_store_lod v1
+	VK_AMD_shader_trinary_minmax v1
+	VK_GOOGLE_display_timing v1
+	VK_IMG_format_pvrtc v1
+	VK_INTEL_shader_integer_functions2 v1
+	VK_MVK_macos_surface v3
+	VK_MVK_moltenvk v37
+	VK_NV_fragment_shader_barycentric v1
+[mvk-info] GPU device:
+	model: Apple M4
+	type: Integrated
+	vendorID: 0x106b
+	deviceID: 0x1b000209
+	pipelineCacheUUID: 13E3C967-1B00-0209-0000-000100000000
+	GPU memory available: 12124 MB
+	GPU memory used: 0 MB
+	Metal Shading Language 4.0
+	supports the following GPU Features:
+		GPU Family Metal 4
+		GPU Family Apple 9
+		GPU Family Mac 1
+		GPU Family Mac 2
+		Read-Write Texture Tier 2
+[mvk-info] Created VkInstance for Vulkan version 1.3.357, as requested by app, with the following 7 Vulkan extensions enabled:
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_EXT_metal_surface v1
+	VK_EXT_surface_maintenance1 v1
+0024:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
+0024:fixme:vulkan:get_performance_counter_time_domain No mapping for VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT on this platform.
+31620.816:0020:0024:info:vkd3d-proton:vkd3d_physical_device_info_init_maint9: Implementation does not support eliding QFOT for non-compressed optimal images.
+31620.816:0020:0024:err:vkd3d-proton:vkd3d_init_device_caps: Lacking support for single texel alignment.
+31620.816:0020:0024:info:vkd3d-proton:vkd3d_init_device_caps: Not all relevant pipeline stages are supported by EXT_dgc. Skipping.
+[mvk-info] Vulkan semaphores using Metal implicit guarantees within a single queue.
+[mvk-info] Descriptor sets binding resources using Metal3 argument buffers.
+[mvk-info] Created VkDevice to run on GPU Apple M4 with the following 35 Vulkan extensions enabled:
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_line_rasterization v1
+	VK_EXT_memory_budget v1
+	VK_EXT_robustness2 v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_vertex_attribute_divisor v3
+31620.826:0020:0024:info:vkd3d-proton:vkd3d_memory_info_decide_hvv_usage: Topology: UMA-like topology.
+31620.826:0020:0024:info:vkd3d-proton:vkd3d_memory_info_upload_hvv_memory_properties: Topology: HVV usage is allowed, using DEVICE_LOCAL | HOST_COHERENT for UPLOAD.
+31620.827:0020:0024:info:vkd3d-proton:vkd3d_bindless_state_get_bindless_flags: Device does not support VK_EXT_mutable_descriptor_type (or VALVE).
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10eb80 stageCount0=2
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Blending is enabled for attachment with format VK_FORMAT_R8_UINT, which does not support it.
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10eb80 stageCount0=2
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Blending is enabled for attachment with format VK_FORMAT_R8_UINT, which does not support it.
+31620.849:0020:0024:fixme:vkd3d-proton:d3d12_device_caps_init_feature_options1: TotalLaneCount = 1024, may be inaccurate.
+31620.849:0020:0024:info:vkd3d-proton:d3d12_device_determine_ray_tracing_tier: DXR 1.1 support enabled (inline ray query only, no TraceRay).
+31620.849:0020:0024:info:vkd3d-proton:d3d12_device_caps_init_feature_level: DX Ultimate supported!
+31620.849:0020:0024:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Remapping VKD3D_SHADER_CACHE to: vkd3d-proton.cache.
+31620.849:0020:0024:info:vkd3d-proton:vkd3d_pipeline_library_init_disk_cache: Attempting to load disk cache from: vkd3d-proton.cache.
+[mvk-info] MoltenVK version 1.4.3, supporting Vulkan version 1.4.357.
+	The following 164 Vulkan extensions are supported:
+	VK_KHR_16bit_storage v1
+	VK_KHR_8bit_storage v1
+	VK_KHR_bind_memory2 v1
+	VK_KHR_buffer_device_address v1
+	VK_KHR_calibrated_timestamps v1
+	VK_KHR_copy_commands2 v1
+	VK_KHR_create_renderpass2 v1
+	VK_KHR_dedicated_allocation v3
+	VK_KHR_acceleration_structure v13
+	VK_EXT_mesh_shader v1
+	VK_KHR_deferred_host_operations v4
+	VK_KHR_ray_query v1
+	VK_KHR_ray_tracing_pipeline v1
+	VK_KHR_depth_stencil_resolve v1
+	VK_KHR_descriptor_update_template v1
+	VK_KHR_device_group v4
+	VK_KHR_device_group_creation v1
+	VK_KHR_draw_indirect_count v1
+	VK_KHR_driver_properties v1
+	VK_KHR_dynamic_rendering v1
+	VK_KHR_dynamic_rendering_local_read v1
+	VK_KHR_external_fence v1
+	VK_KHR_external_fence_capabilities v1
+	VK_KHR_external_memory v1
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_format_feature_flags2 v2
+	VK_KHR_fragment_shader_barycentric v1
+	VK_KHR_get_memory_requirements2 v1
+	VK_KHR_get_physical_device_properties2 v2
+	VK_KHR_get_surface_capabilities2 v1
+	VK_KHR_global_priority v1
+	VK_KHR_image_format_list v1
+	VK_KHR_imageless_framebuffer v1
+	VK_KHR_incremental_present v2
+	VK_KHR_index_type_uint8 v1
+	VK_KHR_line_rasterization v1
+	VK_KHR_load_store_op_none v1
+	VK_KHR_maintenance1 v2
+	VK_KHR_maintenance2 v1
+	VK_KHR_maintenance3 v1
+	VK_KHR_maintenance4 v2
+	VK_KHR_maintenance5 v1
+	VK_KHR_maintenance6 v1
+	VK_KHR_maintenance7 v1
+	VK_KHR_maintenance8 v1
+	VK_KHR_maintenance9 v1
+	VK_KHR_map_memory2 v1
+	VK_KHR_multiview v1
+	VK_KHR_portability_subset v1
+	VK_KHR_present_id v1
+	VK_KHR_present_id2 v1
+	VK_KHR_present_wait v1
+	VK_KHR_present_wait2 v1
+	VK_KHR_push_descriptor v2
+	VK_KHR_relaxed_block_layout v1
+	VK_KHR_robustness2 v1
+	VK_KHR_sampler_mirror_clamp_to_edge v3
+	VK_KHR_sampler_ycbcr_conversion v14
+	VK_KHR_separate_depth_stencil_layouts v1
+	VK_KHR_shader_draw_parameters v1
+	VK_KHR_shader_expect_assume v1
+	VK_KHR_shader_float_controls v4
+	VK_KHR_shader_float_controls2 v1
+	VK_KHR_shader_float16_int8 v1
+	VK_KHR_shader_fma v1
+	VK_KHR_shader_integer_dot_product v1
+	VK_KHR_shader_maximal_reconvergence v1
+	VK_KHR_shader_non_semantic_info v1
+	VK_KHR_shader_quad_control v1
+	VK_KHR_shader_relaxed_extended_instruction v1
+	VK_KHR_shader_subgroup_extended_types v1
+	VK_KHR_shader_subgroup_rotate v2
+	VK_KHR_shader_subgroup_uniform_control_flow v1
+	VK_KHR_shader_terminate_invocation v1
+	VK_KHR_spirv_1_4 v1
+	VK_KHR_storage_buffer_storage_class v1
+	VK_KHR_surface v25
+	VK_KHR_surface_maintenance1 v1
+	VK_KHR_surface_protected_capabilities v1
+	VK_KHR_swapchain v70
+	VK_KHR_swapchain_maintenance1 v1
+	VK_KHR_swapchain_mutable_format v1
+	VK_KHR_synchronization2 v1
+	VK_KHR_timeline_semaphore v2
+	VK_KHR_uniform_buffer_standard_layout v1
+	VK_KHR_variable_pointers v1
+	VK_KHR_vertex_attribute_divisor v1
+	VK_KHR_vulkan_memory_model v3
+	VK_KHR_zero_initialize_workgroup_memory v1
+	VK_EXT_4444_formats v1
+	VK_EXT_buffer_device_address v2
+	VK_EXT_calibrated_timestamps v2
+	VK_EXT_conservative_rasterization v1
+	VK_EXT_debug_marker v4
+	VK_EXT_debug_report v10
+	VK_EXT_debug_utils v2
+	VK_EXT_depth_clip_control v1
+	VK_EXT_descriptor_indexing v2
+	VK_EXT_extended_dynamic_state v1
+	VK_EXT_extended_dynamic_state2 v1
+	VK_EXT_extended_dynamic_state3 v2
+	VK_EXT_external_memory_host v1
+	VK_EXT_external_memory_metal v1
+	VK_EXT_fragment_shader_interlock v1
+	VK_EXT_global_priority v2
+	VK_EXT_global_priority_query v1
+	VK_EXT_hdr_metadata v3
+	VK_EXT_headless_surface v1
+	VK_EXT_host_image_copy v1
+	VK_EXT_host_query_reset v1
+	VK_EXT_image_2d_view_of_3d v1
+	VK_EXT_image_robustness v1
+	VK_EXT_index_type_uint8 v1
+	VK_EXT_inline_uniform_block v1
+	VK_EXT_layer_settings v2
+	VK_EXT_legacy_dithering v2
+	VK_EXT_line_rasterization v1
+	VK_EXT_load_store_op_none v1
+	VK_EXT_memory_budget v1
+	VK_EXT_metal_objects v2
+	VK_EXT_metal_surface v1
+	VK_EXT_multi_draw v1
+	VK_EXT_nested_command_buffer v1
+	VK_EXT_non_seamless_cube_map v1
+	VK_EXT_pipeline_creation_cache_control v3
+	VK_EXT_pipeline_creation_feedback v1
+	VK_EXT_pipeline_robustness v1
+	VK_EXT_post_depth_coverage v1
+	VK_EXT_primitive_topology_list_restart v1
+	VK_EXT_private_data v1
+	VK_EXT_provoking_vertex v1
+	VK_EXT_robustness2 v1
+	VK_EXT_sample_locations v1
+	VK_EXT_sampler_filter_minmax v2
+	VK_EXT_scalar_block_layout v1
+	VK_EXT_separate_stencil_usage v1
+	VK_EXT_shader_atomic_float v1
+	VK_EXT_shader_demote_to_helper_invocation v1
+	VK_EXT_shader_image_atomic_int64 v1
+	VK_EXT_shader_stencil_export v1
+	VK_EXT_shader_subgroup_ballot v1
+	VK_EXT_shader_subgroup_vote v1
+	VK_EXT_shader_viewport_index_layer v1
+	VK_EXT_subgroup_size_control v2
+	VK_EXT_surface_maintenance1 v1
+	VK_EXT_swapchain_colorspace v5
+	VK_EXT_swapchain_maintenance1 v1
+	VK_EXT_texel_buffer_alignment v1
+	VK_EXT_texture_compression_astc_hdr v1
+	VK_EXT_tooling_info v1
+	VK_EXT_vertex_attribute_divisor v3
+	VK_EXT_ycbcr_2plane_444_formats v1
+	VK_AMD_gpu_shader_half_float v2
+	VK_AMD_negative_viewport_height v1
+	VK_AMD_shader_image_load_store_lod v1
+	VK_AMD_shader_trinary_minmax v1
+	VK_GOOGLE_display_timing v1
+	VK_IMG_format_pvrtc v1
+	VK_INTEL_shader_integer_functions2 v1
+	VK_MVK_macos_surface v3
+	VK_MVK_moltenvk v37
+	VK_NV_fragment_shader_barycentric v1
+[mvk-info] GPU device:
+	model: Apple M4
+	type: Integrated
+	vendorID: 0x106b
+	deviceID: 0x1b000209
+	pipelineCacheUUID: 13E3C967-1B00-0209-0000-000100000000
+	GPU memory available: 12124 MB
+	GPU memory used: 0 MB
+	Metal Shading Language 4.0
+	supports the following GPU Features:
+		GPU Family Metal 4
+		GPU Family Apple 9
+		GPU Family Mac 1
+		GPU Family Mac 2
+		Read-Write Texture Tier 2
+[mvk-info] Created VkInstance for Vulkan version 1.0.357, as requested by app, with the following 3 Vulkan extensions enabled:
+	VK_KHR_external_memory_capabilities v1
+	VK_KHR_external_semaphore_capabilities v1
+	VK_KHR_get_physical_device_properties2 v2
+31620.850:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Performing async setup of stream archive ...
+31620.850:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_merge: No write cache exists. No need to merge any disk caches.
+D3D12 adapter LUID: 00000000-000003f9 (MATCH)
+31620.850:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Merging pipeline libraries took 0.401 ms.
+copy queue: PASS
+31620.852:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Mapping read-only cache took 0.500 ms.
+31620.852:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_cache_initial_setup: Parsing stream archive took 0.205 ms.
+31620.852:0020:0118:info:vkd3d-proton:vkd3d_pipeline_library_disk_thread_main: Done performing async setup of stream archive.
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10e650 stageCount0=2
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+tearing support: hr=0x00000000 supported=1
+31620.856:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init: Creating swapchain (640 x 480), BufferCount = 2.
+31620.860:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Enabling frame latency handles.
+31620.860:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sync_objects: Ensure maximum latency of 3 frames with KHR_present_wait.
+31620.860:0020:0024:info:vkd3d-proton:dxgi_vk_swap_chain_init_sleep_state: Timer interval is 1.0 ms.
+frame latency object: SetMaximumFrameLatency(2) hr=0x00000000 SUPPORTED
+window/device/queue/swapchain: PASS
+frames-in-flight accepted mode=2
+memory sample baseline     frame=0 working_set=112562176 peak=112562176
+  queue Signal: hr=0x00000000 PASS
+  fence wait signal/event      : value=1 result=0 elapsed_ms=0.245 PASS
+  cross-queue Signal/Wait: hr=0x00000000 PASS
+  fence wait copy queue        : value=1 completed=1 immediate PASS
+  invalid fence event: hr=0x00000000 REPORTED
+    invalid event accepted by backend; no wait was issued
+GetDeviceRemovedReason(after invalid operation): hr=0x00000000 S_OK
+  bounded unsignaled fence timeout: result=258 TIMEOUT PASS
+GetDeviceRemovedReason(after timeout path): hr=0x00000000 S_OK
+  out-of-order fence signal: UNSUPPORTED (unsafe operation not issued)
+  fence semantics: PASS
+  release before GPU completion: UNSUPPORTED (unsafe negative not issued)
+  DXGI_PRESENT_TEST: hr=0x00000000 PASS
+GetDeviceRemovedReason(after occlusion): hr=0x00000000 S_OK
+  IDXGIDevice3::Trim: hr=0x80004002 UNSUPPORTED
+=== pacing smoke sync interval 0 ===
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x10e3d0 stageCount0=2
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+  resource/pipeline churn frame=0: PASS
+memory sample stress       frame=0 working_set=116105216 peak=116105216
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x6000037081e0) on screen Main Screen.
+31620.903:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+[MVKMSH] vkCreateGraphicsPipelines: count=1 pCreateInfos=0x38dee10 stageCount0=2
+  fence wait frame             : value=2 result=0 elapsed_ms=4.683 PASS
+  readback frame=0 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=2 result=0 PASS
+[mvk-info] Created 3 swapchain images with size (632, 446) and contents scale 1.0 in layer CAMetalLayer: WineMetalView (0x6000037081e0) on screen Main Screen.
+31620.906:0020:0120:info:vkd3d-proton:dxgi_vk_swap_chain_recreate_swapchain_in_present_task: Got 3 swapchain images.
+  fence wait frame             : value=4 result=0 elapsed_ms=1.708 PASS
+  fence wait frame             : value=3 completed=4 immediate PASS
+  readback frame=1 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=3 result=0 PASS
+  fence wait frame             : value=5 result=0 elapsed_ms=0.516 PASS
+  frame-latency wait frame=4 result=0 PASS
+  fence wait frame             : value=6 result=0 elapsed_ms=0.364 PASS
+  readback frame=4 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=5 result=0 PASS
+  fence wait frame             : value=7 result=0 elapsed_ms=0.314 PASS
+  frame-latency wait frame=6 result=0 PASS
+  fence wait frame             : value=8 result=0 elapsed_ms=0.361 PASS
+  frame-latency wait frame=7 result=0 PASS
+  fence wait frame             : value=9 result=0 elapsed_ms=0.350 PASS
+  readback frame=7 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame run interval=0 frames=8: PASS
+=== pacing smoke sync interval 1 ===
+  frame-latency wait frame=8 result=0 PASS
+  frame-latency wait frame=9 result=0 PASS
+  fence wait frame             : value=10 result=0 elapsed_ms=0.406 PASS
+  readback frame=8 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=10 result=0 PASS
+  fence wait frame             : value=12 result=0 elapsed_ms=0.415 PASS
+  fence wait frame             : value=11 completed=12 immediate PASS
+  readback frame=9 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=11 result=0 PASS
+  fence wait frame             : value=13 result=0 elapsed_ms=0.448 PASS
+  frame-latency wait frame=12 result=0 PASS
+  fence wait frame             : value=14 result=0 elapsed_ms=0.377 PASS
+  readback frame=12 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=13 result=0 PASS
+  fence wait frame             : value=15 result=0 elapsed_ms=0.378 PASS
+  frame-latency wait frame=14 result=0 PASS
+  fence wait frame             : value=16 result=0 elapsed_ms=0.638 PASS
+  frame-latency wait frame=15 result=0 PASS
+  fence wait frame             : value=17 result=0 elapsed_ms=0.371 PASS
+  readback frame=15 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame run interval=1 frames=8: PASS
+=== long synchronization stress ===
+  frame-latency wait frame=16 result=0 PASS
+  frame-latency wait frame=17 result=0 PASS
+  fence wait frame             : value=18 result=0 elapsed_ms=0.521 PASS
+  readback frame=16 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=18 result=0 PASS
+  fence wait frame             : value=20 result=0 elapsed_ms=17.215 PASS
+  fence wait frame             : value=19 completed=20 immediate PASS
+  readback frame=17 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=19 result=0 PASS
+  fence wait frame             : value=21 result=0 elapsed_ms=0.421 PASS
+  frame-latency wait frame=20 result=0 PASS
+  fence wait frame             : value=22 result=0 elapsed_ms=14.943 PASS
+  frame-latency wait frame=21 result=0 PASS
+  fence wait frame             : value=23 result=0 elapsed_ms=0.437 PASS
+  frame-latency wait frame=22 result=0 PASS
+  fence wait frame             : value=24 result=0 elapsed_ms=16.291 PASS
+  frame-latency wait frame=23 result=0 PASS
+  fence wait frame             : value=25 result=0 elapsed_ms=0.415 PASS
+  frame-latency wait frame=24 result=0 PASS
+  fence wait frame             : value=26 result=0 elapsed_ms=16.329 PASS
+  frame-latency wait frame=25 result=0 PASS
+  fence wait frame             : value=27 result=0 elapsed_ms=0.558 PASS
+  frame-latency wait frame=26 result=0 PASS
+  fence wait frame             : value=28 result=0 elapsed_ms=15.573 PASS
+  frame-latency wait frame=27 result=0 PASS
+  fence wait frame             : value=29 result=0 elapsed_ms=0.625 PASS
+  frame-latency wait frame=28 result=0 PASS
+  fence wait frame             : value=30 result=0 elapsed_ms=15.806 PASS
+  frame-latency wait frame=29 result=0 PASS
+  fence wait frame             : value=31 result=0 elapsed_ms=0.465 PASS
+  frame-latency wait frame=30 result=0 PASS
+  fence wait frame             : value=32 result=0 elapsed_ms=15.728 PASS
+  frame-latency wait frame=31 result=0 PASS
+  fence wait frame             : value=33 result=0 elapsed_ms=0.496 PASS
+  frame-latency wait frame=32 result=0 PASS
+  fence wait frame             : value=34 result=0 elapsed_ms=15.507 PASS
+  frame-latency wait frame=33 result=0 PASS
+  fence wait frame             : value=35 result=0 elapsed_ms=0.527 PASS
+  frame-latency wait frame=34 result=0 PASS
+  fence wait frame             : value=36 result=0 elapsed_ms=15.956 PASS
+  frame-latency wait frame=35 result=0 PASS
+  fence wait frame             : value=37 result=0 elapsed_ms=0.575 PASS
+  frame-latency wait frame=36 result=0 PASS
+  fence wait frame             : value=38 result=0 elapsed_ms=15.599 PASS
+  frame-latency wait frame=37 result=0 PASS
+  fence wait frame             : value=39 result=0 elapsed_ms=2.696 PASS
+  frame-latency wait frame=38 result=0 PASS
+  fence wait frame             : value=40 result=0 elapsed_ms=13.083 PASS
+  frame-latency wait frame=39 result=0 PASS
+  fence wait frame             : value=41 result=0 elapsed_ms=0.674 PASS
+  frame-latency wait frame=40 result=0 PASS
+  fence wait frame             : value=42 result=0 elapsed_ms=14.114 PASS
+  frame-latency wait frame=41 result=0 PASS
+  fence wait frame             : value=43 result=0 elapsed_ms=0.565 PASS
+  frame-latency wait frame=42 result=0 PASS
+  fence wait frame             : value=44 result=0 elapsed_ms=15.333 PASS
+  frame-latency wait frame=43 result=0 PASS
+  fence wait frame             : value=45 result=0 elapsed_ms=0.631 PASS
+  frame-latency wait frame=44 result=0 PASS
+  fence wait frame             : value=46 result=0 elapsed_ms=15.275 PASS
+  frame-latency wait frame=45 result=0 PASS
+  fence wait frame             : value=47 result=0 elapsed_ms=2.136 PASS
+  frame-latency wait frame=46 result=0 PASS
+  fence wait frame             : value=48 result=0 elapsed_ms=13.278 PASS
+  frame-latency wait frame=47 result=0 PASS
+  fence wait frame             : value=49 result=0 elapsed_ms=0.641 PASS
+  frame-latency wait frame=48 result=0 PASS
+  fence wait frame             : value=50 result=0 elapsed_ms=15.240 PASS
+  readback frame=48 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame-latency wait frame=49 result=0 PASS
+  fence wait frame             : value=51 result=0 elapsed_ms=1.503 PASS
+  frame-latency wait frame=50 result=0 PASS
+  fence wait frame             : value=52 result=0 elapsed_ms=14.293 PASS
+  frame-latency wait frame=51 result=0 PASS
+  fence wait frame             : value=53 result=0 elapsed_ms=0.592 PASS
+  frame-latency wait frame=52 result=0 PASS
+  fence wait frame             : value=54 result=0 elapsed_ms=16.006 PASS
+  frame-latency wait frame=53 result=0 PASS
+  fence wait frame             : value=55 result=0 elapsed_ms=2.340 PASS
+  frame-latency wait frame=54 result=0 PASS
+  fence wait frame             : value=56 result=0 elapsed_ms=12.409 PASS
+  frame-latency wait frame=55 result=0 PASS
+  fence wait frame             : value=57 result=0 elapsed_ms=0.942 PASS
+  frame-latency wait frame=56 result=0 PASS
+  fence wait frame             : value=58 result=0 elapsed_ms=14.921 PASS
+  frame-latency wait frame=57 result=0 PASS
+  fence wait frame             : value=59 result=0 elapsed_ms=2.356 PASS
+  frame-latency wait frame=58 result=0 PASS
+  fence wait frame             : value=60 result=0 elapsed_ms=12.457 PASS
+  frame-latency wait frame=59 result=0 PASS
+  fence wait frame             : value=61 result=0 elapsed_ms=1.821 PASS
+  frame-latency wait frame=60 result=0 PASS
+  fence wait frame             : value=62 result=0 elapsed_ms=1.423 PASS
+  frame-latency wait frame=61 result=0 PASS
+  fence wait frame             : value=63 result=0 elapsed_ms=1.032 PASS
+  frame-latency wait frame=62 result=0 PASS
+  fence wait frame             : value=64 result=0 elapsed_ms=9.027 PASS
+  frame-latency wait frame=63 result=0 PASS
+  fence wait frame             : value=65 result=0 elapsed_ms=0.857 PASS
+  frame-latency wait frame=64 result=0 PASS
+  fence wait frame             : value=66 result=0 elapsed_ms=14.406 PASS
+  frame-latency wait frame=65 result=0 PASS
+  fence wait frame             : value=67 result=0 elapsed_ms=0.874 PASS
+  frame-latency wait frame=66 result=0 PASS
+  fence wait frame             : value=68 result=0 elapsed_ms=14.404 PASS
+  frame-latency wait frame=67 result=0 PASS
+  fence wait frame             : value=69 result=0 elapsed_ms=1.077 PASS
+  frame-latency wait frame=68 result=0 PASS
+  fence wait frame             : value=70 result=0 elapsed_ms=2.064 PASS
+  frame-latency wait frame=69 result=0 PASS
+  fence wait frame             : value=71 result=0 elapsed_ms=1.140 PASS
+  frame-latency wait frame=70 result=0 PASS
+  fence wait frame             : value=72 result=0 elapsed_ms=9.072 PASS
+  frame-latency wait frame=71 result=0 PASS
+  fence wait frame             : value=73 result=0 elapsed_ms=0.971 PASS
+  frame-latency wait frame=72 result=0 PASS
+  fence wait frame             : value=74 result=0 elapsed_ms=14.367 PASS
+  frame-latency wait frame=73 result=0 PASS
+  fence wait frame             : value=75 result=0 elapsed_ms=0.860 PASS
+  frame-latency wait frame=74 result=0 PASS
+  fence wait frame             : value=76 result=0 elapsed_ms=14.265 PASS
+  frame-latency wait frame=75 result=0 PASS
+  fence wait frame             : value=77 result=0 elapsed_ms=0.855 PASS
+  frame-latency wait frame=76 result=0 PASS
+  fence wait frame             : value=78 result=0 elapsed_ms=1.160 PASS
+  frame-latency wait frame=77 result=0 PASS
+  fence wait frame             : value=79 result=0 elapsed_ms=1.200 PASS
+  frame-latency wait frame=78 result=0 PASS
+  fence wait frame             : value=80 result=0 elapsed_ms=1.213 PASS
+  frame-latency wait frame=79 result=0 PASS
+  fence wait frame             : value=81 result=0 elapsed_ms=1.005 PASS
+  readback frame=79 red=2a16bfff green=2ac015ff blue=d41615ff clear=330505ff: PASS
+  frame run interval=0 frames=64: PASS
+memory sample final        frame=80 working_set=119242752 peak=119242752
+GetDeviceRemovedReason(normal): hr=0x00000000 PASS
+memory bounded: baseline/peak/final samples recorded peak=119242752: PASS
+  shutdown: GPU idle
+  shutdown: RTVs/resources
+  shutdown: swapchain
+  shutdown: queue/fence
+  shutdown: device
+  GetDeviceRemovedReason(shutdown): hr=0x00000000 S_OK
+[mvk-info] Destroyed VkDevice on GPU Apple M4 with 35 Vulkan extensions enabled.
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 2 MB of GPU memory still allocated.
+[mvk-info] Destroying VkInstance for Vulkan version 1.3.357 with 7 Vulkan extensions enabled.
+  shutdown: adapter
+  shutdown: factory
+[mvk-info] Destroyed VkPhysicalDevice for GPU Apple M4 with 2 MB of GPU memory still allocated.
+[mvk-info] Destroying VkInstance for Vulkan version 1.1.357 with 5 Vulkan extensions enabled.
+  shutdown: window
+DXGI-5 result: PASS (0 failures)

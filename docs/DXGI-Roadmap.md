@@ -1,6 +1,7 @@
 # DXGI Stability Roadmap
 
-**Status:** DXGI-4 complete; DXGI-5 synchronization/recovery work is next.
+**Status:** DXGI-5 synchronization/recovery complete; DXGI-6 packaging and
+real-game acceptance remain next.
 
 The current release proves device creation, off-screen D3D12 rendering, shader
 translation, and deterministic readback. It does **not** yet prove a stable
@@ -98,6 +99,30 @@ rerun. Complete hashes, revisions, module paths, and logs are in
 [`artifacts/evidence/dxgi-4-formats.md`](../artifacts/evidence/dxgi-4-formats.md).
 This closes format and policy coverage only; it does not claim HDR support or
 broad gameplay stability.
+
+### DXGI-5 completion record
+
+Phase 5 passed on 2026-08-16 with `make dxgi-sync-test`. The pinned lane used a
+real Win32 window, the Phase-1 adapter, the DXGI-4 swapchain, D3D12 fences,
+per-frame allocators/readbacks, frame-latency waitable objects, queue signal and
+wait operations, sync intervals 0 and 1, `DXGI_PRESENT_TEST`, and deterministic
+RGB-triangle readback. Short runs passed frames-in-flight modes 2, 3, and 4;
+the long run passed 100,000 frames with periodic resource/pipeline churn,
+shader loading, fence waits, memory samples, and ordered shutdown.
+
+The configured backend reports `IDXGIDevice3::Trim` unavailable. It also does
+not safely expose forced out-of-order-fence or resource-release-before-GPU-
+completion negatives; those operations were not submitted because the backend
+asserts rather than returning a usable HRESULT, and are recorded as
+unsupported. Normal deferred lifetime, bounded waits, queue dependencies,
+occlusion/test Present, device-removed-reason queries, and pixel readback pass.
+
+Two repeatable short runs, all three frames-in-flight modes, the long stress
+run, and the DXGI-1/2/3/4 plus six-probe suites are recorded in
+[`artifacts/evidence/dxgi-5-synchronization.md`](../artifacts/evidence/dxgi-5-synchronization.md)
+and its adjacent logs. This closes synthetic synchronization and pacing
+validation only; it does not claim device-loss recovery or broad gameplay
+stability.
 
 ## Rules for every phase
 
@@ -205,25 +230,30 @@ documented results instead of silently producing corrupted frames.
 
 ## Phase 5 — Synchronization, pacing, and recovery
 
-**Goal:** make long-running gameplay stable rather than merely able to show a
-few frames.
+**Goal:** validate long-running synthetic synchronization and pacing without
+claiming gameplay stability or device-loss recovery.
 
 ### Work
 
 - Exercise fences, event completion, queue waits, frame-latency objects, and
   CPU/GPU pacing across multiple frames in flight.
-- Verify `Flush`, wait behavior, occlusion handling, and clean queue shutdown.
+- Verify queue signal/wait behavior, bounded event waits, occlusion handling,
+  and clean queue shutdown. D3D12 has no generic `Flush` call; an explicit
+  queue signal followed by fence completion is the flush equivalent here.
 - Exercise `GetDeviceRemovedReason` and classify expected Wine/DXVK/MoltenVK
   errors without turning transient conditions into hangs.
-- Add repeated present stress with shader compilation and resource churn.
+- Add repeated present stress with shader loading/pipeline creation and
+  resource churn.
 - Capture Metal/Vulkan validation output and Wine loader logs for failures.
 
 ### Exit gate
 
-The stress probe runs for at least 30 minutes or 100,000 frames, including
-resource churn and resize events, without deadlock, runaway memory growth,
-device loss, or presentation corruption. Recovery paths are deterministic and
-logged.
+The stress probe runs for at least 100,000 frames, including resource/pipeline
+churn and pacing changes, without deadlock, runaway memory growth, device loss,
+or presentation corruption. Unsupported Trim, forced device-loss, and unsafe
+early-release/out-of-order negatives must be reported accurately; no backend
+assertion may be treated as recovery. The synthetic recovery classification is
+deterministic and logged, but does not promote a gameplay-stability claim.
 
 ## Phase 6 — Packaging and real-game acceptance
 

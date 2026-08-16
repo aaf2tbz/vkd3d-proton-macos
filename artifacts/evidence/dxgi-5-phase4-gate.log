@@ -1,0 +1,3 @@
+PASS: two deterministic DXGI-4 format/color runs
+PASS: DXGI-1, DXGI-2, DXGI-3, and six-probe gates
+PASS: evidence written to artifacts/evidence

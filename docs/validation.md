@@ -126,6 +126,37 @@ and GPU result. Evidence is stored in
 `artifacts/evidence/dxgi-4-formats.md` and adjacent `dxgi-4-*` logs. Phase 4
 does not claim broad gameplay stability or begin synchronization/recovery work.
 
+## DXGI-5 synchronization and pacing gate
+
+Run the synchronization and recovery-classification gate with:
+
+```bash
+make dxgi-sync-test
+```
+
+The validator requires the pinned DXVK source and matched staged modules, then
+runs independent short passes with two, three, and four frames in flight. It
+repeats the three-frame pass for determinism before running a 100,000-frame
+stress pass. Each pass uses a real Win32 window and checks adapter identity,
+fence signal/completion, bounded `SetEventOnCompletion` waits, cross-queue
+signal/wait, frame-latency waitable objects, sync intervals 0/1,
+`DXGI_PRESENT_TEST`, occlusion, deterministic RGB-triangle readback, and
+ordered GPU-idle shutdown.
+
+The stress pass performs periodic resource and graphics-pipeline churn and
+records process working-set samples. `GetDeviceRemovedReason` is checked after
+normal operation and shutdown. `IDXGIDevice3::Trim` and unsafe forced
+out-of-order/resource-early-release negatives are reported from the actual
+backend boundary; the latter are not submitted because this backend asserts
+instead of returning a safe HRESULT. Unsupported behavior is not promoted to
+success.
+
+Evidence is consolidated in
+`artifacts/evidence/dxgi-5-synchronization.md`, with short-run, long-stress,
+phase-gate, module, and backend logs in adjacent `dxgi-5-*` files. DXGI-5 is
+synthetic synchronization evidence only and does not claim device-loss
+recovery or broad gameplay stability.
+
 ## Probe gate
 
 The M14 gate is green only when all of these pass:

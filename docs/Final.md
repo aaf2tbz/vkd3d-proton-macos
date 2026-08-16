@@ -130,6 +130,28 @@ readback. DXGI-1/2/3 and the six-probe regression suite remain green.
 This is format and presentation-policy validation only; it does not claim
 broad gameplay stability or cover the later synchronization/recovery phase.
 
+## DXGI-5 synchronization and pacing validation
+
+The synthetic synchronization gate is green with `make dxgi-sync-test`.
+Evidence is consolidated in
+[`dxgi-5-synchronization.md`](../artifacts/evidence/dxgi-5-synchronization.md).
+It passed repeatable short runs with two, three, and four frames in flight and
+a 100,000-frame stress run using the real Win32 window, Phase-1 adapter, and
+DXGI-4 swapchain.
+
+The gate checks D3D12 fence signals and event completion, bounded CPU waits,
+cross-queue waits, frame-latency waitable objects, sync intervals 0/1,
+`DXGI_PRESENT_TEST`, occlusion, exact RGB-triangle readback, periodic resource
+and pipeline churn, working-set samples, device-removal queries, and ordered
+GPU-idle shutdown. The configured backend reports `IDXGIDevice3::Trim` as
+unavailable. Forced out-of-order fence and resource-release-before-completion
+negatives are explicitly reported unsupported because this backend asserts when
+those unsafe operations are submitted; they are not treated as passes.
+
+DXGI-1 through DXGI-4 and the six-probe regression suite remained green. This
+is synthetic synchronization/pacing evidence only; it does not claim
+device-loss recovery, real-game compatibility, or broad gameplay stability.
+
 ## Feature-level ladder
 
 The final `flprobe.exe` run on Apple M4 returned `S_OK` and `dev=CREATED` for

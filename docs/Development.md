@@ -208,6 +208,37 @@ the current run reports them unsupported. The validator runs two format passes,
 reruns DXGI-1/2/3 and the six-probe suite, and stores hashes and full logs in
 `artifacts/evidence/dxgi-4-*`. This phase makes no gameplay-stability claim.
 
+## Build and validate DXGI-5 synchronization and pacing
+
+The DXGI-5 probe uses the same pinned DXVK bridge and the Phase-4 swapchain.
+Build and run it with:
+
+```bash
+make dxgi-sync-probe
+make dxgi-sync-test
+```
+
+`dxgi-sync-test` runs short passes with two, three, and four frames in flight,
+then repeats the three-frame mode and runs the long gate with 100,000 frames.
+The probe creates per-frame command allocators and readback resources, checks
+fence signal/completion, bounded event waits, cross-queue waits, frame-latency
+waitable objects, sync intervals 0/1, `DXGI_PRESENT_TEST`, occlusion, and
+deterministic RGB-triangle readback. It also performs periodic pipeline and
+resource churn, records process-memory samples, queries device removal state,
+and checks GPU-idle through window shutdown ordering.
+
+`IDXGIDevice3::Trim` is reported as unsupported when the D3D12 device does not
+expose that interface. The backend currently asserts instead of returning a
+safe result for forced out-of-order fence signals and resource release before
+GPU completion, so those unsafe negatives are explicitly classified as
+unsupported and are not submitted. This is not a recovery claim. Full module
+hashes, runtime logs, fence timelines, memory samples, short-run repeatability,
+the 100,000-frame result, and the preserved DXGI-1/2/3/4 and six-probe gates
+are stored under `artifacts/evidence/dxgi-5-*`.
+
+This phase proves synthetic synchronization and pacing only. It does not claim
+device-loss recovery, real-game compatibility, or broad gameplay stability.
+
 ## Build MoltenVK
 
 Build the custom universal dylib candidate:

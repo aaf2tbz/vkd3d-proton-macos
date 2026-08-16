@@ -13,7 +13,7 @@ DXVK_COMMIT ?= 8f1e28deed3ad30802f7e1bdff428ec14e6e7817
 .PHONY: help tools docs-check env vkd3d moltenvk metal3 build flprobe stage ladder \
 	dxgi dxgi-probe dxgi-test dxgi-present-probe dxgi-present-test \
 	dxgi-lifecycle-probe dxgi-lifecycle-test dxgi-formats-probe \
-	dxgi-formats-test package test clean
+	dxgi-formats-test dxgi-sync-probe dxgi-sync-test package test clean
 
 help:
 	@printf '%s\n' \
@@ -29,6 +29,8 @@ help:
 	  'make dxgi-lifecycle-test  run DXGI-3 lifecycle validation and regressions' \
 	  'make dxgi-formats-probe   build the DXGI-4 format/color probe' \
 	  'make dxgi-formats-test    run DXGI-4 format/color/HDR validation' \
+	  'make dxgi-sync-probe      build the DXGI-5 synchronization probe' \
+	  'make dxgi-sync-test       run DXGI-5 pacing/recovery stress validation' \
 	  'make moltenvk    build the universal MoltenVK dylib (staged, not promoted)' \
 	  'make metal3      build MoltenVK with macOS 14 / Metal 3 compatibility target' \
 	  'make build       run both vkd3d and MoltenVK builds' \
@@ -49,7 +51,7 @@ docs-check:
 	@test -f CONTRIBUTING.md
 	@test -f SECURITY.md
 	@test -f CODE_OF_CONDUCT.md
-	@for f in docs/README.md docs/Final.md docs/requirements.md docs/Development.md docs/features.md docs/validation.md docs/release.md docs/DXGI-Roadmap.md; do \
+	@for f in docs/README.md docs/Final.md docs/requirements.md docs/Development.md docs/features.md docs/validation.md docs/release.md docs/DXGI-Roadmap.md docs/DXGI-5-goal.md; do \
 		test -f "$$f" || { echo "missing $$f"; exit 1; }; \
 	done
 	@grep -q 'github.com/aaf2tbz/vkd3d-proton-macos' README.md
@@ -108,6 +110,17 @@ dxgi-formats-probe: dxgi
 
 dxgi-formats-test: stage dxgi-probe dxgi-present-probe dxgi-lifecycle-probe dxgi-formats-probe
 	@bash scripts/validate-dxgi-phase4.sh
+
+dxgi-sync-probe: dxgi
+	@DXGI_PRESENT_SHADER_DIR="$(STAGE_DIR)/dxgi-present" \
+		bash scripts/build-dxgi-present-shaders.sh
+	@mkdir -p "$(STAGE_DIR)"
+	@"$(LLVM_MINGW)/bin/x86_64-w64-mingw32-clang" -O2 scripts/probes/dxgi-sync/dxgi_sync_probe.c \
+		-o "$(STAGE_DIR)/dxgi_sync_probe.exe" -ldxgi -ld3d12 -luser32 -lgdi32 -lpsapi
+	@file "$(STAGE_DIR)/dxgi_sync_probe.exe"
+
+dxgi-sync-test: stage dxgi-probe dxgi-present-probe dxgi-lifecycle-probe dxgi-formats-probe dxgi-sync-probe
+	@bash scripts/validate-dxgi-phase5.sh
 
 moltenvk:
 	@bash scripts/build-moltenvk.sh
