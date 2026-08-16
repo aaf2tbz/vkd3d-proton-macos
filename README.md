@@ -1,19 +1,25 @@
-# VKD3D-Proton macOS
+<div align="center">
 
-[![Release](https://img.shields.io/github/v/release/aaf2tbz/vkd3d-proton-macos?style=for-the-badge)](https://github.com/aaf2tbz/vkd3d-proton-macos/releases)
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-[![Build](https://img.shields.io/github/actions/workflow/status/aaf2tbz/vkd3d-proton-macos/build.yml?branch=main&style=for-the-badge&label=Build)](https://github.com/aaf2tbz/vkd3d-proton-macos/actions/workflows/build.yml)
+<h1>VKD3D-Proton macOS</h1>
 
-VKD3D-Proton macOS is a reproducible D3D12-on-Metal workspace for Apple
-Silicon. The runtime route is:
+<p>
+  Reproducible D3D12-on-Metal runtime for Apple Silicon.
+</p>
 
-```text
-D3D12 application → vkd3d-proton → Vulkan → custom MoltenVK → Metal
-```
+<p>
+  <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/releases"><img src="https://img.shields.io/github/v/release/aaf2tbz/vkd3d-proton-macos?style=for-the-badge" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License"></a>
+  <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/actions/workflows/build.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaf2tbz/vkd3d-proton-macos/build.yml?branch=main&style=for-the-badge&label=Build" alt="Build"></a>
+</p>
 
-The public M14 release contains the tested x86_64 Wine D3D12 runtime pair and
-the universal MoltenVK runtime. Download it from the
-[M14 release](https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/m14).
+<pre>D3D12 application → vkd3d-proton → Vulkan → custom MoltenVK → Metal</pre>
+
+<p>
+  The public <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/m14">M14 release</a>
+  contains the tested x86_64 Wine D3D12 runtime pair and universal MoltenVK runtime.
+</p>
+
+</div>
 
 ## M14 capabilities
 
