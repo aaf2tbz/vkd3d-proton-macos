@@ -27,3 +27,9 @@ engineering evidence that backs the M14 runtime.
 The dated files preserve provenance. When a dated note conflicts with the
 current guides, the current M14 guides and the evidence files under
 `artifacts/evidence/` are authoritative.
+
+## Project policies
+
+- [Contributing](../CONTRIBUTING.md)
+- [Security](../SECURITY.md)
+- [Code of Conduct](../CODE_OF_CONDUCT.md)

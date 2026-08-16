@@ -86,6 +86,12 @@ Start at [docs/README.md](docs/README.md), then see:
 - [Release and packaging](docs/release.md)
 - [Dated evidence](docs/01-feature-level-evidence.md)
 
+## Project policies
+
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+
 ## License
 
 Workspace code and documentation are MIT licensed. The vkd3d-proton,
