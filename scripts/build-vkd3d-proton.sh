@@ -28,7 +28,6 @@ EOF
 cd "$SRC"
 meson setup --cross-file "$WS/artifacts/vkd3d-cross-x86_64.txt" \
     --buildtype release --strip \
-    -Denable_d3d12core=true \
     "$OUT" . || { echo "meson setup failed (check meson_options.txt for current flags)"; exit 1; }
 ninja -C "$OUT"
 
