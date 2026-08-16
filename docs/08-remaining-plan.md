@@ -9,7 +9,15 @@ concrete path, a decision gate, and a fallback so nothing is left dangling.
 
 ---
 
-## Phase A — Fix the D3D12 graphics-draw path (the cross-cutting blocker)
+## Phase A — Fix the D3D12 graphics-draw path (the cross-cutting blocker) — DONE
+
+**RESOLVED 2026-08-15** (MVK 13e3c96): the CR position-fetch used the pipeline's
+static vertex stride (0, because the vkd3d makes the stride dynamic) — every
+vertex fetched the same position → degenerate triangle → zero fragments.
+Fix: use the encoder's bound-buffer stride for the fetch. The D3D12
+graphics-draw path now works; the InnerCoverage probe is green on the D3D12
+path (fragments=1691 fc=1691 inconsistent=0). Evidence:
+`artifacts/evidence/2026-08-15-d3d12-gfx-draw-fixed.md`.
 
 **Symptom (reproduced):** `red_off_probe` / `cr_inner_probe` — the graphics PSO
 creates, `ClearRenderTargetView` lands (the vkd3d clears via a compute shader,
@@ -74,7 +82,12 @@ exact repro, the traces, and the analysis. The roadmap's gate stays honest
 
 ---
 
-## Phase B — InnerCoverage verification (depends on A)
+## Phase B — InnerCoverage verification (depends on A) — DONE
+
+The D3D12-level probe runs the CR + InnerCoverage PS end-to-end and the
+emulated fc bit matches the corner test from the measured fragment positions
+with 0 inconsistencies over 1691 fragments (matching the native probe count).
+Slice 4 of the roadmap is closed.
 
 **Current state:** the emulation is implemented and committed (MVK `dfd3c70` +
 the SPIRV-Cross patch). The native-Vulkan probe proves the machinery is

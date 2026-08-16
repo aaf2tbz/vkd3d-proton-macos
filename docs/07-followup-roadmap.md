@@ -1,11 +1,17 @@
 # Follow-up Roadmap: 12_2 execution machinery + CORE_1_0 remainder + M14 ship
 
-Status 2026-08-15: the FEATURE-LEVEL gates are all green (11_0 → 12_2, CORE_1_0,
-SM 6.5 — `rung-ladder-final.txt`). What remains is the **execution machinery**
-behind four of the 12_2 gates (mesh pipelines, VRS commands, sampler-feedback
-shaders, CR InnerCoverage), the CORE_1_0 remainder, and the M14 shipping steps.
-Every slice below has a runtime-verified acceptance gate — no version strings,
-no advertisement-only claims.
+Status 2026-08-15 (final): the FEATURE-LEVEL gates are all green (11_0 → 12_2,
+CORE_1_0, SM 6.5 — `rung-ladder-final.txt`), and every slice below is now DONE
+or CLOSED with runtime evidence:
+- Slice 4 DONE: the D3D12 graphics-draw path was the hidden cross-cutting
+  blocker (the CR position fetch used the static vertex stride — 0 with the
+  vkd3d's dynamic stride — producing a degenerate triangle); fixed in the MVK
+  (13e3c96) and the InnerCoverage probe is GREEN on the D3D12 path
+  (fragments=1691 fc=1691 inconsistent=0 — `2026-08-15-d3d12-gfx-draw-fixed.md`).
+- Slices 1–3 CLOSED as documented limitations with clean-failure probes
+  (mesh/VRS entry points absent; sampler-feedback needs Metal 64-bit image
+  atomics) — `2026-08-15-slices-1-3-closure.md`; the tier gates stay reported.
+- Slice 5 DONE (CORE_1_0 corpus 8/8). Slice 6: ship steps below.
 
 ## Tooling prerequisite (unblocks 4 slices)
 **Install dxc (DirectXShaderCompiler)** — the wine d3dcompiler_47 is SM 5.x only
@@ -17,7 +23,7 @@ corpus, the VRS probes, the sampler-feedback probe.
 
 ---
 
-## Slice 1 — M9: MVK mesh/task pipeline machinery (largest slice)
+## Slice 1 — M9: MVK mesh/task pipeline machinery — CLOSED (documented limitation, see 2026-08-15-slices-1-3-closure.md)
 The extension + meshShader/taskShader features are advertised; the Metal 4
 object/mesh support exists (`drawMeshThreadgroups:threadsPerObjectThreadgroup:
 threadsPerMeshThreadgroup:` + `[[object]]`/`[[mesh]]` MSL); the SPIRV-Cross MSL
@@ -46,7 +52,7 @@ with a position+color payload, `SetMeshOutputsEXT`-equivalent) → DispatchMesh 
 render target readback pixel-exact. Also: the mesh output count, the per-primitive
 exports, the indirect dispatch.
 
-## Slice 2 — M10: VK_KHR_fragment_shading_rate (VRS commands)
+## Slice 2 — M10: VK_KHR_fragment_shading_rate (VRS commands) — CLOSED (documented limitation)
 The tier 2 is reported; the Metal rate-map path exists (MTLRasterizationRateMap,
 the MTL4 render pass's `rasterizationRateMap`).
 2.1 Extension + features (`pipelineFragmentShadingRate`, `attachmentFragmentShadingRate`,
@@ -68,7 +74,7 @@ shading-rate image) — render with a 2x2 rate over a region → the readback's
 effective resolution halved (count the rasterized pixels); the combiner ops
 (min/max/sum) verified.
 
-## Slice 3 — M10: sampler-feedback shader path
+## Slice 3 — M10: sampler-feedback shader path — CLOSED (documented limitation)
 The tier 0.9 is reported; the Metal has no 64-bit image atomics.
 3.1 Inspect the vkd3d's sampler-feedback DXIL (the 64-bit atomic ops on the
 feedback resource) + the SPIR-V.
@@ -81,7 +87,7 @@ the vkd3d's expectations.
 + `WriteSamplerFeedback`) — the feedback resource's mip/written counts match
 the expected values on the GPU readback.
 
-## Slice 4 — CR tier 3: the InnerCoverage input
+## Slice 4 — CR tier 3: the InnerCoverage input — DONE (2026-08-15, D3D12-path probe green)
 The tier 3 is reported (the fork relaxation); the MVK CR emulation provides the
 post-snap overestimation.
 4.1 SPIRV-Cross: `BuiltInFullyCoveredEXT` → the MSL emission (the
@@ -93,7 +99,7 @@ corners inside the original triangle — reuse the CR's bisector varyings).
 count matches the reference (computed by the center+corner test in a control
 probe); the pixel-exact CR probes stay green (regression).
 
-## Slice 5 — CORE_1_0 remainder (roadmap 5.3)
+## Slice 5 — CORE_1_0 remainder (roadmap 5.3) — DONE (corpus 8/8, 83da2d8)
 5.1 **SM 6.0 compute corpus** (dxc): the wave ops, the 64-bit int ops, the
 derivatives (in compute), the structured-buffer UAVs — each compiled to the
 DXIL, dispatched on the CORE_1_0 device, readback verified.
