@@ -7,7 +7,7 @@
 </p>
 
 <p>
-  <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/m14"><img src="https://img.shields.io/github/release/aaf2tbz/vkd3d-proton-macos/m14.svg?style=for-the-badge&label=Release" alt="Release"></a>
+  <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/releases/tag/m14"><img src="https://img.shields.io/github/v/release/aaf2tbz/vkd3d-proton-macos?filter=m14&style=for-the-badge" alt="Release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License"></a>
   <a href="https://github.com/aaf2tbz/vkd3d-proton-macos/actions/workflows/build.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaf2tbz/vkd3d-proton-macos/build.yml?branch=main&style=for-the-badge&label=Build" alt="Build"></a>
 </p>
